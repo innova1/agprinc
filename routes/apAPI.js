@@ -9,8 +9,12 @@ router.get('/*', function(req, res) {
     const principlesObj = db.getPrinciplesObj('manifesto');
     
     if(id) {
-        const principle = db.getPrincipleByID(type, id);
-        res.json({id: id, principle: principle });
+        if(isIDInRange(type, id)) {
+            const principle = db.getPrincipleByID(type, id);
+            res.json({id: id, principle: principle });
+        } else {
+            res.json({id: 0, principle: ""});
+        }
     } else {
         console.log('short desc is ' + principlesObj[1].shortdescription);
         res.json({ principlesObject: principlesObj });

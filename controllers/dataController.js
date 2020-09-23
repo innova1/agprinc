@@ -16,6 +16,14 @@ exports.getPrinciplesObj = function(type) {
 	return p;
 }
 
+exports.isIDInRange(type, id) {
+    if(type == 'manifesto' && (id < 1 || id > 12)) {
+        return false;
+    } else {
+        return true;
+    }
+}
+
 function getPrinciplesObject( type ) {
 	let pObj = new Object();
 	pObj['1'] = { type: 'manifesto', shortdescription: 'continuous delivery', principle: 'Our highest priority is to satisfy the customer through early and continuous delivery of valuable software.' };
