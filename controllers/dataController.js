@@ -28,9 +28,9 @@ exports.isIDInRange = function(type, id) {
 };
 
 function getPrinciplesObject( type ) {
-    console.log('in get principles function with type ' + type)
+    console.log('in get principles function with type ' + type);
+    let pObj = new Object();
     if( type == 'manifesto') {
-        let pObj = new Object();
         pObj['1'] = { type: 'manifesto', shortdescription: 'continuous delivery', principle: 'Our highest priority is to satisfy the customer through early and continuous delivery of valuable software.' };
         pObj['2'] = { type: 'manifesto', shortdescription: 'welcome change', principle: 'Welcome changing requirements, even late in development. Agile processes harness change for the customer\'s competitive advantage.' };
         pObj['3'] = { type: 'manifesto', shortdescription: 'deliver frequently', principle: 'Deliver working software frequently, from a couple of weeks to a couple of months, with a preference to the shorter timescale.' };
@@ -44,7 +44,6 @@ function getPrinciplesObject( type ) {
         pObj['11'] = { type: 'manifesto', shortdescription: 'design from the teams', principle: 'The best architectures, requirements, and designs emerge from self-organizing teams.' };
         pObj['12'] = { type: 'manifesto', shortdescription: 'continuous improvement', principle: 'At regular intervals, the team reflects on how to become more effective, then tunes and adjusts its behavior accordingly.' };
     } else if( type == 'safe' ) {
-        let pObj = new Object();
         pObj['1'] = { type: 'safe', shortdescription: 'economic view', principle: 'Take an economic view' };
         pObj['2'] = { type: 'safe', shortdescription: 'systems thinking', principle: 'Apply systems thinking' };
         pObj['3'] = { type: 'safe', shortdescription: 'variability', principle: 'Assume variability; preserve options' };
@@ -56,7 +55,7 @@ function getPrinciplesObject( type ) {
         pObj['9']  = { type: 'safe', shortdescription: 'decentralize', principle: 'Decentralize decision-making' };
         pObj['10'] = { type: 'safe', shortdescription: 'value', principle: 'Organize around value' };
     } else {
-        let pObj = new Object();
+        ;
     }
     return pObj;
 };
