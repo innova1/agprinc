@@ -11,7 +11,7 @@ router.get('/', function(req, res) {
 router.get('/types/:type/ids/:id', function(req, res) {
     console.log('in router get with type ' + req.params.type + " and with id " + req.params.id );
     const principlesObj = db.getPrinciplesObj('manifesto');
-    /*
+    
     if(id) {
         if(db.isIDInRange(type, id)) {
             const principle = db.getPrincipleByID(type, id);
@@ -20,7 +20,6 @@ router.get('/types/:type/ids/:id', function(req, res) {
             res.json({id: id, principle: "err:out of range"});
         }
     } 
-    */
 });
 
 module.exports = router;
