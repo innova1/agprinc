@@ -4,6 +4,8 @@ const db = require('../controllers/dataController');
 
 /* GET agile principles json */
 router.get('/', function(req, res) {
+    const type = 'manifesto';
+    const principlesObj = db.getPrinciplesObj(type);
     res.json({ principlesObject: principlesObj });
 });
 
