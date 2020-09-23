@@ -9,8 +9,10 @@ router.get('/', function(req, res) {
 
 /* GET agile principles json */
 router.get('/types/:type/ids/:id', function(req, res) {
+    const type = req.params.type;
+    const id = req.params.id;
     console.log('in router get with type ' + req.params.type + " and with id " + req.params.id );
-    const principlesObj = db.getPrinciplesObj('manifesto');
+    const principlesObj = db.getPrinciplesObj(type);
     
     if(id) {
         if(db.isIDInRange(type, id)) {
