@@ -12,6 +12,7 @@ exports.getPrincipleByID = function(type, id) {
 };
 
 exports.getPrinciplesObj = function(type) {
+    console.log('in get prin obj export');
 	const p = getPrinciplesObject();
 	return p;
 };
@@ -27,6 +28,7 @@ exports.isIDInRange = function(type, id) {
 };
 
 function getPrinciplesObject( type ) {
+    console.log('in get principles function with type ' + type)
     if( type == 'manifesto') {
         let pObj = new Object();
         pObj['1'] = { type: 'manifesto', shortdescription: 'continuous delivery', principle: 'Our highest priority is to satisfy the customer through early and continuous delivery of valuable software.' };
