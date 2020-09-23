@@ -18,7 +18,7 @@ exports.getPrinciplesObj = function(type) {
 	return p;
 };
 
-exports.getTypes() = function() {
+exports.getTypes = function() {
     const p = getPrinciplesObject(type);
 };
 
