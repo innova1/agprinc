@@ -10,6 +10,13 @@ router.get('/', function(req, res) {
 });
 
 /* GET agile principles json */
+router.get('/types/:type', function(req, res) {
+    const type = req.params.type;
+    const principlesObj = db.getPrinciplesObj(type);
+    res.json({ principlesObject: principlesObj });
+});
+
+/* GET agile principles json */
 router.get('/types/:type/ids/:id', function(req, res) {
     const type = req.params.type;
     const id = req.params.id;
