@@ -18,9 +18,9 @@ exports.getPrinciplesObj = function(type) {
 	return p;
 };
 
-exports.getTypes() {
+exports.getTypes() = function() {
     const p = getPrinciplesObject(type);
-}
+};
 
 exports.isIDInRange = function(type, id) {
     if(type == 'manifesto' && (id < 1 || id > 12) ) {
