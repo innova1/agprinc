@@ -23,10 +23,13 @@ exports.getTypes = function() {
     const iterator = p.keys();
     const types = new Array();
     let type = "";
+    console.log('got here 1')
     for (const key of iterator ) {
-        if(type=='') { 
+        console.log('got here 2')
+        if( type=='' ) { 
             types[key] = p[key].type;
         } else {
+            console.log('got here 3')
             type = p[key].type;
             if(type != types[key-1]) {
                types[key] = p[key].type;
