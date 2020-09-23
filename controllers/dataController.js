@@ -20,7 +20,10 @@ exports.getPrinciplesObj = function(type) {
 
 exports.getTypes = function() {
     const p = getPrinciplesObject(type);
-    
+    const iterator = p.keys();
+    for (const key of iterator ) {
+        console.log(key);
+    }
 };
 
 exports.isIDInRange = function(type, id) {
