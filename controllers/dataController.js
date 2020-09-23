@@ -54,6 +54,22 @@ function getPrinciplesObject( type ) {
         pObj['8']  = { type: 'safe', shortdescription: 'intrinsic motivation', principle: 'Unlock the intrinsic motivation of knowledge workers' };
         pObj['9']  = { type: 'safe', shortdescription: 'decentralize', principle: 'Decentralize decision-making' };
         pObj['10'] = { type: 'safe', shortdescription: 'value', principle: 'Organize around value' };
+    } else if( type == 'dad' ) {
+        pObj['1'] = { type: 'dad', shortdescription: 'economic view', principle: 'Take an economic view' };
+        pObj['2'] = { type: 'dad', shortdescription: 'systems thinking', principle: 'Apply systems thinking' };
+        pObj['3'] = { type: 'dad', shortdescription: 'variability', principle: 'Assume variability; preserve options' };
+        pObj['4']  = { type: 'dad', shortdescription: 'incremental learning', principle: 'Build incrementally with fast, integrated learning cycles' };
+        pObj['5']  = { type: 'dad', shortdescription: 'working systems', principle: 'Base milestones on objective evaluation of working systems' };
+        pObj['6']  = { type: 'dad', shortdescription: 'flow', principle: 'Visualize and limit WIP, reduce batch sizes, and manage queue lengths' };
+        pObj['7']  = { type: 'dad', shortdescription: 'cadence', principle: 'Apply cadence, synchronize with cross-domain planning' };
+        pObj['8']  = { type: 'dad', shortdescription: 'intrinsic motivation', principle: 'Unlock the intrinsic motivation of knowledge workers' };
+        pObj['9']  = { type: 'dad', shortdescription: 'decentralize', principle: 'Decentralize decision-making' };
+        pObj['10'] = { type: 'dad', shortdescription: 'value', principle: 'Organize around value' };
+    } else if( type == 'modern' ) {
+        pObj['1'] = { type: 'modern', shortdescription: 'awesome', principle: 'Make people awesome' };
+        pObj['2'] = { type: 'modern', shortdescription: 'deliver continuously', principle: 'Deliver value continuously' };
+        pObj['3'] = { type: 'modern', shortdescription: 'safety', principle: 'Make safety a prerequisite' };
+        pObj['4']  = { type: 'modern', shortdescription: 'experiment and learn', principle: 'Experiment and learn rapidly' };
     } else {
         ;
     }

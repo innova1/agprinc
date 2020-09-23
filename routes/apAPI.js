@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 const db = require('../controllers/dataController');
 
-/* GET agile principles json */
+/* GET all agile principles json */
 router.get('/', function(req, res) {
     console.log('in router get /' );
     const type = 'manifesto';
@@ -10,7 +10,7 @@ router.get('/', function(req, res) {
     res.json({ principlesObject: principlesObj });
 });
 
-/* GET agile principles json */
+/* GET one type of agile principles json */
 router.get('/types/:type', function(req, res) {
     console.log('in router get /types/:type' );
     const type = req.params.type;
@@ -18,7 +18,7 @@ router.get('/types/:type', function(req, res) {
     res.json({ principlesObject: principlesObj });
 });
 
-/* GET agile principles json */
+/* GET specific agile principle json */
 router.get('/types/:type/ids/:id', function(req, res) {
     const type = req.params.type;
     const id = req.params.id;
@@ -30,7 +30,7 @@ router.get('/types/:type/ids/:id', function(req, res) {
             const principle = db.getPrincipleByID(type, id);
             res.json({id: id, principle: principle });
         } else {
-            res.json({id: id, principle: "err:out of range"});
+            res.json({id: id, principle: "error: id out of range"});
         }
     } 
 });
