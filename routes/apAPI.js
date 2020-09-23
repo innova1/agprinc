@@ -6,6 +6,7 @@ const db = require('../controllers/dataController');
 router.get('/*', function(req, res) {
     const type = req.params[0];
     const id = req.params[1];
+    console.log('in router get with type ' + type + ' and id ' + id);
     const principlesObj = db.getPrinciplesObj(type);
     
     if(id) {
