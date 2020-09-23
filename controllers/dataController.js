@@ -20,6 +20,7 @@ exports.getPrinciplesObj = function(type) {
 
 exports.getTypes = function() {
     const p = getPrinciplesObject(type);
+    
 };
 
 exports.isIDInRange = function(type, id) {
@@ -87,9 +88,9 @@ function getPrinciplesObject( type ) {
 };
 
 function getDataObject() {
-    let pObj = new Object();
+    let pObj = new Array();
     let i = 1;
-    pObj[i]   = { id: '1' , type: 'manifesto', shortdescription: 'continuous delivery', principle: 'Our highest priority is to satisfy the customer through early and continuous delivery of valuable software.' };
+    pObj[i]    = { id: '1' , type: 'manifesto', shortdescription: 'continuous delivery', principle: 'Our highest priority is to satisfy the customer through early and continuous delivery of valuable software.' };
     pObj[++i]  = { id: '2' , type: 'manifesto', shortdescription: 'welcome change', principle: 'Welcome changing requirements, even late in development. Agile processes harness change for the customer\'s competitive advantage.' };
     pObj[++i]  = { id: '3' , type: 'manifesto', shortdescription: 'deliver frequently', principle: 'Deliver working software frequently, from a couple of weeks to a couple of months, with a preference to the shorter timescale.' };
     pObj[++i]  = { id: '4' , type: 'manifesto', shortdescription: 'daily with business', principle: 'Business people and developers must work together daily throughout the project.' };
@@ -98,9 +99,9 @@ function getDataObject() {
     pObj[++i]  = { id: '7' , type: 'manifesto', shortdescription: 'progress is working software', principle: 'Working software is the primary measure of progress.' };
     pObj[++i]  = { id: '8' , type: 'manifesto', shortdescription: 'sustainability', principle: 'Agile processes promote sustainable development.  The sponsors, developers, and users should be able to maintain a constant pace indefinitely.' };
     pObj[++i]  = { id: '9' , type: 'manifesto', shortdescription: 'technical excellence', principle: 'Continuous attention to technical excellence and good design enhances agility.' };
-    pObj[++i]  = { id: '10' , type: 'manifesto', shortdescription: 'simplicity', principle: 'Simplicity--the art of maximizing the amount of work not done--is essential.' };
-    pObj[++i]  = { id: '11' , type: 'manifesto', shortdescription: 'design from the teams', principle: 'The best architectures, requirements, and designs emerge from self-organizing teams.' };
-    pObj[++i]  = { id: '12' , type: 'manifesto', shortdescription: 'continuous improvement', principle: 'At regular intervals, the team reflects on how to become more effective, then tunes and adjusts its behavior accordingly.' };
+    pObj[++i]  = { id: '10', type: 'manifesto', shortdescription: 'simplicity', principle: 'Simplicity--the art of maximizing the amount of work not done--is essential.' };
+    pObj[++i]  = { id: '11', type: 'manifesto', shortdescription: 'design from the teams', principle: 'The best architectures, requirements, and designs emerge from self-organizing teams.' };
+    pObj[++i]  = { id: '12', type: 'manifesto', shortdescription: 'continuous improvement', principle: 'At regular intervals, the team reflects on how to become more effective, then tunes and adjusts its behavior accordingly.' };
     pObj[++i]  = { id: '1' , type: 'safe', shortdescription: 'economic view', principle: 'Take an economic view' };
     pObj[++i]  = { id: '2' , type: 'safe', shortdescription: 'systems thinking', principle: 'Apply systems thinking' };
     pObj[++i]  = { id: '3' , type: 'safe', shortdescription: 'variability', principle: 'Assume variability; preserve options' };
@@ -110,7 +111,7 @@ function getDataObject() {
     pObj[++i]  = { id: '7' , type: 'safe', shortdescription: 'cadence', principle: 'Apply cadence, synchronize with cross-domain planning' };
     pObj[++i]  = { id: '8' , type: 'safe', shortdescription: 'intrinsic motivation', principle: 'Unlock the intrinsic motivation of knowledge workers' };
     pObj[++i]  = { id: '9' , type: 'safe', shortdescription: 'decentralize', principle: 'Decentralize decision-making' };
-    pObj[++i]  = { id: '10' , type: 'safe', shortdescription: 'value', principle: 'Organize around value' };
+    pObj[++i]  = { id: '10', type: 'safe', shortdescription: 'value', principle: 'Organize around value' };
     pObj[++i]  = { id: '1' , type: 'dad', shortdescription: 'delight customers', principle: 'Delight Customers' };
     pObj[++i]  = { id: '2' , type: 'dad', shortdescription: 'be awesome', principle: 'Be awesome' };
     pObj[++i]  = { id: '3' , type: 'dad', shortdescription: 'pragmatism', principle: 'Pragmatism over purism' };
@@ -122,13 +123,13 @@ function getDataObject() {
     pObj[++i]  = { id: '2' , type: 'modern', shortdescription: 'deliver continuously', principle: 'Deliver value continuously' };
     pObj[++i]  = { id: '3' , type: 'modern', shortdescription: 'safety', principle: 'Make safety a prerequisite' };
     pObj[++i]  = { id: '4' , type: 'modern', shortdescription: 'experiment and learn', principle: 'Experiment and learn rapidly' };
-    pObj[++i]  = { id: '1' , type: 'dad', shortdescription: 'waste', principle: 'Eliminate waste' };
-    pObj[++i]  = { id: '2' , type: 'dad', shortdescription: 'quality', principle: 'Build quality in' };
-    pObj[++i]  = { id: '3' , type: 'dad', shortdescription: 'knowledge', principle: 'Create knowledge' };
-    pObj[++i]  = { id: '4' , type: 'dad', shortdescription: 'defer', principle: 'Defer commitment' };
-    pObj[++i]  = { id: '5' , type: 'dad', shortdescription: 'quickly', principle: 'Delivery quickly' };
-    pObj[++i]  = { id: '6' , type: 'dad', shortdescription: 'respect', principle: 'Respect people' };
-    pObj[++i]  = { id: '7' , type: 'dad', shortdescription: 'optimize', principle: 'Optimize the whole' };
+    pObj[++i]  = { id: '1' , type: 'lean', shortdescription: 'waste', principle: 'Eliminate waste' };
+    pObj[++i]  = { id: '2' , type: 'lean', shortdescription: 'quality', principle: 'Build quality in' };
+    pObj[++i]  = { id: '3' , type: 'lean', shortdescription: 'knowledge', principle: 'Create knowledge' };
+    pObj[++i]  = { id: '4' , type: 'lean', shortdescription: 'defer', principle: 'Defer commitment' };
+    pObj[++i]  = { id: '5' , type: 'lean', shortdescription: 'quickly', principle: 'Delivery quickly' };
+    pObj[++i]  = { id: '6' , type: 'lean', shortdescription: 'respect', principle: 'Respect people' };
+    pObj[++i]  = { id: '7' , type: 'lean', shortdescription: 'optimize', principle: 'Optimize the whole' };
     return pObj;
 };
 
