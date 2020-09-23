@@ -14,15 +14,15 @@ exports.getPrincipleByID = function(type, id) {
 exports.getPrinciplesObj = function(type) {
 	const p = getPrinciplesObject();
 	return p;
-}
+};
 
-exports.isIDInRange(type, id) {
-    if(type == 'manifesto' && (id < 1 || id > 12)) {
+exports.isIDInRange = function(type, id) {
+    if(type == 'manifesto' && (id < 1 || id > 12) ) {
         return false;
     } else {
         return true;
     }
-}
+};
 
 function getPrinciplesObject( type ) {
 	let pObj = new Object();
