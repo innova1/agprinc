@@ -13,7 +13,7 @@ router.get('/*', function(req, res) {
             const principle = db.getPrincipleByID(type, id);
             res.json({id: id, principle: principle });
         } else {
-            res.json({id: 0, principle: ""});
+            res.json({id: id, principle: "err:out of range"});
         }
     } else {
         console.log('short desc is ' + principlesObj[1].shortdescription);
