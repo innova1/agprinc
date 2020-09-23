@@ -19,7 +19,7 @@ exports.getPrinciplesObj = function(type) {
 };
 
 exports.getTypes = function() {
-    const p = getPrinciplesObject(type);
+    const p = getDataObject();
     const iterator = p.keys();
     for (const key of iterator ) {
         console.log(key);
