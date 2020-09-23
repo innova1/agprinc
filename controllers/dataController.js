@@ -22,17 +22,17 @@ exports.getTypes = function() {
     const p = getDataObject();
     const iterator = p.keys();
     const types = new Array();
-    var type = '';
+    var typ = '';
     console.log('got here 1')
     for (const key of iterator ) {
         console.log('got here 2')
-        if( type == '' ) { 
+        if( typ == '' ) { 
         console.log('got here 3')
             types[key] = p[key].type;
         } else {
             console.log('got here 4')
-            type = p[key].type;
-            if(type != types[key-1]) {
+            typ = p[key].type;
+            if(typ != types[key-1]) {
                types[key] = p[key].type;
             }
         }
