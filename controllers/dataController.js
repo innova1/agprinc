@@ -22,7 +22,7 @@ exports.getTypes = function() {
     const p = getDataObject();
     const iterator = p.keys();
     const types = new Array();
-    var type = '';
+    let type = '';
     for (const key of iterator ) {
         if( type == '' ) { 
             types[key] = p[key].type;
