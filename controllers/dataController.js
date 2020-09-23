@@ -31,7 +31,7 @@ exports.getTypes = function() {
         } else {
             type = p[key].type;
             console.log('about to comp ' + type + ' with ' + types[key-1]);
-            if(type != types[key-1]) {
+            if(type != types[count]) {
                types[++count] = p[key].type;
             }
         }
