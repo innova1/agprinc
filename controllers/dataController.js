@@ -23,14 +23,16 @@ exports.getTypes = function() {
     const iterator = p.keys();
     const types = new Array();
     let type = '';
+    let count = 0;
     for (const key of iterator ) {
         if( type == '' ) { 
-            types[key] = p[key].type;
+            type = p[key].type;
+            types[count] = type;
         } else {
             type = p[key].type;
             console.log('about to comp ' + type + ' with ' + types[key-1]);
             if(type != types[key-1]) {
-               types[key] = p[key].type;
+               types[++count] = p[key].type;
             }
         }
     }
