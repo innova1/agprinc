@@ -9,7 +9,7 @@ router.get('/', function(req, res) {
 
 /* GET agile principles json */
 router.get('/types/:type/ids/:id', function(req, res) {
-    console.log('in router get with ' + req.params);
+    console.log('in router get with type ' + req.params.type + " and with id " + req.params.id );
     const principlesObj = db.getPrinciplesObj('manifesto');
     /*
     if(id) {
