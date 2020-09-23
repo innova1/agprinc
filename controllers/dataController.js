@@ -55,21 +55,26 @@ function getPrinciplesObject( type ) {
         pObj['9']  = { type: 'safe', shortdescription: 'decentralize', principle: 'Decentralize decision-making' };
         pObj['10'] = { type: 'safe', shortdescription: 'value', principle: 'Organize around value' };
     } else if( type == 'dad' ) {
-        pObj['1'] = { type: 'dad', shortdescription: 'economic view', principle: 'Take an economic view' };
-        pObj['2'] = { type: 'dad', shortdescription: 'systems thinking', principle: 'Apply systems thinking' };
-        pObj['3'] = { type: 'dad', shortdescription: 'variability', principle: 'Assume variability; preserve options' };
-        pObj['4']  = { type: 'dad', shortdescription: 'incremental learning', principle: 'Build incrementally with fast, integrated learning cycles' };
-        pObj['5']  = { type: 'dad', shortdescription: 'working systems', principle: 'Base milestones on objective evaluation of working systems' };
-        pObj['6']  = { type: 'dad', shortdescription: 'flow', principle: 'Visualize and limit WIP, reduce batch sizes, and manage queue lengths' };
-        pObj['7']  = { type: 'dad', shortdescription: 'cadence', principle: 'Apply cadence, synchronize with cross-domain planning' };
-        pObj['8']  = { type: 'dad', shortdescription: 'intrinsic motivation', principle: 'Unlock the intrinsic motivation of knowledge workers' };
-        pObj['9']  = { type: 'dad', shortdescription: 'decentralize', principle: 'Decentralize decision-making' };
-        pObj['10'] = { type: 'dad', shortdescription: 'value', principle: 'Organize around value' };
+        pObj['1'] = { type: 'dad', shortdescription: 'delight customers', principle: 'Delight Customers' };
+        pObj['2'] = { type: 'dad', shortdescription: 'be awesome', principle: 'Be awesome' };
+        pObj['3'] = { type: 'dad', shortdescription: 'pragmatism', principle: 'Pragmatism over purism' };
+        pObj['4']  = { type: 'dad', shortdescription: 'context', principle: 'Context counts' };
+        pObj['5']  = { type: 'dad', shortdescription: 'choice', principle: 'Choice is good' };
+        pObj['6']  = { type: 'dad', shortdescription: 'flow', principle: 'Optimize flow' };
+        pObj['7']  = { type: 'dad', shortdescription: 'enterprise', principle: 'Enterprise awareness' };
     } else if( type == 'modern' ) {
         pObj['1'] = { type: 'modern', shortdescription: 'awesome', principle: 'Make people awesome' };
         pObj['2'] = { type: 'modern', shortdescription: 'deliver continuously', principle: 'Deliver value continuously' };
         pObj['3'] = { type: 'modern', shortdescription: 'safety', principle: 'Make safety a prerequisite' };
         pObj['4']  = { type: 'modern', shortdescription: 'experiment and learn', principle: 'Experiment and learn rapidly' };
+    } else if( type == 'lean' ) {
+        pObj['1'] = { type: 'dad', shortdescription: 'waste', principle: 'Eliminate waste' };
+        pObj['2'] = { type: 'dad', shortdescription: 'quality', principle: 'Build quality in' };
+        pObj['3'] = { type: 'dad', shortdescription: 'knowledge', principle: 'Create knowledge' };
+        pObj['4']  = { type: 'dad', shortdescription: 'defer', principle: 'Defer commitment' };
+        pObj['5']  = { type: 'dad', shortdescription: 'quickly', principle: 'Delivery quickly' };
+        pObj['4']  = { type: 'dad', shortdescription: 'respect', principle: 'Respect people' };
+        pObj['5']  = { type: 'dad', shortdescription: 'optimize', principle: 'Optimize the whole' };
     } else {
         ;
     }
