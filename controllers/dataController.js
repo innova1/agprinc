@@ -2,7 +2,7 @@
 exports.getPrincipleByID = function(type, id) {
 	try {
 		console.log('in get prin by id with id=' + id + ', type= ' + type);
-		if(id > 12) { id = '1'; console.log('changed id to ' + id); }
+		if( id > 12 || id < 1 ) { id = '1'; console.log('changed id to ' + id); }
 		const p = getPrinciplesObject(type);
 		var result = p[id].principle;
 		return result;
