@@ -107,7 +107,7 @@ function getPrinciplesObject( type ) {
 
 function getDataObject() {
     let pObj = new Array();
-    let i = 1;
+    let i = 0;
     pObj[i]    = { id: '1' , type: 'manifesto', shortdescription: 'continuous delivery', principle: 'Our highest priority is to satisfy the customer through early and continuous delivery of valuable software.' };
     pObj[++i]  = { id: '2' , type: 'manifesto', shortdescription: 'welcome change', principle: 'Welcome changing requirements, even late in development. Agile processes harness change for the customer\'s competitive advantage.' };
     pObj[++i]  = { id: '3' , type: 'manifesto', shortdescription: 'deliver frequently', principle: 'Deliver working software frequently, from a couple of weeks to a couple of months, with a preference to the shorter timescale.' };
