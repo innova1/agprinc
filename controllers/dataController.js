@@ -21,9 +21,20 @@ exports.getPrinciplesObj = function(type) {
 exports.getTypes = function() {
     const p = getDataObject();
     const iterator = p.keys();
+    const types = new Array();
+    let type = "";
     for (const key of iterator ) {
-        console.log(key);
+        if(type=='') { 
+            types[key] = p[key].type;
+        } else {
+            type = p[key].type;
+            if(type != types[key-1]) {
+               types[key] = p[key].type;
+            }
+        }
     }
+    console.log(types.length);
+    return types;
 };
 
 exports.isIDInRange = function(type, id) {
