@@ -4,9 +4,9 @@ const db = require('../controllers/dataController');
 
 /* GET agile principles json */
 router.get('/*', function(req, res) {
-    const id = req.params[0];
-    const type = 'manifesto';
-    const principlesObj = db.getPrinciplesObj('manifesto');
+    const type = req.params[0];
+    const id = req.params[1];
+    const principlesObj = db.getPrinciplesObj(type);
     
     if(id) {
         if(db.isIDInRange(type, id)) {
