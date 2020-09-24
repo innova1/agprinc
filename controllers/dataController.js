@@ -14,7 +14,7 @@ exports.getPrincipleByID = function(type, id) {
 exports.getPrinciplesObj = function(type) {
     //console.log('in get prin obj export with type ' + type);
 	//const p = getPrinciplesObject(type);
-    const p = getDataObject();
+    const p = getDataArray();
 	return p;
 };
 
