@@ -40,7 +40,7 @@ exports.isIDInRange = function(type, id) {
     console.log('typeArray is size ' + typeArray.length);
     let iterator = typeArray.entries();
     for ( let a2 of iterator ) {
-        console.log( a2.principle );
+        console.log( iterator[a2].principle );
     }
     /*
     if(type == 'manifesto' && (id < 1 || id > 12) ) {
