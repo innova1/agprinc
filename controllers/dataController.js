@@ -79,7 +79,7 @@ function getTypeMaxMin( type ) {
         return o.type == type;
     }
     const typeArray = a.filter( isType );
-    o.types = typeArray;
+    typeObj.types = typeArray;
     var s = new Array();
     typeArray.forEach(e => s.push(e.id));
     typeObj.max = Math.max(...s);
