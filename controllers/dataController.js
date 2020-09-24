@@ -29,6 +29,7 @@ exports.getTypes = function() {
 };
 
 exports.isIDInRange = function(type, id) {
+    console.log('is isIDInRange()');
     const a = getDataArray();
     const typeArray = a.filter( t => t.type == type );
     //test
