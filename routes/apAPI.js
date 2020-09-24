@@ -17,10 +17,12 @@ api/agileframeworks/:framework/[principles|values]/:number
 */
 
 /* GET frameworks of agile principles json */
+/* not using
 router.get('/frameworks/', function(req, res) {
     const frameworksArray = db.getframeworksArray();
     res.json({ "available frameworks": frameworksArray });
 });
+*/
 
 /* GET one framework of agile principles json */
 router.get('/:framework', function(req, res) {
