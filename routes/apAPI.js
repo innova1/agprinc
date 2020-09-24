@@ -38,22 +38,23 @@ router.get('/:framework/:type', function(req, res) {
     res.json({ principlesArray: principlesArray });
 });
 
-router.get('/frameworks/:framework/types/:type/numbers', function(req, res) {
+/*
+router.get('/:framework/:type/numbers', function(req, res) {
     const framework = req.params.framework;
     const s = db.getNumbersArray( framework );
     res.json({ "available numbers": s });
 });
+*/
 
 /* GET specific agile principle json */
-router.get('/frameworks/:framework/types/:type/numbers/:id', function(req, res) {
+router.get('/:framework/:type/:id', function(req, res) {
     const framework = req.params.framework;
+    const type = req.params.type;
     const id = req.params.id;
-    //console.log('in router get with framework ' + req.params.framework + " and with id " + req.params.id );
-    const principlesObj = db.getPrinciplesArray(framework);
     
     if(id) {
         if(db.isIDInRange(framework, id)) {
-            const principleObj = db.getPrincipleByID(framework, id);
+            const principleObj = db.getPrincipleByID(framework, type, id);
             res.json({id: id, principle: principleObj.principle });
         } else {
             res.json({id: id, principle: "error: id out of range"});
