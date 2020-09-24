@@ -28,7 +28,7 @@ router.get('/types/:type', function(req, res) {
 router.get('/types/:type/numbers', function(req, res) {
     const type = req.params.type;
     const s = db.getNumbersArray( type );
-    res.json({ test: s });
+    res.json({ "available numbers": s });
 });
 
 /* GET specific agile principle json */
