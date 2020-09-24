@@ -44,7 +44,7 @@ exports.getTypes = function() {
     //const iterator2 = types.keys();
     const iterator2 = types.values();
     for( const a of iterator2 ) {
-        console.log( iterator2.next().value );
+        console.log( a.value );
     }
     return types;
 };
