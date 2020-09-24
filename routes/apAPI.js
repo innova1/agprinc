@@ -27,8 +27,7 @@ router.get('/types/:type', function(req, res) {
 
 router.get('/types/:type/numbers', function(req, res) {
     const type = req.params.type;
-    db.getNumbersArray( type );
-    const s = getNumbersArray( type );
+    const s = db.getNumbersArray( type );
     res.json({ test: s });
 });
 
