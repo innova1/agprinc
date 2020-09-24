@@ -39,9 +39,9 @@ exports.isIDInRange = function(type, id) {
     //test
     console.log('typeArray is size ' + typeArray.length);
     typeArray.forEach(element => console.log(element.id + ": " + element.principle));
-    var s = "empty";
+    var s = '';
     typeArray.forEach(e => s = s + e.id + ',');
-    console.log('s is ' + s);
+    console.log('s is ' + s + ' and max is ' + Math.max(s));
 };
 
 function getPrinciplesObject( type ) {
