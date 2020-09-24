@@ -26,8 +26,8 @@ router.get('/types/:type', function(req, res) {
 });
 
 router.get('/types/:type/numbers', function(req, res) {
-    ;
-})
+    res.json({ test: "hello"});
+});
 
 /* GET specific agile principle json */
 router.get('/types/:type/numbers/:id', function(req, res) {

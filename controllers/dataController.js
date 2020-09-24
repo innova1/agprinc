@@ -81,7 +81,7 @@ function getTypeMaxMin( type ) {
     const typeArray = a.filter( isType );
     typeObj.types = typeArray;
     var s = new Array();
-    typeArray.forEach(e => s.push(e.id));
+    typeArray.forEach( e => s.push(e.id) );
     typeObj.max = Math.max(...s);
     typeObj.min = Math.min(...s);
     return typeObj;
