@@ -15,7 +15,7 @@ exports.getPrinciplesArray = function(type) {
     return getPrinciplesArray(type);
 }
 
-function agetPrinciplesArray(type) {
+function getPrinciplesArray(type) {
     //console.log('in get prin obj export with type ' + type);
     const parray = getDataArray();
     let typeArray = new Array();
