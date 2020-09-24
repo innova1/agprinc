@@ -14,7 +14,7 @@ router.get('/', function(req, res) {
 /* GET types of agile principles json */
 router.get('/types/', function(req, res) {
     const typesArray = db.getTypesArray();
-    res.json({ typesArray: typesArray });
+    res.json({ "available types": typesArray });
 });
 
 /* GET one type of agile principles json */
