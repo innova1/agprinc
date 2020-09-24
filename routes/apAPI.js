@@ -34,8 +34,8 @@ router.get('/types/:type/ids/:id', function(req, res) {
     
     if(id) {
         if(db.isIDInRange(type, id)) {
-            const principle = db.getPrincipleByID(type, id);
-            res.json({id: id, principle: principle.principle });
+            const principleObj = db.getPrincipleByID(type, id);
+            res.json({id: id, principle: principleObj.principle });
         } else {
             res.json({id: id, principle: "error: id out of range"});
         }
