@@ -1,5 +1,6 @@
 
 exports.getPrincipleByID = function(type, id) {
+    //contract: next called with an id that is out of range -- call isIDInRange() first
 	try {
 		//console.log('in get prin by id with id=' + id + ', type= ' + type);
 		//if( id > 12 || id < 1 ) { id = '1'; console.log('changed id to ' + id); }
@@ -42,9 +43,9 @@ exports.getTypesArray = function() {
 };
 
 exports.isIDInRange = function(type, id) {
-    console.log('in isIDInRange()');
+    //console.log('in isIDInRange()');
     const a = getDataArray();
-    console.log( 'comparing each with ' + type );
+    //console.log( 'comparing each with ' + type );
     function isType(o) {
         return o.type == type;
     }
@@ -60,6 +61,7 @@ exports.isIDInRange = function(type, id) {
     return !( id < min || id > max );
 };
 
+/*
 function getPrinciplesObject( type ) {
     //console.log('in get principles function with type ' + type);
     let pObj = new Object();
@@ -113,6 +115,7 @@ function getPrinciplesObject( type ) {
     }
     return pObj;
 };
+*/
 
 function getDataArray() {
     let pObj = new Array();
