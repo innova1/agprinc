@@ -25,8 +25,12 @@ router.get('/types/:type', function(req, res) {
     res.json({ principlesArray: principlesArray });
 });
 
+router.get('/types/:type/numbers', function(req, res) {
+    ;
+})
+
 /* GET specific agile principle json */
-router.get('/types/:type/number/:id', function(req, res) {
+router.get('/types/:type/numbers/:id', function(req, res) {
     const type = req.params.type;
     const id = req.params.id;
     //console.log('in router get with type ' + req.params.type + " and with id " + req.params.id );

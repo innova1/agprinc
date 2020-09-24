@@ -157,7 +157,7 @@ function getDataArray() {
     pObj[++i]  = { id: '2' , type: 'lean', shortdescription: 'quality', principle: 'Build quality in' };
     pObj[++i]  = { id: '3' , type: 'lean', shortdescription: 'knowledge', principle: 'Create knowledge' };
     pObj[++i]  = { id: '4' , type: 'lean', shortdescription: 'defer', principle: 'Defer commitment' };
-    pObj[++i]  = { id: '5' , type: 'lean', shortdescription: 'quickly', principle: 'Delivery quickly' };
+    pObj[++i]  = { id: '5' , type: 'lean', shortdescription: 'quickly', principle: 'Deliver quickly' };
     pObj[++i]  = { id: '6' , type: 'lean', shortdescription: 'respect', principle: 'Respect people' };
     pObj[++i]  = { id: '7' , type: 'lean', shortdescription: 'optimize', principle: 'Optimize the whole' };
     return pObj;
