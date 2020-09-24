@@ -11,7 +11,7 @@ exports.getPrincipleByID = function(type, id) {
 	}
 };
 
-exports.getPrinciplesObj = function(type) {
+exports.getPrinciplesArray = function(type) {
     //console.log('in get prin obj export with type ' + type);
 	//const p = getPrinciplesObject(type);
     const p = getDataArray();
@@ -43,15 +43,7 @@ exports.isIDInRange = function(type, id) {
     typeArray.forEach(e => s.push(e.id));
     let max = Math.max(...s);
     let min = Math.min(...s);
-    //console.log('s is ' + s + ' and max is ' + max + ' and min is ' + min);
-    /*
-    if( id < min || id > max ) {
-        return false;
-    } else {
-        return true;
-    }
-    */
-    console.log( !( id < min || id > max ) );
+    //console.log( !( id < min || id > max ) );
     return !( id < min || id > max );
 };
 

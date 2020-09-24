@@ -6,7 +6,7 @@ const db = require('../controllers/dataController');
 router.get('/', function(req, res) {
     //console.log('in router get /' );
     const type = 'manifesto';
-    const principlesObj = db.getPrinciplesObj(type);
+    const principlesObj = db.getPrinciplesArray(type);
     db.getTypes();
     db.isIDInRange(type, 30);
     
@@ -17,8 +17,8 @@ router.get('/', function(req, res) {
 router.get('/types/:type', function(req, res) {
     //console.log('in router get /types/:type' );
     const type = req.params.type;
-    const principlesObj = db.getPrinciplesObj(type);
-    res.json({ principlesObject: principlesObj });
+    const principlesArray = db.getPrinciplesArray(type);
+    res.json({ principlesArray: principlesArray });
 });
 
 /* GET specific agile principle json */
@@ -26,7 +26,7 @@ router.get('/types/:type/ids/:id', function(req, res) {
     const type = req.params.type;
     const id = req.params.id;
     //console.log('in router get with type ' + req.params.type + " and with id " + req.params.id );
-    const principlesObj = db.getPrinciplesObj(type);
+    const principlesObj = db.getPrinciplesArray(type);
     
     if(id) {
         if(db.isIDInRange(type, id)) {
