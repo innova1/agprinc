@@ -52,8 +52,8 @@ exports.getNumbersArray = function( framework ) {
     return o.idArray;
 };
 
-exports.isIDInRange = function(framework, type, id) {
-    const o = getSingleFrameworkTypeIdObj(framework, type, id);
+exports.isIDInRange = function( framework, type, id ) {
+    const o = getSingleFrameworkTypeIdObj( framework, type, id );
     return !( id < o.min || id > o.max );
 };
 
@@ -61,7 +61,7 @@ function getSingleFrameworkTypeIdObj( framework, type, id ) {
     const singleframeworkObj = new Object();
     const a = getDataArray();
     function isframework(o) {
-        return o.framework == framework && o.type == type;
+        return o.framework == framework && o.type == type.substring(0,type.length-1);
     }
     singleframeworkObj.frameworks = a.filter( isframework );
     singleframeworkObj.idArray = new Array();
