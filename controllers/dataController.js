@@ -4,7 +4,7 @@ exports.getPrincipleByID = function(type, id) {
 		//console.log('in get prin by id with id=' + id + ', type= ' + type);
 		//if( id > 12 || id < 1 ) { id = '1'; console.log('changed id to ' + id); }
 		const parray = getPrinciplesArray(type);
-		var result = parray[id].principle;
+		var result = parray.find( e => e.id == id );
 		return result;
 	} catch (err) {
 		console.log('error in try of get prin by id ' + err.message );
