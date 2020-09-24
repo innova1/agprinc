@@ -39,15 +39,8 @@ exports.isIDInRange = function(type, id) {
     //test
     console.log('typeArray is size ' + typeArray.length);
     typeArray.forEach(element => console.log(element.id + ": " + element.principle));
-    /*
-    if(type == 'manifesto' && (id < 1 || id > 12) ) {
-        return false;
-    } else if( type == 'safe' && (id < 1 || id > 10 )) {
-        return false;
-    } else {
-        return true;
-    }
-    */
+    const s = typeArray.forEach(e.id + ','));
+    console.log('s is ' + s);
 };
 
 function getPrinciplesObject( type ) {
