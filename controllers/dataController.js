@@ -52,16 +52,16 @@ exports.getNumbersArray = function( framework ) {
     return o.idArray;
 };
 
-exports.isIDInRange = function(framework, id) {
+exports.isIDInRange = function(framework, type, id) {
     const o = getSingleframeworkObj(framework);
     return !( id < o.min || id > o.max );
 };
 
-function getSingleframeworkObj( framework ) {
+function getSingleFrameworkTypeIdObj( framework, type, id ) {
     const singleframeworkObj = new Object();
     const a = getDataArray();
     function isframework(o) {
-        return o.framework == framework;
+        return o.framework == framework && o.type == type;
     }
     singleframeworkObj.frameworks = a.filter( isframework );
     singleframeworkObj.idArray = new Array();
