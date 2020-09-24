@@ -26,13 +26,13 @@ function getPrinciplesArray(type) {
         function isType(o) {
             return o.type == type;
         }
-
         typeArray = parray.filter( isType );
     }
 	return typeArray;
 };
 
 exports.getTypesArray = function() {
+    //using a Set object so that duplicates are removed
     const p = getDataArray();
     const types = new Set();
     const iterator = p.keys();
@@ -43,32 +43,27 @@ exports.getTypesArray = function() {
 };
 
 exports.getNumbersArray = function( type ) {
-    const o = getTypeObj( type );
-    /*
-    var s = new Array();
-    o.types.forEach(e => s.push(e.id));
-    */
-    console.log('ids is ' + o.idArray);
+    const o = getSingleTypeObj( type );
     return o.idArray;
 };
 
 exports.isIDInRange = function(type, id) {
-    const o = getTypeObj(type);
+    const o = getSingleTypeObj(type);
     return !( id < o.min || id > o.max );
 };
 
-function getTypeObj( type ) {
-    const typeObj = new Object();
+function getSingleTypeObj( type ) {
+    const singleTypeObj = new Object();
     const a = getDataArray();
     function isType(o) {
         return o.type == type;
     }
-    typeObj.types = a.filter( isType );
-    typeObj.idArray = new Array();
-    typeObj.types.forEach( e => typeObj.idArray.push(e.id) );
-    typeObj.max = Math.max(...typeObj.idArray);
-    typeObj.min = Math.min(...typeObj.idArray);
-    return typeObj;
+    singleTypeObj.types = a.filter( isType );
+    singleTypeObj.idArray = new Array();
+    singleTypeObj.types.forEach( e => singleTypeObj.idArray.push(e.id) );
+    singleTypeObj.max = Math.max(...singleTypeObj.idArray);
+    singleTypeObj.min = Math.min(...singleTypeObj.idArray);
+    return singleTypeObj;
 };
 
 function getDataArray() {
