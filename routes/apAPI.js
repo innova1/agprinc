@@ -30,7 +30,7 @@ router.get('/:framework', function(req, res) {
     res.json({ principlesArray: principlesArray });
 });
 
-router.get('/frameworks/:framework/:type', function(req, res) {
+router.get('/:framework/:type', function(req, res) {
     //console.log('in router get /frameworks/:framework' );
     const framework = req.params.framework;
     const type = req.params.type;
