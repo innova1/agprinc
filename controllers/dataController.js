@@ -70,14 +70,6 @@ function getTypeMaxMin( type ) {
     return typeObj;
 };
 
-function getNumbersArray( type ) {
-    const o = getTypeMaxMin( type );
-    var s = new Array();
-    o.types.forEach(e => s.push(e.id));
-    console.log('s is ' + s);
-    return s;
-};
-
 function getDataArray() {
     let pObj = new Array();
     let i = 0;
