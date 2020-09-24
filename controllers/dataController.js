@@ -28,7 +28,7 @@ function getPrinciplesArray(framework, type) {
         principlesArray = parray.filter( isFramework );
     } else {
         function isFrameworkAndType(o) {
-            return o.framework == framework && o.type == type;
+            return o.framework == framework && o.type == type.substring(0,type.length-1);
         }
         principlesArray = parray.filter( isFrameworkAndType );
     }
