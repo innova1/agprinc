@@ -8,6 +8,7 @@ router.get('/', function(req, res) {
     const type = 'manifesto';
     const principlesObj = db.getPrinciplesObj(type);
     db.getTypes();
+    db.isIDInRange();
     res.json({ principlesObject: principlesObj });
 });
 
