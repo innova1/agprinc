@@ -5,7 +5,7 @@ const db = require('../controllers/dataController');
 /* GET all agile principles json */
 router.get('/', function(req, res) {
     //console.log('in router get /' );
-    const frameworksArray = db.getframeworksArray('');
+    const frameworksArray = db.getframeworksArray();
     //db.getframeworks();
     //db.isIDInRange(framework, 30);
     res.json({ "Agile Frameworks": frameworksArray });
