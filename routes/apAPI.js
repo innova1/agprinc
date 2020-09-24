@@ -31,9 +31,9 @@ router.get('/:framework', function(req, res) {
 });
 
 router.get('/:framework/:type', function(req, res) {
-    //console.log('in router get /frameworks/:framework' );
     const framework = req.params.framework;
     const type = req.params.type;
+    console.log('in router get /:framework with ' + framework + ", " + type );
     const principlesArray = db.getPrinciplesArray(framework, type);
     res.json({ principlesArray: principlesArray });
 });
