@@ -21,7 +21,7 @@ function getPrinciplesArray(framework, type) {
     const parray = getDataArray();
     console.log('parray is length ' + parray.length);
     let principlesArray = new Array();
-    if(framework=='') {
+    if(type=='') {
         principlesArray = parray;
     } else {
         function isframework(o) {
