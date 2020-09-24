@@ -39,7 +39,8 @@ exports.isIDInRange = function(type, id) {
     //test
     console.log('typeArray is size ' + typeArray.length);
     typeArray.forEach(element => console.log(element.id + ": " + element.principle));
-    const s = typeArray.forEach(e => e.id + ',');
+    const s = "empty";
+    typeArray.forEach(e => s + e.id + ',');
     console.log('s is ' + s);
 };
 
