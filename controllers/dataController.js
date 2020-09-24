@@ -31,7 +31,8 @@ exports.getTypes = function() {
 exports.isIDInRange = function(type, id) {
     console.log('in isIDInRange()');
     const a = getDataArray();
-    const typeArray = a.filter( t => t.type == type );
+    console.log( 'using comp of ' + type );
+    const typeArray = a.filter( t => a.type == type );
     //test
     console.log('typeArray is size ' + typeArray.length);
     let iterator = typeArray.entries();
