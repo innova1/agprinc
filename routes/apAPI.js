@@ -25,14 +25,27 @@ router.get('/frameworks/:framework', function(req, res) {
     res.json({ principlesArray: principlesArray });
 });
 
-router.get('/frameworks/:framework/numbers', function(req, res) {
+router.get('/frameworks/:framework/types', function(req, res) {
+    const framework = req.params.framework;
+    const s = db.getTypesArray( framework, type );
+    res.json({ "available numbers": s });
+});
+
+router.get('/frameworks/:framework/types/:type', function(req, res) {
+    //console.log('in router get /frameworks/:framework' );
+    const framework = req.params.framework;
+    const principlesArray = db.getPrinciplesArray(framework);
+    res.json({ principlesArray: principlesArray });
+});
+
+router.get('/frameworks/:framework/types/:type/numbers', function(req, res) {
     const framework = req.params.framework;
     const s = db.getNumbersArray( framework );
     res.json({ "available numbers": s });
 });
 
 /* GET specific agile principle json */
-router.get('/frameworks/:framework/numbers/:id', function(req, res) {
+router.get('/frameworks/:framework/types/:type/numbers/:id', function(req, res) {
     const framework = req.params.framework;
     const id = req.params.id;
     //console.log('in router get with framework ' + req.params.framework + " and with id " + req.params.id );

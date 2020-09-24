@@ -1,10 +1,10 @@
 
-exports.getPrincipleByID = function(framework, id) {
+exports.getPrincipleByID = function(framework, type, id) {
     //contract: next called with an id that is out of range -- call isIDInRange() first
 	try {
 		//console.log('in get prin by id with id=' + id + ', framework= ' + framework);
 		//if( id > 12 || id < 1 ) { id = '1'; console.log('changed id to ' + id); }
-		const parray = getPrinciplesArray(framework);
+		const parray = getPrinciplesArray(framework, type);
 		var result = parray.find( e => e.id == id );
 		return result;
 	} catch (err) {
@@ -12,11 +12,11 @@ exports.getPrincipleByID = function(framework, id) {
 	}
 };
 
-exports.getPrinciplesArray = function(framework) {
-    return getPrinciplesArray(framework);
+exports.getPrinciplesArray = function(framework, type) {
+    return getPrinciplesArray(framework, type);
 };
 
-function getPrinciplesArray(framework) {
+function getPrinciplesArray(framework, type) {
     //console.log('in get prin obj export with framework ' + framework);
     const parray = getDataArray();
     let frameworkArray = new Array();
@@ -24,7 +24,7 @@ function getPrinciplesArray(framework) {
         frameworkArray = parray;
     } else {
         function isframework(o) {
-            return o.framework == framework;
+            return o.framework == framework && o.type == type;
         }
         frameworkArray = parray.filter( isframework );
     }
@@ -81,6 +81,10 @@ function getDataArray() {
     pObj[++i]  = { id: '10', type: 'principle', framework: 'manifesto', shortdescription: 'simplicity', principle: 'Simplicity--the art of maximizing the amount of work not done--is essential.' };
     pObj[++i]  = { id: '11', type: 'principle', framework: 'manifesto', shortdescription: 'design from the teams', principle: 'The best architectures, requirements, and designs emerge from self-organizing teams.' };
     pObj[++i]  = { id: '12', type: 'principle', framework: 'manifesto', shortdescription: 'continuous improvement', principle: 'At regular intervals, the team reflects on how to become more effective, then tunes and adjusts its behavior accordingly.' };
+    pObj[++i]  = { id: '1' , type: 'value', framework: 'manifesto', shortdescription: 'welcome change', principle: 'Welcome changing requirements, even late in development. Agile processes harness change for the customer\'s competitive advantage.' };
+    pObj[++i]  = { id: '2' , type: 'value', framework: 'manifesto', shortdescription: 'deliver frequently', principle: 'Deliver working software frequently, from a couple of weeks to a couple of months, with a preference to the shorter timescale.' };
+    pObj[++i]  = { id: '3' , type: 'value', framework: 'manifesto', shortdescription: 'daily with business', principle: 'Business people and developers must work together daily throughout the project.' };
+    pObj[++i]  = { id: '4' , type: 'value', framework: 'manifesto', shortdescription: 'motivated individuals', principle: 'Build projects around motivated individuals.  Give them the environment and support they need, and trust them to get the job done.' };
     pObj[++i]  = { id: '1' , type: 'principle', framework: 'safe', shortdescription: 'economic view', principle: 'Take an economic view' };
     pObj[++i]  = { id: '2' , type: 'principle', framework: 'safe', shortdescription: 'systems thinking', principle: 'Apply systems thinking' };
     pObj[++i]  = { id: '3' , type: 'principle', framework: 'safe', shortdescription: 'variability', principle: 'Assume variability; preserve options' };
