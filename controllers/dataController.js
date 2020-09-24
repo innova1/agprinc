@@ -22,12 +22,15 @@ function getPrinciplesArray(framework, type) {
     console.log('parray is length ' + parray.length);
     let principlesArray = new Array();
     if(type=='') {
-        principlesArray = parray;
+        function isFramework(o) {
+            return o.framework == framework;
+        }
+        principlesArray = parray.filter( isFramework );
     } else {
-        function isframework(o) {
+        function isFrameworkAndType(o) {
             return o.framework == framework && o.type == type;
         }
-        principlesArray = parray.filter( isframework );
+        principlesArray = parray.filter( isFrameworkAndType );
     }
     console.log('about to export prin array with length ' + principlesArray.length);
 	return principlesArray;
