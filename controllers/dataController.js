@@ -20,6 +20,7 @@ exports.getPrinciplesArray = function(type) {
         return o.type == type;
     }
     const typeArray = parray.filter( isType );
+    console.log('typeArray size is ' + typeArray.length);
 	return parray;
 };
 
