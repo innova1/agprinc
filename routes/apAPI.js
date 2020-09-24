@@ -6,41 +6,41 @@ const db = require('../controllers/dataController');
 router.get('/', function(req, res) {
     //console.log('in router get /' );
     const principlesArray = db.getPrinciplesArray('');
-    //db.getTypes();
-    //db.isIDInRange(type, 30);
+    //db.getframeworks();
+    //db.isIDInRange(framework, 30);
     res.json({ principlesArray: principlesArray });
 });
 
-/* GET types of agile principles json */
-router.get('/types/', function(req, res) {
-    const typesArray = db.getTypesArray();
-    res.json({ "available types": typesArray });
+/* GET frameworks of agile principles json */
+router.get('/frameworks/', function(req, res) {
+    const frameworksArray = db.getframeworksArray();
+    res.json({ "available frameworks": frameworksArray });
 });
 
-/* GET one type of agile principles json */
-router.get('/types/:type', function(req, res) {
-    //console.log('in router get /types/:type' );
-    const type = req.params.type;
-    const principlesArray = db.getPrinciplesArray(type);
+/* GET one framework of agile principles json */
+router.get('/frameworks/:framework', function(req, res) {
+    //console.log('in router get /frameworks/:framework' );
+    const framework = req.params.framework;
+    const principlesArray = db.getPrinciplesArray(framework);
     res.json({ principlesArray: principlesArray });
 });
 
-router.get('/types/:type/numbers', function(req, res) {
-    const type = req.params.type;
-    const s = db.getNumbersArray( type );
+router.get('/frameworks/:framework/numbers', function(req, res) {
+    const framework = req.params.framework;
+    const s = db.getNumbersArray( framework );
     res.json({ "available numbers": s });
 });
 
 /* GET specific agile principle json */
-router.get('/types/:type/numbers/:id', function(req, res) {
-    const type = req.params.type;
+router.get('/frameworks/:framework/numbers/:id', function(req, res) {
+    const framework = req.params.framework;
     const id = req.params.id;
-    //console.log('in router get with type ' + req.params.type + " and with id " + req.params.id );
-    const principlesObj = db.getPrinciplesArray(type);
+    //console.log('in router get with framework ' + req.params.framework + " and with id " + req.params.id );
+    const principlesObj = db.getPrinciplesArray(framework);
     
     if(id) {
-        if(db.isIDInRange(type, id)) {
-            const principleObj = db.getPrincipleByID(type, id);
+        if(db.isIDInRange(framework, id)) {
+            const principleObj = db.getPrincipleByID(framework, id);
             res.json({id: id, principle: principleObj.principle });
         } else {
             res.json({id: id, principle: "error: id out of range"});
