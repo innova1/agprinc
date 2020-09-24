@@ -100,10 +100,10 @@ function getDataArray() {
     pObj[++i]  = { id: '8' , type: 'principle', framework: 'safe', shortdescription: 'intrinsic motivation', principle: 'Unlock the intrinsic motivation of knowledge workers' };
     pObj[++i]  = { id: '9' , type: 'principle', framework: 'safe', shortdescription: 'decentralize', principle: 'Decentralize decision-making' };
     pObj[++i]  = { id: '10', type: 'principle', framework: 'safe', shortdescription: 'value', principle: 'Organize around value' };
-    pObj[++i]  = { id: '7' , type: 'value', framework: 'safe', shortdescription: 'alignment', principle: 'Alignment' };
-    pObj[++i]  = { id: '8' , type: 'value', framework: 'safe', shortdescription: 'built-in quality', principle: 'Built-in quality' };
-    pObj[++i]  = { id: '9' , type: 'value', framework: 'safe', shortdescription: 'transparency', principle: 'Transparency' };
-    pObj[++i]  = { id: '10', type: 'value', framework: 'safe', shortdescription: 'program execution', principle: 'Program execution' };
+    pObj[++i]  = { id: '1' , type: 'value', framework: 'safe', shortdescription: 'alignment', principle: 'Alignment' };
+    pObj[++i]  = { id: '2' , type: 'value', framework: 'safe', shortdescription: 'built-in quality', principle: 'Built-in quality' };
+    pObj[++i]  = { id: '3' , type: 'value', framework: 'safe', shortdescription: 'transparency', principle: 'Transparency' };
+    pObj[++i]  = { id: '4' , type: 'value', framework: 'safe', shortdescription: 'program execution', principle: 'Program execution' };
     pObj[++i]  = { id: '1' , type: 'principle', framework: 'dad', shortdescription: 'delight customers', principle: 'Delight Customers' };
     pObj[++i]  = { id: '2' , type: 'principle', framework: 'dad', shortdescription: 'be awesome', principle: 'Be awesome' };
     pObj[++i]  = { id: '3' , type: 'principle', framework: 'dad', shortdescription: 'pragmatism', principle: 'Pragmatism over purism' };
