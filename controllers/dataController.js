@@ -29,13 +29,13 @@ exports.getTypes = function() {
 };
 
 exports.isIDInRange = function(type, id) {
-    console.log('is isIDInRange()');
+    console.log('in isIDInRange()');
     const a = getDataArray();
     const typeArray = a.filter( t => t.type == type );
     //test
     let iterator = typeArray.entries();
-    for ( let a of iterator ) {
-        console.log( a );
+    for ( let a2 of iterator ) {
+        console.log( a2 );
     }
     /*
     if(type == 'manifesto' && (id < 1 || id > 12) ) {
