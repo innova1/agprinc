@@ -33,6 +33,7 @@ exports.isIDInRange = function(type, id) {
     const a = getDataArray();
     const typeArray = a.filter( t => t.type == type );
     //test
+    console.log('typeArray is size ' + typeArray.length);
     let iterator = typeArray.entries();
     for ( let a2 of iterator ) {
         console.log( a2 );
