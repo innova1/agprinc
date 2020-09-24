@@ -9,6 +9,7 @@ router.get('/', function(req, res) {
     const principlesObj = db.getPrinciplesObj(type);
     db.getTypes();
     db.isIDInRange();
+    
     res.json({ principlesObject: principlesObj });
 });
 
