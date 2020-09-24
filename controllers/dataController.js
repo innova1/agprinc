@@ -53,7 +53,7 @@ exports.getNumbersArray = function( framework ) {
 };
 
 exports.isIDInRange = function(framework, type, id) {
-    const o = getSingleframeworkObj(framework);
+    const o = getSingleFrameworkTypeIdObj(framework, type, id);
     return !( id < o.min || id > o.max );
 };
 
