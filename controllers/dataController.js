@@ -41,7 +41,9 @@ exports.isIDInRange = function(type, id) {
     typeArray.forEach(element => console.log(element.id + ": " + element.principle));
     var s = new Array();
     typeArray.forEach(e => s.push(e.id));
-    console.log('s is ' + s + ' and max is ' + Math.max(...s));
+    let max = Math.max(...s);
+    let min = Math.min(...s);
+    console.log('s is ' + s + ' and max is ' + max + ' and min is ' + min);
 };
 
 function getPrinciplesObject( type ) {
