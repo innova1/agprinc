@@ -42,7 +42,7 @@ exports.getTypesArray = function() {
     return Array.from(types);
 };
 
-exports.getNumbersArray() {
+exports.getNumbersArray function( type ) {
     const o = getTypeMaxMin( type );
     var s = new Array();
     o.forEach(e => s.push(e.id));
