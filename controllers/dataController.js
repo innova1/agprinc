@@ -20,11 +20,14 @@ exports.getPrinciplesObj = function(type) {
 
 exports.getTypes = function() {
     const p = getDataObject();
+    const types = new Set();
     const iterator = p.keys();
-    const types = new Array();
-    let type = '';
-    let count = 0;
+    //const types = new Array();
+    //let type = '';
+    //let count = 0;
     for (const key of iterator ) {
+        types.add(p[key]);
+        /*
         if( type == '' ) {  
             type = p[key].type;
             types[count] = type;
@@ -35,8 +38,10 @@ exports.getTypes = function() {
                types[++count] = p[key].type;
             }
         }
+        */
     }
-    const iterator2 = types.keys();
+    //const iterator2 = types.keys();
+    const iterator2 = types.values();
     for( const a of iterator2 ) {
         console.log( types[a] );
     }
