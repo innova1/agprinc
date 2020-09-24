@@ -16,6 +16,7 @@ exports.getPrinciplesArray = function(type) {
 	//const p = getPrinciplesObject(type);
     const parray = getDataArray();
     function isType(o) {
+        console.log('comparing ' + o.type + ' with ' + type);
         return o.type == type;
     }
     const typeArray = parray.filter( isType );
