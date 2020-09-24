@@ -45,7 +45,7 @@ exports.getTypesArray = function() {
 exports.getNumbersArray = function( type ) {
     const o = getTypeMaxMin( type );
     var s = new Array();
-    o.forEach(e => s.push(e.id));
+    o.types.forEach(e => s.push(e.id));
     return s;
 }
 
