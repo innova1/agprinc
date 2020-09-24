@@ -24,7 +24,7 @@ router.get('/frameworks/', function(req, res) {
 
 /* GET one framework of agile principles json */
 router.get('/:framework', function(req, res) {
-    //console.log('in router get /frameworks/:framework' );
+    console.log('in router get /:framework' );
     const framework = req.params.framework;
     const principlesArray = db.getPrinciplesArray(framework, '');
     res.json({ principlesArray: principlesArray });
