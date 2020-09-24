@@ -24,22 +24,17 @@ router.get('/frameworks/', function(req, res) {
 
 /* GET one framework of agile principles json */
 router.get('/:framework', function(req, res) {
-    console.log('in router get /:framework' );
     const framework = req.params.framework;
+    //console.log('in router get /:framework with ' + framework );
     const principlesArray = db.getPrinciplesArray(framework, '');
     res.json({ principlesArray: principlesArray });
 });
 
-router.get('/frameworks/:framework/types', function(req, res) {
-    const framework = req.params.framework;
-    const s = db.getTypesArray( framework, type );
-    res.json({ "available numbers": s });
-});
-
-router.get('/frameworks/:framework/types/:type', function(req, res) {
+router.get('/frameworks/:framework/:type', function(req, res) {
     //console.log('in router get /frameworks/:framework' );
     const framework = req.params.framework;
-    const principlesArray = db.getPrinciplesArray(framework);
+    const type = req.params.type;
+    const principlesArray = db.getPrinciplesArray(framework, type);
     res.json({ principlesArray: principlesArray });
 });
 

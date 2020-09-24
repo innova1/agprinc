@@ -17,9 +17,9 @@ exports.getPrinciplesArray = function(framework, type) {
 };
 
 function getPrinciplesArray(framework, type) {
-    console.log('in get prin array export with framework ' + framework);
+    //console.log('in get prin array export with framework ' + framework);
     const parray = getDataArray();
-    console.log('parray is length ' + parray.length);
+    //console.log('parray is length ' + parray.length);
     let principlesArray = new Array();
     if(type=='') {
         function isFramework(o) {
@@ -32,7 +32,7 @@ function getPrinciplesArray(framework, type) {
         }
         principlesArray = parray.filter( isFrameworkAndType );
     }
-    console.log('about to export prin array with length ' + principlesArray.length);
+    //console.log('about to export prin array with length ' + principlesArray.length);
 	return principlesArray;
 };
 
