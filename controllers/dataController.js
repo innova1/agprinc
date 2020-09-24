@@ -29,6 +29,7 @@ function getPrinciplesArray(framework, type) {
         }
         principlesArray = parray.filter( isframework );
     }
+    console.log('about to export prin array with length ' + principlesArray.length);
 	return principlesArray;
 };
 
