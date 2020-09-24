@@ -14,7 +14,7 @@ exports.getPrincipleByID = function(type, id) {
 
 exports.getPrinciplesArray = function(type) {
     return getPrinciplesArray(type);
-}
+};
 
 function getPrinciplesArray(type) {
     //console.log('in get prin obj export with type ' + type);
@@ -48,27 +48,9 @@ exports.getNumbersArray = function( type ) {
     o.types.forEach(e => s.push(e.id));
     console.log('s is ' + s);
     return s;
-}
+};
 
 exports.isIDInRange = function(type, id) {
-    //console.log('in isIDInRange()');
-    /*
-    const a = getDataArray();
-    //console.log( 'comparing each with ' + type );
-    function isType(o) {
-        return o.type == type;
-    }
-    const typeArray = a.filter( isType );
-    //test
-    //console.log('typeArray is size ' + typeArray.length);
-    //typeArray.forEach(element => console.log(element.id + ": " + element.principle));
-    var s = new Array();
-    typeArray.forEach(e => s.push(e.id));
-    let max = Math.max(...s);
-    let min = Math.min(...s);
-    //console.log( !( id < min || id > max ) );
-    return !( id < min || id > max );
-    */
     const o = getTypeMaxMin(type);
     return !( id < o.min || id > o.max );
 };
@@ -86,7 +68,15 @@ function getTypeMaxMin( type ) {
     typeObj.max = Math.max(...s);
     typeObj.min = Math.min(...s);
     return typeObj;
-}
+};
+
+function getNumbersArray( type ) {
+    const o = getTypeMaxMin( type );
+    var s = new Array();
+    o.types.forEach(e => s.push(e.id));
+    console.log('s is ' + s);
+    return s;
+};
 
 function getDataArray() {
     let pObj = new Array();
