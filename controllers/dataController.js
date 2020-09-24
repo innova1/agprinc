@@ -14,10 +14,16 @@ exports.getPrincipleByID = function(type, id) {
 exports.getPrinciplesArray = function(type) {
     //console.log('in get prin obj export with type ' + type);
     const parray = getDataArray();
-    function isType(o) {
-        return o.type == type;
+    let typeArray = new Array();
+    if(type=='') {
+        typeArray = parray;
+    } else {
+        function isType(o) {
+            return o.type == type;
+        }
+
+        typeArray = parray.filter( isType );
     }
-    const typeArray = parray.filter( isType );
 	return typeArray;
 };
 
