@@ -12,7 +12,7 @@ exports.getPrincipleByID = function(type, id) {
 };
 
 exports.getPrinciplesArray = function(type) {
-    //console.log('in get prin obj export with type ' + type);
+    console.log('in get prin obj export with type ' + type);
 	//const p = getPrinciplesObject(type);
     const parray = getDataArray();
     function isType(o) {
