@@ -25,18 +25,21 @@ exports.getTypes = function() {
     let type = '';
     let count = 0;
     for (const key of iterator ) {
-        if( type == '' ) { 
+        if( type == '' ) {  
             type = p[key].type;
             types[count] = type;
         } else {
             type = p[key].type;
-            console.log('about to comp ' + type + ' with ' + types[key-1]);
-            if(type != types[count]) {
+            console.log( 'about to comp ' + type + ' with ' + types[count] );
+            if( type != types[count] ) {
                types[++count] = p[key].type;
             }
         }
     }
-    console.log(types.length);
+    const iterator2 = types.keys();
+    for( const a of iterator2 ) {
+        console.log( types[a] );
+    }
     return types;
 };
 
