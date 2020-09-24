@@ -27,14 +27,14 @@ exports.getPrinciplesArray = function(type) {
 	return typeArray;
 };
 
-exports.getTypes = function() {
+exports.getTypesArray = function() {
     const p = getDataArray();
     const types = new Set();
     const iterator = p.keys();
     for (const key of iterator ) {
         types.add( p[key].type );
     }
-    return types;
+    return Array.from(types);
 };
 
 exports.isIDInRange = function(type, id) {
