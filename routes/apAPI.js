@@ -13,7 +13,7 @@ router.get('/', function(req, res) {
 
 /*
 possible new model
-agileframeworks/api/:framework/[principles|values]/:number
+api/agileframeworks/:framework/[principles|values]/:number
 */
 
 /* GET frameworks of agile principles json */
@@ -23,7 +23,7 @@ router.get('/frameworks/', function(req, res) {
 });
 
 /* GET one framework of agile principles json */
-router.get('/frameworks/:framework', function(req, res) {
+router.get('/:framework', function(req, res) {
     //console.log('in router get /frameworks/:framework' );
     const framework = req.params.framework;
     const principlesArray = db.getPrinciplesArray(framework);
