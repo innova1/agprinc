@@ -37,13 +37,22 @@ exports.isIDInRange = function(type, id) {
     }
     const typeArray = a.filter( isType );
     //test
-    console.log('typeArray is size ' + typeArray.length);
-    typeArray.forEach(element => console.log(element.id + ": " + element.principle));
+    //console.log('typeArray is size ' + typeArray.length);
+    //typeArray.forEach(element => console.log(element.id + ": " + element.principle));
     var s = new Array();
     typeArray.forEach(e => s.push(e.id));
     let max = Math.max(...s);
     let min = Math.min(...s);
-    console.log('s is ' + s + ' and max is ' + max + ' and min is ' + min);
+    //console.log('s is ' + s + ' and max is ' + max + ' and min is ' + min);
+    /*
+    if( id < min || id > max ) {
+        return false;
+    } else {
+        return true;
+    }
+    */
+    console.log( !( id < min || id > max ) );
+    return !( id < min || id > max );
 };
 
 function getPrinciplesObject( type ) {
