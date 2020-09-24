@@ -53,7 +53,7 @@ router.get('/:framework/:type/:id', function(req, res) {
     const id = req.params.id;
     
     if( !isNaN(id) ) {
-        if(db.isIDInRange(framework, id)) {
+        if(db.isIDInRange(framework, type, id)) {
             const principleObj = db.getPrincipleByID(framework, type, id);
             res.json({id: id, principle: principleObj.principle });
         } else {
