@@ -19,16 +19,16 @@ exports.getPrinciplesArray = function(framework, type) {
 function getPrinciplesArray(framework, type) {
     //console.log('in get prin obj export with framework ' + framework);
     const parray = getDataArray();
-    let frameworkArray = new Array();
+    let principlesArray = new Array();
     if(framework=='') {
-        frameworkArray = parray;
+        principlesArray = parray;
     } else {
         function isframework(o) {
             return o.framework == framework && o.type == type;
         }
-        frameworkArray = parray.filter( isframework );
+        principlesArray = parray.filter( isframework );
     }
-	return frameworkArray;
+	return principlesArray;
 };
 
 exports.getFrameworksArray = function() {
