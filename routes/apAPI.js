@@ -11,6 +11,12 @@ router.get('/', function(req, res) {
     res.json({ principlesArray: principlesArray });
 });
 
+/* GET types of agile principles json */
+router.get('/types/', function(req, res) {
+    const typesArray = db.getTypes();
+    res.json({ typesArray: typesArray });
+});
+
 /* GET one type of agile principles json */
 router.get('/types/:type', function(req, res) {
     //console.log('in router get /types/:type' );
