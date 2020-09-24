@@ -4,13 +4,12 @@ const db = require('../controllers/dataController');
 
 /* GET all agile principles json */
 router.get('/', function(req, res) {
-    //console.log('in router get /' );
+    console.log('in router get /' );
     const type = 'manifesto';
-    const principlesObj = db.getPrinciplesArray(type);
+    const principlesArray = db.getPrinciplesArray(type);
     //db.getTypes();
     //db.isIDInRange(type, 30);
-    
-    res.json({ principlesObject: principlesObj });
+    res.json({ principlesArray: principlesArray });
 });
 
 /* GET one type of agile principles json */
