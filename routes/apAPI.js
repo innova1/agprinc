@@ -7,8 +7,8 @@ router.get('/', function(req, res) {
     //console.log('in router get /' );
     const type = 'manifesto';
     const principlesObj = db.getPrinciplesArray(type);
-    db.getTypes();
-    db.isIDInRange(type, 30);
+    //db.getTypes();
+    //db.isIDInRange(type, 30);
     
     res.json({ principlesObject: principlesObj });
 });

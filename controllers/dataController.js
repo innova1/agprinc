@@ -2,8 +2,8 @@
 exports.getPrincipleByID = function(type, id) {
 	try {
 		//console.log('in get prin by id with id=' + id + ', type= ' + type);
-		if( id > 12 || id < 1 ) { id = '1'; console.log('changed id to ' + id); }
-		const p = getPrinciplesObject(type);
+		//if( id > 12 || id < 1 ) { id = '1'; console.log('changed id to ' + id); }
+		const parray = getPrinciplesArray(type);
 		var result = p[id].principle;
 		return result;
 	} catch (err) {
@@ -14,8 +14,12 @@ exports.getPrincipleByID = function(type, id) {
 exports.getPrinciplesArray = function(type) {
     //console.log('in get prin obj export with type ' + type);
 	//const p = getPrinciplesObject(type);
-    const p = getDataArray();
-	return p;
+    const parray = getDataArray();
+    function isType(o) {
+        return o.type == type;
+    }
+    const typeArray = parray.filter( isType );
+	return parray;
 };
 
 exports.getTypes = function() {
