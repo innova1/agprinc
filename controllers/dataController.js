@@ -31,7 +31,7 @@ function getPrinciplesArray(framework, type) {
 	return frameworkArray;
 };
 
-exports.getframeworksArray = function() {
+exports.getFrameworksArray = function() {
     //using a Set object so that duplicates are removed
     const p = getDataArray();
     const frameworks = new Set();
@@ -81,10 +81,10 @@ function getDataArray() {
     pObj[++i]  = { id: '10', type: 'principle', framework: 'manifesto', shortdescription: 'simplicity', principle: 'Simplicity--the art of maximizing the amount of work not done--is essential.' };
     pObj[++i]  = { id: '11', type: 'principle', framework: 'manifesto', shortdescription: 'design from the teams', principle: 'The best architectures, requirements, and designs emerge from self-organizing teams.' };
     pObj[++i]  = { id: '12', type: 'principle', framework: 'manifesto', shortdescription: 'continuous improvement', principle: 'At regular intervals, the team reflects on how to become more effective, then tunes and adjusts its behavior accordingly.' };
-    pObj[++i]  = { id: '1' , type: 'value', framework: 'manifesto', shortdescription: 'welcome change', principle: 'Welcome changing requirements, even late in development. Agile processes harness change for the customer\'s competitive advantage.' };
-    pObj[++i]  = { id: '2' , type: 'value', framework: 'manifesto', shortdescription: 'deliver frequently', principle: 'Deliver working software frequently, from a couple of weeks to a couple of months, with a preference to the shorter timescale.' };
-    pObj[++i]  = { id: '3' , type: 'value', framework: 'manifesto', shortdescription: 'daily with business', principle: 'Business people and developers must work together daily throughout the project.' };
-    pObj[++i]  = { id: '4' , type: 'value', framework: 'manifesto', shortdescription: 'motivated individuals', principle: 'Build projects around motivated individuals.  Give them the environment and support they need, and trust them to get the job done.' };
+    pObj[++i]  = { id: '1' , type: 'value', framework: 'manifesto', shortdescription: 'individuals and interactions', principle: 'Individuals and interactions over processes and tools' };
+    pObj[++i]  = { id: '2' , type: 'value', framework: 'manifesto', shortdescription: 'deliver frequently', principle: 'Working software over comprehensive documentation' };
+    pObj[++i]  = { id: '3' , type: 'value', framework: 'manifesto', shortdescription: 'collaboration', principle: 'Customer collaboration over contract negotiation' };
+    pObj[++i]  = { id: '4' , type: 'value', framework: 'manifesto', shortdescription: 'respond to change', principle: 'Responding to change over following a plan' };
     pObj[++i]  = { id: '1' , type: 'principle', framework: 'safe', shortdescription: 'economic view', principle: 'Take an economic view' };
     pObj[++i]  = { id: '2' , type: 'principle', framework: 'safe', shortdescription: 'systems thinking', principle: 'Apply systems thinking' };
     pObj[++i]  = { id: '3' , type: 'principle', framework: 'safe', shortdescription: 'variability', principle: 'Assume variability; preserve options' };

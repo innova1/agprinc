@@ -11,6 +11,11 @@ router.get('/', function(req, res) {
     res.json({ principlesArray: principlesArray });
 });
 
+/*
+possible new model
+agileframeworks/api/:framework/[principles|values]/:number
+*/
+
 /* GET frameworks of agile principles json */
 router.get('/frameworks/', function(req, res) {
     const frameworksArray = db.getframeworksArray();
