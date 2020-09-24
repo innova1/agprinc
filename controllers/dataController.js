@@ -45,7 +45,7 @@ exports.getTypes = function() {
     console.log( 'set is size of ' + types.size );
     const iterator2 = types.values();
     for( const a of iterator2 ) {
-        console.log( iterator2.next().value );
+        console.log( iterator2.value );
     }
     return types;
 };
