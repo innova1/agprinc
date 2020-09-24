@@ -65,7 +65,7 @@ function getTypeObj( type ) {
     }
     typeObj.types = a.filter( isType );
     typeObj.idArray = new Array();
-    typeArray.forEach( e => typeObj.idArray.push(e.id) );
+    typeObj.types.forEach( e => typeObj.idArray.push(e.id) );
     typeObj.max = Math.max(...typeObj.idArray);
     typeObj.min = Math.min(...typeObj.idArray);
     return typeObj;
