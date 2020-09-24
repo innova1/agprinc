@@ -26,8 +26,8 @@ exports.getTypes = function() {
     //let type = '';
     //let count = 0;
     for (const key of iterator ) {
-        console.log( 'adding ' + p[key] );
-        types.add( p[key] );
+        console.log( 'adding ' + p[key].type );
+        types.add( p[key].type );
         /*
         if( type == '' ) {  
             type = p[key].type;
