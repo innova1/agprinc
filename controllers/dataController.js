@@ -19,38 +19,24 @@ exports.getPrinciplesObj = function(type) {
 };
 
 exports.getTypes = function() {
-    const p = getDataObject();
+    const p = getDataArray();
     const types = new Set();
     const iterator = p.keys();
-    //const types = new Array();
-    //let type = '';
-    //let count = 0;
     for (const key of iterator ) {
-        console.log( 'adding ' + p[key].type );
         types.add( p[key].type );
-        /*
-        if( type == '' ) {  
-            type = p[key].type;
-            types[count] = type;
-        } else {
-            type = p[key].type;
-            console.log( 'about to comp ' + type + ' with ' + types[count] );
-            if( type != types[count] ) {
-               types[++count] = p[key].type;
-            }
-        }
-        */
-    }
-    //const iterator2 = types.keys();
-    console.log( 'set is size of ' + types.size );
-    const iterator2 = types.values();
-    for( let a of iterator2 ) {
-        console.log( a );
     }
     return types;
 };
 
 exports.isIDInRange = function(type, id) {
+    const a = getDataArray();
+    const typeArray = a.filter( t => t.type == type );
+    //test
+    let iterator = typeArray.entries();
+    for ( let a of iterator ) {
+        console.log( a );
+    }
+    /*
     if(type == 'manifesto' && (id < 1 || id > 12) ) {
         return false;
     } else if( type == 'safe' && (id < 1 || id > 10 )) {
@@ -58,6 +44,7 @@ exports.isIDInRange = function(type, id) {
     } else {
         return true;
     }
+    */
 };
 
 function getPrinciplesObject( type ) {
@@ -114,7 +101,7 @@ function getPrinciplesObject( type ) {
     return pObj;
 };
 
-function getDataObject() {
+function getDataArray() {
     let pObj = new Array();
     let i = 0;
     pObj[i]    = { id: '1' , type: 'manifesto', shortdescription: 'continuous delivery', principle: 'Our highest priority is to satisfy the customer through early and continuous delivery of valuable software.' };
