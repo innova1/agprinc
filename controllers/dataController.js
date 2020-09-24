@@ -43,30 +43,31 @@ exports.getTypesArray = function() {
 };
 
 exports.getNumbersArray = function( type ) {
-    const o = getTypeMaxMin( type );
+    const o = getTypeObj( type );
+    /*
     var s = new Array();
     o.types.forEach(e => s.push(e.id));
-    console.log('s is ' + s);
-    return s;
+    */
+    console.log('ids is ' + o.idArray);
+    return o.idArray;
 };
 
 exports.isIDInRange = function(type, id) {
-    const o = getTypeMaxMin(type);
+    const o = getTypeObj(type);
     return !( id < o.min || id > o.max );
 };
 
-function getTypeMaxMin( type ) {
+function getTypeObj( type ) {
     const typeObj = new Object();
     const a = getDataArray();
     function isType(o) {
         return o.type == type;
     }
-    const typeArray = a.filter( isType );
-    typeObj.types = typeArray;
-    var s = new Array();
-    typeArray.forEach( e => s.push(e.id) );
-    typeObj.max = Math.max(...s);
-    typeObj.min = Math.min(...s);
+    typeObj.types = a.filter( isType );
+    typeObj.idArray = new Array();
+    typeArray.forEach( e => typeObj.idArray.push(e.id) );
+    typeObj.max = Math.max(...typeObj.idArray);
+    typeObj.min = Math.min(...typeObj.idArray);
     return typeObj;
 };
 
