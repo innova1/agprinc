@@ -9,17 +9,18 @@ html
         $.ajax({
           url: 'http://agile.teaminnovationllc.com:3000/api/agileframeworks/', 
           success: function(r){
-            var count = 0;
-            var result = 'select\n';
-              result = result + 'each f in r.AFs\n';
-              result = result + '  li= ' + r.AFs[f];
+            result = '';
+            for( const f in r.AFs ) {
+              result = result + ', ' + r.AFs[f];
+            }
             $("#div1").html(result);
           }
         });
       });
   body
     #div1
-      h2 Let jQuery AJAX Change This Text  
+      h2 Let jQuery AJAX Change This Text   
+    p result #{'|'+result+'|'}
        
 
       
