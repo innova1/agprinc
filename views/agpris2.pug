@@ -7,7 +7,7 @@ html
     script.
       $(document).ready(function(){
         $.ajax({
-          url: 'http://agile.teaminnovationllc.com:3000/api/agileframeworks/', 
+          url: '/api/agileframeworks/', 
           success: function(result){
             const obj = JSON.parse(result);
             $("#div1").html(obj.AFs[0]);
