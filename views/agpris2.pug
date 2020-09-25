@@ -9,8 +9,7 @@ html
         $.ajax({
           url: '/api/agileframeworks/', 
           success: function(result){
-            const obj = JSON.parse(result);
-            $("#div1").html(obj.AFs[0]);
+            $("#div1").html(result);
           }
         });
       });
