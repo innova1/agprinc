@@ -7,7 +7,6 @@ html
     script.
       $(document).ready(function(){
         $.ajax({url: "http://agile.teaminnovationllc.com:3000/api/agileframeworks/", success: function(result){
-            result = result."Agile Frameworks";
             $("#div1").html(result);
         }});
       });
