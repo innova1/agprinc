@@ -11,7 +11,7 @@ router.get('/', function(req, res) {
     res.render('agpris', { "Agile Frameworks": frameworksArray });
 });
 
-* GET one framework of agile principles */
+/* GET one framework of agile principles */
 router.get('/:framework', function(req, res) {
     const framework = req.params.framework;
     //console.log('in router get /:framework with ' + framework );
