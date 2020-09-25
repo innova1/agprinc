@@ -8,7 +8,7 @@ router.get('/', function(req, res) {
     const frameworksArray = db.getFrameworksArray();
     //db.getframeworks();
     //db.isIDInRange(framework, 30);
-    res.render('agpris', { "Agile Frameworks": frameworksArray });
+    res.render('agpris', { title: 'Agile principles', "Agile Frameworks": frameworksArray });
 });
 
 /* GET one framework of agile principles */
