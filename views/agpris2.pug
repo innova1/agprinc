@@ -8,7 +8,12 @@ html
       $(document).ready(function(){
         $.ajax({
           url: 'http://agile.teaminnovationllc.com:3000/api/agileframeworks/', 
-          success: function(result){
+          success: function(r){
+            for( const f in r.AFs ) {
+              result = '<ul';
+              result = result + '<li>' + f + '</li>';
+              result = result + '</ul>'
+            }
             $("#div1").html(result.AFs.toString());
           }
         });
