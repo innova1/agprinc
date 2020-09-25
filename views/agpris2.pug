@@ -11,7 +11,7 @@ html
           success: function(r){
             var result = '<ul>';
             for( const f in r.AFs ) {
-              result = result + '<li>' + AFs[f] + '</li>';
+              result = result + '<li>' + r.AFs[f] + '</li>';
             }
             result = result + '</ul>';
             $("#div1").html(result);
