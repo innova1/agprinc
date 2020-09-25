@@ -9,11 +9,13 @@ html
         $.ajax({
           url: 'http://agile.teaminnovationllc.com:3000/api/agileframeworks/', 
           success: function(r){
+            var count;
             var result = '<select id="agileframeworks" name="agileframeworks">';
             for( const f in r.AFs ) {
+              count++;
               result = result + '<option value="' + r.AFs[f] + '">' + r.AFs[f] + '<option>';
             }
-            result = result + '</select>';
+            result = result + '</select>' + 'count is ' + count;
             $("#div1").html(result);
           }
         });
