@@ -4,7 +4,7 @@ const db = require('../controllers/dataController');
 
 /* GET all agile principles json */
 router.get('/', function(req, res) {
-    console.log('in router get /' );
+    //console.log('in router get /' );
     const frameworksArray = db.getFrameworksArray();
     console.log('in router get / with frameworks ' + frameworksArray );
     //db.getframeworks();
