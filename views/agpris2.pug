@@ -9,7 +9,7 @@ html
         $.ajax({
           url: 'http://agile.teaminnovationllc.com:3000/agileframeworks/api/', 
           success: function(result){
-            $("#div1").html(result.principle);
+            $("#div1").html("|"+result.principle+"|");
           }
         });
       });
