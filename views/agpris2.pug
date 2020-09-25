@@ -7,3 +7,15 @@ block content
   ol
     each p in principlesArray
         li= p.principle
+       
+    #div1
+      h2 Let jQuery AJAX Change This Text       
+       
+script.
+      $(document).ready(function(){
+        $.ajax({url: "http://agile.teaminnovationllc.com:3000/agileframeworks/", success: function(result){
+            $("#div1").html(result);
+        }});
+      });
+      
+
