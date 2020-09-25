@@ -10,12 +10,9 @@ html
           url: 'http://agile.teaminnovationllc.com:3000/api/agileframeworks/', 
           success: function(r){
             var count = 0;
-            var result = 'select';
-            for( const f in r.AFs ) {
-              count++;
-              result = result + '<option value="' + r.AFs[f] + '">' + r.AFs[f] + '<option>';
-            }
-            result = result + '</select>' + '--count is ' + count;
+            var result = 'select\n';
+              result = result + 'each f in r.AFs\n';
+              result = result + '  li= ' + r.AFs[f];
             $("#div1").html(result);
           }
         });
