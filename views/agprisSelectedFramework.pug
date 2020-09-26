@@ -1,5 +1,11 @@
 extends layout
 
+head
+  style.
+    td.type {
+      width=50;
+    }
+
 block content
   script(type='text/javascript').
     function gotoSelectedUrl() {
@@ -18,8 +24,8 @@ block content
   table
       each pv in principlesArray
         tr
-          td #{pv.type}
-          td #{pv.text}
+          td.type #{pv.type}
+          td.type #{pv.text}
       
       
       
