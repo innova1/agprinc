@@ -80,8 +80,8 @@ function comparePrinciplesSortById(a,b) {
 }
 
 function comparePrinciplesSortByType(a,b) {
-    if(a.type > b.type) return 1;
-    if(a.type < b.type) return -1;
+    if(a.type < b.type) return 1;
+    if(a.type > b.type) return -1;
     return 0;
 }
 
