@@ -14,10 +14,10 @@ block content
       - var varsel = f==framework?'selected':''
       option(value=f varsel) #{f}
   table
-  each pv in principlesArray
-    tr
-      td #{pv.type}
-      td #{pv.text}
+      each pv in principlesArray
+        tr
+          td #{pv.type}
+          td #{pv.text}
       
       
       
