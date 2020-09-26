@@ -3,6 +3,6 @@ extends layout
 block content
   h1= title
   select
-    option(1) 'choose a framework'
+    option(1) Choose a framework
     each f in frameworks
-      option(value=f.id) #{f}
+      option(value=f) #{f}
