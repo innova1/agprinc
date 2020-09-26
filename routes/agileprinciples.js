@@ -18,7 +18,7 @@ router.get('/:framework', function(req, res) {
     console.log('in router get /:framework with ' + framework );
     console.log('in router get /:framework with first frameworks principle ' + frameworksArray[0] );
     const principlesArray = db.getPrinciplesArray(framework, '');
-    console.log('in :framework ' + principlesArray[1].principle);
+    console.log('in :framework ' + principlesArray[1].text);
     res.render('agprisSelectedFramework', { title: 'Agile Principles', frameworks: frameworksArray, framework: framework, principlesArray: principlesArray });
 });
 
@@ -39,7 +39,7 @@ router.get('/:framework/:type/:id', function(req, res) {
     if( !isNaN(id) ) {
         if(db.isIDInRange(framework, type, id)) {
             const principleObj = db.getPrincipleByID(framework, type, id);
-            res.json({id: id, principle: principleObj.principle });
+            res.json({id: id, principle: principleObj.text });
         } else {
             res.render('agpris', {id: id, principle: "error: id out of range"});
         }

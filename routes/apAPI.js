@@ -58,7 +58,7 @@ router.get('/:framework/:type/:id', function(req, res) {
     if( !isNaN(id) ) {
         if(db.isIDInRange(framework, type, id)) {
             const principleObj = db.getPrincipleByID(framework, type, id);
-            res.json({id: id, principle: principleObj.principle });
+            res.json({id: id, principle: principleObj.text });
         } else {
             res.json({id: id, principle: "error: id out of range"});
         }
