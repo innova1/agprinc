@@ -12,7 +12,7 @@ block content
     option('choose') Choose a framework
     each f in frameworks
       - var varsel = f==framework?'selected':''
-      option(value=f varsel) #{f}
+      option(value=f #{varsel}) #{f}
   table
       each pv in principlesArray
         tr
