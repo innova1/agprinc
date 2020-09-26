@@ -11,7 +11,8 @@ block content
   select(id='chooseFramework' onchange='javascript:gotoSelectedUrl()')
     option('choose') Choose a framework
     each f in frameworks
-      option(value=f - (f==framework?selected:'')) #{f}
+      - var varsel = f==framework?'selected':''
+      option(value=f varsel)) #{f}
   table
   each pv in principlesArray
     tr
