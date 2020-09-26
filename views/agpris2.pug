@@ -2,7 +2,7 @@ extends layout
 
 block content
   h1= title
-  select
-    option('choose' onchange='./hello') Choose a framework
+  select(onchange='./manifesto')
+    option('choose') Choose a framework
     each f in frameworks
       option(value=f) #{f}
