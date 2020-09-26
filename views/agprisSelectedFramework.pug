@@ -12,5 +12,14 @@ block content
     option('choose') Choose a framework
     each f in frameworks
       option(value=f) #{f}
+  table(style='width=100%', border='1')
   each pv in principlesArray
-    p #{pv.text}
+    tr
+      th type
+      th text
+    tr
+      td #{pv.type}
+      td #{pv.text}
+      
+      
+      
