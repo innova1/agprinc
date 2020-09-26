@@ -26,7 +26,8 @@ function getPrinciplesArray(framework, type) {
             return o.framework == framework;
         }
         principlesArray = parray.filter( isFramework );
-        principlesArray.sort(comparePrinciplesSort);
+        principlesArray.sort(comparePrinciplesSortById);
+        principlesArray.sort(comparePrinciplesSortByType);
     } else {
         function isMatchFrameworkAndType(o) {
             return o.framework == framework && o.type == type.substring(0,type.length-1);
@@ -72,9 +73,15 @@ function getSingleFrameworkTypeIdObj( framework, type, id ) {
     return singleframeworkObj;
 };
 
-function comparePrinciplesSort(a,b) {
-    if(a.id > b.id) return 1;
-    if(a.id < b.id) return -1;
+function comparePrinciplesSortById(a,b) {
+    if(Number(a.id) > Number(b.id)) return 1;
+    if(Number(a.id) < Number(b.id)) return -1;
+    return 0;
+}
+
+function comparePrinciplesSortByType(a,b) {
+    if(a.type > b.type) return 1;
+    if(a.type < b.type) return -1;
     return 0;
 }
 
