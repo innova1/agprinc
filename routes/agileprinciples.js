@@ -8,16 +8,18 @@ router.get('/', function(req, res) {
     const frameworksArray = db.getFrameworksArray();
     //db.getframeworks();
     //db.isIDInRange(framework, 30);
-    res.render('agpris2', { title: 'Agile principles', "frameworks": frameworksArray });
+    res.render('agpris2', { title: 'Agile principles', frameworks: frameworksArray });
 });
 
 /* GET one framework of agile principles */
 router.get('/:framework', function(req, res) {
     const framework = req.params.framework;
-    //console.log('in router get /:framework with ' + framework );
+    const frameworksArray = db.getFrameworksArray();
+    console.log('in router get /:framework with ' + framework );
+    console.log('in router get /:framework with ' + frameworksArray[1].principle );
     const principlesArray = db.getPrinciplesArray(framework, '');
-    //console.log('in :framework ' + principlesArray[1].principle);
-    res.render('agprisSelectedFramework', { title: 'Agile Principles', framework: framework, principlesArray: principlesArray });
+    console.log('in :framework ' + principlesArray[1].principle);
+    res.render('agprisSelectedFramework', { title: 'Agile Principles', frameworks: frameworksArray, framework: framework, principlesArray: principlesArray });
 });
 
 router.get('/:framework/:type', function(req, res) {
