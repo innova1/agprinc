@@ -2,7 +2,7 @@ extends layout
 
 block content
   h1= title
-  select(id='chooseFramework' onchange='javascript:var sel = document.getElementById("chooseFramework"); alert(sel.value);')
+  select(id='chooseFramework' onchange='javascript:var sel=document.getElementById("chooseFramework"); widow.location="/" + sel.value);')
     option('choose') Choose a framework
     each f in frameworks
       option(value=f) #{f}
