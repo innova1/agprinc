@@ -2,12 +2,13 @@ extends layout
 
 block content
   script(type='text/javascript').
-    function goto(url) {
-      alert(url);
+    function gotoSelectedUrl() {
+      var sel=document.getElementById("chooseFramework"); 
+      window.location="/" + sel.value;
     }
   h1= title
   //select(id='chooseFramework' onchange='javascript:var sel=document.getElementById("chooseFramework"); window.location="/" + sel.value;')
-  select(id='chooseFramework' onchange='javascript:goto("howdy")')
+  select(id='chooseFramework' onchange='javascript:gotoSelectedUrl()')
     option('choose') Choose a framework
     each f in frameworks
       option(value=f) #{f}
