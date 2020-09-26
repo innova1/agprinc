@@ -1,8 +1,12 @@
 extends layout
 
 block content
+  - function goto(url) {
+        alert(url);
+  }
   h1= title
-  select(id='chooseFramework' onchange='javascript:var sel=document.getElementById("chooseFramework"); widow.location="/" + sel.value;')
+  //select(id='chooseFramework' onchange='javascript:var sel=document.getElementById("chooseFramework"); window.location="/" + sel.value;')
+  select(id='chooseFramework' onchange='javascript:goto("howdy")')
     option('choose') Choose a framework
     each f in frameworks
       option(value=f) #{f}
