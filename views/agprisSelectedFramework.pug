@@ -1,7 +1,7 @@
 extends layout
 
 block content
-  h1= title for #{f} framework
+  h1 #{title} for #{f} framework
   each f in frameworks
     //if f==framework
     a.menu(href='/agileframeworks/' + f) #{f}
