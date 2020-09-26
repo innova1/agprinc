@@ -1,13 +1,7 @@
 extends layout
 
 block content
-  script(type='text/javascript').
-    function gotoSelectedUrl(fwk) {
-      var sel=document.getElementById("chooseFramework"); 
-      window.location='/agileframeworks/' + sel.value;
-    }
   h1= title for #{f} framework
-  //select(id='chooseFramework' onchange='javascript:var sel=document.getElementById("chooseFramework"); window.location="/" + sel.value;')
   each f in frameworks
     //if f==framework
     a.menu(href='/agileframeworks/' + f) #{f}
