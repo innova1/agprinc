@@ -9,10 +9,8 @@ block content
   h1= title
   //select(id='chooseFramework' onchange='javascript:var sel=document.getElementById("chooseFramework"); window.location="/" + sel.value;')
   each f in frameworks
-    if f==framework
-      a: onclick='javascript:gotoSelectedUrl(f)' f
-    else
-      option(value=f) #{f}
+    //if f==framework
+    a: onclick='javascript:gotoSelectedUrl(f)' f
   table
       each pv in principlesArray
         tr
