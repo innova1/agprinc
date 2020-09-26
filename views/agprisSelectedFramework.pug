@@ -11,15 +11,12 @@ block content
   select(id='chooseFramework' onchange='javascript:gotoSelectedUrl()')
     option('choose') Choose a framework
     each f in frameworks
-      option(value=f) #{f}
+      option(value=f - (f==framework?selected:'')) #{f}
   table
+  each pv in principlesArray
     tr
-      th type
-      th text
-      each pv in principlesArray
-        tr
-          td #{pv.type}
-          td #{pv.text}
+      td #{pv.type}
+      td #{pv.text}
       
       
       
