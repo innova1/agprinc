@@ -16,7 +16,7 @@ router.get('/:framework', function(req, res) {
     const framework = req.params.framework;
     const frameworksArray = db.getFrameworksArray();
     console.log('in router get /:framework with ' + framework );
-    console.log('in router get /:framework with ' + frameworksArray[1].principle );
+    console.log('in router get /:framework with first frameworks principle ' + frameworksArray[0] );
     const principlesArray = db.getPrinciplesArray(framework, '');
     console.log('in :framework ' + principlesArray[1].principle);
     res.render('agprisSelectedFramework', { title: 'Agile Principles', frameworks: frameworksArray, framework: framework, principlesArray: principlesArray });
