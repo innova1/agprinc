@@ -26,11 +26,12 @@ function getPrinciplesArray(framework, type) {
             return o.framework == framework;
         }
         principlesArray = parray.filter( isFramework );
+        principlesArray.sort(comparePrinciplesSort);
     } else {
-        function isFrameworkAndType(o) {
+        function isMatchFrameworkAndType(o) {
             return o.framework == framework && o.type == type.substring(0,type.length-1);
         }
-        principlesArray = parray.filter( isFrameworkAndType );
+        principlesArray = parray.filter( isMatchFrameworkAndType );
     }
     //console.log('about to export prin array with length ' + principlesArray.length);
 	return principlesArray;
@@ -70,6 +71,12 @@ function getSingleFrameworkTypeIdObj( framework, type, id ) {
     singleframeworkObj.min = Math.min(...singleframeworkObj.idArray);
     return singleframeworkObj;
 };
+
+function comparePrinciplesSort(a,b) {
+    if(a.id > b.id) return 1;
+    if(a.id < b.id) return -1;
+    return 0;
+}
 
 function getDataArray() {
     let pObj = new Array();
