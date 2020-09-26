@@ -13,13 +13,13 @@ block content
     each f in frameworks
       option(value=f) #{f}
   table(style='width=100%', border='1')
-  each pv in principlesArray
-    tr
-      th type
-      th text
-    tr
-      td #{pv.type}
-      td #{pv.text}
+      each pv in principlesArray
+        tr
+          th type
+          th text
+        tr
+          td #{pv.type}
+          td #{pv.text}
       
       
       
