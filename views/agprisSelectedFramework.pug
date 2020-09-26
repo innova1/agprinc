@@ -12,4 +12,5 @@ block content
     option('choose') Choose a framework
     each f in frameworks
       option(value=f) #{f}
-  p list frameworkprinciples here
+  each pv in principlesArray
+    p principle #{pv}
