@@ -2,17 +2,20 @@ extends layout
 
 block content
   script(type='text/javascript').
-    function gotoSelectedUrl(fwk) {
+    function gotoSelectedUrl() {
       var sel=document.getElementById("chooseFramework"); 
       window.location='/agileframeworks/' + sel.value;
     }
   h1= title
   //select(id='chooseFramework' onchange='javascript:var sel=document.getElementById("chooseFramework"); window.location="/" + sel.value;')
-  each f in frameworks
-    if f==framework
-      a: onclick='javascript:gotoSelectedUrl(f)' f
-    else
-      option(value=f) #{f}
+/*select(id='chooseframework' onchange='javascript:gotoSelectedUrl()')
+    option('choose') Choose a framework
+    each f in frameworks
+      if f==framework
+        option(value=f selected='true') #{f}
+      else
+        option(value=f) #{f}
+*/
   table
       each pv in principlesArray
         tr
