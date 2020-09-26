@@ -10,7 +10,7 @@ block content
   //select(id='chooseFramework' onchange='javascript:var sel=document.getElementById("chooseFramework"); window.location="/" + sel.value;')
   each f in frameworks
     //if f==framework
-    a.menu(href='' onclick='javascript:gotoSelectedUrl(#{f})') #{f}
+    a.menu(href='' onclick='javascript:gotoSelectedUrl(=f)') #{f}
   table
       each pv in principlesArray
         tr
