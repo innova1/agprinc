@@ -7,9 +7,9 @@ block content
     h1 #{title} for #{f} the #{framework} framework
     table
       each pv in principlesArray
-        tr(class='value')
-          td.type(class='value') #{pv.type}
-          td.text(class='value') #{pv.id}: #{pv.text}
+        tr(class=pv.type)
+          td.type(class=pv.type) #{pv.type}
+          td.text(class=pv.type) #{pv.id}: #{pv.text}
       
       
       
