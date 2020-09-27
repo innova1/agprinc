@@ -44,7 +44,7 @@ exports.getFrameworksArray = function() {
     const frameworks = new Set();
     const iterator = p.keys();
     for (const key of iterator ) {
-        frameworks.add( new object() { frameworkdisplay: p[key].frameworkdisplay, framework: p[key].framework } );
+        frameworks.add( { frameworkdisplay: p[key].frameworkdisplay, framework: p[key].framework } );
     }
     return Array.from(frameworks);
 };
