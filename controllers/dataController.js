@@ -41,10 +41,14 @@ function getPrinciplesArray(framework, type) {
 exports.getFrameworksArray = function() {
     //using a Set object so that duplicates are removed
     const p = getDataArray();
-    const frameworks = new Set();
+    const s = new Set();
+    const frameworks = new Array();
     const iterator = p.keys();
     for (const key of iterator ) {
-        frameworks.add( { frameworkdisplay: p[key].frameworkdisplay, framework: p[key].framework } );
+        if(!s.contains(p[key].framework) {
+           frameworks.add( { framekwork: p[key].framework, frameworkdisplay: p[key].frameworkdisplay } )
+        }
+        s.add( p[key].framework );
     }
     return Array.from(frameworks);
 };

@@ -3,7 +3,7 @@ extends layout
 block content
   h1 #{title} for #{f} the #{framework} framework
   each f in frameworks
-    a.menu(href='/agileframeworks/' + f) #{f}
+    a.menu(href='/agileframeworks/' + f.framework) #{f.frameworkdisplay}
   table
       each pv in principlesArray
         tr
