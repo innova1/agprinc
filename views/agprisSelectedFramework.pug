@@ -3,7 +3,6 @@ extends layout
 block content
   h1 #{title} for #{f} the #{framework} framework
   each f in frameworks
-    //if f==framework
     a.menu(href='/agileframeworks/' + f) #{f}
   table
       each pv in principlesArray
