@@ -45,7 +45,7 @@ exports.getFrameworksArray = function() {
     const frameworks = new Array();
     const iterator = p.keys();
     for (const key of iterator ) {
-        if(!s.contains(p[key].framework)) {
+        if(!s.has(p[key].framework)) {
            frameworks.add( { framework: p[key].framework, frameworkdisplay: p[key].frameworkdisplay } )
         }
         s.add( p[key].framework );
