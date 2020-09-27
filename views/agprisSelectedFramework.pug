@@ -1,12 +1,12 @@
 extends layout
 
 block content
-    div#outer
-        div#menu
-            each f in frameworks
-            a.menu(href='/agileframeworks/' + f.framework) #{f.frameworkdisplay}
-        h1 #{title} for #{f} the #{framework} framework
-        table
-            each pv in principlesArray
-            tr(class=pv.type)
-                td.text(class=pv.type) #{pv.id}: #{pv.text}
+  div#outer
+    div#menu
+      each f in frameworks
+        a.menu(href='/agileframeworks/' + f.framework) #{f.frameworkdisplay}
+      h1 #{title} for #{f} the #{framework} framework
+      table
+        each pv in principlesArray
+          tr(class=pv.type)
+            td.text(class=pv.type) #{pv.id}: #{pv.text}
