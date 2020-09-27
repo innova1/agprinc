@@ -45,12 +45,12 @@ exports.getFrameworksArray = function() {
     const frameworks = new Array();
     const iterator = p.keys();
     for (const key of iterator ) {
-        if(!s.contains(p[key].framework) {
-           frameworks.add( { framekwork: p[key].framework, frameworkdisplay: p[key].frameworkdisplay } )
+        if(!s.contains(p[key].framework)) {
+           frameworks.add( { framework: p[key].framework, frameworkdisplay: p[key].frameworkdisplay } )
         }
         s.add( p[key].framework );
     }
-    return Array.from(frameworks);
+    return frameworks;
 };
 
 exports.getNumbersArray = function( framework ) {
