@@ -7,7 +7,7 @@ block content
     h1 #{title} for #{f} the #{framework} framework
     table
       each pv in principlesArray
-        tr
+        tr(class='value')
           td.type(class='value') #{pv.type}
           td.text(class='value') #{pv.id}: #{pv.text}
       
