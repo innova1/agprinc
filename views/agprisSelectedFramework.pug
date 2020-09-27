@@ -4,12 +4,12 @@ block content
     div#menu
       each f in frameworks
         a.menu(href='/agileframeworks/' + f.framework) #{f.frameworkdisplay}
-      h1 #{title} for #{f} the #{framework} framework
-      table
-          each pv in principlesArray
-            tr
-              td.type #{pv.type}
-              td.text #{pv.id}: #{pv.text}
+  h1 #{title} for #{f} the #{framework} framework
+  table
+      each pv in principlesArray
+        tr
+          td.type #{pv.type}
+          td.text #{pv.id}: #{pv.text}
       
       
       
