@@ -5,8 +5,8 @@ block content
     form(action='/', method='GET')
       p 
         | search terms 
-          input(type='text', name='title', value='')  
-          input(type='submit', value='Submit')
+        input(type='text', name='title', value='')  
+        input(type='submit', value='Submit')
     div#menu
       each f in frameworks
         a.menu(href='/agileframeworks/' + f.framework) #{f.frameworkdisplay}
