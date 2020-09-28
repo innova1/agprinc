@@ -24,6 +24,21 @@ router.get('/:framework', function(req, res) {
     res.render('agprisSelectedFramework', { title: 'Agile Principles', frameworks: frameworksArray, framework: framework, principlesArray: principlesArray, searchMap: searchMap });
 });
 
+/* search */
+router.get(':framework?:searchterms') {
+    const searchterms = req.params.searchterms;
+    console.log('in search with ' + searchterms);
+    const framework = req.params.framework;
+    const frameworksArray = db.getFrameworksArray();
+    //console.log('in router get /:framework with ' + framework );
+    //console.log('in router get /:framework with first frameworks principle ' + frameworksArray[0] );
+    const principlesArray = db.getPrinciplesArray(framework, '');
+    const searchMap = db.getSearchMap(); 
+    //console.log('in router: len is ' + searchMap.length);
+    //console.log('in :framework ' + principlesArray[1].text);
+    //res.render('agprisSelectedFramework', { title: 'Agile Principles', frameworks: frameworksArray, framework: framework, principlesArray: principlesArray, searchMap: searchMap });
+}
+
 router.get('/:framework/:type', function(req, res) {
     const framework = req.params.framework;
     const type = req.params.type;

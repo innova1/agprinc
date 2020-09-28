@@ -25,6 +25,7 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/api/agileframeworks/', agprisApiRouter);
 app.use('/agileframeworks/', agprisRouter);
+app.use('/agileframeworks/:framework?', agprisRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
