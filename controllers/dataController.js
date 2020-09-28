@@ -196,6 +196,7 @@ function createSearchMap() {
     var tempArray = new Array(); //temporary holding tank of keywords to be tested and added if not already there. if already there, then just add location to the end of the item on the search array
     var locationObj = new Object();
     var searchObj = new Object();
+    const debug = true;
 
     for( const a of dataArray ) {
       //get the keywords from each a entry
@@ -205,18 +206,18 @@ function createSearchMap() {
       tempArray = a.keywords;
       if(tempArray) {
         for( const kwd of tempArray ) {
-          console.log('looking at object with keyword ' + kwd);
+          if(debug) { console.log('looking at object with keyword ' + kwd); }
           searchObj = searchMap.get(kwd);
           if(!searchObj) { //the keyword is not already in the map, then add
-            console.log('keywork ' + kwd + ' not already in search obj');
+            if(debug) { console.log('keywork ' + kwd + ' not already in search obj'); }
             locationObj = { framework: a.framework, type: a.type, id: a.id };
             var locations = new Array();
             locations.push(locationObj);
             searchObj = { keyword: kwd, locations: locations };
             searchMap.set(kwd, searchObj);
-            console.log('added location ' + a.framework + ':' + a.type + ':' + a.id + ' to new search object ' + searchObj.keyword)
+            if(debug) { console.log('added location ' + a.framework + ':' + a.type + ':' + a.id + ' to new search object ' + searchObj.keyword); }
           } else { //add location to existing
-            console.log('adding location ' + a.framework + ':' + a.type + ':' + a.id + ' to existing search object ' + searchObj.keyword);
+            if(debug) { console.log('adding location ' + a.framework + ':' + a.type + ':' + a.id + ' to existing search object ' + searchObj.keyword); }
             locationObj = { framework: a.framework, type: a.type, id: a.id };
             searchObj.locations.push(locationObj);
           }
