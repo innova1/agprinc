@@ -10,7 +10,7 @@ block content
     div#menu
       each f in frameworks
         a.menu(href='/agileframeworks/' + f.framework) #{f.frameworkdisplay}
-    h1 #{title} for #{f} the #{framework} framework
+    h1 #{title} for #{f} the #{frameworkdisplay} framework
     table
       each pv in principlesArray
         tr(class=pv.type)
