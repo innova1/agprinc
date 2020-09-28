@@ -196,7 +196,7 @@ function createSearchMap() {
     var tempArray = new Array(); //temporary holding tank of keywords to be tested and added if not already there. if already there, then just add location to the end of the item on the search array
     var locationObj = new Object();
     var searchObj = new Object();
-    const debug = false;
+    const debug = true;
 
     for( const a of dataArray ) {
       //get the keywords from each a entry
@@ -222,6 +222,8 @@ function createSearchMap() {
             searchObj.locations.push(locationObj);
           }
         }
+      } else {
+        if(debug) { console.log('skipping ' + a.id ); }
       }
     }
     return searchMap;
