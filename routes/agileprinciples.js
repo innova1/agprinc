@@ -29,7 +29,7 @@ router.get('/:framework', function(req, res) {
 router.get('/:framework/search', function(req, res) {
     const framework = req.params.framework;
     //const searchterms = req.query.searchterms;
-	const searchterms = [customer,development];
+	const searchterms = ['customer','development'];
     console.log('in search with framework-' + framework + ' and searchterms-' + searchterms);
     const frameworksArray = db.getFrameworksArray();
     //console.log('in router get /:framework with ' + framework );
