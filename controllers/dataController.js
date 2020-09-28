@@ -243,13 +243,15 @@ function searchForKeywords( searchTerms ) {
   	const searchMap = createSearchMap();
     var foundIndexes = new Array();
     var locations = new Array();
-  	var searchObj = searchMap.get(searchTerms[0]);
-    if(searchObj) {
-	  locations = searchObj.locations;
-	  for( const l of locations ) {
-		if( foundIndexes.indexOf(l.index) == -1 ) {
-		  foundIndexes.push(l.index);
-	  	  foundItems.push(dataArray[l.index]);
+    for( const searchTerm of searchTerms ) {
+	  var searchObj = searchMap.get(searchTerm);
+	  if(searchObj) {
+		locations = searchObj.locations;
+		for( const l of locations ) {
+		  if( foundIndexes.indexOf(l.index) == -1 ) {
+			foundIndexes.push(l.index);
+			foundItems.push(dataArray[l.index]);
+		  }
 		}
 	  }
 	}
