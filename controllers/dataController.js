@@ -197,17 +197,17 @@ function createSearchArray() {
     var tempArray = new Array();
 
     for( const key of iterator ) {
-        if(!tempArray) {
+        if(tempArray.length == 0) {
           tempArray = tempArray.concat(a[key].keywords)
         } else {
-        tempArray = a[key].keywords;
-        const keywordIterator = tempArray.entries();
-        for ( const k of keywordIterator ) {
-          if( !searchArray.includes(k) ) {
-            searchArray.push(k);
+          tempArray = a[key].keywords;
+          const keywordIterator = tempArray.entries();
+          for ( const k of keywordIterator ) {
+            if( !searchArray.includes(k) ) {
+              searchArray.push(k);
+            }
           }
-        }
-      }
+       }
     }
     return searchArray;
 }
