@@ -201,13 +201,14 @@ function createSearchMap() {
     var locationObj = new Object();
     var searchObj = new Object();
     const debug = true;
+    var index = -1;
 
     for( const a of dataArray ) {
+	  index++
       //get the keywords from each a entry
       //go through and see if keyword is in the map
       //if yes, add location to the map object
       //if no, add new map entry with location in object
-	  if(debug) { console.log('array key is ' + a.index )};
       tempArray = a.keywords;
       if(tempArray) {
         for( const kwd of tempArray ) {
@@ -215,7 +216,7 @@ function createSearchMap() {
           searchObj = searchMap.get(kwd);
           if(!searchObj) { //the keyword is not already in the map, then add
             if(debug) { console.log('keywork ' + kwd + ' not already in search obj'); }
-            locationObj = { framework: a.framework, type: a.type, id: a.id };
+            locationObj = { index: index, framework: a.framework, type: a.type, id: a.id };
             var locations = new Array();
             locations.push(locationObj);
             searchObj = { keyword: kwd, locations: locations };
@@ -223,7 +224,7 @@ function createSearchMap() {
             if(debug) { console.log('added location ' + a.framework + ':' + a.type + ':' + a.id + ' to new search object ' + searchObj.keyword); }
           } else { //add location to existing
             if(debug) { console.log('adding location ' + a.framework + ':' + a.type + ':' + a.id + ' to existing search object ' + searchObj.keyword); }
-            locationObj = { framework: a.framework, type: a.type, id: a.id };
+            locationObj = { index: index, framework: a.framework, type: a.type, id: a.id };
             searchObj.locations.push(locationObj);
           }
         }
@@ -237,17 +238,18 @@ function createSearchMap() {
 function searchForKeywords( searchTerms ) {
     const debug = true;
     if(debug) { console.log('in searchForKeywords with ' + searchTerms)};
+    const dataArray = getDataArray();
     const foundItems = new Array();
   	const searchMap = createSearchMap();
     var locations = new Array();
   	var searchObj = searchMap.get(searchTerms[0]);
     if(searchObj) {
 	  locations = searchObj.locations;
-	  foundItems.push(locations[0]);
+	  for( const l of locations ) {
+	  	foundItems.push(dataArray(l.index));
+	  }
 	}
     if(debug) { console.log('first found item is ' + foundItems[0].framework) };
-  
-  	const dataArray = getDataArray(); 
   
     return foundItems;
 }
