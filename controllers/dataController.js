@@ -207,9 +207,9 @@ function createSearchArray() {
           tempArray = a[key].keywords;
           const entryIterator = tempArray.entries();
           for ( const e of entryIterator ) {
-            console.log('checking in searchArray for ' + e);
-            if( !searchArray.includes(e) ) {
-              searchArray.push(e);
+            console.log('checking in searchArray for ' + e.value);
+            if( !searchArray.includes(e.value) ) {
+              searchArray.push(e.value);
             }
           }
        }
