@@ -64,7 +64,7 @@ exports.isIDInRange = function( framework, type, id ) {
 };
 
 exports.getSearchArray = function() {
-    return createSearchArray();
+    return createSearchMap();
 }
 
 function getSingleFrameworkTypeIdObj( framework, type, id ) {
@@ -190,7 +190,7 @@ function getDataArray() {
 		if yes, then add this pointer to the array in the object
 		if no, then create the object and add to the array
 */
-function createSearchArray() {
+function createSearchMap() {
   	const dataArray = getDataArray(); //full data array of all values and principle objects
     var searchMap = new Map(); //Map being built of a list of objects with keyword and location of the word
     var tempArray = new Array(); //temporary holding tank of keywords to be tested and added if not already there. if already there, then just add location to the end of the item on the search array
