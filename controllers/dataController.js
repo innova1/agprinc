@@ -213,7 +213,8 @@ function createSearchMap() {
             searchObj = { keyword: kwd, locations: locations };
             searchMap.set(kwd, searchObj);
           } else { //add location to existing
-            ; //implement next
+            locationObj = { framework: a.framework, type: a.type, id: a.id };
+            searchObj.locations.push(locationObj);
           }
         }
       }
