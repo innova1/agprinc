@@ -257,7 +257,7 @@ function searchForKeywords( searchTerms ) {
 		}
 	  }
 	}
-    if(debug && foundItems) { console.log('first found item is ' + foundItems[0].framework) } else { console.log('none found') };
+    if(debug && foundItems[0]) { console.log('first found item is ' + foundItems[0].framework) } else { console.log('none found') };
   
     return foundItems;
 }
