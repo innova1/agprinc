@@ -252,7 +252,7 @@ function searchForKeywords( searchTerms ) {
 			foundIndexes.push(l.index);
 			foundItems.push(dataArray[l.index]);
 		  } else {
-			if(debug) { console.log('skipping ' + l.index + ' because already added') };
+			if(debug) { console.log('skipping ' + dataArray[l.index].shortdescription + ' because already added') };
 		  }
 		}
 	  }
