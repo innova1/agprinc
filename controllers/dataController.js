@@ -96,8 +96,8 @@ function comparePrinciplesSortByType(a,b) {
 function getDataArray() {
     let pObj = new Array();
     let i = 0;
-    pObj[i]    = { id: '1' , type: 'principle', frameworkdisplay: 'Manifesto', framework: 'manifesto', shortdescription: 'continuous delivery', text: 'Our highest priority is to satisfy the customer through early and continuous delivery of valuable software.' };
-    pObj[++i]  = { id: '2' , type: 'principle', frameworkdisplay: 'Manifesto', framework: 'manifesto', shortdescription: 'welcome change', text: 'Welcome changing requirements, even late in development. Agile processes harness change for the customer\'s competitive advantage.' };
+    pObj[i]    = { id: '1' , type: 'principle', frameworkdisplay: 'Manifesto', framework: 'manifesto', shortdescription: 'continuous delivery', text: 'Our highest priority is to satisfy the customer through early and continuous delivery of valuable software.', keywords: ['customer', 'early', 'continuous', 'delivery', 'valuable', 'software'] };
+    pObj[++i]  = { id: '2' , type: 'principle', frameworkdisplay: 'Manifesto', framework: 'manifesto', shortdescription: 'welcome change', text: 'Welcome changing requirements, even late in development. Agile processes harness change for the customer\'s competitive advantage.', keywords: [ 'changing', 'requirements', 'late', 'development', 'change', "customer's", 'competitive', 'advantage'] };
     pObj[++i]  = { id: '3' , type: 'principle', frameworkdisplay: 'Manifesto', framework: 'manifesto', shortdescription: 'deliver frequently', text: 'Deliver working software frequently, from a couple of weeks to a couple of months, with a preference to the shorter timescale.' };
     pObj[++i]  = { id: '4' , type: 'principle', frameworkdisplay: 'Manifesto', framework: 'manifesto', shortdescription: 'daily with business', text: 'Business people and developers must work together daily throughout the project.' };
     pObj[++i]  = { id: '5' , type: 'principle', frameworkdisplay: 'Manifesto', framework: 'manifesto', shortdescription: 'motivated individuals', text: 'Build projects around motivated individuals.  Give them the environment and support they need, and trust them to get the job done.' };
@@ -212,8 +212,8 @@ function getPrinciplesObject( framework ) {
     //console.log('in get principles function with framework ' + framework);
     let pObj = new Object();
     if( framework == 'manifesto') {
-        pObj['1']  = { type: 'principle', framework: 'manifesto', shortdescription: 'continuous delivery', principle: 'Our highest priority is to satisfy the customer through early and continuous delivery of valuable software.', keywords: ['customer', 'early', 'continuous', 'delivery', 'valuable', 'software'] };
-        pObj['2']  = { type: 'principle', framework: 'manifesto', shortdescription: 'welcome change', principle: 'Welcome changing requirements, even late in development. Agile processes harness change for the customer\'s competitive advantage.', keywords: [ 'changing', 'requirements', 'late', 'development', 'change', "customer's", 'competitive', 'advantage'] };
+        pObj['1']  = { type: 'principle', framework: 'manifesto', shortdescription: 'continuous delivery', principle: 'Our highest priority is to satisfy the customer through early and continuous delivery of valuable software.'};
+        pObj['2']  = { type: 'principle', framework: 'manifesto', shortdescription: 'welcome change', principle: 'Welcome changing requirements, even late in development. Agile processes harness change for the customer\'s competitive advantage.'};
         pObj['3']  = { type: 'principle', framework: 'manifesto', shortdescription: 'deliver frequently', principle: 'Deliver working software frequently, from a couple of weeks to a couple of months, with a preference to the shorter timescale.' };
         pObj['4']  = { type: 'principle', framework: 'manifesto', shortdescription: 'daily with business', principle: 'Business people and developers must work together daily throughout the project.' };
         pObj['5']  = { type: 'principle', framework: 'manifesto', shortdescription: 'motivated individuals', principle: 'Build projects around motivated individuals.  Give them the environment and support they need, and trust them to get the job done.' };
