@@ -67,6 +67,10 @@ exports.getSearchMap = function() {
     return createSearchMap();
 }
 
+exports.getMatchedItems = function( searchTerms ) {
+    return searchForKeywords( searchTerms );
+}
+
 function getSingleFrameworkTypeIdObj( framework, type, id ) {
     const singleframeworkObj = new Object();
     const a = getDataArray();
@@ -227,6 +231,21 @@ function createSearchMap() {
       }
     }
     return searchMap;
+}
+
+function searchForKeywords( searchTerms ) {
+    const debug = true;
+    if(debug) { console.log('in searchForKeywords')};
+    const foundItems = new Array();
+  	const searchMap = createSearchMap();
+    var locations = new Array();
+  	var searchObj = searchMap.get(searchTerms[0]);
+    if(searchObj) {
+	  locations = searchObj.locations;
+	  foundItems.push(locations[0]);
+	}
+    if(debug) { console.log('first found item is ' + foundItems[0]) };
+    return foundItems;
 }
 
 /*
