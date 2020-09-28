@@ -12,4 +12,4 @@ block content
           td.text(class=pv.type) #{pv.id}: #{pv.text}
     p first item of search array is 
     p #{searchMap.get('customer').keyword}
-    p #{searchMap.get('continuous').locations[0].framework}
+    p found in framework: #{searchMap.get('continuous').locations[0].framework} of type: #{searchMap.get('continuous').locations[0].type} with id: #{searchMap.get('continuous').locations[0].id}
