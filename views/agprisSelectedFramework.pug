@@ -6,8 +6,8 @@ block content
       each f in frameworks
         a.menu(href='/agileframeworks/' + f.framework) #{f.frameworkdisplay}
       form(action='/', method='GET')
-        input(type='text', name='title', value='')
-          search terms
+        p search terms input(type='text', name='title', value='')
+          
         input(type='submit', value='Submit')
     h1 #{title} for #{f} the #{framework} framework
     table
