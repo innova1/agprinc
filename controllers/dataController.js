@@ -210,11 +210,11 @@ function createSearchMap() {
           if(!searchObj) { //the keyword is not already in the map, then add
             locationObj = { framework: a.framework, type: a.type, id: a.id };
             locations.push(locationObj);
-            console.log('adding location ' + a.framework + ':' + a.type + ':' + a.id + ' to new search object ' + searchObj.kwd)
             searchObj = { keyword: kwd, locations: locations };
             searchMap.set(kwd, searchObj);
+            console.log('added location ' + a.framework + ':' + a.type + ':' + a.id + ' to new search object ' + searchObj.kwd)
           } else { //add location to existing
-            console.log('adding location ' + a.framework + ':' + a.type + ':' + a.id + ' to existing search object ' + searchObj.kwd)
+            console.log('adding location ' + a.framework + ':' + a.type + ':' + a.id + ' to existing search object ' + searchObj.kwd);
             locationObj = { framework: a.framework, type: a.type, id: a.id };
             searchObj.locations.push(locationObj);
           }
