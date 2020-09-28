@@ -26,7 +26,7 @@ router.get('/:framework', function(req, res) {
 });
 
 /* search */
-router.get('/:framework/search/:searchterms', function(req, res) {
+router.get('/:framework/search?:searchterms', function(req, res) {
     const framework = req.params.framework;
     const searchterms = req.params.searchterms;
     console.log('in search with framework -' + framework + ' and searchterms-' + searchterms);
