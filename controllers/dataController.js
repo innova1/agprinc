@@ -247,7 +247,7 @@ function searchForKeywords( searchTerms ) {
     if(searchObj) {
 	  locations = searchObj.locations;
 	  for( const l of locations ) {
-		if( !foundIndexes.indexOf(l.index) ) {
+		if( foundIndexes.indexOf(l.index) == -1 ) {
 		  foundIndexes.push(l.index);
 	  	  foundItems.push(dataArray[l.index]);
 		}
