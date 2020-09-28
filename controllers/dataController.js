@@ -209,7 +209,8 @@ function createSearchArray() {
           searchObj = searchMap.get(kwd);
           if(!searchObj) { //the keyword is not already in the map, then add
             locationObj = { framework: 'what', type: 'where', id: 'who' } };
-            searchObj = { keyword: locations.push(locationObj);
+            locations.push(locationObj);
+            searchObj = { keyword: kwd, locations: locations };
             searchMap.set(kwd, searchObj);
           } else { //add location to existing
             ; //implement next
