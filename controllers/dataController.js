@@ -97,7 +97,7 @@ function getDataArray() {
     let pObj = new Array();
     let i = 0;
     pObj[i]    = { id: '1' , type: 'principle', frameworkdisplay: 'Manifesto', framework: 'manifesto', shortdescription: 'continuous delivery', text: 'Our highest priority is to satisfy the customer through early and continuous delivery of valuable software.', keywords: ['customer', 'early', 'continuous', 'delivery', 'valuable', 'software'] };
-    pObj[++i]  = { id: '2' , type: 'principle', frameworkdisplay: 'Manifesto', framework: 'manifesto', shortdescription: 'welcome change', text: 'Welcome changing requirements, even late in development. Agile processes harness change for the customer\'s competitive advantage.', keywords: [ 'changing', 'requirements', 'late', 'development', 'change', "customer's", 'competitive', 'advantage'] };
+    pObj[++i]  = { id: '2' , type: 'principle', frameworkdisplay: 'Manifesto', framework: 'manifesto', shortdescription: 'welcome change', text: 'Welcome changing requirements, even late in development. Agile processes harness change for the customer\'s competitive advantage.', keywords: [ 'changing', 'requirements', 'late', 'development', 'change', 'customer', 'competitive', 'advantage'] };
     pObj[++i]  = { id: '3' , type: 'principle', frameworkdisplay: 'Manifesto', framework: 'manifesto', shortdescription: 'deliver frequently', text: 'Deliver working software frequently, from a couple of weeks to a couple of months, with a preference to the shorter timescale.' };
     pObj[++i]  = { id: '4' , type: 'principle', frameworkdisplay: 'Manifesto', framework: 'manifesto', shortdescription: 'daily with business', text: 'Business people and developers must work together daily throughout the project.' };
     pObj[++i]  = { id: '5' , type: 'principle', frameworkdisplay: 'Manifesto', framework: 'manifesto', shortdescription: 'motivated individuals', text: 'Build projects around motivated individuals.  Give them the environment and support they need, and trust them to get the job done.' };
@@ -194,16 +194,17 @@ function createSearchArray() {
   	const a = getDataArray();
     var searchArray = new Array();
     const iterator = a.keys();
-    /*
+    const tempArray = new Array();
+
     for( const key of iterator ) {
-        a[key]
+        tempArray = a[key].keywords;
+        const keywordIterator = tempArray.entries();
+        for ( const k of keywordIterator ) {
+          if( !searchArray.includes(k) ) {
+            searchArray.push(k);
+          }
+        }
     }
-    */
-    console.log(a[0].keywords);
-    console.log(a[1].keywords);
-    searchArray = searchArray.concat(a[0].keywords);
-    searchArray = searchArray.concat(a[1].keywords);
-    console.log("len is " + searchArray.length);
     return searchArray;
 }
 
