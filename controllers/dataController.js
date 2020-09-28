@@ -205,10 +205,11 @@ function createSearchArray() {
         } else {
           console.log('tempArray != 0');
           tempArray = a[key].keywords;
-          const keywordIterator = tempArray.entries();
-          for ( const k of keywordIterator ) {
-            if( !searchArray.includes(k) ) {
-              searchArray.push(k);
+          const entryIterator = tempArray.entries();
+          for ( const e of entryIterator ) {
+            console.log('checking in searchArray for ' + e);
+            if( !searchArray.includes(e) ) {
+              searchArray.push(e);
             }
           }
        }
