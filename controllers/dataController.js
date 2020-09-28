@@ -191,25 +191,23 @@ function getDataArray() {
 		if no, then create the object and add to the array
 */
 function createSearchArray() {
-  	const a = getDataArray();
+  	const dataArray = getDataArray();
     var searchArray = new Array();
-    const iterator = a.keys();
     var tempArray = new Array();
 
-    for( const key of iterator ) {
-        if(!a[key].keywords) {
+    for( const a of dataArray ) {
+        if(!a.keywords) {
           break;
         } else if(searchArray.length == 0) {
-          console.log('tempArray == 0');
-          searchArray = a[key].keywords;
+          console.log('searchArray == 0');
+          searchArray = a.keywords;
         } else {
-          console.log('tempArray != 0');
-          tempArray = a[key].keywords;
-          const entryIterator = tempArray.entries();
-          for ( const e of entryIterator ) {
-            console.log('checking in searchArray for ' + e.value);
-            if( !searchArray.includes(e.value) ) {
-              searchArray.push(e.value);
+          console.log('searchArray != 0');
+          tempArray = a.keywords;
+          for ( const keyWord of tempArray ) {
+            console.log('checking in searchArray for ' + keyWord);
+            if( !searchArray.includes(keyWord) ) {
+              searchArray.push(keyWord);
             }
           }
        }
