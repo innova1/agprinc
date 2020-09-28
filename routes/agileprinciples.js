@@ -37,7 +37,7 @@ router.get('/:framework/search?:searchterms', function(req, res) {
     const searchMap = db.getSearchMap(); 
     //console.log('in router: len is ' + searchMap.length);
     //console.log('in :framework ' + principlesArray[1].text);
-    //res.render('agprisSelectedFramework', { title: 'Agile Principles', frameworks: frameworksArray, framework: framework, principlesArray: principlesArray, searchMap: searchMap });
+    res.render('agprisSelectedFramework', { title: 'Agile Principles', frameworks: frameworksArray, framework: framework, principlesArray: principlesArray, searchMap: searchMap });
 });
 
 router.get('/:framework/:type', function(req, res) {
