@@ -10,7 +10,7 @@ block content
     div#menu
       each f in frameworks
         a.menu(href='/agileframeworks/' + f.framework) #{f.frameworkdisplay}
-    = var fdisplay = frameworks.find(e.framework => e.framework==framework).frameworkdisplay
+    - var fdisplay = frameworks.find(e.framework => e.framework==framework).frameworkdisplay
     h1 #{title} for #{f} the #{fdisplay} framework
     table
       each pv in principlesArray
