@@ -63,7 +63,7 @@ exports.isIDInRange = function( framework, type, id ) {
     return !( id < o.min || id > o.max );
 };
 
-exports.getSearchArray = function() {
+exports.getSearchMap = function() {
     return createSearchMap();
 }
 
