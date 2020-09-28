@@ -244,7 +244,7 @@ function searchForKeywords( searchTerms ) {
     var foundIndexes = new Array();
     var locations = new Array();
     for( const searchTerm of searchTerms ) {
-	  var searchObj = searchMap.get(searchTerm.toLowerCase);
+	  var searchObj = searchMap.get(searchTerm.toLowerCase());
 	  if(searchObj) {
 		locations = searchObj.locations;
 		for( const l of locations ) {
