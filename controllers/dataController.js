@@ -208,7 +208,7 @@ function createSearchMap() {
           console.log('looking at object with keyword ' + kwd);
           searchObj = searchMap.get(kwd);
           if(!searchObj) { //the keyword is not already in the map, then add
-            consol.log('keywork ' + kwd + ' not already in search obj');
+            console.log('keywork ' + kwd + ' not already in search obj');
             locationObj = { framework: a.framework, type: a.type, id: a.id };
             var locations = new Array();
             locations.push(locationObj);
