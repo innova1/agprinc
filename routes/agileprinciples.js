@@ -4,7 +4,7 @@ const db = require('../controllers/dataController');
 
 /* GET all agile principles */
 router.get('/', function(req, res) {
-    //console.log('in router get /' );
+    console.log('in router get /' );
     const frameworksArray = db.getFrameworksArray();
     //db.getframeworks();
     //db.isIDInRange(framework, 30);
@@ -13,6 +13,7 @@ router.get('/', function(req, res) {
 
 /* GET one framework of agile principles */
 router.get('/:framework', function(req, res) {
+    console.log('in router get /:framework);
     const framework = req.params.framework;
     const frameworksArray = db.getFrameworksArray();
     //console.log('in router get /:framework with ' + framework );
