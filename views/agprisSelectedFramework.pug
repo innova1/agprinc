@@ -11,5 +11,4 @@ block content
         tr(class=pv.type)
           td.text(class=pv.type) #{pv.id}: #{pv.text}
     p first item of search array is 
-    each element in searchMap
-     |#{element.keyword}|
+    p #{searchMap.get('customer')}
