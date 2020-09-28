@@ -244,7 +244,7 @@ function searchForKeywords( searchTerms ) {
 	  locations = searchObj.locations;
 	  foundItems.push(locations[0]);
 	}
-    if(debug) { console.log('first found item is ' + foundItems[0]) };
+    if(debug) { console.log('first found item is ' + foundItems[0].framework) };
     return foundItems;
 }
 
