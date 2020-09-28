@@ -199,9 +199,9 @@ function createSearchArray() {
     for( const key of iterator ) {
         if(!a[key].keywords) {
           break;
-        } else if(tempArray.length == 0) {
+        } else if(searchArray.length == 0) {
           console.log('tempArray == 0');
-          tempArray = a[key].keywords;
+          searchArray = a[key].keywords;
         } else {
           console.log('tempArray != 0');
           tempArray = a[key].keywords;
