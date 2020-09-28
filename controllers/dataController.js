@@ -194,7 +194,6 @@ function createSearchMap() {
   	const dataArray = getDataArray(); //full data array of all values and principle objects
     var searchMap = new Map(); //Map being built of a list of objects with keyword and location of the word
     var tempArray = new Array(); //temporary holding tank of keywords to be tested and added if not already there. if already there, then just add location to the end of the item on the search array
-    var locations = new Array();
     var locationObj = new Object();
     var searchObj = new Object();
 
@@ -209,7 +208,9 @@ function createSearchMap() {
           console.log('looking at object with keyword ' + kwd);
           searchObj = searchMap.get(kwd);
           if(!searchObj) { //the keyword is not already in the map, then add
+            consol.log('keywork ' + kwd + ' not already in search obj');
             locationObj = { framework: a.framework, type: a.type, id: a.id };
+            var locations = new Array();
             locations.push(locationObj);
             searchObj = { keyword: kwd, locations: locations };
             searchMap.set(kwd, searchObj);
