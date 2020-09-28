@@ -26,10 +26,10 @@ router.get('/:framework', function(req, res) {
 });
 
 /* search */
-router.get('/:framework/search\?:searchterms', function(req, res) {
+router.get('/:framework/search', function(req, res) {
     const framework = req.params.framework;
-    const searchterms = req.params.searchterms;
-    console.log('in search with framework -' + framework + ' and searchterms-' + searchterms);
+    const searchterms = req.query.searchterms;
+    console.log('in search with framework-' + framework + ' and searchterms-' + searchterms);
     const frameworksArray = db.getFrameworksArray();
     //console.log('in router get /:framework with ' + framework );
     //console.log('in router get /:framework with first frameworks principle ' + frameworksArray[0] );
