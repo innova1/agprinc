@@ -200,13 +200,14 @@ function createSearchMap() {
     var tempArray = new Array(); //temporary holding tank of keywords to be tested and added if not already there. if already there, then just add location to the end of the item on the search array
     var locationObj = new Object();
     var searchObj = new Object();
-    const debug = false;
+    const debug = true;
 
     for( const a of dataArray ) {
       //get the keywords from each a entry
       //go through and see if keyword is in the map
       //if yes, add location to the map object
       //if no, add new map entry with location in object
+	  if(debug) { console.log('array key is ' + a.index )};
       tempArray = a.keywords;
       if(tempArray) {
         for( const kwd of tempArray ) {
@@ -245,6 +246,9 @@ function searchForKeywords( searchTerms ) {
 	  foundItems.push(locations[0]);
 	}
     if(debug) { console.log('first found item is ' + foundItems[0].framework) };
+  
+  	const dataArray = getDataArray(); 
+  
     return foundItems;
 }
 

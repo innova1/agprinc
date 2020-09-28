@@ -33,12 +33,10 @@ router.get('/:framework/search', function(req, res) {
     const frameworksArray = db.getFrameworksArray();
     //console.log('in router get /:framework with ' + framework );
     //console.log('in router get /:framework with first frameworks principle ' + frameworksArray[0] );
-    const principlesArray = db.getPrinciplesArray(framework, '');
-    const searchMap = db.getSearchMap(); 
-	const foundItems = db.getMatchedItems([searchterms]);
+    const principlesArray = db.getMatchedItems([searchterms]);
     //console.log('in router: len is ' + searchMap.length);
     //console.log('in :framework ' + principlesArray[1].text);
-    res.render('agprisSelectedFramework', { title: 'Agile Principles', frameworks: frameworksArray, framework: framework, principlesArray: principlesArray, searchMap: searchMap });
+    res.render('agprisSelectedFramework', { title: 'Agile Principles', frameworks: frameworksArray, framework: framework, principlesArray: principlesArray });
 });
 
 router.get('/:framework/:type', function(req, res) {
