@@ -2,7 +2,7 @@ extends layout
 
 block content
   div#outer
-    form(action='././search', method='GET')
+    form(action='/agileframeworks/' + f.framework + 'search', method='GET')
       p 
         | search terms 
         input(type='text', name='searchterms', value='')  
