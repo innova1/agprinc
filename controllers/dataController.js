@@ -199,8 +199,10 @@ function createSearchArray() {
         a[key]
     }
     */
+    console.log(a[0].keywords);
+    console.log(a[1].keywords);
+    searchArray = searchArray.concat(a[0].keywords);
     searchArray = searchArray.concat(a[1].keywords);
-    searchArray = searchArray.concat(a[2].keywords);
     
     return searchArray;
 }
