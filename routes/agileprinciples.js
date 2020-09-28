@@ -25,7 +25,7 @@ router.get('/:framework', function(req, res) {
 });
 
 /* search */
-router.get(':framework?:searchterms', frunction(req, res) {
+router.get('/:framework?:searchterms', function(req, res) {
     const searchterms = req.params.searchterms;
     console.log('in search with ' + searchterms);
     const framework = req.params.framework;
@@ -37,7 +37,7 @@ router.get(':framework?:searchterms', frunction(req, res) {
     //console.log('in router: len is ' + searchMap.length);
     //console.log('in :framework ' + principlesArray[1].text);
     //res.render('agprisSelectedFramework', { title: 'Agile Principles', frameworks: frameworksArray, framework: framework, principlesArray: principlesArray, searchMap: searchMap });
-}
+});
 
 router.get('/:framework/:type', function(req, res) {
     const framework = req.params.framework;
