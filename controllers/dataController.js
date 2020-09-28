@@ -251,6 +251,8 @@ function searchForKeywords( searchTerms ) {
 		  if( foundIndexes.indexOf(l.index) == -1 ) {
 			foundIndexes.push(l.index);
 			foundItems.push(dataArray[l.index]);
+		  } else {
+			if(debug) { console.log('skipping ' + l.index + ' because already added') };
 		  }
 		}
 	  }
