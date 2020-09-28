@@ -201,7 +201,7 @@ function createSearchArray() {
           break;
         } else if(tempArray.length == 0) {
           console.log('tempArray == 0');
-          tempArray = tempArray.concat(a[key].keywords)
+          tempArray = a[key].keywords;
         } else {
           console.log('tempArray != 0');
           tempArray = a[key].keywords;
