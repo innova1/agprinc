@@ -10,4 +10,4 @@ block content
       each pv in principlesArray
         tr(class=pv.type)
           td.text(class=pv.type) #{pv.id}: #{pv.text}
-    p first item of search array is #{searchArray[0]}
+    p first item of search array is #{searchArray.toString()}
