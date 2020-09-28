@@ -218,7 +218,7 @@ function createSearchArray() {
         }
       }
     }
-    return searchArray;
+    return searchMap;
 }
 
 /*
