@@ -235,7 +235,7 @@ function createSearchMap() {
 
 function searchForKeywords( searchTerms ) {
     const debug = true;
-    if(debug) { console.log('in searchForKeywords')};
+    if(debug) { console.log('in searchForKeywords with ' + searchTerms)};
     const foundItems = new Array();
   	const searchMap = createSearchMap();
     var locations = new Array();
