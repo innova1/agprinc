@@ -213,6 +213,7 @@ function createSearchMap() {
             searchObj = { keyword: kwd, locations: locations };
             searchMap.set(kwd, searchObj);
           } else { //add location to existing
+            console.log('adding location ' + a.framework + ':' + a.type + ':' + a.id + ' to existing search object ' + searchObj.kwd)
             locationObj = { framework: a.framework, type: a.type, id: a.id };
             searchObj.locations.push(locationObj);
           }
