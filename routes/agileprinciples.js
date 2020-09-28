@@ -11,20 +11,6 @@ router.get('/', function(req, res) {
     res.render('agpris2', { title: 'Agile principles', frameworks: frameworksArray });
 });
 
-/* GET one framework of agile principles */
-router.get('/:framework', function(req, res) {
-    console.log('in router get /:framework');
-    const framework = req.params.framework;
-    const frameworksArray = db.getFrameworksArray();
-    //console.log('in router get /:framework with ' + framework );
-    //console.log('in router get /:framework with first frameworks principle ' + frameworksArray[0] );
-    const principlesArray = db.getPrinciplesArray(framework, '');
-    const searchMap = db.getSearchMap(); 
-    //console.log('in router: len is ' + searchMap.length);
-    //console.log('in :framework ' + principlesArray[1].text);
-    res.render('agprisSelectedFramework', { title: 'Agile Principles', frameworks: frameworksArray, framework: framework, principlesArray: principlesArray, searchMap: searchMap });
-});
-
 /* search */
 router.get('/search', function(req, res) {
     const framework = req.params.framework;
@@ -38,6 +24,20 @@ router.get('/search', function(req, res) {
     //console.log('in router: len is ' + searchMap.length);
     //console.log('in :framework ' + principlesArray[1].text);
     res.render('agprisSelectedFramework', { title: 'Agile Principles', frameworks: frameworksArray, framework: framework, principlesArray: principlesArray });
+});
+
+/* GET one framework of agile principles */
+router.get('/:framework', function(req, res) {
+    console.log('in router get /:framework');
+    const framework = req.params.framework;
+    const frameworksArray = db.getFrameworksArray();
+    //console.log('in router get /:framework with ' + framework );
+    //console.log('in router get /:framework with first frameworks principle ' + frameworksArray[0] );
+    const principlesArray = db.getPrinciplesArray(framework, '');
+    const searchMap = db.getSearchMap(); 
+    //console.log('in router: len is ' + searchMap.length);
+    //console.log('in :framework ' + principlesArray[1].text);
+    res.render('agprisSelectedFramework', { title: 'Agile Principles', frameworks: frameworksArray, framework: framework, principlesArray: principlesArray, searchMap: searchMap });
 });
 
 router.get('/:framework/:type', function(req, res) {
