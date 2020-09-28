@@ -63,6 +63,10 @@ exports.isIDInRange = function( framework, type, id ) {
     return !( id < o.min || id > o.max );
 };
 
+exports.getSearchArray = function() {
+    return createSearchArray();
+}
+
 function getSingleFrameworkTypeIdObj( framework, type, id ) {
     const singleframeworkObj = new Object();
     const a = getDataArray();
@@ -178,12 +182,36 @@ function getDataArray() {
 };
 
 /*
+    create an array of objects
+		each important word has an object indexed on the word itself
+		each object is the word and an array of framework, type and id of the principle that contains the word
+		go through the data array and build this
+		on each new work check if it already exists
+		if yes, then add this pointer to the array in the object
+		if no, then create the object and add to the array
+*/
+function createSearchArray() {
+  	const a = getDataArray();
+    var searchArray = new Array();
+    const iterator = a.keys();
+    /*
+    for( const key of iterator ) {
+        a[key]
+    }
+    */
+    searchArray = searchArray.concat(a[1].keywords);
+    searchArray = searchArray.concat(a[2].keywords);
+    
+    return searchArray;
+}
+
+/*
 function getPrinciplesObject( framework ) {
     //console.log('in get principles function with framework ' + framework);
     let pObj = new Object();
     if( framework == 'manifesto') {
-        pObj['1']  = { type: 'principle', framework: 'manifesto', shortdescription: 'continuous delivery', principle: 'Our highest priority is to satisfy the customer through early and continuous delivery of valuable software.' };
-        pObj['2']  = { type: 'principle', framework: 'manifesto', shortdescription: 'welcome change', principle: 'Welcome changing requirements, even late in development. Agile processes harness change for the customer\'s competitive advantage.' };
+        pObj['1']  = { type: 'principle', framework: 'manifesto', shortdescription: 'continuous delivery', principle: 'Our highest priority is to satisfy the customer through early and continuous delivery of valuable software.', keywords: ['customer', 'early', 'continuous', 'delivery', 'valuable', 'software'] };
+        pObj['2']  = { type: 'principle', framework: 'manifesto', shortdescription: 'welcome change', principle: 'Welcome changing requirements, even late in development. Agile processes harness change for the customer\'s competitive advantage.', keywords: [ 'changing', 'requirements', 'late', 'development', 'change', "customer's", 'competitive', 'advantage'] };
         pObj['3']  = { type: 'principle', framework: 'manifesto', shortdescription: 'deliver frequently', principle: 'Deliver working software frequently, from a couple of weeks to a couple of months, with a preference to the shorter timescale.' };
         pObj['4']  = { type: 'principle', framework: 'manifesto', shortdescription: 'daily with business', principle: 'Business people and developers must work together daily throughout the project.' };
         pObj['5']  = { type: 'principle', framework: 'manifesto', shortdescription: 'motivated individuals', principle: 'Build projects around motivated individuals.  Give them the environment and support they need, and trust them to get the job done.' };
