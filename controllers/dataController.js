@@ -241,12 +241,16 @@ function searchForKeywords( searchTerms ) {
     const dataArray = getDataArray();
     const foundItems = new Array();
   	const searchMap = createSearchMap();
+    var foundIndexes = new Array();
     var locations = new Array();
   	var searchObj = searchMap.get(searchTerms[0]);
     if(searchObj) {
 	  locations = searchObj.locations;
 	  for( const l of locations ) {
-	  	foundItems.push(dataArray[l.index]);
+		if( !foundIndexes.indexOf(l.index) ) {
+		  foundIndexes.push(l.index);
+	  	  foundItems.push(dataArray[l.index]);
+		}
 	  }
 	}
     if(debug) { console.log('first found item is ' + foundItems[0].framework) };
