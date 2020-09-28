@@ -203,7 +203,7 @@ function createSearchArray() {
     console.log(a[1].keywords);
     searchArray = searchArray.concat(a[0].keywords);
     searchArray = searchArray.concat(a[1].keywords);
-    
+    console.log("len is " + searchArray.length);
     return searchArray;
 }
 
