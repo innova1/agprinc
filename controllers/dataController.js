@@ -194,7 +194,7 @@ function createSearchArray() {
   	const a = getDataArray();
     var searchArray = new Array();
     const iterator = a.keys();
-    const tempArray = new Array();
+    var tempArray = new Array();
 
     for( const key of iterator ) {
         tempArray = a[key].keywords;
