@@ -8,5 +8,7 @@ block content
         tr(class=pv.type)
           td.type(class=pv.type) #{pv.id}
           td.text(class=pv.type) #{pv.text}
+          - var kwds = '';
           each kwd in pv.keywords
-            td.text(class=pv.type) #{kwd}
+            - kwds = kwds + kwd;
+          td.text(class=pv.type) #{kwd}
