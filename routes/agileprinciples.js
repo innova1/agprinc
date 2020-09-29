@@ -13,7 +13,7 @@ router.get('/', function(req, res) {
 });
 
 /* View edit keywords page */
-router.get('/keywords', kwd.displayKeywordList ;
+router.get('/keywords', kwd.displayKeywordList);
 
 /* search */
 router.get('/search', function(req, res) {
