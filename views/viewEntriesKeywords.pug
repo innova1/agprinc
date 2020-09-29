@@ -10,5 +10,5 @@ block content
           td.text(class=pv.type) #{pv.text}
           - var kwds = '';
           each kwd in pv.keywords
-            - kwds = kwds + kwd;
-          td.text(class=pv.type) #{kwd}
+            - kwds = kwds + ',' + kwd;
+          td.text(class=pv.type) #{kwds}
