@@ -11,4 +11,4 @@ block content
           - var kwds = '';
           each kwd in pv.keywords
             - kwds = (kwds==''?kwd:kwds + ',' + kwd);
-          td.text(class=pv.type) #{kwds}
+          td.kwds(class=pv.type) #{kwds}
