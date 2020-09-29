@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 const db = require('../controllers/dataController');
+const kwd = require('../controllers/keywordController');
 
 /* GET all agile principles */
 router.get('/', function(req, res) {
@@ -10,6 +11,9 @@ router.get('/', function(req, res) {
     //db.isIDInRange(framework, 30);
     res.render('agpris2', { title: 'Agile principles', frameworks: frameworksArray });
 });
+
+/* View edit keywords page */
+router.get('/keywords', kwd.displayKeywordList );
 
 /* search */
 router.get('/search', function(req, res) {
