@@ -1,6 +1,6 @@
 const db = require('../dataController');
 
-export.getKeywordList() {
+exports.displayKeywordList() {
 	const debug = true;
 	const parray = getDataArray();
 	
