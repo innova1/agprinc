@@ -1,0 +1,14 @@
+extends layout
+
+block content
+  div#outer
+    h1 #{title}
+    table
+      each pv in parray
+        tr(class=pv.type)
+          td.type(class=pv.type)
+            | #{pv.frameworkdisplay}
+            br 
+            | #{pv.type}
+          td.type(class=pv.type) #{pv.id}
+          td.text(class=pv.type) #{pv.text}
