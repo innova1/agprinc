@@ -1,5 +1,4 @@
-var express = require('express');
-const db = require('../dataController');
+const db = require('dataController');
 
 exports.displayKeywordList = function(req, res) {
 	const debug = true;
