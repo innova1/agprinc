@@ -3,7 +3,7 @@ extends layout
 block content
   div#outer
     h1 #{title}
-    table
+    table.klist
       each pv in principlesArray
         tr(class=pv.type)
           td.type(class=pv.type) #{pv.id}
