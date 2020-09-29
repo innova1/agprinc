@@ -15,7 +15,7 @@ router.get('/', function(req, res) {
 router.get('/search', function(req, res) {
     const framework = req.params.framework;
     const searchterms = req.query.searchterms;
-    console.log('in search with framework-' + framework + ' and searchterms-' + decodeURI(searchterms));
+    //console.log('in search with framework-' + framework + ' and searchterms-' + decodeURI(searchterms));
 	searchtermsArray = searchterms.split(',');
     const frameworksArray = db.getFrameworksArray();
     //console.log('in router get /:framework with ' + framework );
@@ -28,7 +28,7 @@ router.get('/search', function(req, res) {
 
 /* GET one framework of agile principles */
 router.get('/:framework', function(req, res) {
-    console.log('in router get /:framework');
+    //console.log('in router get /:framework');
     const framework = req.params.framework;
     const frameworksArray = db.getFrameworksArray();
     //console.log('in router get /:framework with ' + framework );
