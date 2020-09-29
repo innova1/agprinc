@@ -17,13 +17,16 @@ exports.getPrinciplesArray = function(framework, type) {
 };
 
 function getPrinciplesArray(framework, type) {
+    const debug = true;
     //console.log('in get prin array export with framework ' + framework);
     const parray = getDataArray();
     //console.log('parray is length ' + parray.length);
     let principlesArray = new Array();
     if(framework=='') {
-            principlesArray = parray;
+        if(debug) { console.log('framework is empty') };
+        principlesArray = parray;
     } else if(type=='') {
+        if(debug) { console.log('type is empty') };
         function isFramework(o) {
             return o.framework == framework;
         }
@@ -31,6 +34,7 @@ function getPrinciplesArray(framework, type) {
         principlesArray.sort(comparePrinciplesSortById);
         principlesArray.sort(comparePrinciplesSortByType);
     } else {
+        if(debug) { console.log('framework is ' + framework + ', type is ' + type) };
         function isMatchFrameworkAndType(o) {
             return o.framework == framework && o.type == type.substring(0,type.length-1);
         }
