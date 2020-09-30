@@ -9,9 +9,9 @@ exports.displayKeywordList = function(req, res) {
 
 exports.editKeyword = function(req, res) {
 	const debug = true;
-    const framework = req.params.framework;
-    const type = req.params.type;
-    const id = req.params.id;
+    const framework = req.query.framework;
+    const type = req.query.type;
+    const id = req.query.id;
     if(debug) { console.log( 'framework: ' + framework + ', type: ' + type + ', id: ' + id ) };
 	const principleObj = db.getPrincipleByID(framework, type, id);
     
