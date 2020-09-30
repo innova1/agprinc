@@ -5,7 +5,9 @@ block content
     h1 #{title}
     p #{principleObj.framework} #{principleObj.type} #{principleObj.id}
     p #{principleObj.text}
+    - var kwds = '';
     each kwd in principleObj.keywords
-      p #{kwd}
+      - kwds = (kwd==''?kwd:', ' + kwd);
+      p #{kwds}
     
       
