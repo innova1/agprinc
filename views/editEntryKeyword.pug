@@ -7,7 +7,7 @@ block content
     p #{principleObj.text}
     - var kwds = '';
     each kwd in principleObj.keywords
-      - kwds = (kwd==''?kwd:kwds + ', ' + kwd);
+      - kwds = (kwds==''?kwd:kwds + ', ' + kwd);
     p #{kwds}
     
       
