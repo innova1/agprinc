@@ -39,7 +39,7 @@ function getPrinciplesArray(framework, type) {
     } else {
         if(debug) { console.log('in else framework is ' + framework + ', type is ' + type) };
         function isMatchFrameworkAndType(o) {
-            return o.framework == framework && o.type == type /*type.substring(0,type.length-1*/ );
+            return o.framework == framework && o.type == type /*type.substring(0,type.length-1)*/ ;
         }
         principlesArray = parray.filter( isMatchFrameworkAndType );
     }
