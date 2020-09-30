@@ -4,4 +4,8 @@ block content
   div#outer
     h1 #{title}
     p #{principleObj.framework} #{principleObj.type} #{principleObj.id}
+    p #{principleObj.text}
+    each kwd in principleObj.keywords
+      p #{wkd}
+    
       
