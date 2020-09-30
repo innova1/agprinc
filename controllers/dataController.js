@@ -87,7 +87,7 @@ exports.updateKeywords = function( framework, type, id, keywords ) {
     // todo -- keywords is a string, needs to be turn into an array
     var keywordsArray = keywords.split(',');
     if(debug) {
-        for( const k of keywords ) {
+        for( const k of keywordsArray ) {
             console.log(k);
         }
     }
