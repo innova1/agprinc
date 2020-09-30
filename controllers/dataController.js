@@ -6,6 +6,7 @@ exports.getPrincipleByID = function(framework, type, id) {
 		if(debug) { console.log('in get prin by framework=' + framework + ', type=' + type + ', id=' + id) };
 		/*if( id > 12 || id < 1 ) { id = '1'; console.log('changed id to ' + id); }*/
 		const parray = getPrinciplesArray(framework, type);
+        if(debug) { console.log('first record of array is ' + parray[0].id) };
 		var result = parray.find( e => e.id == id );
         if(debug) { console.log('result is ' + result) };
 		return result;
@@ -36,7 +37,7 @@ function getPrinciplesArray(framework, type) {
         principlesArray.sort(comparePrinciplesSortById);
         principlesArray.sort(comparePrinciplesSortByType);
     } else {
-        if(debug) { console.log('framework is ' + framework + ', type is ' + type) };
+        if(debug) { console.log('in else framework is ' + framework + ', type is ' + type) };
         function isMatchFrameworkAndType(o) {
             return o.framework == framework && o.type == type.substring(0,type.length-1);
         }
