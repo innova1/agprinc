@@ -13,7 +13,7 @@ exports.editKeyword = function(req, res) {
     const type = req.params.type;
     const id = req.params.id;
     if(debug) { console.log( 'framework: ' + framework + ', type: ' + type + ', id: ' + id ) };
-	const principleObj = db.getPrincipleByID('manifesto', 'principle', '1');
+	const principleObj = db.getPrincipleByID(framework, type, id);
     
     res.render('editEntryKeyword', { title: 'Edit Keyword', principleObj: principleObj });
 }
