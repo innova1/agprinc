@@ -84,6 +84,15 @@ exports.updateKeywords = function( framework, type, id, keywords ) {
     const debug = true;
     var result = false;
     if(debug) { console.log('in db.updateKeywords framework: ' + framework + ', type: ' + type + ', id: ' + id + ', keywords: ' + keywords)};
+    // todo -- keywords is a string, needs to be turn into an array
+    var keywordsArray = keywords.split(',');
+    if(debug) {
+        for( const k of keywords ) {
+            console.log(k);
+        }
+    }
+    
+    // todo -- need to move to database so this really updates. currently the data is here in the code file and won't be updated (don't want to waste time separating to a text file then updating that)
     
     return result;
 }
