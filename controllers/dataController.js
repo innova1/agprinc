@@ -3,10 +3,11 @@ exports.getPrincipleByID = function(framework, type, id) {
     const debug = true;
     //contract: next called with an id that is out of range -- call isIDInRange() first
 	try {
-		if(debug) { console.log('in get prin by id with id=' + id + ', framework= ' + framework) };
+		if(debug) { console.log('in get prin by framework=' + framework + ', type=' + type + ', id=' + id) };
 		/*if( id > 12 || id < 1 ) { id = '1'; console.log('changed id to ' + id); }*/
 		const parray = getPrinciplesArray(framework, type);
 		var result = parray.find( e => e.id == id );
+        if(debug) { console.log('result is ' + result) };
 		return result;
 	} catch (err) {
 		console.log('error in try of get prin by id ' + err.message );
@@ -19,7 +20,7 @@ exports.getPrinciplesArray = function(framework, type) {
 
 function getPrinciplesArray(framework, type) {
     const debug = true;
-    //console.log('in get prin array export with framework ' + framework);
+    if(debug) { console.log('in get prin array export with framework ' + framework) };
     const parray = getDataArray();
     //console.log('parray is length ' + parray.length);
     let principlesArray = new Array();
