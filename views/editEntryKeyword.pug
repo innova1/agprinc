@@ -11,3 +11,6 @@ block content
     p #{kwds}
     
     // put kwds in a text box inside a form and with post method. create a controller to save the keywords back to the object
+    form(action='/agileframeworks/keywordUpdate', method='POST')
+      input(type='text', name='searchterms', value=kwds)  
+      input(type='submit', value='Submit')
