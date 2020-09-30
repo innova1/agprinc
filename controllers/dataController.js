@@ -1,9 +1,10 @@
 
 exports.getPrincipleByID = function(framework, type, id) {
+    const debug = true;
     //contract: next called with an id that is out of range -- call isIDInRange() first
 	try {
-		/*console.log('in get prin by id with id=' + id + ', framework= ' + framework);
-		if( id > 12 || id < 1 ) { id = '1'; console.log('changed id to ' + id); }*/
+		if(debug) { console.log('in get prin by id with id=' + id + ', framework= ' + framework) };
+		/*if( id > 12 || id < 1 ) { id = '1'; console.log('changed id to ' + id); }*/
 		const parray = getPrinciplesArray(framework, type);
 		var result = parray.find( e => e.id == id );
 		return result;
