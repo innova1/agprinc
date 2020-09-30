@@ -81,7 +81,9 @@ exports.getMatchedItems = function( searchTerms ) {
 }
 
 exports.updateKeywords = function( framework, type, id, keywords ) {
+    const debug = true;
     var result = false;
+    if(debug) { console.log('in db.updateKeywords framework: ' + framework + ', type: ' + type + ', id: ' + ', keywords: ' + keywords)};
     
     return result;
 }

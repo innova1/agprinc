@@ -16,6 +16,7 @@ exports.updateKeywords = function(req, res) {
 	const parray = db.getPrinciplesArray('','');
     
     if(debug) {console.log('will update with ' + JSON.stringify(newkeywords) )};
+    db.updateKeywords( framework, type, id, newkeywords.keywords );
 	
 	res.render('viewEntriesKeywords', { title: 'Keywords List', principlesArray: parray });
 }
