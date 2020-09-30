@@ -16,9 +16,8 @@ block content
           each kwd in pv.keywords
             - kwds = (kwds==''?kwd:kwds + ', ' + kwd);
           td.kwds(class=pv.type)
-            #{kwds}
+            | #{kwds}
             br
-            form(action='/agileframeworks/keywordEdit?this=that', method='GET')
+            form(action='/agileframeworks/keywordEdit?framework=' + pv.framework + '&type=' + pv.type + '&id=' + pv.id, method='GET')
               p 
-              input(type='button', name='Edit', value='Edito')  
-              input(type='submit', value='Submit')
+              input(type='button', name='Edit', value='Edit') 
