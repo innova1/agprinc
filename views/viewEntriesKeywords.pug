@@ -15,4 +15,10 @@ block content
           - var kwds = '';
           each kwd in pv.keywords
             - kwds = (kwds==''?kwd:kwds + ', ' + kwd);
-          td.kwds(class=pv.type) #{kwds}
+          td.kwds(class=pv.type)
+            #{kwds}
+            br
+            form(action='/agileframeworks/keywordEdit?this=that', method='GET')
+              p 
+              input(type='button', name='Edit', value='Edito')  
+              input(type='submit', value='Submit')
