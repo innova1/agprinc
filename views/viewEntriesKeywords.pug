@@ -18,6 +18,7 @@ block content
           td.kwds(class=pv.type)
             | #{kwds}
             br
+            a(href='/agileframeworks/keywordEdit?framework=' + pv.framework + '&type=' + pv.type + '&id=' + pv.id)
             form(action='/agileframeworks/keywordEdit?framework=' + pv.framework + '&type=' + pv.type + '&id=' + pv.id, method='GET')
               p 
               input(type='submit', value='Edit')
