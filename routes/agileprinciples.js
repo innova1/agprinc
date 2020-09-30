@@ -18,6 +18,9 @@ router.get('/keywords', kwd.displayKeywordList);
 /* Edit keywords page */
 router.get('/keywordEdit', kwd.editKeyword);
 
+/* Save the updated keywords */
+router.post('/keywordUpdate', kwd.updateKeywords);
+
 /* search */
 router.get('/search', function(req, res) {
     const framework = req.params.framework;

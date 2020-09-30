@@ -7,6 +7,16 @@ exports.displayKeywordList = function(req, res) {
 	res.render('viewEntriesKeywords', { title: 'Keywords List', principlesArray: parray });
 }
 
+export.updateKeywords = function(req, res) {
+	const debug = true;
+    const newkeywords = req.body;
+	const parray = db.getPrinciplesArray('','');
+    
+    if(debug) {console.log('will update with ' + newkeywords)};
+	
+	res.render('viewEntriesKeywords', { title: 'Keywords List', principlesArray: parray });
+}
+
 exports.editKeyword = function(req, res) {
 	const debug = true;
     const framework = req.query.framework;
