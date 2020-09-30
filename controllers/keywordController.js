@@ -9,6 +9,9 @@ exports.displayKeywordList = function(req, res) {
 
 exports.updateKeywords = function(req, res) {
 	const debug = true;
+    const framework = req.query.framework;
+    const type = req.query.type;
+    const id = req.query.id;
     const newkeywords = req.body;
 	const parray = db.getPrinciplesArray('','');
     

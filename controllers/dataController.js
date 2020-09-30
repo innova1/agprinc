@@ -80,6 +80,12 @@ exports.getMatchedItems = function( searchTerms ) {
     return searchForKeywords( searchTerms );
 }
 
+exports.updateKeywords = function( framework, type, id, keywords ) {
+    var result = false;
+    
+    return result;
+}
+
 function getSingleFrameworkTypeIdObj( framework, type, id ) {
     const singleframeworkObj = new Object();
     const a = getDataArray();
