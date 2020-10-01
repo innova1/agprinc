@@ -23,7 +23,7 @@ exports.testdb = async function() {
     try {
         const dbParams = await setupDB();
         const el = await dbParams.collection.findOne({ _id: new ObjectId('5f74e7e9a5562327a9226af1') });
-        if(debug) { console.log( 'got here 1 in testdb ' + el ); }
+        if(debug) { console.log( 'got here 1 in testdb with element type:' + el.type ); }
         dbParams.client.close();
     } catch(err) {
 		console.log('error in try of get prin by id ' + err.message );
