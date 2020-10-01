@@ -43,5 +43,5 @@ exports.updateKeywords = async function(req, res) {
     }
 	
 	//res.render('viewEntriesKeywords', { title: 'Keywords List', principlesArray: principlesArray });
-    res.redirect('/keywords');
+    res.redirect('/agileframeworks/keywords');
 }
