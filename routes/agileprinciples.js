@@ -72,7 +72,7 @@ router.get('/:framework', async function(req, res) {
     res.render('agprisSelectedFramework', { title: 'Agile Principles', frameworks: frameworksArray, framework: framework, principlesArray: principlesArray, searchMap: searchMap });
 });
 
-router.get('/:framework/:type', function(req, res) {
+router.get('/:framework/:type', async function(req, res) {
     const framework = req.params.framework;
     const type = req.params.type;
     //console.log('in router get /:framework with ' + framework + ", " + type );
