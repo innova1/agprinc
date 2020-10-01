@@ -37,10 +37,11 @@ exports.updateKeywords = async function(req, res) {
         //await dbParams.collection.findOneAndUpdate({ _id: new ObjectId(id) }, task);
         if(debug) {console.log('will update with ' + JSON.stringify(newkeywords) )};
         var result = db.updateKeywords( framework, type, id, newkeywords.keywords );
-        const principlesArray = await db.getPrinciplesArray('','');
+        //const principlesArray = await db.getPrinciplesArray('','');
     } catch(err) {
         console.log('error in updateKeywords ' + err.message );
     }
 	
-	res.render('viewEntriesKeywords', { title: 'Keywords List', principlesArray: principlesArray });
+	//res.render('viewEntriesKeywords', { title: 'Keywords List', principlesArray: principlesArray });
+    res.redirect('/keywords');
 }

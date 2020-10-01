@@ -195,9 +195,7 @@ exports.updateKeywords = async function( framework, type, id, keywords ) {
     } catch(err) {
         console.log('error in dataController.updateKeywords ' + err.message );
     }
-    
-    // todo -- need to move to database so this really updates. currently the data is here in the code file and won't be updated (don't want to waste time separating to a text file then updating that)
-    
+
     return result;
 }
 
