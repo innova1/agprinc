@@ -71,7 +71,7 @@ async function getPrinciplesArray(framework, type) {
             }
             //const fbks = await dbParams.collection.find({}).sort({ createDate: -1 }).toArray();
             const parray = await dbParams.collection.find({ type: 'value' });
-            if(debug) { 'parray length: ' + parray.length; }
+            if(debug) { await 'parray length: ' + parray.length; }
             dbParams.client.close();
             principlesArray = parray;
         } catch(err) {
