@@ -13,9 +13,9 @@ router.get('/', function(req, res) {
 });
 
 /* test db */
-router.get('/testdb', function(req, res) {
+router.get('/testdb', async function(req, res) {
     console.log('in test db router');
-    const el = async db.testdb();
+    const el = await db.testdb();
     res.render('test', { title: 'Test page', record: el });
 });
 
