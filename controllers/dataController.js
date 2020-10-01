@@ -1,3 +1,20 @@
+const { MongoClient, ObjectId } = require('mongodb');
+
+exports.setupDB = async function () {
+    const url = process.env.DB_URL;
+    debug(`attempting to connect to database at ${url}`);
+    const dbName = 'agileinfodb';
+    try {
+        const client = await MongoClient.connect(url, { useNewUrlParser: true });
+        const db = client.db(dbName);
+        const collection = await db.collection('tasks');
+        return ({ client: client, collection: collection });
+    }
+
+    catch (err) {
+        debug(err);
+    }
+};
 
 exports.getPrincipleByID = function(framework, type, id) {
     const debug = true;
