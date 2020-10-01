@@ -7,13 +7,13 @@ exports.displayKeywordList = async function(req, res) {
 	res.render('viewEntriesKeywords', { title: 'Keywords List', principlesArray: parray });
 }
 
-exports.updateKeywords = function(req, res) {
+exports.updateKeywords = async function(req, res) {
 	const debug = true;
     const framework = req.query.framework;
     const type = req.query.type;
     const id = req.query.id;
     const newkeywords = req.body;
-	const parray = db.getPrinciplesArray('','');
+	const parray = await db.getPrinciplesArray('','');
     
     if(debug) {console.log('will update with ' + JSON.stringify(newkeywords) )};
     db.updateKeywords( framework, type, id, newkeywords.keywords );
