@@ -15,6 +15,7 @@ async function setupDB() {
 
     catch (err) {
         debug(err);
+        console.log(err);
     }
 };
 
