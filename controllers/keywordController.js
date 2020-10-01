@@ -9,13 +9,16 @@ exports.displayKeywordList = async function(req, res) {
 
 
 exports.editKeyword = async function(req, res) {
-	const debug = true;
-    const framework = req.query.framework;
-    const type = req.query.type;
-    const id = req.query.id;
-    if(debug) { console.log( 'in editKeyword() framework:' + framework + ', type:' + type + ', id:' + id ) };
-	const principlesArray = await db.getPrincipleByID(framework, type, id);
-    
+    try {
+        const debug = true;
+        const framework = req.query.framework;
+        const type = req.query.type;
+        const id = req.query.id;
+        if(debug) { console.log( 'in editKeyword() framework:' + framework + ', type:' + type + ', id:' + id ) };
+        const principlesArray = await db.getPrincipleByID(framework, type, id);
+    } catch(err) {
+        console.log('error in updateKeywords ' + err.message );
+    }
     res.render('editEntryKeyword', { title: 'Edit Keyword', principleObj: principlesArray[0] });
 }
 
