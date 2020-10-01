@@ -65,6 +65,10 @@ async function getPrinciplesArray(framework, type) {
         */
          try {
             const dbParams = await setupDB();
+            if(debug) {
+                const el = await dbParams.collection.findOne({ _id: new ObjectId('5f74e7e9a5562327a9226af1') });
+                console.log('test: ' + el.type);
+            }
             //const fbks = await dbParams.collection.find({}).sort({ createDate: -1 }).toArray();
             const parray = await dbParams.collection.find({}).toArray();
              if(debug) { 'parray length: ' + parray.length; }
