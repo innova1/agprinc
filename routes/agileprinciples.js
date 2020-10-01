@@ -51,6 +51,7 @@ router.get('/all', function(req, res) {
     //console.log('in router get /:framework with ' + framework );
     //console.log('in router get /:framework with first frameworks principle ' + frameworksArray[0] );
     const principlesArray = db.getPrinciplesArray('', '');
+    console.log('test length of array: ' + principlesArray.length);
     const searchMap = db.getSearchMap(); 
     //console.log('in router: len is ' + searchMap.length);
     //console.log('in :framework ' + principlesArray[1].text);
