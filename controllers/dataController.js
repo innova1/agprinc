@@ -25,10 +25,10 @@ exports.testdb = async function() {
         const el = await dbParams.collection.findOne({ _id: new ObjectId('5f74e7e9a5562327a9226af1') });
         if(debug) { console.log( 'got here 1 in testdb with element type:' + el.type ); }
         dbParams.client.close();
+        return el;
     } catch(err) {
 		console.log('error in try of get prin by id ' + err.message );
     }
-    return el;
 };
 
 exports.getPrincipleByID = function(framework, type, id) {
