@@ -33,6 +33,10 @@ exports.testdb = async function() {
 };
 
 exports.getPrincipleByID = async function(framework, type, id) {
+    return getPrinciplesByID(framework, type, id);
+};
+
+async function getPrincipleByID(framework, type, id) {
     const debug = true;
     //contract: next called with an id that is out of range -- call isIDInRange() first
 	try {
