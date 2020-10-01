@@ -96,10 +96,20 @@ async function getPrinciplesArray(framework, type) {
         */
     } else {
         if(debug) { console.log('in else framework is ' + framework + ', type is ' + type) ; }
+        try {
+            const dbParams = await setupDB();
+            //const fbks = await dbParams.collection.find({}).sort({ createDate: -1 }).toArray();
+            principlesArray = await dbParams.collection.find({ "framework": framework, "type": type }).toArray();
+            dbParams.client.close();
+        } catch(err) {
+            console.log('error in try of get prin by id ' + err.message );
+        }
+        /*
         function isMatchFrameworkAndType(o) {
-            return o.framework == framework && o.type == type /*type.substring(0,type.length-1)*/ ;
+            return o.framework == framework && o.type == type ;
         }
         principlesArray = parray.filter( isMatchFrameworkAndType );
+        */
     }
     //console.log('about to export prin array with length ' + principlesArray.length);
 	return principlesArray;
