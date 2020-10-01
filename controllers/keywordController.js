@@ -26,13 +26,9 @@ exports.updateKeywords = async function(req, res) {
     try {
         const debug = true;
         const framework = req.query.framework;
-        if(debug) {console.log('got here 1'); }
         const type = req.query.type;
-        if(debug) {console.log('got here 2'); }
         const id = req.query.id;
-        if(debug) {console.log('got here 3'); }
         const newkeywords = req.body;
-        if(debug) {console.log('got here 4'); }
         if(debug) {console.log('in update Keywords with framework:' + framework + ', type:' + type + ', id:' + id + ', newkeywords:' + newkeywords.keywords );}
         //await dbParams.collection.findOneAndUpdate({ _id: new ObjectId(id) }, task);
         if(debug) {console.log('will update with ' + JSON.stringify(newkeywords) )};

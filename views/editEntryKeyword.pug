@@ -7,7 +7,7 @@ block content
     p #{principleObj.text}
     - var kwds = '';
     each kwd in principleObj.keywords
-      - kwds = (kwds==''?kwd:kwds + ', ' + kwd);
+      - kwds = (kwds==''?kwd:kwds + ',' + kwd);
     p #{kwds}
     
     // put kwds in a text box inside a form and with post method. create a controller to save the keywords back to the object
