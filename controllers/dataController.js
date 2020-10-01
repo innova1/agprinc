@@ -170,7 +170,7 @@ exports.updateKeywords = async function( framework, type, id, keywords ) {
     var result = false;
     if(debug) { console.log('in db.updateKeywords framework: ' + framework + ', type: ' + type + ', id: ' + id + ', keywords: ' + keywords); }
     // todo -- keywords is a string, needs to be turn into an array
-    var keywordsArray = keywords.split(',').map(function(item) { return item.trim(); } );
+    var keywordsArray = keywords.split(',').map( item => return item.trim(); );
     if(debug) {
         for( const k of keywordsArray ) {
             console.log(k);
