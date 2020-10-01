@@ -13,7 +13,10 @@ router.get('/', function(req, res) {
 });
 
 /* test db */
-router.get('/testdb', kwd.testdb);
+router.get('/testdb', function(req, res) {
+    kwd.testdb;
+    res.render('test', { title: 'Test page'});
+});
 
 /* View edit keywords page */
 router.get('/keywords', kwd.displayKeywordList);
