@@ -59,13 +59,13 @@ router.get('/all', async function(req, res) {
 });
 
 /* GET one framework of agile principles */
-router.get('/:framework', function(req, res) {
+router.get('/:framework', async function(req, res) {
     //console.log('in router get /:framework');
     const framework = req.params.framework;
     const frameworksArray = db.getFrameworksArray();
     //console.log('in router get /:framework with ' + framework );
     //console.log('in router get /:framework with first frameworks principle ' + frameworksArray[0] );
-    const principlesArray = db.getPrinciplesArray(framework, '');
+    const principlesArray = await db.getPrinciplesArray(framework, '');
     const searchMap = db.getSearchMap(); 
     //console.log('in router: len is ' + searchMap.length);
     //console.log('in :framework ' + principlesArray[1].text);
