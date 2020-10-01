@@ -322,9 +322,9 @@ function getDataArray() {
 		if yes, then add this pointer to the array in the object
 		if no, then create the object and add to the array
 */
-function async createSearchMap() {
+async function createSearchMap() {
   	//const dataArray = getDataArray(); //full data array of all values and principle objects
-    const dataArray = getPrinciplesArray('','');
+    const dataArray = await getPrinciplesArray('','');
     var searchMap = new Map(); //Map being built of a list of objects with keyword and location of the word
     var tempArray = new Array(); //temporary holding tank of keywords to be tested and added if not already there. if already there, then just add location to the end of the item on the search array
     var locationObj = new Object();
@@ -364,11 +364,11 @@ function async createSearchMap() {
     return searchMap;
 }
 
-function searchForKeywords( searchTerms ) {
+async function searchForKeywords( searchTerms ) {
     const debug = false;
     if(debug) { console.log('in searchForKeywords with ' + searchTerms)};
     //const dataArray = getDataArray();
-    const dataArray = getPrinciplesArray('','');
+    const dataArray = await getPrinciplesArray('','');
     const foundItems = new Array();
   	const searchMap = createSearchMap();
     var foundIndexes = new Array();

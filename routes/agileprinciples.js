@@ -29,7 +29,7 @@ router.get('/keywordEdit', kwd.editKeyword);
 router.post('/keywordUpdate', kwd.updateKeywords);
 
 /* search */
-router.get('/search', function(req, res) {
+router.get('/search', async function(req, res) {
     const framework = req.params.framework;
     const searchterms = req.query.searchterms;
     //console.log('in search with framework-' + framework + ' and searchterms-' + decodeURI(searchterms));
@@ -37,7 +37,7 @@ router.get('/search', function(req, res) {
     const frameworksArray = db.getFrameworksArray();
     //console.log('in router get /:framework with ' + framework );
     //console.log('in router get /:framework with first frameworks principle ' + frameworksArray[0] );
-    const principlesArray = db.getMatchedItems(searchtermsArray);
+    const principlesArray = await db.getMatchedItems(searchtermsArray);
     //console.log('in router: len is ' + searchMap.length);
     //console.log('in :framework ' + principlesArray[1].text);
     res.render('agprisSelectedFramework', { title: 'Agile Principles', frameworks: frameworksArray, framework: framework, principlesArray: principlesArray });
@@ -52,7 +52,7 @@ router.get('/all', async function(req, res) {
     //console.log('in router get /:framework with first frameworks principle ' + frameworksArray[0] );
     const principlesArray = await db.getPrinciplesArray('', '');
     console.log('test length of array: ' + principlesArray.length);
-    const searchMap = db.getSearchMap(); 
+    const searchMap = await db.getSearchMap(); 
     //console.log('in router: len is ' + searchMap.length);
     //console.log('in :framework ' + principlesArray[1].text);
     res.render('agprisSelectedFramework', { title: 'Agile Principles', frameworks: frameworksArray, framework: framework, principlesArray: principlesArray, searchMap: searchMap });
@@ -66,7 +66,7 @@ router.get('/:framework', async function(req, res) {
     //console.log('in router get /:framework with ' + framework );
     //console.log('in router get /:framework with first frameworks principle ' + frameworksArray[0] );
     const principlesArray = await db.getPrinciplesArray(framework, '');
-    const searchMap = db.getSearchMap(); 
+    const searchMap = await db.getSearchMap(); 
     //console.log('in router: len is ' + searchMap.length);
     //console.log('in :framework ' + principlesArray[1].text);
     res.render('agprisSelectedFramework', { title: 'Agile Principles', frameworks: frameworksArray, framework: framework, principlesArray: principlesArray, searchMap: searchMap });
@@ -78,7 +78,7 @@ router.get('/:framework/:type', async function(req, res) {
     const frameworksArray = db.getFrameworksArray();
     //console.log('in router get /:framework with ' + framework + ", " + type );
     const principlesArray = await db.getPrinciplesArray(framework, type);
-    const searchMap = db.getSearchMap(); 
+    const searchMap = await db.getSearchMap(); 
     res.render('agprisSelectedFramework', { title: 'Agile Principles', frameworks: frameworksArray, framework: framework, type: type, principlesArray: principlesArray, searchMap: searchMap });
 });
 
