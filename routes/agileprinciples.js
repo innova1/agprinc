@@ -15,8 +15,8 @@ router.get('/', function(req, res) {
 /* test db */
 router.get('/testdb', function(req, res) {
     console.log('in test db router');
-    db.testdb();
-    res.render('test', { title: 'Test page'});
+    const el = db.testdb();
+    res.render('test', { title: 'Test page', record: el });
 });
 
 /* View edit keywords page */
