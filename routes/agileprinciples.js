@@ -75,9 +75,10 @@ router.get('/:framework', async function(req, res) {
 router.get('/:framework/:type', async function(req, res) {
     const framework = req.params.framework;
     const type = req.params.type;
+    const frameworksArray = db.getFrameworksArray();
     //console.log('in router get /:framework with ' + framework + ", " + type );
     const principlesArray = await db.getPrinciplesArray(framework, type);
-    res.render('agpris2', { title: 'Agile Principles', framework: framework, type: type, principlesArray: principlesArray });
+    res.render('agprisSelectedFramework', { title: 'Agile Principles', frameworks: frameworksArray, framework: framework, type: type, principlesArray: principlesArray, searchMap: searchMap });
 });
 
 /* GET specific agile principle */
