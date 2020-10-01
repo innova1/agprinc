@@ -22,8 +22,8 @@ exports.testdb = async function() {
     if(debug) { console.log('in exprt test db'); }
     try {
         const dbParams = await setupDB();
-        //const task = await dbParams.collection.findOne({ _id: new ObjectId(id) });
-        if(debug) { console.log( 'got here 1 in testdb' ); }
+        const el = await dbParams.collection.findOne({ _id: new ObjectId(id) });
+        if(debug) { console.log( 'got here 1 in testdb ' + el ); }
         dbParams.client.close();
     } catch(err) {
 		console.log('error in try of get prin by id ' + err.message );
