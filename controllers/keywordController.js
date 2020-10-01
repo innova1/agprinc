@@ -34,10 +34,10 @@ exports.updateKeywords = async function(req, res) {
         const newkeywords = req.body;
         if(debug) {console.log('got here 4'); }
         if(debug) {console.log('in update Keywords with framework:' + framework + ', type:' + type + ', id:' + id + ', newkeywords:' + newkeywords.keywords );}
-        const principlesArray = await db.getPrinciplesArray('','');
         //await dbParams.collection.findOneAndUpdate({ _id: new ObjectId(id) }, task);
         if(debug) {console.log('will update with ' + JSON.stringify(newkeywords) )};
         var result = db.updateKeywords( framework, type, id, newkeywords.keywords );
+        const principlesArray = await db.getPrinciplesArray('','');
     } catch(err) {
         console.log('error in updateKeywords ' + err.message );
     }
