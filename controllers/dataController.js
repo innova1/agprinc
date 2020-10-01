@@ -111,7 +111,7 @@ async function getPrinciplesArray(framework, type) {
         principlesArray = parray.filter( isMatchFrameworkAndType );
         */
     }
-    //console.log('about to export prin array with length ' + principlesArray.length);
+    console.log('about to export prin array with length ' + principlesArray.length);
 	return principlesArray;
 };
 
