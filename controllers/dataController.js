@@ -3,7 +3,7 @@ const debug = require('debug')('app:dataController');
 
 async function setupDB() {
     console.log('in setupDB with url ' + process.env.DB_URL);
-    const url = process.env.DB_URL;
+    const url = 'mongodb://application:app44word@localhost:27017/?authMechanism=SCRAM-SHA-1&authSource=agileinfodb'; //process.env.DB_URL;
     debug(`attempting to connect to database at ${url}`);
     const dbName = 'agileinfodb';
     try {
