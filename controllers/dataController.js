@@ -52,7 +52,7 @@ exports.getPrincipleByID = async function(framework, type, id) {
         }
         //const fbks = await dbParams.collection.find({}).sort({ createDate: -1 }).toArray();
         principlesArray = await dbParams.collection.find({ "framework": framework, "type": type, "id": id}).toArray();
-        if(debug) { await 'parray length: ' + parray.length; }
+        if(debug) { await 'principlesArray length: ' + principlesArray.length; }
         dbParams.client.close();
         
 		return principlesArray;
