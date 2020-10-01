@@ -67,10 +67,8 @@ async function getPrinciplesArray(framework, type) {
             const dbParams = await setupDB();
             //const fbks = await dbParams.collection.find({}).sort({ createDate: -1 }).toArray();
             const parray = await dbParams.collection.find({}).toArray();
-            if(debug) { console.log( 'got here 1 in testdb with element type:' + el.type ); }
             dbParams.client.close();
-            if(debug) { console.log( 'about to return element type:' + el.type ); }
-            return el;
+            principlesArray = parray;
         } catch(err) {
             console.log('error in try of get prin by id ' + err.message );
         }
