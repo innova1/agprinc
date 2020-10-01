@@ -14,7 +14,7 @@ router.get('/', function(req, res) {
 
 /* test db */
 router.get('/testdb', function(req, res) {
-    kwd.testdb;
+    db.testdb;
     res.render('test', { title: 'Test page'});
 });
 
