@@ -59,8 +59,21 @@ function getPrinciplesArray(framework, type) {
     //console.log('parray is length ' + parray.length);
     let principlesArray = new Array();
     if(framework=='') {
+        /*
         if(debug) { console.log('framework is empty') };
         principlesArray = parray;
+        */
+         try {
+            const dbParams = await setupDB();
+            //const fbks = await dbParams.collection.find({}).sort({ createDate: -1 }).toArray();
+            const parray = await dbParams.collection.find({}).toArray();
+            if(debug) { console.log( 'got here 1 in testdb with element type:' + el.type ); }
+            dbParams.client.close();
+            if(debug) { console.log( 'about to return element type:' + el.type ); }
+            return el;
+        } catch(err) {
+            console.log('error in try of get prin by id ' + err.message );
+        }
     } else if(type=='') {
         if(debug) { console.log('type is empty') };
         function isFramework(o) {
