@@ -28,7 +28,7 @@ exports.editKeyword = async function(req, res) {
     const type = req.query.type;
     const id = req.query.id;
     if(debug) { console.log( 'framework:' + framework + ', type:' + type + ', id:' + id ) };
-	const principlesArray = db.getPrincipleByID(framework, type, id);
+	const principlesArray = await db.getPrincipleByID(framework, type, id);
     
     res.render('editEntryKeyword', { title: 'Edit Keyword', principleObj: principlesArray[0] });
 }
