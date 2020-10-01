@@ -1,18 +1,30 @@
 const { MongoClient, ObjectId } = require('mongodb');
 
-exports.setupDB = async function () {
+async function setupDB() {
     const url = process.env.DB_URL;
     debug(`attempting to connect to database at ${url}`);
     const dbName = 'agileinfodb';
     try {
         const client = await MongoClient.connect(url, { useNewUrlParser: true });
         const db = client.db(dbName);
-        const collection = await db.collection('tasks');
+        const collection = await db.collection('agileinfo');
         return ({ client: client, collection: collection });
     }
 
     catch (err) {
         debug(err);
+    }
+};
+
+exports.testdb = async function() {
+    const debug = true;
+    try {
+        const dbParams = await setupDB();
+        //const task = await dbParams.collection.findOne({ _id: new ObjectId(id) });
+        if(debug) { console.log('error in try of get prin by id ' + err.message ); }
+        dbParams.client.close();
+    } catch(err) {
+		console.log('error in try of get prin by id ' + err.message );
     }
 };
 

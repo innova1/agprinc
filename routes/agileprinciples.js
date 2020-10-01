@@ -12,6 +12,9 @@ router.get('/', function(req, res) {
     res.render('agpris2', { title: 'Agile principles', frameworks: frameworksArray });
 });
 
+/* test db */
+router.get('/testdb', kwd.testdb);
+
 /* View edit keywords page */
 router.get('/keywords', kwd.displayKeywordList);
 
