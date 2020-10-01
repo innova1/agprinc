@@ -30,7 +30,7 @@ exports.updateKeywords = async function(req, res) {
         if(debug) {console.log('got here 3'); }
         const newkeywords = req.body;
         if(debug) {console.log('got here 4'); }
-        if(debug) {console.log('in update Keywords with framework:' + framework + ', type:' + type + ', id:' + id + ', newkeywords:' + newkeywords );}
+        if(debug) {console.log('in update Keywords with framework:' + framework + ', type:' + type + ', id:' + id + ', newkeywords:' + newkeywords.keywords );}
         const principlesArray = await db.getPrinciplesArray('','');
         //await dbParams.collection.findOneAndUpdate({ _id: new ObjectId(id) }, task);
         if(debug) {console.log('will update with ' + JSON.stringify(newkeywords) )};
