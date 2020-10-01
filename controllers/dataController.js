@@ -179,7 +179,7 @@ exports.updateKeywords = async function( framework, type, id, keywords ) {
     
     try {
         //await dbParams.collection.findOneAndUpdate({ _id: new ObjectId(id) }, task);
-        result = dbParams.collection.findOneAndUpdate({ "framework": framework, "type": type, "id": id}, keywords: keywordsArray );
+        result = dbParams.collection.findOneAndUpdate({ "framework": framework, "type": type, "id": id}, { keywords: keywordsArray } );
     } catch(err) {
         console.log('error in dataController.updateKeywords ' + err.message );
     }
