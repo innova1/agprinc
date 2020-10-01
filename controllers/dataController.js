@@ -32,17 +32,30 @@ exports.testdb = async function() {
     }
 };
 
-exports.getPrincipleByID = function(framework, type, id) {
+exports.getPrincipleByID = async function(framework, type, id) {
     const debug = true;
     //contract: next called with an id that is out of range -- call isIDInRange() first
 	try {
+        /*
 		if(debug) { console.log('in get prin by framework=' + framework + ', type=' + type + ', id=' + id) };
-		/*if( id > 12 || id < 1 ) { id = '1'; console.log('changed id to ' + id); }*/
+		//if( id > 12 || id < 1 ) { id = '1'; console.log('changed id to ' + id); }
 		const parray = getPrinciplesArray(framework, type);
         if(debug) { console.log('first record of array is ' + parray[0].id) };
 		var result = parray.find( e => e.id == id );
         if(debug) { console.log('result is ' + result) };
-		return result;
+        */
+        
+        const dbParams = await setupDB();
+        if(debug) {
+            const el = await dbParams.collection.findOne({ _id: new ObjectId('5f74e7e9a5562327a9226af1') });
+            console.log('test: ' + el.type);
+        }
+        //const fbks = await dbParams.collection.find({}).sort({ createDate: -1 }).toArray();
+        principlesArray = await dbParams.collection.find({ "framework": framework, "type": type, "id": id}).toArray();
+        if(debug) { await 'parray length: ' + parray.length; }
+        dbParams.client.close();
+        
+		return principlesArray;
 	} catch (err) {
 		console.log('error in try of get prin by id ' + err.message );
 	}
