@@ -37,7 +37,7 @@ exports.updateKeywords = async function(req, res) {
         const principlesArray = await db.getPrinciplesArray('','');
         //await dbParams.collection.findOneAndUpdate({ _id: new ObjectId(id) }, task);
         if(debug) {console.log('will update with ' + JSON.stringify(newkeywords) )};
-        db.updateKeywords( framework, type, id, newkeywords.keywords );
+        var result = db.updateKeywords( framework, type, id, newkeywords.keywords );
     } catch(err) {
         console.log('error in updateKeywords ' + err.message );
     }

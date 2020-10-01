@@ -165,7 +165,7 @@ exports.getMatchedItems = function( searchTerms ) {
     return searchForKeywords( searchTerms );
 }
 
-exports.updateKeywords = function( framework, type, id, keywords ) {
+exports.updateKeywords = async function( framework, type, id, keywords ) {
     const debug = true;
     var result = false;
     if(debug) { console.log('in db.updateKeywords framework: ' + framework + ', type: ' + type + ', id: ' + id + ', keywords: ' + keywords); }
@@ -175,6 +175,13 @@ exports.updateKeywords = function( framework, type, id, keywords ) {
         for( const k of keywordsArray ) {
             console.log(k);
         }
+    }
+    
+    try {
+        //await dbParams.collection.findOneAndUpdate({ _id: new ObjectId(id) }, task);
+        result = dbParams.collection.findOneAndUpdate({ "framework": framework, "type": type, "id": id}, keywords: keywordsArray );
+    } catch(err) {
+        console.log('error in dataController.updateKeywords ' + err.message );
     }
     
     // todo -- need to move to database so this really updates. currently the data is here in the code file and won't be updated (don't want to waste time separating to a text file then updating that)
