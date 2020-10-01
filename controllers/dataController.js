@@ -54,19 +54,20 @@ exports.getPrinciplesArray = function(framework, type) {
 
 async function getPrinciplesArray(framework, type) {
     const debug = true;
-    if(debug) { console.log('in get prin array export with framework ' + framework) };
+    if(debug) { console.log('in get prin array export with framework ' + framework); }
     const parray = getDataArray();
     //console.log('parray is length ' + parray.length);
     let principlesArray = new Array();
     if(framework=='') {
+        if(debug) { console.log('in get princ array framework is empty'); }
         /*
-        if(debug) { console.log('framework is empty') };
         principlesArray = parray;
         */
          try {
             const dbParams = await setupDB();
             //const fbks = await dbParams.collection.find({}).sort({ createDate: -1 }).toArray();
             const parray = await dbParams.collection.find({}).toArray();
+             if(debug) { 'parray length: ' + parray.length; }
             dbParams.client.close();
             principlesArray = parray;
         } catch(err) {
@@ -81,7 +82,7 @@ async function getPrinciplesArray(framework, type) {
         principlesArray.sort(comparePrinciplesSortById);
         principlesArray.sort(comparePrinciplesSortByType);
     } else {
-        if(debug) { console.log('in else framework is ' + framework + ', type is ' + type) };
+        if(debug) { console.log('in else framework is ' + framework + ', type is ' + type) ; }
         function isMatchFrameworkAndType(o) {
             return o.framework == framework && o.type == type /*type.substring(0,type.length-1)*/ ;
         }
@@ -127,7 +128,7 @@ exports.getMatchedItems = function( searchTerms ) {
 exports.updateKeywords = function( framework, type, id, keywords ) {
     const debug = true;
     var result = false;
-    if(debug) { console.log('in db.updateKeywords framework: ' + framework + ', type: ' + type + ', id: ' + id + ', keywords: ' + keywords)};
+    if(debug) { console.log('in db.updateKeywords framework: ' + framework + ', type: ' + type + ', id: ' + id + ', keywords: ' + keywords); }
     // todo -- keywords is a string, needs to be turn into an array
     var keywordsArray = keywords.split(',');
     if(debug) {
