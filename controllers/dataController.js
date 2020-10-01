@@ -11,9 +11,7 @@ async function setupDB() {
         const db = client.db(dbName);
         const collection = await db.collection('agileinfo');
         return ({ client: client, collection: collection });
-    }
-
-    catch (err) {
+    } catch (err) {
         debug(err);
         console.log(err);
     }
@@ -21,6 +19,7 @@ async function setupDB() {
 
 exports.testdb = async function() {
     const debug = true;
+    if(debug) { console.log('in exprt test db'); }
     try {
         const dbParams = await setupDB();
         //const task = await dbParams.collection.findOne({ _id: new ObjectId(id) });
