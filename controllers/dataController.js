@@ -33,7 +33,7 @@ exports.testdb = async function() {
 };
 
 exports.getPrincipleByID = async function(framework, type, id) {
-    return getPrinciplesByID(framework, type, id);
+    return getPrincipleByID(framework, type, id);
 };
 
 async function getPrincipleByID(framework, type, id) {
