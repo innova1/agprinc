@@ -63,7 +63,7 @@ async function getPrinciplesArray(framework, type) {
         /*
         principlesArray = parray;
         */
-         try {
+        try {
             const dbParams = await setupDB();
             if(debug) {
                 const el = await dbParams.collection.findOne({ _id: new ObjectId('5f74e7e9a5562327a9226af1') });
@@ -78,12 +78,22 @@ async function getPrinciplesArray(framework, type) {
         }
     } else if(type=='') {
         if(debug) { console.log('type is empty') };
+        try {
+            const dbParams = await setupDB();
+            //const fbks = await dbParams.collection.find({}).sort({ createDate: -1 }).toArray();
+            principlesArray = await dbParams.collection.find({ "framework": framework }).toArray();
+            dbParams.client.close();
+        } catch(err) {
+            console.log('error in try of get prin by id ' + err.message );
+        }
+        /*
         function isFramework(o) {
             return o.framework == framework;
         }
         principlesArray = parray.filter( isFramework );
         principlesArray.sort(comparePrinciplesSortById);
         principlesArray.sort(comparePrinciplesSortByType);
+        */
     } else {
         if(debug) { console.log('in else framework is ' + framework + ', type is ' + type) ; }
         function isMatchFrameworkAndType(o) {
