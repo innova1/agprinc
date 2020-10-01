@@ -7,7 +7,7 @@ async function setupDB() {
     debug(`attempting to connect to database at ${url}`);
     const dbName = 'agileinfodb';
     try {
-        const client = await MongoClient.connect(url, { useNewUrlParser: true });
+        const client = await MongoClient.connect(url, { useNewUrlParser: true, useUnifiedTopology: true });
         const db = client.db(dbName);
         const collection = await db.collection('agileinfo');
         return ({ client: client, collection: collection });
