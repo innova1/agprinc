@@ -1,7 +1,7 @@
 const db = require('./dataController');
 
 exports.displayKeywordList = async function(req, res) {
-	const debug = true;
+	const debug = false;
 	const principlesArray = await db.getPrinciplesArray('','');
 	
 	res.render('viewEntriesKeywords', { title: 'Keywords List', principlesArray: principlesArray });
@@ -10,7 +10,7 @@ exports.displayKeywordList = async function(req, res) {
 
 exports.editKeyword = async function(req, res) {
     try {
-        const debug = true;
+        const debug = false;
         const framework = req.query.framework;
         const type = req.query.type;
         const id = req.query.id;
@@ -24,7 +24,7 @@ exports.editKeyword = async function(req, res) {
 
 exports.updateKeywords = async function(req, res) {
     try {
-        const debug = true;
+        const debug = false;
         const framework = req.query.framework;
         const type = req.query.type;
         const id = req.query.id;
