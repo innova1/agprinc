@@ -371,7 +371,7 @@ async function searchForKeywords( searchTerms ) {
     try {
         const dataArray = await getPrinciplesArray('','');
         const foundItems = new Array();
-        const searchMap = createSearchMap();
+        const searchMap = await createSearchMap();
         var foundIndexes = new Array();
         var locations = new Array();
         for( const searchTerm of searchTerms ) {
