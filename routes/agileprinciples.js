@@ -23,6 +23,7 @@ router.get('/testboot', function(req, res) {
     res.render('testboot', { title: 'testing bootstrap' });
 });
 
+
 /* View edit keywords page */
 router.get('/keywords', kwd.displayKeywordList);
 
