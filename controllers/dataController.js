@@ -368,26 +368,30 @@ async function searchForKeywords( searchTerms ) {
     const debug = false;
     if(debug) { console.log('in searchForKeywords with ' + searchTerms)};
     //const dataArray = getDataArray();
-    const dataArray = await getPrinciplesArray('','');
-    const foundItems = new Array();
-  	const searchMap = createSearchMap();
-    var foundIndexes = new Array();
-    var locations = new Array();
-    for( const searchTerm of searchTerms ) {
-	  var searchObj = searchMap.get(searchTerm.toLowerCase());
-	  if(searchObj) {
-		locations = searchObj.locations;
-		for( const l of locations ) {
-		  if( foundIndexes.indexOf(l.index) == -1 ) {
-			foundIndexes.push(l.index);
-			foundItems.push(dataArray[l.index]);
-		  } else {
-			if(debug) { console.log('skipping ' + dataArray[l.index].shortdescription + ' because already added') };
-		  }
-		}
-	  }
-	}
-    if(debug && foundItems[0]) { console.log('first found item is ' + foundItems[0].framework) } else { console.log('none found') };
+    try {
+        const dataArray = await getPrinciplesArray('','');
+        const foundItems = new Array();
+        const searchMap = createSearchMap();
+        var foundIndexes = new Array();
+        var locations = new Array();
+        for( const searchTerm of searchTerms ) {
+          var searchObj = searchMap.get(searchTerm.toLowerCase());
+          if(searchObj) {
+            locations = searchObj.locations;
+            for( const l of locations ) {
+              if( foundIndexes.indexOf(l.index) == -1 ) {
+                foundIndexes.push(l.index);
+                foundItems.push(dataArray[l.index]);
+              } else {
+                if(debug) { console.log('skipping ' + dataArray[l.index].shortdescription + ' because already added') };
+              }
+            }
+          }
+        }
+        if(debug && foundItems[0]) { console.log('first found item is ' + foundItems[0].framework) } else { console.log('none found') };
+    } catch(err) {
+        console.log('error in dataController.searchForKeywords ' + err.message );
+    }
   
     return foundItems;
 }
