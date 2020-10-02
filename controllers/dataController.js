@@ -389,11 +389,13 @@ async function searchForKeywords( searchTerms ) {
           }
         }
         if(debug && foundItems[0]) { console.log('first found item is ' + foundItems[0].framework) } else { console.log('none found') };
+        
+        return foundItems;
+        
     } catch(err) {
         console.log('error in dataController.searchForKeywords ' + err.message );
     }
   
-    return foundItems;
 }
 
 /*
