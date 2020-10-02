@@ -5,7 +5,7 @@ async function setupDB() {
     const debug = false;
     const url = 'mongodb://application:app44word@localhost:27017/?authMechanism=SCRAM-SHA-1&authSource=agileinfodb'; //process.env.DB_URL;
     if(debug) { console.log('in setupDB with url ' + url); }
-    debug(`attempting to connect to database at ${url}`);
+    //debug(`attempting to connect to database at ${url}`);
     const dbName = 'agileinfodb';
     try {
         const client = await MongoClient.connect(url, { useNewUrlParser: true, useUnifiedTopology: true });
@@ -13,7 +13,7 @@ async function setupDB() {
         const collection = await db.collection('agileinfo');
         return ({ client: client, collection: collection });
     } catch (err) {
-        debug(err);
+        //debug(err);
         console.log(err);
     }
 };
