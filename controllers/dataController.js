@@ -18,7 +18,7 @@ async function setupDB() {
 };
 
 exports.testdb = async function() {
-    const ;
+    const debug = false;
     if(debug) { console.log('in exprt test db'); }
     try {
         const dbParams = await setupDB();
@@ -37,7 +37,7 @@ exports.getPrincipleByID = async function(framework, type, id) {
 };
 
 async function getPrincipleByID(framework, type, id) {
-    const ;
+    const debug = false;
     //contract: next called with an id that is out of range -- call isIDInRange() first
 	try {
         /*
@@ -70,7 +70,7 @@ exports.getPrinciplesArray = function(framework, type) {
 };
 
 async function getPrinciplesArray(framework, type) {
-    const ;
+    const debug = false;
     if(debug) { console.log('in get prin array export with framework ' + framework); }
     const parray = getDataArray();
     //console.log('parray is length ' + parray.length);
@@ -166,7 +166,7 @@ exports.getMatchedItems = function( searchTerms ) {
 }
 
 exports.updateKeywords = async function( framework, type, id, keywords ) {
-    const ;
+    const debug = false;
     var result = false;
     if(debug) { console.log('in db.updateKeywords framework: ' + framework + ', type: ' + type + ', id: ' + id + ', keywords: ' + keywords); }
     // todo -- keywords is a string, needs to be turn into an array
