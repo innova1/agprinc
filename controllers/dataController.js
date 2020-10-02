@@ -29,7 +29,7 @@ exports.testdb = async function() {
         if(debug) { console.log( 'about to return element type:' + el.type ); }
         return el;
     } catch(err) {
-		console.log('error in try of get prin by id ' + err.message );
+		console.log('error in try of testdb ' + err.message );
     }
 };
 
@@ -92,7 +92,7 @@ async function getPrinciplesArray(framework, type) {
             if(debug) { await 'parray length: ' + parray.length; }
             dbParams.client.close();
         } catch(err) {
-            console.log('error in try of get prin by id ' + err.message );
+            console.log('error in try of getPrinciplesArray ' + err.message );
         }
     } else if(type=='') {
         if(debug) { console.log('type is empty') };
@@ -102,7 +102,7 @@ async function getPrinciplesArray(framework, type) {
             principlesArray = await dbParams.collection.find({ "framework": framework }).toArray();
             dbParams.client.close();
         } catch(err) {
-            console.log('error in try of get prin by id ' + err.message );
+            console.log('error in try of getPrinciplesArray ' + err.message );
         }
         /*
         function isFramework(o) {
@@ -120,7 +120,7 @@ async function getPrinciplesArray(framework, type) {
             principlesArray = await dbParams.collection.find({ "framework": framework, "type": type }).toArray();
             dbParams.client.close();
         } catch(err) {
-            console.log('error in try of get prin by id ' + err.message );
+            console.log('error in try of getPrinciplesArray ' + err.message );
         }
         /*
         function isMatchFrameworkAndType(o) {
