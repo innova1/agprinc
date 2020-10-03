@@ -14,13 +14,13 @@ block body
     |      </div>
     |    </div>
     |<br />
-  each pv in principlesArray
-    div(class='row')
-      div(class='col-sm')
-        | #{pv.frameworkdisplay}
-        br 
-        | #{pv.type}
-      div(class='col-sm')
-        | #{pv.id}
-      div(class='col-sm')
-        | #{pv.text}
+    each pv in principlesArray
+        div(class='row')
+            div(class='col-sm')
+                | #{pv.frameworkdisplay}
+                br 
+                | #{pv.type}
+            div(class='col-sm')
+                | #{pv.id}
+            div(class='col-sm')
+                | #{pv.text}
