@@ -20,6 +20,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.locals.basedir = app.get('views');
 app.use('/bootstrap', express.static(__dirname + '/node_modules/jade-bootstrap/'));
 
 app.use('/', indexRouter);
