@@ -2,20 +2,19 @@ extends ../node_modules/jade-bootstrap/_bootstrap
 block body
   h1 {title}
   
-form(action="." method="POST")
-  label(for="name") Name:
-  input(
-    type="text"
-    id="name"
-    name="name"
-  )
+    form(action="." method="POST")
+      label(for="name") Name:
+      input(
+        type="text"
+        id="name"
+        name="name"
+      )
 
-  label(for="email") Email:
-  input(
-    type="email"
-    id="email"
-    name="email"
-  )
+      label(for="email") Email:
+      input(
+        type="email"
+        id="email"
+        name="email"
+      )
 
-  input(type="submit" value="Submit")
-  
+      input(type="submit" value="Submit")
