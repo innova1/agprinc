@@ -2,14 +2,20 @@ extends ../node_modules/jade-bootstrap/_bootstrap
 block body
   h1 {title}
   
-  table
-    tr
-      td no
-      td yes
-      td maybe
-    tr
-      td yes
-      td maybe
-      td no
+form(action="." method="POST")
+  label(for="name") Name:
+  input(
+    type="text"
+    id="name"
+    name="name"
+  )
 
+  label(for="email") Email:
+  input(
+    type="email"
+    id="email"
+    name="email"
+  )
+
+  input(type="submit" value="Submit")
   
