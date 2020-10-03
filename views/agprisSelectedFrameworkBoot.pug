@@ -12,20 +12,14 @@ block body
         a.menu(href='/agileframeworks/' + f.framework) #{f.frameworkdisplay}
     // - var fdisplay = frameworks.find(e.framework => e.framework==framework).frameworkdisplay
     h1 #{title} for #{f} the #{framework} framework
-    table.plist
+    div(class='container')
       each pv in principlesArray
-        tr(class=pv.type)
-          td.type(class=pv.type)
+        div(class='row')
+          div(class='col-sm')
             | #{pv.frameworkdisplay}
             br 
             | #{pv.type}
-          td.type(class=pv.type) #{pv.id}
-          td.text(class=pv.type) #{pv.text}
-    div(class='container')
-      div(class='row')
-        div(class='col-sm')
-          | One of the three columns
-        div(class='col-sm')
-          | One of the three columns
-        div(class='col-sm')
-          | One of the three columns
+          div(class='col-sm')
+            | #{pv.id}
+          div(class='col-sm')
+            | #{pv.text}
