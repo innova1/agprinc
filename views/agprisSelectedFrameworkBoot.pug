@@ -16,11 +16,9 @@ block body
     |<br />
     each pv in principlesArray
         div.row.bg-success
-            div.col-sm-4
-                | #{pv.frameworkdisplay}
-                br 
-                | #{pv.type}
-            div.col-sm-4
-                | #{pv.id}
-            div.col-sm-4
+          div.col-sm-2
+            div.row
+              div.col-sm-4
+                | #{pv.frameworkdisplay} #{pv.type} #{pv.id}
+              div.col-sm-4
                 | #{pv.text}
