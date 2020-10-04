@@ -3,9 +3,9 @@ extends ../node_modules/jade-bootstrap/_bootstrap
 block body
   div.container
     each pv in principlesArray
-        div.row
+        div.row.show-grid
           div.col-sm-6
-            div.row.bg-success
+            div.row.bg-success.show-grid
               div.col-sm-4
                 | #{pv.frameworkdisplay} #{pv.type} #{pv.id}
             div.row.bg-success
