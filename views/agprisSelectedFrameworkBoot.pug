@@ -16,11 +16,11 @@ block body
     |<br />
     each pv in principlesArray
         div(class='row')
-            div.col-sm(style="background-color: lightblue; border: 1px solid black;")
+            div.col-md-4
                 | #{pv.frameworkdisplay}
                 br 
                 | #{pv.type}
-            div.col-sm(style="background-color: lightgreen; border: 1px solid black;")
+            div.col-md-4
                 | #{pv.id}
-            div.col-sm(style="background-color: lightred; border: 1px solid black;")
+            div.col-md-4
                 | #{pv.text}
