@@ -1,9 +1,8 @@
 extends ../node_modules/jade-bootstrap/_bootstrap
 
-block prepend head
-  //style
-    //include ../public/stylesheets/mystyle.css
-  script(src='test.js')
+block append head
+  block append styles
+    include ../public/stylesheets/mystyle.css
 
 block body
   div.container
