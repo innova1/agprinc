@@ -15,12 +15,12 @@ block body
     |    </div>
     |<br />
     each pv in principlesArray
-        div.row.warning
-            div.col-sm-4.warning
+        div.row.bg-danger
+            div.col-sm-4
                 | #{pv.frameworkdisplay}
                 br 
                 | #{pv.type}
-            div.col-sm-4.warning
+            div.col-sm-4
                 | #{pv.id}
-            div.col-sm-4.warning
+            div.col-sm-4
                 | #{pv.text}
