@@ -37,13 +37,16 @@ block body
   nav.navbar.navbar-default
     div.container-fluid
       div.navbar-header
-        H1 Agile Values and Principles from various frameworks
-        form(action='/agileframeworks/search', method='GET')
-          label(for='searchterms')
-            | Search terms
-          br
-          input(type='text', name='searchterms', value='')  
-          input(type='submit', value='Submit')
+        div.container
+          div.col-md-6
+            H1 Agile Values and Principles from various frameworks
+          div.col-md-6
+            form(action='/agileframeworks/search', method='GET')
+              label(for='searchterms')
+              | Search terms
+              br
+              input(type='text', name='searchterms', value='')  
+              input(type='submit', value='Submit')
   div.container
     div.col-md-2
         div.panel.panel-default
