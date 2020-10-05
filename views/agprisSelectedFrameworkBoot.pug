@@ -23,6 +23,15 @@ block append styles
 block body
   div.container
     each pv in principlesArray
+      div.panel.panel-default
+        div.panel-heading
+          h3.panel-title #{pv.frameworkdisplay} #{pv.type} #{pv.id}
+        div.panel-body
+          | #{pv.text}
+    
+    
+    
+    //-
         div.row.my-space-grid
           div.col-md-4
             div.row.bg-success
