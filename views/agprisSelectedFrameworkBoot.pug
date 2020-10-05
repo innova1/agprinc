@@ -37,11 +37,9 @@ block body
             h3.panel-title Menu
           div.panel-body
             p Select framework below
-            
           ul.list-group
-            li.list-group-item Choose
-            li.list-group-item item 2
-            li.list-group-item item 3
+            each f in frameworks
+              li.list-group-item a.menu(href='/agileframeworks/' + f.framework) #{f.frameworkdisplay}
     div.col-md-8
       each pv in principlesArray
         div.panel.panel-primary
