@@ -64,11 +64,11 @@ router.get('/all', async function(req, res) {
 
 /* GET one framework of agile principles */
 router.get('/:framework', async function(req, res) {
-    console.log('in router get /:framework');
+    //console.log('in router get /:framework');
     const framework = req.params.framework;
     const frameworksArray = await db.getFrameworksArray();
     //console.log('in router get /:framework with ' + framework );
-    console.log('in router get /:framework with first frameworks principle ' + frameworksArray[0] );
+    //console.log('in router get /:framework with first frameworks principle ' + frameworksArray[0] );
     const principlesArray = await db.getPrinciplesArray(framework, '');
     const searchMap = await db.getSearchMap(); 
     //console.log('in router: len is ' + searchMap.length);
