@@ -149,7 +149,7 @@ exports.getFrameworksArray = async function() {
 			   frameworks.push( { framework: p[key].framework, frameworkdisplay: p[key].frameworkdisplay } )
 			}
 			s.add( p[key].framework );
-			if(debug) { console.log('s length is now ' + s.size); }
+			if(debug) { console.log('s length is now ' + s.size + ' and frameworks is now ' + frameworks.length ); }
 		}
 	} catch(err) {
     	console.log('got error in catch block of getFrameworksArray with ' + err);
