@@ -49,7 +49,7 @@ block body
                 a.menu(href='/agileframeworks/' + f.framework) #{f.frameworkdisplay}
     div.col-md-8
       each pv in principlesArray
-        div.panel
+        div.panel.panel-default
           div.panel-heading(class=pv.type)
             h3.panel-title #{pv.frameworkdisplay} #{pv.type} #{pv.id}
           div.panel-body
