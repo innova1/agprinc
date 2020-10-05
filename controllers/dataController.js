@@ -136,13 +136,13 @@ async function getPrinciplesArray(framework, type) {
 exports.getFrameworksArray = async function() {
     //using a Set object so that duplicates are removed
     const debug = true;
+	const s = new Set();
+	const frameworks = new Array();
 	try {
 		const p = await getPrinciplesArray('','');
 		if(debug) { console.log('data array length is ' + p.length); }
 		//const p = getDataArray();
-		const s = new Set();
-		const frameworks = new Array();
-		const iterator = p.keys();
+		const iterator = p.keys();				
 		for (const key of iterator ) {
 			if(!s.has(p[key].framework)) {
 			   frameworks.push( { framework: p[key].framework, frameworkdisplay: p[key].frameworkdisplay } )
