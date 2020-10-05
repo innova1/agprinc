@@ -28,7 +28,7 @@ block append styles
       background-color: #99e7cc;
      }
      .searchform {
-       margin-left: 20px;
+       margin-left  : 20px;
        margin-top: 10px;
      }
 
@@ -37,7 +37,7 @@ block body
     div.container-fluid
       div.navbar-header
         H1 Agile Values and Principles from various frameworks
-      form(action='/agileframeworks/search', method='GET')
+      form.searchform(action='/agileframeworks/search', method='GET')
         p 
           | search terms 
           input(type='text', name='searchterms', value='')  
