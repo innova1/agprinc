@@ -22,7 +22,7 @@ block append styles
 
 block body
   div.container
-    div.col-md-1
+    div.col-md-2
         div.panel.panel-default
           div.panel-heading
             h3.panel-title Menu
@@ -36,14 +36,14 @@ block body
             li.list-group-item item 4
             li.list-group-item item 5
             li.list-group-item item 6
-    div.col-md-7
+    div.col-md-8
       each pv in principlesArray
         div.panel.panel-primary
           div.panel-heading
             h3.panel-title #{pv.frameworkdisplay} #{pv.type} #{pv.id}
           div.panel-body
             | #{pv.text}
-    div.col-md-4
+    div.col-md-2
     
     
     
