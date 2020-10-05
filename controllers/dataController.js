@@ -133,9 +133,10 @@ async function getPrinciplesArray(framework, type) {
 	return principlesArray;
 };
 
-exports.getFrameworksArray = function() {
+exports.getFrameworksArray = async function() {
     //using a Set object so that duplicates are removed
-    const p = getDataArray();
+    const p = await getPrinciplesArray('','');
+    //const p = getDataArray();
     const s = new Set();
     const frameworks = new Array();
     const iterator = p.keys();
