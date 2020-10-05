@@ -43,7 +43,7 @@ block body
                 a.menu(href='/agileframeworks/' + f.framework) #{f.frameworkdisplay}
     div.col-md-8
       each pv in principlesArray
-        div.panel.panel-primary
+        div.panel(class=pv.type)
           div.panel-heading
             h3.panel-title #{pv.frameworkdisplay} #{pv.type} #{pv.id}
           div.panel-body
@@ -59,15 +59,3 @@ block body
             li.list-group-item item 1
             li.list-group-item item 2
             li.list-group-item item 3
-    
-    
-    
-    //-
-        div.row.my-space-grid
-          div.col-md-4
-            div.row.bg-success
-              div.col-md-12.my-show-grid-ptitle.ag-title-bgcolor
-                | #{pv.frameworkdisplay} #{pv.type} #{pv.id}
-            div.row.bg-success
-              div.col-md-12.my-show-grid-ptext.ag-text-bgcolor
-                | #{pv.text}
