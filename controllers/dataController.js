@@ -144,7 +144,7 @@ exports.getFrameworksArray = async function() {
 		//const p = getDataArray();
 		const iterator = p.keys();				
 		for (const key of iterator ) {
-			if(debug) {'testing with key ' + key + ' and ' + p[key]};
+			if(debug) { console.log('testing with key ' + key + ' and ' + p[key]) };
 			if(!s.has(p[key].framework)) {
 			   frameworks.push( { framework: p[key].framework, frameworkdisplay: p[key].frameworkdisplay } )
 			}
