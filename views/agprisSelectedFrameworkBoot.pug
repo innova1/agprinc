@@ -19,12 +19,12 @@ block append styles
     .ag-text-bgcolor {
       background-color: white;
     }
-    .value {
+    .value>.panel-heading {
       color: #333;
       background-color: #aaddf7;
       border-color: #ddd;
      }
-    .principle {
+    .principle>.panel-heading {
       color: #333;
       background-color: #99e7cc;
       border-color: #ddd;
@@ -53,8 +53,8 @@ block body
                 a.menu(href='/agileframeworks/' + f.framework) #{f.frameworkdisplay}
     div.col-md-8
       each pv in principlesArray
-        div.panel.panel-default
-          div.panel-heading(class=pv.type)
+        div.panel(class=pv.type)
+          div.panel-heading
             h3.panel-title #{pv.frameworkdisplay} #{pv.type} #{pv.id}
           div.panel-body
             | #{pv.text}
