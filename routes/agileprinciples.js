@@ -23,7 +23,6 @@ router.get('/testboot', function(req, res) {
     res.render('testboot', { title: 'testing bootstrap' });
 });
 
-
 /* View edit keywords page */
 router.get('/keywords', kwd.displayKeywordList);
 
@@ -39,7 +38,7 @@ router.get('/search', async function(req, res) {
     const searchterms = req.query.searchterms;
     //console.log('in search with framework-' + framework + ' and searchterms-' + decodeURI(searchterms));
 	searchtermsArray = searchterms.split(',');
-    const frameworksArray = db.getFrameworksArray();
+    const frameworksArray = await db.getFrameworksArray();
     //console.log('in router get /:framework with ' + framework );
     //console.log('in router get /:framework with first frameworks principle ' + frameworksArray[0] );
     const principlesArray = await db.getMatchedItems(searchtermsArray);
