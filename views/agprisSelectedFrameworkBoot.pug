@@ -41,12 +41,9 @@ block body
           div.col-md-8
             H1 Agile Values and Principles
           div.col-md-4
-            form(action='/agileframeworks/search', method='GET')
-              label(for='searchterms')
-              | Search terms
-              br
-              input(type='text', name='searchterms', value='')  
-              input(type='submit', value='Submit')
+            form.navbar-form.navbar-left(action='/agileframeworks/search', method='GET')
+              input.form-control(type='text', name='searchterms', placeholder='Search Terms')  
+              input.btn.btn-default(type='submit', value='Submit')
   div.container
     div.col-md-2
         div.panel.panel-default
