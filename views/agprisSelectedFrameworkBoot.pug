@@ -24,17 +24,22 @@ block body
   nav.navbar.navbar-default
     div.container-fluid
       div.navbar-header
-        | some stuff in the header
+        H1 Agile Values and Principles from various frameworks
+      form(action='/agileframeworks/search', method='GET')
+        p 
+          | search terms 
+          input(type='text', name='searchterms', value='')  
+          input(type='submit', value='Submit')
   div.container
     div.col-md-2
         div.panel.panel-default
           div.panel-heading
             h3.panel-title Menu
           div.panel-body
-            p Here's some text that will be in the panel body above the list group items.
+            p Select framework below
             
           ul.list-group
-            li.list-group-item item 1
+            li.list-group-item Choose
             li.list-group-item item 2
             li.list-group-item item 3
     div.col-md-8
