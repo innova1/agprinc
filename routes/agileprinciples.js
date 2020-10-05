@@ -51,7 +51,7 @@ router.get('/search', async function(req, res) {
 router.get('/all', async function(req, res) {
     //console.log('in router get /:framework');
     const framework = req.params.framework;
-    const frameworksArray = db.getFrameworksArray();
+    const frameworksArray = await db.getFrameworksArray();
     //console.log('in router get /:framework with ' + framework );
     //console.log('in router get /:framework with first frameworks principle ' + frameworksArray[0] );
     const principlesArray = await db.getPrinciplesArray('', '');
@@ -66,9 +66,9 @@ router.get('/all', async function(req, res) {
 router.get('/:framework', async function(req, res) {
     //console.log('in router get /:framework');
     const framework = req.params.framework;
-    const frameworksArray = db.getFrameworksArray();
+    const frameworksArray = await db.getFrameworksArray();
     //console.log('in router get /:framework with ' + framework );
-    //console.log('in router get /:framework with first frameworks principle ' + frameworksArray[0] );
+    console.log('in router get /:framework with first frameworks principle ' + frameworksArray[0] );
     const principlesArray = await db.getPrinciplesArray(framework, '');
     const searchMap = await db.getSearchMap(); 
     //console.log('in router: len is ' + searchMap.length);
@@ -79,7 +79,7 @@ router.get('/:framework', async function(req, res) {
 router.get('/:framework/:type', async function(req, res) {
     const framework = req.params.framework;
     const type = req.params.type;
-    const frameworksArray = db.getFrameworksArray();
+    const frameworksArray = await db.getFrameworksArray();
     //console.log('in router get /:framework with ' + framework + ", " + type );
     const principlesArray = await db.getPrinciplesArray(framework, type);
     const searchMap = await db.getSearchMap(); 
