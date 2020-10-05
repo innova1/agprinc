@@ -39,11 +39,11 @@ block body
       div.navbar-header
         H1 Agile Values and Principles from various frameworks
         form.searchform(action='/agileframeworks/search', method='GET')
-          p 
-            | search terms 
-            br
-            input(type='text', name='searchterms', value='')  
-            input(type='submit', value='Submit')
+          label(for='searchterms')
+            | Search terms
+          br
+          input(type='text', name='searchterms', value='')  
+          input(type='submit', value='Submit')
   div.container
     div.col-md-2
         div.panel.panel-default
