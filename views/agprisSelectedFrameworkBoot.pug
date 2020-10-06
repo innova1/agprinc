@@ -50,7 +50,9 @@ block body
           div.panel.panel-default
             div.panel-heading
               h3.panel-title Menu
-            div.panel-body
+              a(href='#' data-toggle='collapse' data-target='#sidepanel')
+               | Test collapse
+            div.panel-body#sidepanel
               p Select framework below
             ul.list-group
               each f in frameworks
