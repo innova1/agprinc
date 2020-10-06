@@ -51,12 +51,13 @@ block body
             div.panel-heading
               a(href='#' data-toggle='collapse' data-target='#sidepanel')
                 h3.panel-title Menu
-            div.panel-body#sidepanel
-              p Select framework below
-            ul.list-group
-              each f in frameworks
-                li.list-group-item 
-                  a.menu(href='/agileframeworks/' + f.framework) #{f.frameworkdisplay}
+            div#sidepanel
+              div.panel-body
+                p Select framework below
+              ul.list-group
+                each f in frameworks
+                  li.list-group-item 
+                    a.menu(href='/agileframeworks/' + f.framework) #{f.frameworkdisplay}
       div.col-md-8
         each pv in principlesArray
           div.panel.panel-primary(class=pv.type)
