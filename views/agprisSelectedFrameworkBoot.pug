@@ -51,7 +51,7 @@ block body
             div.panel-heading
               a(href='#sidepanel' data-toggle='collapse')
                 h3.panel-title Menu
-            - var isDefaultCollapsed = (window.matchMedia("(max-width: 700px)")?"in":"");
+            - var isDefaultCollapsed = window.matchMedia("(max-width: 700px)")?"in":"";
             div.panel-collapse.collapse#sidepanel(class=isDefaultCollapsed)
               ul.list-group
                 each f in frameworks
