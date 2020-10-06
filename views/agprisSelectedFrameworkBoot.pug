@@ -32,6 +32,7 @@ block append styles
        margin-top: 10px;
        border: 1px solid red;
      }
+     
 block append scripts
   script.
     function isDefaultCollapsed() {
@@ -49,7 +50,7 @@ block body
             form.navbar-form.navbar-left(action='/agileframeworks/search', method='GET')
               input.form-control(type='text', name='searchterms', placeholder='Search Terms')  
               input.btn.btn-default(type='submit', value='Submit')
-  //- var defaultCollapsed = isDefaultCollapsed();
+  - var defaultCollapsed = isDefaultCollapsed();
   div.container
     div.row
       div.col-md-2
@@ -57,7 +58,7 @@ block body
             div.panel-heading
               a(href='#sidepanel' data-toggle='collapse')
                 h3.panel-title Menu
-            div.panel-collapse.collapse#sidepanel(class=isDefaultCollapsed)
+            div.panel-collapse.collapse#sidepanel(class=defaultCollapsed)
               ul.list-group
                 each f in frameworks
                   li.list-group-item 
