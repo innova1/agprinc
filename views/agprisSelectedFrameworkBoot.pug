@@ -35,9 +35,15 @@ block append styles
      
 block append scripts
   script.
-    function isDefaultCollapsed() {
-      return "in"; /*(window.matchMedia("(max-width: 700px)")?"in":"")*/
+    var isSmallViewport = window.matchMedia("(max-width: 700px)");
+    function setMenuCollapsed(isSmallViewport) {
+      if( isSmallViewport.matches ) {
+        console.log("is small viewport");
+      } else {
+        console.log("is NOT small viewport");
+      }
     }
+    setMenuCollapsed(isSmallViewport)
 
 block body
   nav.navbar.navbar-default
