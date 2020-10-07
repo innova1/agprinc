@@ -40,6 +40,7 @@ block append scripts
     function setMenuCollapsed(isSmallViewport) {
       if( isSmallViewport.matches ) {
         document.getElementById("sidepanel").classList.remove('show');
+        document.getElementById("sidepanel").classList.remove('in');
         console.log("remove show--is small viewport");
       } else {
         document.getElementById("sidepanel").classList.add('show');
@@ -66,7 +67,7 @@ block body
           div.panel.panel-default
             div.panel-heading
               a(href='#sidepanel' data-toggle='collapse')
-                h3.panel-title Menu
+                h3.panel-title Choose a framework
             div.panel-collapse.collapse.show#sidepanel
               ul.list-group
                 each f in frameworks
