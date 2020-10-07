@@ -10,7 +10,7 @@ router.get('/', function(req, res) {
     //db.getframeworks();
     //db.isIDInRange(framework, 30);
     //res.render('agpris2', { title: 'Agile principles', frameworks: frameworksArray });
-    redirect('/all');
+    res.redirect('/all');
 });
 
 /* test db */
