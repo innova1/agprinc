@@ -9,7 +9,8 @@ router.get('/', function(req, res) {
     const frameworksArray = db.getFrameworksArray();
     //db.getframeworks();
     //db.isIDInRange(framework, 30);
-    res.render('agpris2', { title: 'Agile principles', frameworks: frameworksArray });
+    //res.render('agpris2', { title: 'Agile principles', frameworks: frameworksArray });
+    redirect('/all');
 });
 
 /* test db */
