@@ -60,6 +60,7 @@ block append scripts
       console.log("added .selected to " + selectedFramework)
     }
     
+    console.log(')
     var selF = document.getElementById('currentFramework').innerHTML
     setSelected(selF);
 
@@ -88,7 +89,7 @@ block body
                   li.list-group-item 
                     a.menu(href='/agileframeworks/' + f.framework) <span id=#{framework}>#{f.frameworkdisplay}</span>
       div.col-md-8
-        p.currentFramework.hide #{framework}
+        p#currentFramework.hide #{framework}
         each pv in principlesArray
           div.panel.panel-primary(class=pv.type)
             div.panel-heading
