@@ -41,10 +41,8 @@ block append scripts
       if( isSmallViewport.matches ) {
         document.getElementById("sidepanel").classList.remove('show');
         document.getElementById("sidepanel").classList.remove('in');
-        console.log("remove show--is small viewport");
       } else {
         document.getElementById("sidepanel").classList.add('show');
-        console.log("add show--is NOT small viewport");
       }
     }
     setMenuCollapsed(isSmallViewport);
@@ -81,7 +79,7 @@ block body
             div.panel-body
               | #{pv.text}
       div.col-md-2
-          div.panel.panel-default
+          div.panel.panel-default.hide
             div.panel-heading
               h3.panel-title Menu
             div.panel-body
