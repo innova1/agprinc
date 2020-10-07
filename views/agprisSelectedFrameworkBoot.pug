@@ -41,7 +41,6 @@ block append styles
      }
      a.plain {
        text-decoration: none;
-       font-weight: bold;
        color: black;
      }
      
@@ -90,7 +89,7 @@ block body
               ul.list-group
                 each f in frameworks
                   li.list-group-item 
-                    a.plain.menu(href='/agileframeworks/' + f.framework) <span id=#{f.framework}>#{f.frameworkdisplay}</span>
+                    a.menu.plain(href='/agileframeworks/' + f.framework) <span id=#{f.framework}>#{f.frameworkdisplay}</span>
       div.col-md-8
         p#currentFramework.hide #{framework}
         each pv in principlesArray
