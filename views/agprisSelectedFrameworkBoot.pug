@@ -61,7 +61,7 @@ block append scripts
     
     function setSelected(selectedFramework) {
       document.getElementById(selectedFramework).classList.add('selected');
-      console.log("added .selected to " + selectedFramework)
+      //console.log("added .selected to " + selectedFramework)
     }
     
     var selF = document.getElementById('currentFramework').innerHTML
@@ -84,7 +84,7 @@ block body
       div.col-md-2
           div.panel.panel-default
             div.panel-heading
-              a(href='#sidepanel' data-toggle='collapse')
+              a.plain(href='#sidepanel' data-toggle='collapse')
                 h3.panel-title Frameworks
             div.panel-collapse.collapse.show#sidepanel
               ul.list-group
