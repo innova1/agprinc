@@ -39,8 +39,9 @@ block append styles
        font-weight: bold;
        font-size: 1.2em;
      }
-     .plain {
+     a.link.plain {
        text-decoration: none;
+       font-weight: bold;
      }
      
 block append scripts
@@ -102,6 +103,5 @@ block body
             div.panel-heading
               h3.panel-title About
             div.panel-body
-              p.center Designed and coded by 
-                b <a href="https://www.linkedin.com/in/tomboulet/"><span.plain>Tom Boulet</span></a>
+              p.center Designed and coded by <a class='plain' href="https://www.linkedin.com/in/tomboulet/">Tom Boulet</a>
               p.hide API at /api
