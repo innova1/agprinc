@@ -39,10 +39,10 @@ block append scripts
     isSmallViewport.addListener(setMenuCollapsed);
     function setMenuCollapsed(isSmallViewport) {
       if( isSmallViewport.matches ) {
-        document.getElementById("sidepanel").classList.add('show');
+        document.getElementById("sidepanel").classList.remove('show');
         console.log("is small viewport");
       } else {
-        document.getElementById("sidepanel").classList.remove('show');
+        document.getElementById("sidepanel").classList.add('show');
         console.log("is NOT small viewport");
       }
     }
