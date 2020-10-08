@@ -87,7 +87,7 @@ block append scripts
                 },
                 dataType: "json",
                 success: function(msg){
-                    console.log("in success 1 with " + msg[0].result);
+                    console.log("in success 1 with " + JSON.parse(msg) );
                     //we need to check if the value is the same
                     if (value==$(oldThis).val()) {
                       console.log("in success 2 in if with " + msg);
