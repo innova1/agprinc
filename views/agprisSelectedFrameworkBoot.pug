@@ -143,12 +143,11 @@ block body
       div.col-md-2
           div.panel.panel-default
             div.panel-heading
-              a.plain#sidepanel(href='#' data-toggle='collapse')
                 h3.panel-title 
                   if selF == ''
                     a(href='/agileframeworks/all') Frameworks
                   else
-                    | Frameworks
+                    a.plain#sidepanel(href='#' data-toggle='collapse') Frameworks
             div.panel-collapse.collapse.show#sidepanel
               ul.list-group
                 each f in frameworks
