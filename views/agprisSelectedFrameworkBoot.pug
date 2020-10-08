@@ -93,7 +93,7 @@ block append scripts
                     if (value==$(oldThis).val()) {
                       console.log("in success 2 in if with " + msg.result[0] );
                       msg.result.forEach( element => {
-                        resultList = resultList + element + '\n';
+                        resultList = resultList + element + '\r';
                       });
                       document.getElementById('suggestions').innerHTML = resultList;
                     }
@@ -110,12 +110,12 @@ block body
       div.navbar-header
         div.container
           div.col-md-4
-          div.col-md-6
             H1 Agile Values and Principles
-          div.col-md-2
+          div.col-md-6
             form.navbar-form.navbar-left(action='/agileframeworks/search', method='GET')
               input.form-control#searchterms(type='text', name='searchterms', placeholder='Search Terms', autocomplete="off")  
               input.btn.btn-default(type='submit', value='Submit')
+          div.col-md-2
             div#suggestions
   //- var defaultCollapsed = isDefaultCollapsed();
   div.container
