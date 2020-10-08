@@ -216,9 +216,7 @@ exports.getKeywordMatch = async function a( searchText ) {
 	var keywords = new Array();
 	try {
 		var result = new Array();
-		keywordsMap.set('1','this');
-		keywordsMap.set('2','that');
-		keywordsMap.set('3','theOther');
+		const keywordsMap = await createSearchMap();
 		keywords = [ ...keywordsMap ];
 		keywords.forEach( element => {
 			//take searchText and then compare with the searchText.length number of chars at the start of each
