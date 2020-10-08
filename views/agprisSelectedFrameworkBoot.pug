@@ -66,6 +66,8 @@ block append scripts
     var selF = document.getElementById('currentFramework').innerHTML
     setSelected(selF);
     
+    var searchRequest = null;
+    
     $(function() {
       var minlength = 3;
       
@@ -73,6 +75,27 @@ block append scripts
         var oldThis = this,
         value = $(this).val();
         console.log("value is " + value);
+        
+         if (value.length >= minlength ) {
+            if (searchRequest != null) 
+                searchRequest.abort();
+            searchRequest = $.ajax({
+                type: "GET",
+                url: "/api/agileframeworks/keywords?",
+                data: {
+                    'keyword' : value
+                },
+                dataType: "json",
+                success: function(msg){
+                    console.log("in success 1");
+                    //we need to check if the value is the same
+                    if (value==$(that).val()) {
+                      console.log("in success 2 in if");
+                    //Receiving the result of search here
+                    }
+                }
+            });
+        }
       });
     });
     
