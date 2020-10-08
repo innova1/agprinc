@@ -87,7 +87,7 @@ block append scripts
                 },
                 dataType: "json",
                 success: function(msg){
-                    var resultList = '<ul style="list-style-type: none">';
+                    var resultList = '<ul class="navbar-right" style="list-style-type: none">';
                     console.log("in success 1 with " + msg.result[0] );
                     //we need to check if the value is the same
                     if (value==$(oldThis).val()) {
