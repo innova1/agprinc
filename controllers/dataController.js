@@ -408,6 +408,11 @@ async function searchForKeywords( searchTerms ) {
   
 }
 
+async function getKeywordMatch( searchText ) {
+	const debug = false;
+	return '{"match": "amatch"}'
+}
+
 /*
 function getPrinciplesObject( framework ) {
     //console.log('in get principles function with framework ' + framework);
