@@ -4,7 +4,7 @@ const db = require('../controllers/dataController');
 
 /* live search against keywords */
 router.get('/keywords/:keyword', async function(req, res) {
-	const debug = true;
+	const debug = false;
 	const searchText = req.params.keyword;
 	if(debug) { console.log('in keyword search with ' + searchText) };
 	const result = await db.getKeywordMatch(searchText);
@@ -13,7 +13,7 @@ router.get('/keywords/:keyword', async function(req, res) {
 
 /* GET all agile principles json */
 router.get('/', function(req, res) {
-	const debug = true;
+	const debug = false;
 	if(debug) { console.log('in /')};
     const frameworksArray = db.getFrameworksArray();
     console.log('in router get / with frameworks ' + frameworksArray );
