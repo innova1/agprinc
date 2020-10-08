@@ -216,9 +216,8 @@ exports.getKeywordMatch = async function getKeywordMatch( searchText ) {
 	try {
 		var result = new Array();
 		keywords.set('this', 'that', 'theOther');
-		const keywordsIterator = keywords.entries();
-		for( const kwd in keywordsIterator ) {
-			result.push(kwd);
+		for( const kwd in keywords ) {
+			result.push(keywords[kwd]);
 		}
 		
 		return result;
