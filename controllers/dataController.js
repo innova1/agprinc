@@ -214,6 +214,7 @@ exports.getKeywordMatch = async function getKeywordMatch( searchText ) {
 	if(debug) { 'searchtext is ' + searchText };
 	try {
 		var result = searchText;
+		if(debug) { 'result is ' + result };
 		
 		return '{match:' + result + '}'
 	} catch(err) {
