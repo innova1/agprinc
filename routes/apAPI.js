@@ -66,7 +66,7 @@ router.get('/:framework/:type/:id', function(req, res) {
 });
 
 /* live search against keywords */
-router.get('/:keyword', async function(req, res) {
+router.get('/keywords/:keyword', async function(req, res) {
 	const searchText = req.params.searchText;
 	const result = await db.getKeywordMatch(searchText);
 	res.json({result: result});
