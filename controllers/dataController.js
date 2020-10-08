@@ -222,7 +222,7 @@ exports.getKeywordMatch = async function a( searchText ) {
 			//take searchText and then compare with the searchText.length number of chars at the start of each
 			var elstring = element.keyword + '';
 			var str = elstring.substring(0, searchText.length);
-			if(debug) { console.log( 'comparing ' + str + ' with ' + searchText ) };
+			//if(debug) { console.log( 'comparing ' + str + ' with ' + searchText ) };
 			if(str==searchText) {
 				if(debug) { console.log( 'pushing compared ' + str + ' with ' + searchText ) };
 				result.push(elstring); 
