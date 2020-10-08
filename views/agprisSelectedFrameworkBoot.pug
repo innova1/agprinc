@@ -147,6 +147,8 @@ block body
                 h3.panel-title 
                   if selF == ''
                     a(href='/agileframeworks/all') Frameworks
+                  else
+                    | Frameworks
             div.panel-collapse.collapse.show#sidepanel
               ul.list-group
                 each f in frameworks
