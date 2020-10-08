@@ -209,6 +209,16 @@ exports.updateKeywords = async function( framework, type, id, keywords ) {
     return result;
 }
 
+exports.getKeywordMatch = async function getKeywordMatch( searchText ) {
+	const debug = false;
+	try {
+		
+		return '{"match": "amatch"}'
+	} catch(err) {
+        console.log('error in dataController.getKeywordMatch ' + err.message );
+	}
+}
+
 function getSingleFrameworkTypeIdObj( framework, type, id ) {
     const singleframeworkObj = new Object();
     const a = getDataArray();
@@ -408,15 +418,7 @@ async function searchForKeywords( searchTerms ) {
   
 }
 
-async function getKeywordMatch( searchText ) {
-	const debug = false;
-	try {
-		
-		return '{"match": "amatch"}'
-	} catch(err) {
-        console.log('error in dataController.getKeywordMatch ' + err.message );
-	}
-}
+
 
 /*
 function getPrinciplesObject( framework ) {
