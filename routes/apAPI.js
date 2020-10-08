@@ -5,7 +5,8 @@ const db = require('../controllers/dataController');
 /* live search against keywords */
 router.get('/keywords/:keyword', async function(req, res) {
 	const debug = true;
-	if(debug) { console.log('in keyword search')};
+	const searchText = req.params.keyword;
+	if(debug) { console.log('in keyword search with ' + searchText)};
 	const searchText = req.params.searchText;
 	const result = await db.getKeywordMatch(searchText);
 	res.json({result: result});
