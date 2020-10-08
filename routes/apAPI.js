@@ -13,7 +13,8 @@ router.get('/keywords/:keyword', async function(req, res) {
 
 /* GET all agile principles json */
 router.get('/', function(req, res) {
-    //console.log('in router get /' );
+	const debug = true;
+	if(debug) { console.log('in /')};
     const frameworksArray = db.getFrameworksArray();
     console.log('in router get / with frameworks ' + frameworksArray );
     //db.getframeworks();
