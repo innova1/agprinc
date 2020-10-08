@@ -221,7 +221,7 @@ exports.getKeywordMatch = async function a( searchText ) {
 			result.push(keywords[kwd]);
 		}
 		
-		return searchText; //result;
+		return result;
 	} catch(err) {
         console.log('error in dataController.getKeywordMatch ' + err.message );
 	}
