@@ -216,7 +216,7 @@ exports.getKeywordMatch = async function getKeywordMatch( searchText ) {
 		var result = searchText;
 		if(debug) { 'result is ' + result };
 		
-		return '{match:' + result + '}'
+		return result;
 	} catch(err) {
         console.log('error in dataController.getKeywordMatch ' + err.message );
 	}
