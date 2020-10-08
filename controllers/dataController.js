@@ -212,8 +212,9 @@ exports.updateKeywords = async function( framework, type, id, keywords ) {
 exports.getKeywordMatch = async function getKeywordMatch( searchText ) {
 	const debug = false;
 	try {
+		var result = searchText;
 		
-		return '{"match": "amatch"}'
+		return '{match: result}'
 	} catch(err) {
         console.log('error in dataController.getKeywordMatch ' + err.message );
 	}
