@@ -75,7 +75,7 @@ block append scripts
         var oldThis = this,
         value = $(this).val();
         console.log("value is " + value);
-        var suggElement = document.getElementById('suggestions');
+        var suggElement = $('suggestions');
         
          if (value.length >= minlength ) {
             if (searchRequest != null) 
