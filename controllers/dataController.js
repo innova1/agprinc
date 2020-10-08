@@ -224,7 +224,7 @@ exports.getKeywordMatch = async function a( searchText ) {
 			var str = elstring.substring(0, searchText.length);
 			if(str==searchText) {
 				if(debug) { console.log( 'pushing compared ' + str + ' with ' + searchText ) };
-				result.push(element); 
+				result.push(elstring); 
 			}
 		});
 		
