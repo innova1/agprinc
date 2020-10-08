@@ -214,7 +214,7 @@ exports.getKeywordMatch = async function getKeywordMatch( searchText ) {
 	try {
 		var result = searchText;
 		
-		return '{match: result}'
+		return '{match:' + result + '}'
 	} catch(err) {
         console.log('error in dataController.getKeywordMatch ' + err.message );
 	}
