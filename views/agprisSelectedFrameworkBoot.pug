@@ -91,7 +91,7 @@ block append scripts
                     //we need to check if the value is the same
                     if (value==$(oldThis).val()) {
                       console.log("in success 2 in if with " + msg.result[0] );
-                    //Receiving the result of search here
+                      document.getElementById('suggestions').innerHTML = msg.result[0];
                     }
                 }
             });
@@ -106,7 +106,7 @@ block body
       div.navbar-header
         div.container
           div.col-md-4
-            //empty column
+            div.suggestions
           div.col-md-6
             H1 Agile Values and Principles
           div.col-md-2
