@@ -6,7 +6,7 @@ const db = require('../controllers/dataController');
 router.get('/keywords/:keyword', async function(req, res) {
 	const debug = true;
 	const searchText = req.params.keyword;
-	if(debug) { console.log('in keyword search with ' + searchText)};
+	if(debug) { console.log('in keyword search with ' + searchText) };
 	const result = await db.getKeywordMatch(searchText);
 	res.json({result: result});
 });
