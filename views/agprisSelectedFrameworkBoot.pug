@@ -67,6 +67,7 @@ block append scripts
     setSelected(selF);
     
     var searchRequest = null;
+    var suggElement = document.getElementById('suggestions');
     
     $(function() {
       var minlength = 3;
@@ -96,12 +97,14 @@ block append scripts
                         resultList = resultList + '<li>' + element + '</li>';
                       });
                       resultList = resultList + '</ul>';
-                      document.getElementById('suggestions').innerHTML = resultList;
+                      suggElement.innerHTML = resultList;
+                      suggElement.show;
                     }
                 }
             });
         } else {
-          document.getElementById('suggestions').innerHTML = '';
+          suggElement.document.getElementById('suggestions').innerHTML = '';
+          suggElement.hide;
         }
       });
     });
