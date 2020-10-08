@@ -222,6 +222,7 @@ exports.getKeywordMatch = async function a( searchText ) {
 		keywords = Array.from(keywordsMap);
 		keywords.forEach( element => {
 			//take searchText and then compare with the searchText.length number of chars at the start of each
+			var elstring = element + '';
 			var str = element.substring(0, searchText.length);
 			if(debug) { console.log('comparing ' + str + ' with ' + searchText ) };
 			if(str==searchText) { result.push(element); }
