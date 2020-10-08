@@ -67,7 +67,6 @@ block append scripts
     setSelected(selF);
     
     var searchRequest = null;
-    var suggElement = document.getElementById('suggestions');
     
     $(function() {
       var minlength = 3;
@@ -76,6 +75,7 @@ block append scripts
         var oldThis = this,
         value = $(this).val();
         console.log("value is " + value);
+        var suggElement = document.getElementById('suggestions');
         
          if (value.length >= minlength ) {
             if (searchRequest != null) 
