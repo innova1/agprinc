@@ -43,6 +43,12 @@ block append styles
        text-decoration: none;
        color: black;
      }
+     div#suggestions {
+       display: none;
+       border: 2px inset black;
+       width: 200px;
+       padding: 10px 10px 10px 10px;
+     }
      
 block append scripts
   script.
@@ -122,7 +128,7 @@ block body
               input.form-control#searchterms(type='text', name='searchterms', placeholder='Search Terms', autocomplete="off")  
               input.btn.btn-default(type='submit', value='Submit')
           div.col-md-2
-            div#suggestions(style="border: 2px inset black; width: 200px; display: none;")
+            div#suggestions
   //- var defaultCollapsed = isDefaultCollapsed();
   div.container
     div.row
