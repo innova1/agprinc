@@ -98,13 +98,13 @@ block append scripts
                       });
                       resultList = resultList + '</ul>';
                       suggElement.innerHTML = resultList;
-                      suggElement.show;
+                      suggElement.style.display = 'inline';
                     }
                 }
             });
         } else {
           suggElement.innerHTML = '';
-          suggElement.hide;
+          suggElement.style.display = 'none';
         }
       });
     });
@@ -122,7 +122,7 @@ block body
               input.form-control#searchterms(type='text', name='searchterms', placeholder='Search Terms', autocomplete="off")  
               input.btn.btn-default(type='submit', value='Submit')
           div.col-md-2
-            div#suggestions(style="border: 2px inset black; width: 300px;")
+            div#suggestions(style="border: 2px inset black; width: 200px; display: none;")
   //- var defaultCollapsed = isDefaultCollapsed();
   div.container
     div.row
