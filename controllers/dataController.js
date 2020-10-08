@@ -223,7 +223,7 @@ exports.getKeywordMatch = async function a( searchText ) {
 		keywords.forEach( element => {
 			if(debug) { console.log('pushing: ' + element) };
 			result.push(element);
-		}
+		});
 		
 		return result;
 	} catch(err) {
