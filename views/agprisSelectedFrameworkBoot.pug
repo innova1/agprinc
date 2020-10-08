@@ -46,7 +46,7 @@ block append styles
      
 block append scripts
   script.
-    var isSmallViewport = window.matchMedia("(max-width: 500px)");
+    var isSmallViewport = window.matchMedia("(max-width: 800px)");
     isSmallViewport.addListener(setMenuCollapsed);
     function setMenuCollapsed(isSmallViewport) {
       if( isSmallViewport.matches ) {
