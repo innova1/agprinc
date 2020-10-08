@@ -87,7 +87,7 @@ block append scripts
                 },
                 dataType: "json",
                 success: function(msg){
-                    var resultList = '<ul class="navbar-right" style="list-style-type: none">';
+                    var resultList = '<ul style="list-style-type: none">';
                     console.log("in success 1 with " + msg.result[0] );
                     //we need to check if the value is the same
                     if (value==$(oldThis).val()) {
@@ -113,7 +113,7 @@ block body
           div.col-md-4
             H1 Agile Values and Principles
           div.col-md-6
-            form.navbar-form.navbar-left(action='/agileframeworks/search', method='GET')
+            form.navbar-form.navbar-right(action='/agileframeworks/search', method='GET')
               input.form-control#searchterms(type='text', name='searchterms', placeholder='Search Terms', autocomplete="off")  
               input.btn.btn-default(type='submit', value='Submit')
           div.col-md-2
