@@ -65,7 +65,9 @@ block append scripts
     setMenuCollapsed(isSmallViewport);
     
     function setSelected(selectedFramework) {
-      document.getElementById(selectedFramework).classList.add('selected');
+      if(selectedFramework) {
+        document.getElementById(selectedFramework).classList.add('selected');
+      }
       //console.log("added .selected to " + selectedFramework)
     }
     
