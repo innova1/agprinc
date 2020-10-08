@@ -212,11 +212,14 @@ exports.updateKeywords = async function( framework, type, id, keywords ) {
 exports.getKeywordMatch = async function getKeywordMatch( searchText ) {
 	const debug = true;
 	if(debug) { 'searchtext is ' + searchText };
+	const keywords = new Map();
 	try {
 		var result = new Array();
-		result.push(searchText);
-		result.push(searchText+'1');
-		result.push(searchText+'2');
+		keywords.set('this', 'that', 'theOther');
+		const keywordsIterator = keywords.entries();
+		for( const kwd in keywordsIterator ) {
+			result.push(kwd);
+		}
 		
 		return result;
 	} catch(err) {
