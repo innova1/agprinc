@@ -70,7 +70,9 @@ block append scripts
       var minlength = 3;
       
       $("#searchterms").keyup(function() {
-        alert("key up");
+        var oldThis = this,
+        value = $(this).val();
+        console.log("value is " + value);
       });
     });
     
