@@ -213,8 +213,8 @@ exports.getKeywordMatch = async function getKeywordMatch( searchText ) {
 	const debug = true;
 	if(debug) { 'searchtext is ' + searchText };
 	try {
-		var result = searchText;
-		if(debug) { 'result is ' + result };
+		var result = new Array();
+		result.push(searchText);
 		
 		return result;
 	} catch(err) {
