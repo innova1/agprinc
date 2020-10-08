@@ -213,7 +213,7 @@ exports.getKeywordMatch = async function a( searchText ) {
 	const debug = true;
 	if(debug) { console.log('searchtext is ' + searchText) };
 	const keywordsMap = new Map();
-	const keywords = new Array();
+	var keywords = new Array();
 	try {
 		var result = new Array();
 		keywordsMap.set('1','this');
