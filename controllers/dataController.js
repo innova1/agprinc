@@ -210,7 +210,7 @@ exports.updateKeywords = async function( framework, type, id, keywords ) {
 }
 
 exports.getKeywordMatch = async function getKeywordMatch( searchText ) {
-	const debug = false;
+	const debug = true;
 	if(debug) { 'searchtext is ' + searchText };
 	try {
 		var result = searchText;
