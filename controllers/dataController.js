@@ -209,7 +209,7 @@ exports.updateKeywords = async function( framework, type, id, keywords ) {
     return result;
 }
 
-exports.getKeywordMatch = async function getKeywordMatch( searchText ) {
+exports.getKeywordMatch = async function a( searchText ) {
 	const debug = true;
 	if(debug) { 'searchtext is ' + searchText };
 	const keywords = new Map();
