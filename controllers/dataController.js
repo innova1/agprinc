@@ -410,7 +410,12 @@ async function searchForKeywords( searchTerms ) {
 
 async function getKeywordMatch( searchText ) {
 	const debug = false;
-	return '{"match": "amatch"}'
+	try {
+		
+		return '{"match": "amatch"}'
+	} catch(err) {
+        console.log('error in dataController.getKeywordMatch ' + err.message );
+	}
 }
 
 /*
