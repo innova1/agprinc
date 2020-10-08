@@ -71,9 +71,11 @@ block body
     div.container-fluid
       div.navbar-header
         div.container
+          div.col-md-2
+           | test
           div.col-md-8
             H1 Agile Values and Principles
-          div.col-md-4
+          div.col-md-2
             form.navbar-form.navbar-left(action='/agileframeworks/search', method='GET')
               input.form-control(type='text', name='searchterms', placeholder='Search Terms')  
               input.btn.btn-default(type='submit', value='Submit')
