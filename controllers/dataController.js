@@ -215,6 +215,8 @@ exports.getKeywordMatch = async function getKeywordMatch( searchText ) {
 	try {
 		var result = new Array();
 		result.push(searchText);
+		result.push(searchText+'1');
+		result.push(searchText+'2');
 		
 		return result;
 	} catch(err) {
