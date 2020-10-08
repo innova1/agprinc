@@ -93,7 +93,7 @@ block append scripts
                     if (value==$(oldThis).val()) {
                       console.log("in success 2 in if with " + msg.result[0] );
                       msg.result.forEach( element => {
-                        resultList = resultList + <li>element</li>;
+                        resultList = resultList + '<li>' + element + '</li>';
                       });
                       resultList = resultList + '</ul>';
                       document.getElementById('suggestions').innerHTML = resultList;
