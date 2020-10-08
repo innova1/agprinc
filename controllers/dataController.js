@@ -211,6 +211,7 @@ exports.updateKeywords = async function( framework, type, id, keywords ) {
 
 exports.getKeywordMatch = async function getKeywordMatch( searchText ) {
 	const debug = false;
+	if(debug) { 'searchtext is ' + searchText };
 	try {
 		var result = searchText;
 		
