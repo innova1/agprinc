@@ -2,6 +2,14 @@ var express = require('express');
 var router = express.Router();
 const db = require('../controllers/dataController');
 
+
+/* live search against keywords */
+router.get('/keywords/:keyword', async function(req, res) {
+	const searchText = req.params.searchText;
+	const result = await db.getKeywordMatch(searchText);
+	res.json({result: result});
+});
+
 /* GET all agile principles json */
 router.get('/', function(req, res) {
     //console.log('in router get /' );
@@ -65,11 +73,5 @@ router.get('/:framework/:type/:id', function(req, res) {
     } 
 });
 
-/* live search against keywords */
-router.get('/keywords/:keyword', async function(req, res) {
-	const searchText = req.params.searchText;
-	const result = await db.getKeywordMatch(searchText);
-	res.json({result: result});
-});
 
 module.exports = router;
