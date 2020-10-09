@@ -151,7 +151,7 @@ block body
                 each f in frameworks
                   li.list-group-item 
                     - var urlstub = f.framework;
-                    - var selF = document.getElementById('currentFramework').innerHTML
+                    - var selF = $('#currentFramework').innerHTML
                       if selF==f.framework 
                         urlstub = 'all'
                       - console.log("selF is " + selF + ", urlstub is " + urlstub );
