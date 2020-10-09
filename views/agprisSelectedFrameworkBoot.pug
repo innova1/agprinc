@@ -135,7 +135,7 @@ block append scripts
     
     function removeActiveSearchterm(term) {
       console.log("removing " + term);
-      var curTerms = $('#currentSearchterms').innerHTML;
+      var curTerms = document.getElementById('currentSearchterms').innerHTML;
       console.log("curTerms: " + curTerms);
       /*
         do a search on a string and get index
