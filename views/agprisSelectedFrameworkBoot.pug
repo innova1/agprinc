@@ -146,12 +146,12 @@ block body
             //input.btn.btn-default(type='submit', value='Submit')
             div#suggestions
         div.inline
-          //- var terms = ""
+          - var terms = ""
           if searchtermsArray
             each term in searchtermsArray
               a.activekeywords.plain(href="/agileframeworks/all") <span class="glyphicon glyphicon-remove-circle"></span>
                 | &nbsp;#{term}
-              //- terms = terms + ',' + term
+              - terms = terms + ',' + term
             div#currentSearchterms #{terms}
   div.container
     div.row
