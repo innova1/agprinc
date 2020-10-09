@@ -152,7 +152,11 @@ block append scripts
             result = curTerms.substring(term.length+1,curTerms.length)
           }
         } else {  //it's a word in the middle of the string or at the end
-          
+          if( matchIndex+term==curTerms.length ) {  //if term is the last word of string
+            result = curTerms.substring(0,matchIndex);
+          } else { //word in the middle of the string
+            
+          }
         }
       }
       /*
