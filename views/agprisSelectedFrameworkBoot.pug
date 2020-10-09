@@ -139,13 +139,16 @@ block body
             div.row.linksrow
               H1 
                 a(href='/agileframeworks/all')
-                  | Agile Values <!-- and Principles -->
+                  | Agile Values and Principles
             div.row.linksrow
-              form.navbar-form.navbar-right(action='/agileframeworks/search', method='GET')
-                input.form-control#searchterms(type='text', name='searchterms', placeholder='Search Terms', autocomplete="off")  
-                input.btn.btn-default(type='submit', value='Submit')
-            div.row.linksrow
-              p links here
+              div.col-md-8
+                div.row.linksrow
+                  form.navbar-form.navbar-right(action='/agileframeworks/search', method='GET')
+                    input.form-control#searchterms(type='text', name='searchterms', placeholder='Search Terms', autocomplete="off")  
+                    input.btn.btn-default(type='submit', value='Submit')
+                div.row.linksrow
+                  p links here
+              div.col-md-4
           div.col-md-2
             div#suggestions
   div.container
