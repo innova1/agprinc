@@ -135,10 +135,10 @@ block body
         H1.inline
           a(href='/agileframeworks/all')
             | Agile Values and Principles
-        form.navbar-form(action='/agileframeworks/search', method='GET')
+        form.navbar-form.inline(action='/agileframeworks/search', method='GET')
           input.form-control#searchterms(type='text', name='searchterms', placeholder='Search Terms', autocomplete="off")  
           //input.btn.btn-default(type='submit', value='Submit')
-        | x firstsearch  x secondsearch
+        p.inline x firstsearch  x secondsearch
         div#suggestions
   div.container
     div.row
