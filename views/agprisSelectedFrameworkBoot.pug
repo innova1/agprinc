@@ -48,10 +48,12 @@ block append styles
        border: 2px inset black;
        width: 300px;
        padding: 10px 10px 10px 10px;
-       margin-left: 15px;
      }
      .inline {
        display: inline;
+     }
+     .activekeywords {
+       margin-left: 15px;
      }
      
 block append scripts
@@ -142,7 +144,7 @@ block body
             div#suggestions
         div.inline
           if searchterm
-            a(href="/agileframeworks/all") x
+            a.activekeywords(href="/agileframeworks/all") x
             | &nbsp;#{searchterm}
   div.container
     div.row
