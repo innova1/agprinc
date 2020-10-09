@@ -137,12 +137,12 @@ block append scripts
       console.log("working on " + term);
       var terms = "";
       terms = terms + "," + term;
-      var curTerms = $('currentSearchterms').innerHTML;
+      var curTerms = $('#currentSearchterms').innerHTML;
       if(!curTerms) { curTerms = '' }
       console.log("terms is " + terms);
       curTerms = curTerms + terms;
       console.log("curTerms is " + curTerms);
-      $('currentSearchterms').innerHTML = curTerms.substring(1,curTerms.length);
+      $('#currentSearchterms').innerHTML = curTerms.substring(1,curTerms.length);
       //return terms.substring(1,terms.length);
     }
     
