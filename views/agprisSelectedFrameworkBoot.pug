@@ -135,6 +135,12 @@ block append scripts
     
     function adjustActiveKeywords(term) {
       console.log("working on " + term);
+      var terms = "";
+      terms = terms + "," + term;
+      var curTerms = $('currentSearchterms').innerHTML;
+      curTerms = curTerms + "," + terms;
+      $('currentSearchterms').innerHTML = curTerms.substring(1,curTerms.length);
+      //return terms.substring(1,terms.length);
     }
     
 
@@ -155,8 +161,7 @@ block body
             each term in searchtermsArray
               a.activekeywords.plain(href="javascript:void(0)" onclick="javascript:adjustActiveKeywords('" + term + "')") <span class="glyphicon glyphicon-remove-circle"></span>
                 | &nbsp;#{term}
-              - terms = terms + ',' + term
-            div#currentSearchterms #{terms.substring(1,terms.length)}
+            div#currentSearchterms
   div.container
     div.row
       div.col-md-2
