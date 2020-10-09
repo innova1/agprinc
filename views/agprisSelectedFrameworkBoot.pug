@@ -55,6 +55,9 @@ block append styles
      .activekeywords {
        margin-left: 15px;
      }
+     #currentSearchterms {
+       display: block; /*change this to none in prod*/
+     }
      
 block append scripts
   script.
@@ -146,7 +149,8 @@ block body
           each term in searchtermsArray
             a.activekeywords.plain(href="/agileframeworks/all") <span class="glyphicon glyphicon-remove-circle"></span>
               | &nbsp;#{term}
-          - searchtermsArray = '';
+            - var terms = terms + ',' + term
+          div#currentSearchterms #{terms}
   div.container
     div.row
       div.col-md-2
