@@ -133,17 +133,22 @@ block append scripts
       });
     });
     
-    function adjustActiveKeywords(term) {
-      console.log("working on " + term);
-      var terms = "";
-      terms = terms + "," + term;
+    function removeActiveSearchterm(term) {
+      console.log("removing " + term);
       var curTerms = $('#currentSearchterms').innerHTML;
+      /*
+        do a search on a string and get index
+        get substring from 0 to searchreturnedindex-1 ( if not 0 to remove the comma) then, if searchreturnedindex + term.length to full string length and concatenate
+      */
+      var matchIndex = curTerms.search(/term/g);
+      console.log("index is " + matchIndex);
+      /*
       if(!curTerms) { curTerms = '' }
       console.log("terms is " + terms);
       curTerms = curTerms + terms;
       console.log("curTerms is " + curTerms);
-      $('#currentSearchterms').innerHTML = curTerms.substring(1,curTerms.length);
-      //return terms.substring(1,terms.length);
+      */
+      //$('#currentSearchterms').innerHTML = curTerms.substring(1,curTerms.length);
     }
     
 
@@ -162,7 +167,7 @@ block body
           - var terms = ""
           if searchtermsArray
             each term in searchtermsArray
-              a.activekeywords.plain(href="javascript:void(0)" onclick="javascript:adjustActiveKeywords('" + term + "')") <span class="glyphicon glyphicon-remove-circle"></span>
+              a.activekeywords.plain(href="javascript:void(0)" onclick="javascript:removeActiveSearchterm('" + term + "')") <span class="glyphicon glyphicon-remove-circle"></span>
                 | &nbsp;#{term}
               - terms = terms + ',' + term;
             div#currentSearchterms #{terms.substring(1,terms.length)}
