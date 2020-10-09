@@ -152,7 +152,8 @@ block body
                   li.list-group-item 
                     -
                       var urlstub = f.framework;
-                      if(selF==f.framework) { urlstub = all };
+                      if selF==f.framework 
+                        urlstub = 'all'
                       console.log("urlstub is " + urlstub );
                     a.menu(href='/agileframeworks/' + urlstub ) <span id=#{f.framework}>#{f.frameworkdisplay}</span>
       div.col-md-8
