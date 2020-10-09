@@ -54,6 +54,7 @@ block append scripts
   script.
     var isSmallViewport = window.matchMedia("(max-width: 1000px)");
     isSmallViewport.addListener(setMenuCollapsed);
+    
     function setMenuCollapsed(isSmallViewport) {
       if( isSmallViewport.matches ) {
         document.getElementById("sidepanel").classList.remove('show');
@@ -137,13 +138,12 @@ block body
               input.btn.btn-default(type='submit', value='Submit')
           div.col-md-2
             div#suggestions
-  //- var defaultCollapsed = isDefaultCollapsed();
   div.container
     div.row
       div.col-md-2
           div.panel.panel-default
             div.panel-heading
-              a.plain(href='#sidepanel' data-toggle='collapse')
+              a.plain(href='#' data-toggle='collapse')
                 h3.panel-title Frameworks
                   //a(href='/agileframeworks/all' data-toggle='collapse') Frameworks
             div.panel-collapse.collapse.show#sidepanel
