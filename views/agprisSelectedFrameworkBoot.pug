@@ -143,9 +143,9 @@ block body
             //input.btn.btn-default(type='submit', value='Submit')
             div#suggestions
         div.inline
-          if searchterm
+          each term in searchtermsArray
             a.activekeywords.plain(href="/agileframeworks/all") <span class="glyphicon glyphicon-remove-circle"></span>
-              | &nbsp;#{searchterm}
+              | &nbsp;#{term}
   div.container
     div.row
       div.col-md-2
