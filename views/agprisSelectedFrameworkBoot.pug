@@ -132,14 +132,13 @@ block body
   nav.navbar.navbar-default
     div.container-fluid
       div.navbar-header
-        H1.inline
-          a(href='/agileframeworks/all')
-            | Agile Values and Principles
-        form.navbar-form.inline(action='/agileframeworks/search', method='GET')
+        a.navbar-brand(href='/agileframeworks/all')
+          | Agile Values and Principles
+        form.navbar-form(action='/agileframeworks/search', method='GET')
           div.form-group
             input.form-control#searchterms(type='text', name='searchterms', placeholder='Search Terms', autocomplete="off")  
             input.btn.btn-default(type='submit', value='Submit')
-        p.inline 
+        p x keyword
         div#suggestions
   div.container
     div.row
