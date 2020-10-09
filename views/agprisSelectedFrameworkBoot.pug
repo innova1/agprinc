@@ -136,6 +136,7 @@ block append scripts
     function removeActiveSearchterm(term) {
       console.log("removing " + term);
       var curTerms = $('#currentSearchterms').innerHTML;
+      console.log("curTerms: " + curTerms);
       /*
         do a search on a string and get index
         get substring from 0 to searchreturnedindex-1 ( if not 0 to remove the comma) then, if searchreturnedindex + term.length to full string length and concatenate
