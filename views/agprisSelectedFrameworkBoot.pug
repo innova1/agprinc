@@ -135,13 +135,12 @@ block body
               a(href='/agileframeworks/all')
                 | Agile Values and Principles
           div.col-md-6
-            div.container
-              div.col-md-2
-               | links here
-              div.col-md-2
+              div.row
                 form.navbar-form.navbar-right(action='/agileframeworks/search', method='GET')
                   input.form-control#searchterms(type='text', name='searchterms', placeholder='Search Terms', autocomplete="off")  
                   input.btn.btn-default(type='submit', value='Submit')
+              div.row
+                | links here
           div.col-md-2
             div#suggestions
   div.container
