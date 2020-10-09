@@ -140,8 +140,9 @@ block body
             input.btn.btn-default(type='submit', value='Submit')
             div#suggestions
         div.inline
-          a(href="/agileframeworks/all") x
-          | &nbsp;#{searchterm}
+          if searchterm != ''
+            a(href="/agileframeworks/all") x
+            | &nbsp;#{searchterm}
   div.container
     div.row
       div.col-md-2
