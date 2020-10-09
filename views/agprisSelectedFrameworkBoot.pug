@@ -133,6 +133,10 @@ block append scripts
       });
     });
     
+    function adjustActiveKeywords(term) {
+      console.log("working on " + term);
+    }
+    
 
 block body
   nav.navbar.navbar-default
@@ -149,10 +153,10 @@ block body
           - var terms = ""
           if searchtermsArray
             each term in searchtermsArray
-              a.activekeywords.plain(href="/agileframeworks/all") <span class="glyphicon glyphicon-remove-circle"></span>
+              a.activekeywords.plain(href="/agileframeworks/all" onclick="javascript:adjustActiveKeywords(#{term})") <span class="glyphicon glyphicon-remove-circle"></span>
                 | &nbsp;#{term}
               - terms = terms + ',' + term
-            div#currentSearchterms #{terms.substring(1, terms.length)}
+            div#currentSearchterms #{terms.substring(1,terms.length)}
   div.container
     div.row
       div.col-md-2
