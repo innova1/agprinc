@@ -143,14 +143,17 @@ block body
       div.col-md-2
           div.panel.panel-default
             div.panel-heading
-              a.plain(href='javascript:void(0)' data-toggle='collapse')
+              a.plain(href='#sidepanel' data-toggle='collapse')
                 h3.panel-title Frameworks
                   //a(href='/agileframeworks/all' data-toggle='collapse') Frameworks
             div.panel-collapse.collapse.show#sidepanel
               ul.list-group
                 each f in frameworks
                   li.list-group-item 
-                    a.menu(href='/agileframeworks/' + f.framework) <span id=#{f.framework}>#{f.frameworkdisplay}</span>
+                    -
+                      var urlstub = f.framework;
+                      if(selF==f.framework) { urlstub = all };
+                    a.menu(href='/agileframeworks/' + urlstub ) <span id=#{f.framework}>#{f.frameworkdisplay}</span>
       div.col-md-8
         p#currentFramework.hide #{framework}
         each pv in principlesArray
