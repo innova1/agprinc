@@ -135,7 +135,8 @@ block append scripts
     
     function removeActiveSearchterm(term) {
       console.log("removing " + term);
-      var curTerms = document.getElementById('currentSearchterms').innerHTML;
+      var curSearchField = document.getElementById('currentSearchterms');
+      var curTerms = curSearchField.innerHTML;
       console.log("curTerms: " + curTerms);
       var subCurTerms = '';
       var result = '';
@@ -171,7 +172,7 @@ block append scripts
       console.log("curTerms is " + curTerms);
       */
       console.log("result: " + result);
-      $('#currentSearchterms').innerHTML = result;
+      curSearchField.innerHTML = result;
     }
     
 
