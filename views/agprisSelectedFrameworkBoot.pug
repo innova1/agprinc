@@ -129,8 +129,9 @@ block body
   nav.navbar.navbar-default
     div.container-fluid
       div.navbar-header
-        a(href='/agileframeworks/all')
-          | Agile Values and Principles
+        H1
+          a(href='/agileframeworks/all')
+            | Agile Values and Principles
         form.navbar-form.navbar-right(action='/agileframeworks/search', method='GET')
           input.form-control#searchterms(type='text', name='searchterms', placeholder='Search Terms', autocomplete="off")  
           input.btn.btn-default(type='submit', value='Submit')
