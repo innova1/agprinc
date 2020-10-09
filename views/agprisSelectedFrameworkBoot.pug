@@ -49,6 +49,10 @@ block append styles
        width: 300px;
        padding: 10px 10px 10px 10px;
      }
+     .linksrow {
+       align: left;
+       vertical-align: bottom;
+     }
      
 block append scripts
   script.
@@ -139,7 +143,7 @@ block body
                 form.navbar-form.navbar-right(action='/agileframeworks/search', method='GET')
                   input.form-control#searchterms(type='text', name='searchterms', placeholder='Search Terms', autocomplete="off")  
                   input.btn.btn-default(type='submit', value='Submit')
-              div.row
+              div.row.linksrow
                 | links here
           div.col-md-2
             div#suggestions
