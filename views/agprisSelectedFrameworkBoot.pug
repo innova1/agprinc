@@ -159,7 +159,7 @@ block append scripts
           } else { //word in the middle of the string
             console.log("term is in the middle of string");
             var s1 = curTerms.substring(0,matchIndex-1);
-            var s2 = curTerms.substring(matchIndex+term.length+1,curTerms.length)
+            var s2 = curTerms.substring(matchIndex+term.length,curTerms.length)
             result = s1 + s2;
           }
         }
