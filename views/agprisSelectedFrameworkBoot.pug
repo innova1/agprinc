@@ -136,9 +136,10 @@ block body
           a(href='/agileframeworks/all')
             | Agile Values and Principles
         form.navbar-form.inline(action='/agileframeworks/search', method='GET')
-          input.form-control#searchterms(type='text', name='searchterms', placeholder='Search Terms', autocomplete="off")  
-          //input.btn.btn-default(type='submit', value='Submit')
-        p.inline x firstsearch  x secondsearch
+          div.form-group
+            input.form-control#searchterms(type='text', name='searchterms', placeholder='Search Terms', autocomplete="off")  
+            input.btn.btn-default(type='submit', value='Submit')
+        p.inline 
         div#suggestions
   div.container
     div.row
