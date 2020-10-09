@@ -149,7 +149,7 @@ block append scripts
         if(matchIndex==0) { //found at first position
           if(term == curTerms.length ) { //this is the only term in current searchterms
             result = ''; //remove the whole thing
-          } else {
+          } else { //word is the first of the string but there's more
             result = curTerms.substring(term.length+1,curTerms.length)
           }
         } else {  //it's a word in the middle of the string or at the end
@@ -158,7 +158,9 @@ block append scripts
             result = curTerms.substring(0,matchIndex-1);
           } else { //word in the middle of the string
             console.log("term is in the middle of string");
-            
+            var s1 = curTerms.substring(0,matchIndex-1);
+            var s2 = curTerms.substring(term.length+1,curTerms.length)
+            result = s1 + s2;
           }
         }
       }
