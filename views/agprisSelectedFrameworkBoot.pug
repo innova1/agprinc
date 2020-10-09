@@ -137,12 +137,24 @@ block append scripts
       console.log("removing " + term);
       var curTerms = document.getElementById('currentSearchterms').innerHTML;
       console.log("curTerms: " + curTerms);
+      var subCurTerms = '';
       /*
         do a search on a string and get index
         get substring from 0 to searchreturnedindex-1 ( if not 0 to remove the comma) then, if searchreturnedindex + term.length to full string length and concatenate
       */
       var matchIndex = curTerms.search( term );
       console.log("index is " + matchIndex);
+      if(matchIndex>-1) { //value found
+        if(matchIndex==0) { //found at first position
+          if(term == curTerms.length ) { //this is the only term in current searchterms
+            result = ''; //remove the whole thing
+          } else {
+            result = curTerms.substring(term.length+1,curTerms.length)
+          }
+        } else {  //it's a word in the middle of the string or at the end
+          
+        }
+      }
       /*
       if(!curTerms) { curTerms = '' }
       console.log("terms is " + terms);
@@ -150,6 +162,7 @@ block append scripts
       console.log("curTerms is " + curTerms);
       */
       //$('#currentSearchterms').innerHTML = curTerms.substring(1,curTerms.length);
+      console.log("result: " + result);
     }
     
 
