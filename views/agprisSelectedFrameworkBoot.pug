@@ -140,7 +140,7 @@ block append scripts
         do a search on a string and get index
         get substring from 0 to searchreturnedindex-1 ( if not 0 to remove the comma) then, if searchreturnedindex + term.length to full string length and concatenate
       */
-      var matchIndex = curTerms.search(/term/g);
+      var matchIndex = curTerms[0].search(/term/g);
       console.log("index is " + matchIndex);
       /*
       if(!curTerms) { curTerms = '' }
