@@ -49,11 +49,6 @@ block append styles
        width: 300px;
        padding: 10px 10px 10px 10px;
      }
-     .linksrow {
-       display: flex;
-       align-items: bottom;
-       border: 1px solid red;
-     }
      
 block append scripts
   script.
@@ -134,9 +129,8 @@ block body
   nav.navbar.navbar-default
     div.container-fluid
       div.navbar-header
-        H1 
-          a(href='/agileframeworks/all')
-            | Agile Values and Principles
+        a(href='/agileframeworks/all')
+          | Agile Values and Principles
         form.navbar-form.navbar-right(action='/agileframeworks/search', method='GET')
           input.form-control#searchterms(type='text', name='searchterms', placeholder='Search Terms', autocomplete="off")  
         input.btn.btn-default(type='submit', value='Submit')
