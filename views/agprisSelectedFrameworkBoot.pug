@@ -135,7 +135,7 @@ block body
         H1.inline
           a(href='/agileframeworks/all')
             | Agile Values and Principles
-        form.navbar-form.navbar-right.inline(action='/agileframeworks/search', method='GET')
+        form.navbar-form.navbar-right(action='/agileframeworks/search', method='GET')
           input.form-control#searchterms(type='text', name='searchterms', placeholder='Search Terms', autocomplete="off")  
           //input.btn.btn-default(type='submit', value='Submit')
         | x firstsearch  x secondsearch
