@@ -152,7 +152,7 @@ block body
               a.activekeywords.plain(href="/agileframeworks/all") <span class="glyphicon glyphicon-remove-circle"></span>
                 | &nbsp;#{term}
               - terms = terms + ',' + term
-            div#currentSearchterms #{terms}
+            div#currentSearchterms #{terms.substring(1, terms.length)}
   div.container
     div.row
       div.col-md-2
