@@ -150,12 +150,7 @@ block body
               ul.list-group
                 each f in frameworks
                   li.list-group-item 
-                    - var urlstub = f.framework;
-                    - var selF = $('#currentFramework').innerHTML
-                      if selF==f.framework 
-                        urlstub = 'all'
-                      - console.log("selF is " + selF + ", urlstub is " + urlstub );
-                    a.menu(href='/agileframeworks/' + urlstub ) <span id=#{f.framework}>#{f.frameworkdisplay}</span>
+                    a.menu(href='/agileframeworks/' + f.framework ) <span id=#{f.framework}>#{f.frameworkdisplay}</span>
       div.col-md-8
         p#currentFramework.hide #{framework}
         each pv in principlesArray
