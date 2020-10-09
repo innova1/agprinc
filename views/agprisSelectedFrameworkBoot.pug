@@ -155,7 +155,7 @@ block append scripts
         } else {  //it's a word in the middle of the string or at the end
           if( matchIndex+term.length==curTerms.length ) {  //if term is the last word of string
             console.log("term is last word of string");
-            result = curTerms.substring(0,matchIndex);
+            result = curTerms.substring(0,matchIndex-1);
           } else { //word in the middle of the string
             console.log("term is in the middle of string");
             
