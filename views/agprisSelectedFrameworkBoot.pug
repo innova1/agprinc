@@ -150,8 +150,7 @@ block body
               ul.list-group
                 each f in frameworks
                   li.list-group-item 
-                    -
-                      var urlstub = f.framework;
+                    - var urlstub = f.framework;
                       if selF==f.framework 
                         urlstub = 'all'
                       console.log("urlstub is " + urlstub );
