@@ -49,6 +49,9 @@ block append styles
        width: 300px;
        padding: 10px 10px 10px 10px;
      }
+     .inline {
+       display: inline;
+     }
      
 block append scripts
   script.
@@ -129,13 +132,13 @@ block body
   nav.navbar.navbar-default
     div.container-fluid
       div.navbar-header
-        H1(style="display: inline;")
+        H1.inline
           a(href='/agileframeworks/all')
             | Agile Values and Principles
-        form.navbar-form.navbar-right(action='/agileframeworks/search', method='GET')
+        form.navbar-form.navbar-right.inline(action='/agileframeworks/search', method='GET')
           input.form-control#searchterms(type='text', name='searchterms', placeholder='Search Terms', autocomplete="off")  
           input.btn.btn-default(type='submit', value='Submit')
-        div#suggestions
+        div.inline#suggestions
   div.container
     div.row
       div.col-md-2
