@@ -146,6 +146,7 @@ block body
           each term in searchtermsArray
             a.activekeywords.plain(href="/agileframeworks/all") <span class="glyphicon glyphicon-remove-circle"></span>
               | &nbsp;#{term}
+          - searchtermsArray = '';
   div.container
     div.row
       div.col-md-2
