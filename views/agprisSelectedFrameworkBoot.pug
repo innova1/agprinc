@@ -139,6 +139,7 @@ block append scripts
       terms = terms + "," + term;
       var curTerms = $('currentSearchterms').innerHTML;
       curTerms = curTerms + "," + terms;
+      console.log("curTerms is " + curTerms);
       $('currentSearchterms').innerHTML = curTerms.substring(1,curTerms.length);
       //return terms.substring(1,terms.length);
     }
