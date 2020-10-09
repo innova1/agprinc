@@ -138,6 +138,7 @@ block append scripts
       var terms = "";
       terms = terms + "," + term;
       var curTerms = $('currentSearchterms').innerHTML;
+      if(!curTerms) { curTerms = '' }
       curTerms = curTerms + "," + terms;
       console.log("curTerms is " + curTerms);
       $('currentSearchterms').innerHTML = curTerms.substring(1,curTerms.length);
