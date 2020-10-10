@@ -66,15 +66,18 @@ block append scripts
     var itemHeading = "";
     var obj = new Object();
     var itemsHtml = "";
+    var itemHtml = "";
     var divCSSClass = "";
     
     var itemsCurrentFrameworkHtml = "<p id='currentFramework' class='hide'>framework</p>";
+    itemsHtml = itemsCurrentFrameworkHtml;
     itemsObj.forEach( obj => {
       divCSSClass  = "panel panel-primary " + obj.type;
-      itemsHtml = "<div class='" + divCSSClass + "'>";
+      itemHtml = "<div class='" + divCSSClass + "'>";
       itemHeading = "<H3 class='panel-title'>" + obj.frameworkdisplay + " " + obj.type + " " + obj.id + "</H3>"
-      itemsHtml += "<div class='panel-heading'>" + itemHeading + "</div>";
-      itemsHtml += "<div class='panel-body'>" + obj.text + "</div>";
+      itemHtml += "<div class='panel-heading'>" + itemHeading + "</div>";
+      itemHtml += "<div class='panel-body'>" + obj.text + "</div>";
+      itemsHtml += itemHtml;
     });
     
     itemsHtml += "</div></div>";
