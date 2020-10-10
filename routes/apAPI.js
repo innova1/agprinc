@@ -24,10 +24,10 @@ router.get('/', srch.getAllItems);
 
 
 /* GET all agile principles json */
-router.get('/frameworks', function(req, res) {
+router.get('/frameworks', async function(req, res) {
 	const debug = true;
 	if(debug) { console.log('in /')};
-    const frameworksArray = db.getFrameworksArray();
+    const frameworksArray = await db.getFrameworksArray();
     console.log('in router get /frameworks with frameworks ' + frameworksArray );
     //db.getframeworks();
     //db.isIDInRange(framework, 30);
