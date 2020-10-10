@@ -52,7 +52,7 @@ router.get('/search', async function(req, res) {
 
 /* GET one framework of agile principles */
 router.get('/all', async function(req, res) {
-	const debug = false;
+	const debug = true;
     //console.log('in router get /:framework');
     const framework = req.params.framework;
     const frameworksArray = await db.getFrameworksArray();
