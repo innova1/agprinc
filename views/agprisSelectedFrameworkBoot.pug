@@ -27,18 +27,8 @@ block body
             div#currentSearchterms #{terms.substring(1,terms.length)}
   div.container
     div.row
-      div.col-md-2
-          p.hide#currentFramework
-          div.panel.panel-default
-            div.panel-heading
-              a.plain(href='#sidepanel' data-toggle='collapse')
-                h3.panel-title Frameworks
-                  //a(href='/agileframeworks/all' data-toggle='collapse') Frameworks
-            div.panel-collapse.collapse.show#sidepanel
-              ul.list-group
-                each f in frameworks
-                  li.list-group-item 
-                    a.menu(href='/agileframeworks/' + f.framework ) <span id=#{f.framework}>#{f.frameworkdisplay}</span>
+      p.hide#currentFramework
+      div.col-md-2#frameworksmenupanel
       div.col-md-8#itemsPanels
       div.col-md-2
           div.panel.panel-default

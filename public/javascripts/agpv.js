@@ -33,6 +33,20 @@ function populateItemsPanels( objs ) {
   document.getElementById('itemsPanels').innerHTML = itemsHtml;
 }
 
+/*
+
+          div.panel.panel-default
+            div.panel-heading
+              a.plain(href='#sidepanel' data-toggle='collapse')
+                h3.panel-title Frameworks
+                  //a(href='/agileframeworks/all' data-toggle='collapse') Frameworks
+            div.panel-collapse.collapse.show#sidepanel
+              ul.list-group
+                each f in frameworks
+                  li.list-group-item 
+                    a.menu(href='/agileframeworks/' + f.framework ) <span id=#{f.framework}>#{f.frameworkdisplay}</span>
+*/
+
 function populateFrameworksPanel( objs ) {
 	var framework = "";
 	var obj = new Object();
