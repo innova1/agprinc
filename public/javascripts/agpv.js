@@ -1,16 +1,12 @@
 
-setThingsUp();
-
-async function setThingsUp() {
-	try {
-		await replaceFrameworksPanel();
-		replaceItemsPanels();
-		isSmallViewport.addListener(setMenuCollapsed);
-	 	setMenuCollapsed(isSmallViewport);
-	} catch(err) {
-		console.log("error in setThingsUp() with " + err);
-	}
-}
+replaceFrameworksPanel();
+replaceItemsPanels();
+/*
+calling these functions in the replace frameworks panel ajax call
+as an exercise later can try to figure out how to make this work with async await
+isSmallViewport.addListener(setMenuCollapsed);
+setMenuCollapsed(isSmallViewport);
+*/
 
 var isSmallViewport = window.matchMedia("(max-width: 1000px)");
 
@@ -112,13 +108,15 @@ function replaceItemsPanels() {
 	});
 }
 
-async function replaceFrameworksPanel() {
+function replaceFrameworksPanel() {
 	$.ajax({
 		type: "GET",
 		url: "/api/agileframeworks/frameworks/",
 		dataType: "json",
 		success: function(result) {
 			populateFrameworksPanel(result.AFs);
+			isSmallViewport.addListener(setMenuCollapsed);
+			setMenuCollapsed(isSmallViewport);
 		}
 	});
 }
