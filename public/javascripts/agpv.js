@@ -1,3 +1,5 @@
+console.log('this is a variable value |' + atestvar + '|');
+
 replaceItemsPanels( itemsObj );
 
 var isSmallViewport = window.matchMedia("(max-width: 1000px)");
@@ -9,8 +11,6 @@ setSelected(selF);
 
 var searchRequest = null;
 var suggElement = document.getElementById('suggestions');
-
-
 
 function replaceItemsPanels( objs ) {
   var itemTitle = "";
