@@ -65,12 +65,13 @@ block append scripts
     var itemsObj = !{JSON.stringify(principlesArray)}
     var itemHeading = "";
     var obj = new Object();
+    var items = "";
     
     itemsObj.forEach( obj => {
       
       //repeat this for each item
       itemHeading = "<H3 class='panel-title'>" + obj.frameworkdisplay + " " + obj.type + " " + obj.id
-      var items = "<div class='panel-heading'>" + itemHeading + "</div>";
+      items = "<div class='panel-heading'>" + itemHeading + "</div>";
       items += "<div class='panel-body'>" + obj.text + "</div>";
     
     });
