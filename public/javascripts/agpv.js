@@ -23,7 +23,7 @@ function populateItemsPanels( objs ) {
 
   objs.forEach( obj => {
     itemHtml = "<div class='panel panel-primary " + obj.type + "'>";
-    itemTitle = "<H3 class='panel-title'>" + obj.frameworkdisplay + " " + obj.type + " " + obj.id + "</H3>"
+    itemTitle = "<h3 class='panel-title'>" + obj.frameworkdisplay + " " + obj.type + " " + obj.id + "</h3>"
     itemHtml += "<div class='panel-heading'>" + itemTitle + "</div>";
     itemHtml += "<div class='panel-body'>" + obj.text + "</div>";
     itemHtml += "</div>";
@@ -31,6 +31,29 @@ function populateItemsPanels( objs ) {
   });
 
   document.getElementById('itemsPanels').innerHTML = itemsHtml;
+}
+
+function populateFrameworksPanel( objs ) {
+	var framework = "";
+	var obj = new Object();
+	var itemsHtml = "";
+	
+	itemsHtml  = "<div class='panel panel-default'>";
+	itemsHtml += "<div class='panel-heading'>";
+	itemsHtml += "<a class='plain' href='#sidepanel' data-toggle='collapse'><h3 class='panel-title'>Frameworks</h3>";
+	itemsHtml += "</div>"; //close div panel heading
+	itemsHtml += "<div class='panel-collapse collapse show' id='sidepanel'>"
+	itemsHtml += "<ul class='list-group'>";
+	objs.forEach( obj => {
+		itemsHtml += "<li class='list-group-item'>";
+		itemsHtml += "<a class='menu' href='/agileframeworks/" + obj.framework + "'> <span id='" + obj.framework + "'>obj.frameworkdisplay</span>";
+		itemsHtml += "</li>";
+	});
+	itemsHtml += "</ul>";
+	itemsHtml += "</div>"; //close div panel-collapse
+	itemsHtml += "</div>"; //close div panel-default
+	
+	document.getElementById('frameworksmenupanel').innerHTML = itemsHtml;
 }
 
 function setMenuCollapsed(isSmallViewport) {
@@ -58,6 +81,17 @@ function replaceItemPanels() {
 			//populateItemsPanels(JSON.stringify(result.items));
 			//console.log("value: " + result.items[0].type);
 			populateItemsPanels(result.items);
+		}
+	});
+}
+
+function replaceFrameworksPanel() {
+	$.ajax({
+		type: "GET",
+		url: "/api/agileframeworks/frameworks/",
+		dataType: "json",
+		success: function(result) {
+			populateFrameworksPanel(result.AFs);
 		}
 	});
 }
