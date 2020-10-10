@@ -1,7 +1,7 @@
 const db = require('./dataController');
 
 exports.getFilteredItems = async function(req, res) {
-	const debug = false;
+	const debug = true;
 	
 	return "";
 }
@@ -20,3 +20,9 @@ exports.getFilteredItems = async function(req, res) {
     res.render('agprisSelectedFrameworkBoot', { title: 'Agile Principles', searchterms: searchtermsArray, frameworks: frameworksArray, framework: framework, principlesArray: principlesArray });
 });
 */
+
+exports.getSearchTerms = async function(req, res) {
+	const debug = true;
+	
+	return "";
+}
