@@ -6,7 +6,7 @@ var isSmallViewport = window.matchMedia("(max-width: 1000px)");
 isSmallViewport.addListener(setMenuCollapsed);
 
 var selF = document.getElementById('currentFramework');
-if(selF) {
+if(selF != '') {
 	console.log("current framework: |" + selF.innerHTML + "|");
 	setSelected(selF.innerHTML);
 } else {
