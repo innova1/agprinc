@@ -62,7 +62,7 @@ block append styles
 block append scripts
   script.
   
-    var itemsObj = #{JSON.stringify(principlesArray)}
+    var itemsObj = !{JSON.stringify(principlesArray)}
     
     document.getElementById('itemsPanels').innerHTML = 'replaced by this ' + itemsObj[1].type;
     
