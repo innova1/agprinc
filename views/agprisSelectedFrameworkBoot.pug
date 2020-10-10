@@ -61,6 +61,9 @@ block append styles
      
 block append scripts
   script.
+  
+    var itemsObj = #{itemsArray}
+    
     var isSmallViewport = window.matchMedia("(max-width: 1000px)");
     isSmallViewport.addListener(setMenuCollapsed);
     
@@ -219,12 +222,14 @@ block body
                     a.menu(href='/agileframeworks/' + f.framework ) <span id=#{f.framework}>#{f.frameworkdisplay}</span>
       div.col-md-8
         p#currentFramework.hide #{framework}
-        each pv in principlesArray
+        //each pv in principlesArray
           div.panel.panel-primary(class=pv.type)
             div.panel-heading
-              h3.panel-title#itemsTitle #{pv.frameworkdisplay} #{pv.type} #{pv.id}
+              //h3.panel-title#itemsTitle #{pv.frameworkdisplay} #{pv.type} #{pv.id}
             div.panel-body#itemsList
               | #{pv.text}
+        div.panel.panel-primary#itemsPanels
+          | items panels here
       div.col-md-2
           div.panel.panel-default
             div.panel-heading
