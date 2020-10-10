@@ -4,7 +4,6 @@ replaceFrameworksPanel();
 
 var isSmallViewport = window.matchMedia("(max-width: 1000px)");
 isSmallViewport.addListener(setMenuCollapsed);
-setMenuCollapsed(isSmallViewport);
 
 var selF = document.getElementById('currentFramework');
 if(selF) {
@@ -13,6 +12,8 @@ if(selF) {
 } else {
 	console.log("current framework is not defined");
 }
+
+setMenuCollapsed(isSmallViewport);
 
 var searchRequest = null;
 var suggElement = document.getElementById('suggestions');
