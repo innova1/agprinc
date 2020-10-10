@@ -54,8 +54,9 @@ function replaceItemPanels() {
 		url: "/api/agileframeworks/",
 		dataType: "json",
 		success: function(result) {
-			populateItemsPanels(JSON.stringify(result.items));
+			//populateItemsPanels(JSON.stringify(result.items));
 			//console.log("value: " + result.items[0].type);
+			populateItemsPanels(result.items);
 		}
 	});
 }
