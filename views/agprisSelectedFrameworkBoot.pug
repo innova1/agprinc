@@ -9,22 +9,22 @@ block append scripts
 block body
   nav.navbar.navbar-default
   div.container-fluid
-      div.navbar-header
-        a.navbar-brand(href='/agileframeworks/all')
-          | Agile Values and Principles
-        form.navbar-form.navbar-left(action='/agileframeworks/search', method='GET')
-          div.form-group
-            input.form-control#searchterms(type='text', name='searchterms', placeholder='Search Terms', autocomplete="off")  
-            //input.btn.btn-default(type='submit', value='Submit')
-            div#suggestions
-        div.inline#removetermlinks
-          - var terms = ""
-          if searchtermsArray
-            each term in searchtermsArray
-              a.activekeywords.plain(href="javascript:void(0)" onclick="javascript:removeActiveSearchterm('" + term + "')") <span class="glyphicon glyphicon-remove-circle"></span>
-                | &nbsp;#{term}
-              - terms = terms + ',' + term;
-            div#currentSearchterms #{terms.substring(1,terms.length)}
+    div.navbar-header
+      a.navbar-brand(href='/agileframeworks/all')
+        | Agile Values and Principles
+      form.navbar-form.navbar-left(action='/agileframeworks/search', method='GET')
+        div.form-group
+          input.form-control#searchterms(type='text', name='searchterms', placeholder='Search Terms', autocomplete="off")  
+          //input.btn.btn-default(type='submit', value='Submit')
+          div#suggestions
+      div.inline#removetermlinks
+        - var terms = ""
+        if searchtermsArray
+          each term in searchtermsArray
+            a.activekeywords.plain(href="javascript:void(0)" onclick="javascript:removeActiveSearchterm('" + term + "')") <span class="glyphicon glyphicon-remove-circle"></span>
+              | &nbsp;#{term}
+            - terms = terms + ',' + term;
+          div#currentSearchterms #{terms.substring(1,terms.length)}
   div.container
     div.row
       div.col-md-2
