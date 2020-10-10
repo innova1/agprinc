@@ -1,5 +1,3 @@
-import { itemsObj }
-
 replaceItemsPanels( itemsObj );
 
 var isSmallViewport = window.matchMedia("(max-width: 1000px)");
