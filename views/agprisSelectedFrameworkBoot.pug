@@ -66,9 +66,11 @@ block append scripts
     var itemHeading = "";
     var obj = new Object();
     var itemsHtml = "";
+    var divCSSClass = "";
     
     //add p#currentFramework.hide #{framework} here later
-    itemsHtml = "<div class='panel panel-primary " + obj.type + "'>"
+    divCSSClass  = "panel " + "panel-primary " + obj.type;
+    itemsHtml = "<div class='" + divCSSClass + "'>";
     itemsObj.forEach( obj => {
       itemHeading = "<H3 class='panel-title'>" + obj.frameworkdisplay + " " + obj.type + " " + obj.id + "</H3>"
       itemsHtml += "<div class='panel-heading'>" + itemHeading + "</div>";
