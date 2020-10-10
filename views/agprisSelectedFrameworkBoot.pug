@@ -138,6 +138,8 @@ block append scripts
       var curSearchField = document.getElementById('currentSearchterms');
       var curTerms = curSearchField.innerHTML;
       console.log("curTerms: " + curTerms);
+      var countarray = curTerms.split(',');
+      var count = countarray.length-1;
       var subCurTerms = '';
       var result = '';
       /*
@@ -173,6 +175,12 @@ block append scripts
       */
       console.log("result: " + result);
       curSearchField.innerHTML = result;
+      var href = "/agileframeworks/";
+      if(count==0) {
+        href = href + "all";
+      } else {
+        href = href + "search?searchterms=" + result;
+      }
       window.location.href = "/agileframeworks/search?searchterms=" + result;
     }
     
