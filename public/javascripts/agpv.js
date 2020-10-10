@@ -1,3 +1,5 @@
+replaceItemsPanels( itemsObj );
+
 var isSmallViewport = window.matchMedia("(max-width: 1000px)");
 isSmallViewport.addListener(setMenuCollapsed);
 setMenuCollapsed(isSmallViewport);
@@ -8,7 +10,7 @@ setSelected(selF);
 var searchRequest = null;
 var suggElement = document.getElementById('suggestions');
 
-replaceItemsPanels( itemsObj );
+
 
 function replaceItemsPanels( objs ) {
   var itemTitle = "";
