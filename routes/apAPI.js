@@ -19,7 +19,12 @@ router.get('/searchterms', srch.getSearchTerms);
 /* return filtered items for local update */
 router.get('/search', srch.getFilteredItems);
 
+/* return all agile principles as jason */
+router.get('/', srch.getAllItems);
+
+
 /* GET all agile principles json */
+/*
 router.get('/', function(req, res) {
 	const debug = true;
 	if(debug) { console.log('in /')};
@@ -29,6 +34,7 @@ router.get('/', function(req, res) {
     //db.isIDInRange(framework, 30);
     res.json({ AFs: frameworksArray });
 });
+*/
 
 /*
 possible new model
