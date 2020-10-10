@@ -56,7 +56,7 @@ block append styles
        margin-left: 15px;
      }
      #currentSearchterms {
-       display: none; /*change this to block in test*/
+       display: block; /*change this to block in test*/
      }
      
 block append scripts
@@ -197,7 +197,7 @@ block body
             div#suggestions
         div.inline
           - var terms = ""
-          if searchtermsArray.length > 0
+          if searchtermsArray === undefined
             each term in searchtermsArray
               a.activekeywords.plain(href="javascript:void(0)" onclick="javascript:removeActiveSearchterm('" + term + "')") <span class="glyphicon glyphicon-remove-circle"></span>
                 | &nbsp;#{term}
