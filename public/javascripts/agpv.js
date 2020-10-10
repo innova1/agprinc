@@ -6,7 +6,7 @@ async function setThingsUp() {
 		await replaceItemsPanels();
 		await replaceFrameworksPanel();
 		await isSmallViewport.addListener(setMenuCollapsed);
-		setMenuCollapsed(isSmallViewport);
+		await setMenuCollapsed(isSmallViewport);
 	} catch(err) {
 		console.log("error in setThingsUp() with " + err);
 	}
