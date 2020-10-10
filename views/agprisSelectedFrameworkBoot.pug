@@ -81,10 +81,6 @@ block append scripts
       //console.log("added .selected to " + selectedFramework)
     }
     
-    function conductSearchOn(keyword) {
-      
-    }
-    
     var selF = document.getElementById('currentFramework').innerHTML
     setSelected(selF);
     
@@ -112,12 +108,13 @@ block append scripts
                 success: function(msg){
                     if(msg.result[0]) {
                       var resultList = '<ul style="list-style-type: none"><li><b>Suggestions</b></li>';
+                      var curSearchField = document.getElementById('currentSearchterms');
                       console.log("in success 1 with " + msg.result[0] );
                       //we need to check if the value is the same
                       if (value==$(oldThis).val()) {
                         console.log("in success 2 in if with " + msg.result[0] );
                         msg.result.forEach( element => {
-                          resultList = resultList + '<li><a href="/agileframeworks/search?searchterms=' + element + '"/>' + element + '</a></li>';
+                          resultList = resultList + '<li><a href="/agileframeworks/search?searchterms=' + curSearchField.innerHTML + ',' + element + '"/>' + element + '</a></li>';
                         });
                         resultList = resultList + '</ul>';
                         suggElement.innerHTML = resultList;
