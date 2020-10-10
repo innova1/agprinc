@@ -4,8 +4,8 @@ replaceItemsPanels();
 /*
 calling these functions in the replace frameworks panel ajax call
 as an exercise later can try to figure out how to make this work with async await
-isSmallViewport.addListener(setMenuCollapsed);
-setMenuCollapsed(isSmallViewport);
+	isSmallViewport.addListener(setMenuCollapsed);
+	setMenuCollapsed(isSmallViewport);
 */
 
 var isSmallViewport = window.matchMedia("(max-width: 1000px)");
