@@ -16,21 +16,21 @@ var searchRequest = null;
 var suggElement = document.getElementById('suggestions');
 
 function populateItemsPanels( objs ) {
-  var itemTitle = "";
-  var obj = new Object();
-  var itemsHtml = "";
-  var itemHtml = "";
+	var itemTitle = "";
+	var obj = new Object();
+	var itemsHtml = "";
+	var itemHtml = "";
 
-  objs.forEach( obj => {
-    itemHtml = "<div class='panel panel-primary " + obj.type + "'>";
-    itemTitle = "<h3 class='panel-title'>" + obj.frameworkdisplay + " " + obj.type + " " + obj.id + "</h3>"
-    itemHtml += "<div class='panel-heading'>" + itemTitle + "</div>";
-    itemHtml += "<div class='panel-body'>" + obj.text + "</div>";
-    itemHtml += "</div>";
-    itemsHtml += itemHtml;
-  });
-
-  document.getElementById('itemsPanels').innerHTML = itemsHtml;
+	objs.forEach( obj => {
+		itemHtml = "<div class='panel panel-primary " + obj.type + "'>";
+		itemTitle = "<h3 class='panel-title'>" + obj.frameworkdisplay + " " + obj.type + " " + obj.id + "</h3>"
+		itemHtml += "<div class='panel-heading'>" + itemTitle + "</div>";
+		itemHtml += "<div class='panel-body'>" + obj.text + "</div>";
+		itemHtml += "</div>";
+		itemsHtml += itemHtml;
+	});
+	
+	document.getElementById('itemsPanels').innerHTML = itemsHtml;
 }
 
 /*
@@ -52,7 +52,7 @@ function populateFrameworksPanel( objs ) {
 	var obj = new Object();
 	var itemsHtml = "";
 	
-	itemsHtml  = "<div class='panel panel-default'>";
+	itemsHtml  = "<div class='panel panel-default testme'>";
 	itemsHtml += "<div class='panel-heading'>";
 	itemsHtml += "<a class='plain' href='#sidepanel' data-toggle='collapse'><h3 class='panel-title'>Frameworks</h3>";
 	itemsHtml += "</div>"; //close div panel heading
