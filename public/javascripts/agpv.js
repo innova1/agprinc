@@ -226,5 +226,5 @@ function removeActiveSearchterm(term) {
                 | &nbsp;#{term}
               - terms = terms + ',' + term;
             div#currentSearchterms #{terms.substring(1,terms.length)}
-			
+*/
 			
