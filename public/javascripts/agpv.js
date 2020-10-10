@@ -5,10 +5,10 @@ replaceFrameworksPanel();
 var isSmallViewport = window.matchMedia("(max-width: 1000px)");
 isSmallViewport.addListener(setMenuCollapsed);
 
-var selF = document.getElementById('currentFramework');
+var selF = document.getElementById('currentFramework').innerHTML;
 if(selF != '') {
-	console.log("current framework: |" + selF.innerHTML + "|");
-	setSelected(selF.innerHTML);
+	console.log("current framework: |" + selF + "|");
+	setSelected(selF);
 } else {
 	console.log("current framework is not defined");
 }
