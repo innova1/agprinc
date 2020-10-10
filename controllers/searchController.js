@@ -30,9 +30,8 @@ exports.getSearchTerms = async function(req, res) {
 exports.getAllItems = async function(req, res) {
 	const debug = true;
 	if(debug) { console.log('in / in searchController')};
-    const frameworksArray = db.getFrameworksArray();
-    console.log('in router get / with frameworks ' + frameworksArray );
-    //db.getframeworks();
-    //db.isIDInRange(framework, 30);
-    res.json({ items: frameworksArray });
+    const itemsArray = db.getPrinciplesArray('','');
+	
+    res.json({ items: itemsArray });
 }
+
