@@ -1,5 +1,5 @@
 
-
+setThingsUp();
 
 async function setThingsUp() {
 	await replaceItemsPanels();
