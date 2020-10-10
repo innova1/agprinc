@@ -11,9 +11,16 @@ router.get('/keywords?', async function(req, res) {
 	res.json({result: result});
 });
 
+
+/* Manage search functionality */
+router.get('/searchterms', srch.getSearchTerms);
+
+/* return filtered items for local update */
+router.get('/search', srch.getFilteredItems);
+
 /* GET all agile principles json */
 router.get('/', function(req, res) {
-	const debug = false;
+	const debug = true;
 	if(debug) { console.log('in /')};
     const frameworksArray = db.getFrameworksArray();
     console.log('in router get / with frameworks ' + frameworksArray );
