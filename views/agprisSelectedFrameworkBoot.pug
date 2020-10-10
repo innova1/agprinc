@@ -5,13 +5,14 @@ block append styles
 
 block append scripts
   scripts.
-    var itemsObj = !{JSON.stringify(principlesArray)};
+    const itemsObj = !{JSON.stringify(principlesArray)};
+    export { itemsObj };
+    
   script(src="/javascripts/agpv.js")
 
 block body
   nav.navbar.navbar-default
-    div.container-fluid
-    
+div.container-fluid
       div.navbar-header
         a.navbar-brand(href='/agileframeworks/all')
           | Agile Values and Principles
