@@ -2,10 +2,14 @@
 setThingsUp();
 
 async function setThingsUp() {
-	await replaceItemsPanels();
-	await replaceFrameworksPanel();
-	isSmallViewport.addListener(setMenuCollapsed);
-	setMenuCollapsed(isSmallViewport);
+	try {
+		await replaceItemsPanels();
+		await replaceFrameworksPanel();
+		isSmallViewport.addListener(setMenuCollapsed);
+		setMenuCollapsed(isSmallViewport);
+	} catch(err) {
+		console.log("error in setThingsUp() with " + err);
+	}
 }
 
 var isSmallViewport = window.matchMedia("(max-width: 1000px)");
