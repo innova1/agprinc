@@ -68,7 +68,7 @@ function populateFrameworksPanel( objs ) {
 	itemsHtml += "</div>"; //close div panel-collapse
 	itemsHtml += "</div>"; //close div panel-default
 	
-	console.log('about to populate frameworksMenuPanel with ' + itemsHtml);
+	//console.log('about to populate frameworksMenuPanel with ' + itemsHtml);
 	document.getElementById('frameworksMenuPanel').innerHTML = itemsHtml;
 }
 
@@ -83,7 +83,7 @@ function setMenuCollapsed(isSmallViewport) {
 
 function setSelected(selectedFramework) {
   if(selectedFramework) {
-    document.getElementById(selectedFramework).classList.add('selected');
+    document.getElementById('selectedFramework').classList.add('selected');
   }
   //console.log("added .selected to " + selectedFramework)
 }
