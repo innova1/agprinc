@@ -175,7 +175,7 @@ block append scripts
       var href = "/agileframeworks/";
       if(count==0) {
         href = href + "all";
-        curSearchField.innerHTML = "-";
+        curSearchField.innerHTML = "";
       } else {
         href = href + "search?searchterms=" + result;
         curSearchField.innerHTML = result;
@@ -198,11 +198,12 @@ block body
         div.inline
           - var terms = ""
           if searchtermsArray
+            div searchtermsArray[0]
             each term in searchtermsArray
               a.activekeywords.plain(href="javascript:void(0)" onclick="javascript:removeActiveSearchterm('" + term + "')") <span class="glyphicon glyphicon-remove-circle"></span>
                 | &nbsp;#{term}
               - terms = terms + ',' + term;
-            div#currentSearchterms #{terms.substring(1,terms.length)}
+            //div#currentSearchterms #{terms.substring(1,terms.length)}
   div.container
     div.row
       div.col-md-2
