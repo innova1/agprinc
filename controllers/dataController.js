@@ -172,7 +172,7 @@ exports.getSearchMap = function() {
 }
 
 exports.getMatchedItems = function( searchTerms ) {
-    return searchForKeywords( searchTerms );
+    return getItemsFilteredByKeywords( searchTerms );
 }
 
 exports.updateKeywords = async function( framework, type, id, keywords ) {
@@ -209,6 +209,7 @@ exports.updateKeywords = async function( framework, type, id, keywords ) {
     return result;
 }
 
+/* returns array of keywords that match the string of first characters filtered by searchText for keyword suggestions list */
 exports.getKeywordMatch = async function a( searchText ) {
 	const debug = false;
 	if(debug) { console.log('searchtext is ' + searchText) };
@@ -400,7 +401,8 @@ async function createSearchMap() {
     return searchMap;
 }
 
-async function searchForKeywords( searchTerms ) {
+/* returns array of principles filtered by searchTerms */
+async function getItemsFilteredByKeywords( searchTerms ) {
     const debug = false;
     if(debug) { console.log('in searchForKeywords with ' + searchTerms)};
     //const dataArray = getDataArray();

@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 const db = require('../controllers/dataController');
 const kwd = require('../controllers/keywordController');
+const srch = require('../controllers/searchController');
 
 /* GET all agile principles */
 router.get('/', function(req, res) {
@@ -33,7 +34,14 @@ router.get('/keywordEdit', kwd.editKeyword);
 /* Save the updated keywords */
 router.post('/keywordUpdate', kwd.updateKeywords);
 
+/* Manage search functionality */
+router.get('/searchterms', srch.getSearchTerms);
+
+/* return filtered items for local update */
+router.get('/search', srch.getFilteredItems);
+
 /* search */
+/* transferring to searchController
 router.get('/search', async function(req, res) {
     const framework = req.params.framework;
     const searchterms = req.query.searchterms;
@@ -47,6 +55,7 @@ router.get('/search', async function(req, res) {
     //console.log('in :framework ' + principlesArray[1].text);
     res.render('agprisSelectedFrameworkBoot', { title: 'Agile Principles', searchterms: searchtermsArray, frameworks: frameworksArray, framework: framework, principlesArray: principlesArray });
 });
+*/
 
 /* GET one framework of agile principles */
 router.get('/all', async function(req, res) {

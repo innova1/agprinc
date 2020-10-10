@@ -201,7 +201,7 @@ block body
           if searchtermsArray
             each term in searchtermsArray
               a.activekeywords.plain(href="javascript:void(0)" onclick="javascript:removeActiveSearchterm('" + term + "')") <span class="glyphicon glyphicon-remove-circle"></span>
-                | &nbsp;#{term}o
+                | &nbsp;#{term}
               - terms = terms + ',' + term;
             div#currentSearchterms #{terms.substring(1,terms.length)}
   div.container
@@ -222,8 +222,8 @@ block body
         each pv in principlesArray
           div.panel.panel-primary(class=pv.type)
             div.panel-heading
-              h3.panel-title #{pv.frameworkdisplay} #{pv.type} #{pv.id}
-            div.panel-body
+              h3.panel-title#itemsTitle #{pv.frameworkdisplay} #{pv.type} #{pv.id}
+            div.panel-body#itemsList
               | #{pv.text}
       div.col-md-2
           div.panel.panel-default
