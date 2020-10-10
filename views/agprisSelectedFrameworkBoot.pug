@@ -65,23 +65,29 @@ block append scripts
     var itemsObj = !{JSON.stringify(principlesArray)}
     var itemHeading = "";
     var obj = new Object();
-    var items = "";
+    var itemsHtml = "";
     
+    //add p#currentFramework.hide #{framework} here later
+    itemsHtml = "<div class='panel panel-primary'>"
     itemsObj.forEach( obj => {
       itemHeading = "<H3 class='panel-title'>" + obj.frameworkdisplay + " " + obj.type + " " + obj.id + "</H3>"
-      items += "<div class='panel-heading'>" + itemHeading + "</div>";
-      items += "<div class='panel-body'>" + obj.text + "</div>";
+      itemsHtml += "<div class='panel-heading'>" + itemHeading + "</div>";
+      itemsHtml += "<div class='panel-body'>" + obj.text + "</div>";
     });
     
-    items += "</div>";
+    itemsHtml += "</div></div>";
     
     
     
-    document.getElementById('itemsPanels').innerHTML = items;
+    document.getElementById('itemsPanels').innerHTML = itemsHtml;
     
     
     
     /*
+    
+        
+        div.panel.panel-primary
+          | items panels here
           div.panel-heading
             h3.panel-title
           div.panel-body
@@ -243,10 +249,7 @@ block body
                 each f in frameworks
                   li.list-group-item 
                     a.menu(href='/agileframeworks/' + f.framework ) <span id=#{f.framework}>#{f.frameworkdisplay}</span>
-      div.col-md-8
-        p#currentFramework.hide #{framework}
-        div.panel.panel-primary#itemsPanels
-          | items panels here
+      div.col-md-8#itemsPanels
       div.col-md-2
           div.panel.panel-default
             div.panel-heading
