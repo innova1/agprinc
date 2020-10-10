@@ -1,15 +1,20 @@
 
-replaceItemsPanels();
-replaceFrameworksPanel();
+
+isSmallViewport.addListener(setMenuCollapsed);
+async function setThingsUp() {
+	await replaceItemsPanels();
+	await replaceFrameworksPanel();
+	setMenuCollapsed(isSmallViewport);
+}
 
 var isSmallViewport = window.matchMedia("(max-width: 1000px)");
 
 var selF = document.getElementById('currentFramework').innerHTML;
 if(selF != '') {
-	console.log("current framework: |" + selF + "|");
+	//console.log("current framework: |" + selF + "|");
 	setSelected(selF);
 } else {
-	console.log("current framework is not defined");
+	//console.log("current framework is not defined");
 }
 
 var searchRequest = null;
@@ -109,8 +114,6 @@ function replaceFrameworksPanel() {
 		dataType: "json",
 		success: function(result) {
 			populateFrameworksPanel(result.AFs);
-			isSmallViewport.addListener(setMenuCollapsed);
-			setMenuCollapsed(isSmallViewport);
 		}
 	});
 }
