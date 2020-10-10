@@ -67,7 +67,8 @@ function populateFrameworksPanel( objs ) {
 	itemsHtml += "</div>"; //close div panel-collapse
 	itemsHtml += "</div>"; //close div panel-default
 	
-	document.getElementById('frameworksmenupanel').innerHTML = itemsHtml;
+	console.log('about to populate frameworksMenuPanel with ' + itemsHtml);
+	document.getElementById('frameworksMenuPanel').innerHTML = itemsHtml;
 }
 
 function setMenuCollapsed(isSmallViewport) {
