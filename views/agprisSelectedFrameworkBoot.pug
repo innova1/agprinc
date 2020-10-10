@@ -175,7 +175,8 @@ block append scripts
       var href = "/agileframeworks/";
       if(count==0) {
         href = href + "all";
-        curSearchField.innerHTML = "";
+        //curSearchField.innerHTML = "";
+        document.getElementById('removetermlinks').innerHTML="";
       } else {
         href = href + "search?searchterms=" + result;
         curSearchField.innerHTML = result;
@@ -195,7 +196,7 @@ block body
             input.form-control#searchterms(type='text', name='searchterms', placeholder='Search Terms', autocomplete="off")  
             //input.btn.btn-default(type='submit', value='Submit')
             div#suggestions
-        div.inline
+        div.inline#removetermlinks
           - var terms = ""
           if searchtermsArray
             each term in searchtermsArray
