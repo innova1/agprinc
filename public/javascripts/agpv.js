@@ -1,5 +1,6 @@
 
 replaceItemPanels();
+replaceFrameworksPanel();
 
 var isSmallViewport = window.matchMedia("(max-width: 1000px)");
 isSmallViewport.addListener(setMenuCollapsed);
