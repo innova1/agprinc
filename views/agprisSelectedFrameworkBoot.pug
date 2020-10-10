@@ -172,12 +172,13 @@ block append scripts
       console.log("curTerms is " + curTerms);
       */
       console.log("result: " + result + " with count: " + count);
-      curSearchField.innerHTML = result;
       var href = "/agileframeworks/";
       if(count==0) {
         href = href + "all";
+        curSearchField.innerHTML = "";
       } else {
         href = href + "search?searchterms=" + result;
+        curSearchField.innerHTML = result;
       }
       window.location.href = href;
     }
