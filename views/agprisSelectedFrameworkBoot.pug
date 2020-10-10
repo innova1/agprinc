@@ -64,6 +64,15 @@ block append scripts
   
     var itemsObj = #{itemsArray}
     
+    $('#itemsPanels').innerHTML = 'replaced by this';
+    
+    /*
+          div.panel-heading
+            h3.panel-title#itemsTitle The Title
+          div.panel-body#itemsList
+            | body items
+    */
+    
     var isSmallViewport = window.matchMedia("(max-width: 1000px)");
     isSmallViewport.addListener(setMenuCollapsed);
     
