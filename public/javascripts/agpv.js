@@ -73,19 +73,19 @@ function populateFrameworksPanel( objs ) {
 	itemsHtml += "</div>"; //close div panel-collapse
 	itemsHtml += "</div>"; //close div panel-default
 	
-	console.log('setsidepanel');
+	//console.log('setsidepanel');
 	//console.log('about to populate frameworksMenuPanel with ' + itemsHtml);
 	document.getElementById('frameworksMenuPanel').innerHTML = itemsHtml;
 }
 
 function setMenuCollapsed(isSmallViewport) {
-	console.log('calling set Menu Collapsed');
-  if( isSmallViewport.matches ) {
-    document.getElementById("sidepanel").classList.remove('show');
-    document.getElementById("sidepanel").classList.remove('in');
-  } else {
-    document.getElementById("sidepanel").classList.add('show');
-  }
+	//console.log('calling set Menu Collapsed');
+	if( isSmallViewport.matches ) {
+		document.getElementById("sidepanel").classList.remove('show');
+		document.getElementById("sidepanel").classList.remove('in');
+	} else {
+		document.getElementById("sidepanel").classList.add('show');
+	}
 }
 
 function setSelected(selectedFramework) {
@@ -217,3 +217,14 @@ function removeActiveSearchterm(term) {
   }
   //window.location.href = href;
 }
+
+/*
+          - var terms = ""
+          if searchtermsArray
+            each term in searchtermsArray
+              a.activekeywords.plain(href="javascript:void(0)" onclick="javascript:removeActiveSearchterm('" + term + "')") <span class="glyphicon glyphicon-remove-circle"></span>
+                | &nbsp;#{term}
+              - terms = terms + ',' + term;
+            div#currentSearchterms #{terms.substring(1,terms.length)}
+			
+			
