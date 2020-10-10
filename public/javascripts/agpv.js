@@ -8,6 +8,7 @@ setMenuCollapsed(isSmallViewport);
 
 var selF = document.getElementById('currentFramework');
 if(selF) {
+	console.log("current framework: |" + selF + "|");
 	setSelected(selF);
 } else {
 	console.log("current framework is not defined");
