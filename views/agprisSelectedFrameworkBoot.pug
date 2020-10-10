@@ -63,36 +63,29 @@ block append scripts
   script.
   
     var itemsObj = !{JSON.stringify(principlesArray)}
-    var itemTitle = "";
-    var obj = new Object();
-    var itemsHtml = "";
-    var itemHtml = "";
     
-    var itemsCurrentFrameworkHtml = "<p id='currentFramework' class='show'>framework</p>";
-    itemsHtml = itemsCurrentFrameworkHtml;
-    itemsObj.forEach( obj => {
-      itemHtml = "<div class='panel panel-primary " + obj.type + "'>";
-      itemTitle = "<H3 class='panel-title'>" + obj.frameworkdisplay + " " + obj.type + " " + obj.id + "</H3>"
-      itemHtml += "<div class='panel-heading'>" + itemTitle + "</div>";
-      itemHtml += "<div class='panel-body'>" + obj.text + "</div>";
-      itemHtml += "</div>";
-      itemsHtml += itemHtml;
-    });
+    replaceItemsPanels( itemsObj );
     
-    
-    
-    
-    document.getElementById('itemsPanels').innerHTML = itemsHtml;
-    
-    /*
-    
-        
-        div.panel.panel-primary
-          | items panels here
-          div.panel-heading
-            h3.panel-title
-          div.panel-body
-    */
+    function replaceItemsPanels( objs ) {
+      var itemTitle = "";
+      var obj = new Object();
+      var itemsHtml = "";
+      var itemHtml = "";
+
+      var itemsCurrentFrameworkHtml = "<p id='currentFramework' class='show'>framework</p>";
+      itemsHtml = itemsCurrentFrameworkHtml;
+      objs.forEach( obj => {
+        itemHtml = "<div class='panel panel-primary " + obj.type + "'>";
+        itemTitle = "<H3 class='panel-title'>" + obj.frameworkdisplay + " " + obj.type + " " + obj.id + "</H3>"
+        itemHtml += "<div class='panel-heading'>" + itemTitle + "</div>";
+        itemHtml += "<div class='panel-body'>" + obj.text + "</div>";
+        itemHtml += "</div>";
+        itemsHtml += itemHtml;
+      });
+
+      document.getElementById('itemsPanels').innerHTML = itemsHtml;
+    }
+
     
     var isSmallViewport = window.matchMedia("(max-width: 1000px)");
     isSmallViewport.addListener(setMenuCollapsed);
