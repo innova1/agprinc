@@ -3,10 +3,10 @@ setThingsUp();
 
 async function setThingsUp() {
 	try {
-		await replaceItemsPanels();
 		await replaceFrameworksPanel();
-		await isSmallViewport.addListener(setMenuCollapsed);
-		await setMenuCollapsed(isSmallViewport);
+		replaceItemsPanels();
+		isSmallViewport.addListener(setMenuCollapsed);
+	 	setMenuCollapsed(isSmallViewport);
 	} catch(err) {
 		console.log("error in setThingsUp() with " + err);
 	}
@@ -99,7 +99,7 @@ function setSelected(selectedFramework) {
   //console.log("added .selected to " + selectedFramework)
 }
 
-async function replaceItemsPanels() {
+function replaceItemsPanels() {
 	$.ajax({
 		type: "GET",
 		url: "/api/agileframeworks/",
