@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 const db = require('../controllers/dataController');
+const srch = require('../controllers/searchController');
 
 /* live search against keywords */
 router.get('/keywords?', async function(req, res) {
