@@ -68,7 +68,7 @@ block append scripts
     var itemsHtml = "";
     var divCSSClass = "";
     
-    //add p#currentFramework.hide #{framework} here later
+    var itemsCurrentFrameworkHtml = "<p id='currentFramework' class='hide'>framework</p>";
     itemsObj.forEach( obj => {
       divCSSClass  = "panel panel-primary " + obj.type;
       itemsHtml = "<div class='" + divCSSClass + "'>";
