@@ -64,7 +64,9 @@ block append scripts
   
     var itemsObj = #{itemsArray}
     
-    document.getElementById('itemsPanels').innerHTML = 'replaced by this';
+    document.getElementById('itemsPanels').innerHTML = 'replaced by this ' + itemsObj[1].type;
+    
+    
     
     /*
           div.panel-heading
