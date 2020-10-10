@@ -21,8 +21,6 @@ function populateItemsPanels( objs ) {
   var itemsHtml = "";
   var itemHtml = "";
 
-  var itemsCurrentFrameworkHtml = "<p id='currentFramework' class='hide'>framework</p>";
-  itemsHtml = itemsCurrentFrameworkHtml;
   objs.forEach( obj => {
     itemHtml = "<div class='panel panel-primary " + obj.type + "'>";
     itemTitle = "<H3 class='panel-title'>" + obj.frameworkdisplay + " " + obj.type + " " + obj.id + "</H3>"
