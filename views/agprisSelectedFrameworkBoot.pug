@@ -197,7 +197,7 @@ block body
             div#suggestions
         div.inline
           - var terms = ""
-          if searchtermsArray
+          if searchtermsArray.length > 0
             each term in searchtermsArray
               a.activekeywords.plain(href="javascript:void(0)" onclick="javascript:removeActiveSearchterm('" + term + "')") <span class="glyphicon glyphicon-remove-circle"></span>
                 | &nbsp;#{term}
