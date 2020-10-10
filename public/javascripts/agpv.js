@@ -99,7 +99,7 @@ function setSelected(selectedFramework) {
   //console.log("added .selected to " + selectedFramework)
 }
 
-function replaceItemsPanels() {
+async function replaceItemsPanels() {
 	$.ajax({
 		type: "GET",
 		url: "/api/agileframeworks/",
@@ -112,7 +112,7 @@ function replaceItemsPanels() {
 	});
 }
 
-function replaceFrameworksPanel() {
+async function replaceFrameworksPanel() {
 	$.ajax({
 		type: "GET",
 		url: "/api/agileframeworks/frameworks/",
