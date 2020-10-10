@@ -30,7 +30,7 @@ exports.getSearchTerms = async function(req, res) {
 exports.getAllItems = async function(req, res) {
 	const debug = true;
 	if(debug) { console.log('in / in searchController')};
-    const itemsArray = db.getPrinciplesArray('','');
+    const itemsArray = await db.getPrinciplesArray('','');
 	
     res.json({ items: itemsArray });
 }
