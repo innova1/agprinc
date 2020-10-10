@@ -1,6 +1,4 @@
-console.log('this is a variable value |' + atestvar + '|');
-
-replaceItemsPanels( itemsObj );
+replaceItemPanels();
 
 var isSmallViewport = window.matchMedia("(max-width: 1000px)");
 isSmallViewport.addListener(setMenuCollapsed);
@@ -12,7 +10,7 @@ setSelected(selF);
 var searchRequest = null;
 var suggElement = document.getElementById('suggestions');
 
-function replaceItemsPanels( objs ) {
+function populateItemsPanels( objs ) {
   var itemTitle = "";
   var obj = new Object();
   var itemsHtml = "";
@@ -46,6 +44,17 @@ function setSelected(selectedFramework) {
     document.getElementById(selectedFramework).classList.add('selected');
   }
   //console.log("added .selected to " + selectedFramework)
+}
+
+function replaceItemPanels() {
+	$.ajax({
+		type: "GET",
+		url: "/api/agileframeworks/",
+		dataType: "json",
+		success: function(result) {
+			populateItemsPanels(JSON.stringify(result));
+		}
+	});
 }
 
 $(function() {
