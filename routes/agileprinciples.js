@@ -60,7 +60,7 @@ router.get('/all', async function(req, res) {
     const searchMap = await db.getSearchMap(); 
     //console.log('in router: len is ' + searchMap.length);
     //console.log('in :framework ' + principlesArray[1].text);
-    res.render('agprisSelectedFrameworkBoot', { title: 'Agile Principles', frameworks: frameworksArray, framework: framework, principlesArray: principlesArray, searchMap: searchMap });
+    res.render('agprisSelectedFrameworkBoot', { title: 'Agile Principles', searchterms: searchtermsArray, frameworks: frameworksArray, framework: framework, principlesArray: principlesArray, searchMap: searchMap });
 });
 
 /* GET one framework of agile principles */
