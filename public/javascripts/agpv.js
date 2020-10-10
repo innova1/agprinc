@@ -1,9 +1,8 @@
 
-replaceItemPanels();
+replaceItemsPanels();
 replaceFrameworksPanel();
 
 var isSmallViewport = window.matchMedia("(max-width: 1000px)");
-isSmallViewport.addListener(setMenuCollapsed);
 
 var selF = document.getElementById('currentFramework').innerHTML;
 if(selF != '') {
@@ -13,6 +12,7 @@ if(selF != '') {
 	console.log("current framework is not defined");
 }
 
+isSmallViewport.addListener(setMenuCollapsed);
 setMenuCollapsed(isSmallViewport);
 
 var searchRequest = null;
@@ -55,7 +55,7 @@ function populateFrameworksPanel( objs ) {
 	var obj = new Object();
 	var itemsHtml = "";
 	
-	itemsHtml  = "<div class='panel panel-default testme'>";
+	itemsHtml  = "<div class='panel panel-default'>";
 	itemsHtml += "<div class='panel-heading'>";
 	itemsHtml += "<a class='plain' href='#sidepanel' data-toggle='collapse'><h3 class='panel-title'>Frameworks</h3>";
 	itemsHtml += "</div>"; //close div panel heading
@@ -90,7 +90,7 @@ function setSelected(selectedFramework) {
   //console.log("added .selected to " + selectedFramework)
 }
 
-function replaceItemPanels() {
+function replaceItemsPanels() {
 	$.ajax({
 		type: "GET",
 		url: "/api/agileframeworks/",
