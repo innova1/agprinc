@@ -1,5 +1,3 @@
-
-var itemsObj = !{JSON.stringify(principlesArray)};
 var isSmallViewport = window.matchMedia("(max-width: 1000px)");
 isSmallViewport.addListener(setMenuCollapsed);
 setMenuCollapsed(isSmallViewport);
