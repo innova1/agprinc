@@ -1,3 +1,5 @@
+console.log("in js file about to call replace item panesl");
+
 replaceItemPanels();
 
 var isSmallViewport = window.matchMedia("(max-width: 1000px)");
@@ -53,7 +55,7 @@ function replaceItemPanels() {
 		dataType: "json",
 		success: function(result) {
 			//populateItemsPanels(JSON.stringify(result));
-			console.log("value: " + result[0].type);
+			console.log("value: " + result.items[0].type);
 		}
 	});
 }
