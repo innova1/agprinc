@@ -2,6 +2,8 @@ const db = require('./dataController');
 
 exports.getFilteredItems = async function(req, res) {
 	const debug = false;
+	
+	return "";
 }
 
 /*
