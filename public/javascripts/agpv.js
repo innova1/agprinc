@@ -12,11 +12,6 @@ if(selF != '') {
 	console.log("current framework is not defined");
 }
 
-$(function(){
-	isSmallViewport.addListener(setMenuCollapsed);
-	setMenuCollapsed(isSmallViewport);
-});
-
 var searchRequest = null;
 var suggElement = document.getElementById('suggestions');
 
@@ -114,6 +109,8 @@ function replaceFrameworksPanel() {
 		dataType: "json",
 		success: function(result) {
 			populateFrameworksPanel(result.AFs);
+			isSmallViewport.addListener(setMenuCollapsed);
+			setMenuCollapsed(isSmallViewport);
 		}
 	});
 }
