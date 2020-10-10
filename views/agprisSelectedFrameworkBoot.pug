@@ -63,16 +63,28 @@ block append scripts
   script.
   
     var itemsObj = !{JSON.stringify(principlesArray)}
+    var itemHeading = "";
+    var obj = new Object();
     
-    document.getElementById('itemsPanels').innerHTML = 'replaced by this, type: ' + itemsObj[1].type;
+    //repeat this for each item
+    obj = itemsObj[0]
+    itemHeading = "<H3 class='panel-title'>" + obj.frameworkdisplay + " " + obj.type + " " + obj.id
+    var items = "<div class='panel-heading'>" + itemHeading + "</div>";
+    items += "<div class='panel-body'>" + obj.text + "</div>";
+    
+    //after iteration
+    items += "</div>";
+    
+    
+    
+    document.getElementById('itemsPanels').innerHTML = items;
     
     
     
     /*
           div.panel-heading
-            h3.panel-title#itemsTitle The Title
-          div.panel-body#itemsList
-            | body items
+            h3.panel-title
+          div.panel-body
     */
     
     var isSmallViewport = window.matchMedia("(max-width: 1000px)");
