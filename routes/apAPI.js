@@ -28,7 +28,7 @@ router.get('/frameworks', function(req, res) {
 	const debug = true;
 	if(debug) { console.log('in /')};
     const frameworksArray = db.getFrameworksArray();
-    console.log('in router get / with frameworks ' + frameworksArray );
+    console.log('in router get /frameworks with frameworks ' + frameworksArray );
     //db.getframeworks();
     //db.isIDInRange(framework, 30);
     res.json({ AFs: frameworksArray });
