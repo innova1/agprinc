@@ -1,9 +1,10 @@
 
 
-isSmallViewport.addListener(setMenuCollapsed);
+
 async function setThingsUp() {
 	await replaceItemsPanels();
 	await replaceFrameworksPanel();
+	isSmallViewport.addListener(setMenuCollapsed);
 	setMenuCollapsed(isSmallViewport);
 }
 
