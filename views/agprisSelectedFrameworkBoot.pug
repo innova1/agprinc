@@ -66,11 +66,14 @@ block append scripts
     var itemHeading = "";
     var obj = new Object();
     
-    //repeat this for each item
-    obj = itemsObj[0]
-    itemHeading = "<H3 class='panel-title'>" + obj.frameworkdisplay + " " + obj.type + " " + obj.id
-    var items = "<div class='panel-heading'>" + itemHeading + "</div>";
-    items += "<div class='panel-body'>" + obj.text + "</div>";
+    itemsObj.forEach( obj => {
+      
+      //repeat this for each item
+      itemHeading = "<H3 class='panel-title'>" + obj.frameworkdisplay + " " + obj.type + " " + obj.id
+      var items = "<div class='panel-heading'>" + itemHeading + "</div>";
+      items += "<div class='panel-body'>" + obj.text + "</div>";
+    
+    });
     
     //after iteration
     items += "</div>";
