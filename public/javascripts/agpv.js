@@ -167,7 +167,7 @@ $(function() {
                 if(msg.result[0]) {
                   var resultList = '<ul style="list-style-type: none"><li><b>Suggestions</b></li>';
                   var curSearchField = document.getElementById('currentsearchterms');
-                  var curSearchTerms = (curSearchField?curSearchField.innerHTML + ",":"");
+                  var curSearchTerms = (curSearchField.innerHTML!=''?curSearchField.innerHTML + ",":"");
                   console.log("in success 1 with " + msg.result[0] );
                   //we need to check if the value is the same
                   if (value==$(oldThis).val()) {
