@@ -163,6 +163,7 @@ $(function() {
 					var jscriptcall = '';
 					msg.result.forEach( element => {
 						//jscriptString = "javascript:replaceItemsPanels('" + obj.framework + "')"
+						console.log('adding element: |' + element + '|')
 						jscriptString = "javascript:replaceFilteredItemsPanels(\'" + curSearchTerms + element + "\')"
 						resultList = resultList + "<li><a href='javascript:void(0);' onclick=" + jscriptString + ">" + element + "</a></li>";
 					});
