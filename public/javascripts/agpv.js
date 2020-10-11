@@ -136,7 +136,7 @@ function replaceFrameworksPanel() {
 $(function() {
   var minlength = 3;
 
-  $("#searchterms").keyup(function() {
+  $("#searchtext").keyup(function() {
     var oldThis = this,
     value = $(this).val();
     console.log("value is " + value);
