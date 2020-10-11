@@ -5,7 +5,11 @@ exports.getFilteredItems = async function(req, res) {
     const searchterms = req.query.searchterms;
 	if(debug) console.log('in search with searchterms-' + decodeURI(searchterms));
 	searchtermsArray = searchterms.split(',');
-    const principlesArray = await db.getMatchedItems(searchtermsArray);
+	try {
+		const principlesArray = await db.getMatchedItems(searchtermsArray);
+	} catch(err) {
+		console.log("error in searchcontroller.getFilteredItems with " + err);
+	}
     if(debug) console.log('in router: len is ' + searchMap.length);
 	return principlesArray;
 }
