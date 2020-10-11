@@ -393,7 +393,7 @@ async function createSearchMap() {
             var locations = new Array();
             locations.push(locationObj);
             searchObj = { keyword: kwd, locations: locations };
-            searchMap.set(kwd, searchObj);
+            searchMap.set(kwd.toLowerCase(), searchObj);
             if(debug) { console.log('added location ' + a.framework + ':' + a.type + ':' + a.id + ' to new search object ' + searchObj.keyword); }
           } else { //add location to existing
             if(debug) { console.log('adding location ' + a.framework + ':' + a.type + ':' + a.id + ' to existing search object ' + searchObj.keyword); }
