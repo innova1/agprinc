@@ -171,10 +171,10 @@ exports.getSearchMap = function() {
     return createSearchMap();
 }
 
-exports.getMatchedItems = async function( searchTerms ) {
+exports.getMatchedItems = async function( searchtext ) {
 	var resultArray = new Array();
 	try {
-		resultArray = await getItemsFilteredByKeywords( searchTerms );
+		resultArray = await getItemsFilteredByKeywords( searchtext );
 	} catch(err) {
 		console.log('error in db.getMatchItems with ' + err);
 	}
@@ -216,7 +216,7 @@ exports.updateKeywords = async function( framework, type, id, keywords ) {
 }
 
 /* returns array of keywords that match the string of first characters filtered by searchText for keyword suggestions list */
-exports.getKeywordMatch = async function a( searchText ) {
+exports.getKeywordMatch = async function a( searchtext ) {
 	const debug = false;
 	if(debug) { console.log('searchtext is ' + searchText) };
 	const keywordsMap = new Map();
@@ -408,10 +408,10 @@ async function createSearchMap() {
     return searchMap;
 }
 
-/* returns array of principles filtered by searchTerms */
-async function getItemsFilteredByKeywords( searchTerms ) {
+/* returns array of principles filtered by searchtext */
+async function getItemsFilteredByKeywords( searchtext ) {
     const debug = true;
-    if(debug) { console.log('in searchForKeywords with ' + searchTerms)};
+    if(debug) { console.log('in searchForKeywords with ' + searchtext)};
     //const dataArray = getDataArray();
     try {
         const dataArray = await getPrinciplesArray('all','');
@@ -421,7 +421,7 @@ async function getItemsFilteredByKeywords( searchTerms ) {
 		if(debug) console.log('db.getFilteredItems just after create search map. searchMap length: ' + searchMap.size);
         var foundIndexes = new Array();
         var locations = new Array();
-        for( const searchTerm of searchTerms ) {
+        for( const searchTerm of searchtext ) {
 		  if(debug) console.log('looking at searchTerm: ' + searchTerm);
           var searchObj = searchMap.get(searchTerm.toLowerCase());
           if(searchObj) {
