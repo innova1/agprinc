@@ -28,7 +28,7 @@ exports.getSearchTerms = async function(req, res) {
 }
 
 exports.getItems = async function(req, res) {
-	const debug = true;
+	const debug = false;
     const framework = req.params.framework;
 	if(debug) { console.log('in / in searchController.getItems(' + framework + ')')};
     const itemsArray = await db.getPrinciplesArray(framework,'');
