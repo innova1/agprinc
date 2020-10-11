@@ -171,8 +171,10 @@ function populateCurrentSearchTermsDiv(searchterms) {
 		currentTermsString += "<a class='activekeywords plain' href='javascript:void(0)' onclick='javascript:removeActiveSearchterm(this);'> <span class='glyphicon glyphicon-remove-circle'></span>" + "&nbsp;" + decodeURI(element) + "</a>"
 	});
 	*/
-	console.log('creating terms object');
-	if(currentSearchTermsObject=="") currentSearchTermsObject = createCurrentSearchTermsObject(searchterms);
+	if(currentSearchTermsObject=="") { 
+		console.log('creating terms object');
+		currentSearchTermsObject = createCurrentSearchTermsObject(searchterms);
+	}
 	document.getElementById('removetermlinks').innerHTML = currentSearchTermsObject.getCurrentTermsHtml();
 	document.getElementById('currentsearchterms').innerHTML = currentSearchTermsObject.getCurrentTerms();
 	document.getElementById('suggestions').style.display = 'none';
