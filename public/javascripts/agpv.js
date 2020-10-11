@@ -127,6 +127,7 @@ function populateCurrentSearchTermsDiv(searchterms) {
 	var curTermsArray = searchterms.split(',');
 	var currentTermsString = '';
 	curTermsArray.forEach( element => {
+		console.log('current el: ' + element);
 		currentTermsString += "<a class='activekeywords plain' onclick='javascript:removeActiveSearchterm(this);'> <span class='glyphicon glyphicon-remove-circle'></span>" + element + "</a>"
 	});
 	document.getElementById('currentsearchterms').innerHTML = currentTermsString;
