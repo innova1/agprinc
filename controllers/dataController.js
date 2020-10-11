@@ -237,10 +237,10 @@ exports.getKeywordMatch = async function a( searchtext ) {
 			}
 		});
 		
-		return result;
 	} catch(err) {
         console.log('error in dataController.getKeywordMatch ' + err.message );
 	}
+	return result;
 }
 
 function getSingleFrameworkTypeIdObj( framework, type, id ) {
