@@ -66,7 +66,7 @@ function populateFrameworksPanel( objs ) {
 	itemsHtml += "<ul class='list-group'>";
 	objs.forEach( obj => {
 		itemsHtml += "<li class='list-group-item'>";
-		itemsHtml += "<a class='menu' href='/agileframeworks/" + obj.framework + "'> <span id='" + obj.framework + "'>" + obj.frameworkdisplay + "</span>";
+		itemsHtml += "<a class='menu' href='javascript:void(0)' onclick='javascript:replaceItemsPanels(" + obj.framework + "'> <span id='" + obj.framework + "'>" + obj.frameworkdisplay + "</span>";
 		itemsHtml += "</li>";
 	});
 	itemsHtml += "</ul>";
