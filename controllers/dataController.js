@@ -172,11 +172,13 @@ exports.getSearchMap = function() {
 }
 
 exports.getMatchedItems = async function( searchTerms ) {
+	const resultArray = new Array();
 	try {
-		return await getItemsFilteredByKeywords( searchTerms );
+		resultArray await getItemsFilteredByKeywords( searchTerms );
 	} catch(err) {
 		console.log('error in db.getMatchItems with ' + err);
 	}
+	return resultArray;
 }
 
 exports.updateKeywords = async function( framework, type, id, keywords ) {
