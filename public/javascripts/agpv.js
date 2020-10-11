@@ -162,7 +162,7 @@ $(function() {
 					console.log("in success 2 in if with " + msg.result[0] );
 					var jscriptcall = '';
 					msg.result.forEach( element => {
-						jscriptcall = "javascript:replaceFilteredItemsPanels(" + curSearchTerms + element + ");";
+						jscriptcall = "javascript:replaceFilteredItemsPanels('" + curSearchTerms + element + "');";
 						resultList = resultList + "<li><a href='javascript:void(0);' onclick='" + jscriptcall + "'/>" + element + "</a></li>";
 					});
 					resultList = resultList + '</ul>';
