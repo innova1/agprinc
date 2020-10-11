@@ -174,7 +174,7 @@ exports.getSearchMap = function() {
 exports.getMatchedItems = async function( searchTerms ) {
 	const resultArray = new Array();
 	try {
-		resultArray await getItemsFilteredByKeywords( searchTerms );
+		resultArray = await getItemsFilteredByKeywords( searchTerms );
 	} catch(err) {
 		console.log('error in db.getMatchItems with ' + err);
 	}
