@@ -215,10 +215,10 @@ exports.updateKeywords = async function( framework, type, id, keywords ) {
     return result;
 }
 
-/* returns array of keywords that match the string of first characters filtered by searchText for keyword suggestions list */
+/* returns array of keywords that match the string of first characters filtered by searchtext for keyword suggestions list */
 exports.getKeywordMatch = async function a( searchtext ) {
 	const debug = false;
-	if(debug) { console.log('searchtext is ' + searchText) };
+	if(debug) { console.log('searchtext is ' + searchtext) };
 	const keywordsMap = new Map();
 	var keywords = new Array();
 	try {
@@ -227,12 +227,12 @@ exports.getKeywordMatch = async function a( searchtext ) {
 		keywords = [ ...keywordsMap.values() ];
 		if(debug) console.log('keyword array length: ' + keywords.length);
 		keywords.forEach( element => {
-			//take searchText and then compare with the searchText.length number of chars at the start of each
+			//take searchtext and then compare with the searchtext.length number of chars at the start of each
 			var elstring = element.keyword + '';
-			var str = elstring.substring(0, searchText.length);
-			if(debug) { console.log( 'comparing ' + str + ' with ' + searchText ) };
-			if( str.toUpperCase()==searchText.toUpperCase() ) {
-				if(debug) { console.log( 'pushing compared ' + str + ' with ' + searchText ) };
+			var str = elstring.substring(0, searchtext.length);
+			if(debug) { console.log( 'comparing ' + str + ' with ' + searchtext ) };
+			if( str.toUpperCase()==searchtext.toUpperCase() ) {
+				if(debug) { console.log( 'pushing compared ' + str + ' with ' + searchtext ) };
 				result.push(elstring); 
 			}
 		});
