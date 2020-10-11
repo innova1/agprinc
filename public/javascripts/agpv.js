@@ -159,14 +159,16 @@ $(function() {
                   console.log("in success 1 with " + msg.result[0] );
                   //we need to check if the value is the same
                   if (value==$(oldThis).val()) {
-                    console.log("in success 2 in if with " + msg.result[0] );
-                    msg.result.forEach( element => {
-                      resultList = resultList + "<li><a href='javascript:void(0);' onclick='javascript:replaceFilteredItemsPanels('" + curSearchTerms + element + "')/>" + element + "</a></li>";
-                    });
-                    resultList = resultList + '</ul>';
-                    suggElement.innerHTML = resultList;
+					console.log("in success 2 in if with " + msg.result[0] );
+					var jscriptcall = '';
+					msg.result.forEach( element => {
+						jscriptcall = "javascript:replaceFilteredItemsPanels(" + curSearchTerms + element + ");";
+						resultList = resultList + "<li><a href='javascript:void(0);' onclick='" + jscriptcall + "'/>" + element + "</a></li>";
+					});
+					resultList = resultList + '</ul>';
+					suggElement.innerHTML = resultList;
 					console.log("about to display block on suggetions");
-                    suggElement.style.display = 'block';
+					suggElement.style.display = 'block';
                   }
                 }
             }
