@@ -222,8 +222,8 @@ exports.getKeywordMatch = async function a( searchtext ) {
 	const keywordsMap = new Map();
 	var keywords = new Array();
 	if(debug) var count = 0;
+	var result = new Array();
 	try {
-		var result = new Array();
 		const keywordsMap = await createSearchMap();
 		keywords = [ ...keywordsMap.values() ];
 		if(debug) console.log('keyword array length: ' + keywords.length);
@@ -242,7 +242,7 @@ exports.getKeywordMatch = async function a( searchtext ) {
         console.log('error in dataController.getKeywordMatch ' + err.message );
 	}
 	return result;
-}
+};
 
 function getSingleFrameworkTypeIdObj( framework, type, id ) {
     const singleframeworkObj = new Object();
