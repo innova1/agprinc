@@ -414,7 +414,9 @@ async function getItemsFilteredByKeywords( searchTerms ) {
     try {
         const dataArray = await getPrinciplesArray('all','');
         const foundItems = new Array();
+		if(debug) console.log('db.getFilteredItems just before create search map');
         const searchMap = await createSearchMap();
+		if(debug) console.log('db.getFilteredItems just after create search map');
         var foundIndexes = new Array();
         var locations = new Array();
         for( const searchTerm of searchTerms ) {
