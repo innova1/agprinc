@@ -123,15 +123,54 @@ function replaceFilteredItemsPanels(searchterms) {
 	});
 }
 
+function createCurrentSearchTermsObject(searchterms) {
+	var currentTermsObject = new Object();
+	var currentTermsMap = new Map();
+	var currentTermsArray = searchterms.split(',');
+	var currentTermsString = '';
+	currentTermsArray.forEach( element => {
+		console.log('current el: |' + element + '|');
+		currentTermsString += "<a class='activekeywords plain' href='javascript:void(0)' onclick='javascript:removeActiveSearchterm(this);'> <span class='glyphicon glyphicon-remove-circle'></span>" + "&nbsp;" + decodeURI(element) + "</a>"
+		currentTermsMap.set(element, currentTermsString);
+	});
+	currentTermsObject = {
+		currentTermsMap: currentTermsMap,
+		getCurrentTermsHtml: function() {
+			var termsHtml = "";
+			for( let str of currentTermsMap.values() ) {
+				termsHtml += str;
+			}
+			return termsHtml;
+		},
+		getCurrentTerms: function() {
+			var terms = "";
+			for( let str of currentTermsMap.keys() ) {
+				if(terms == "") {
+					terms = str;
+				} else {
+					terms += ',' + str;
+				}
+			}
+			return terms;
+		}
+		
+	};
+	return currentTermsObject;
+}
+
 function populateCurrentSearchTermsDiv(searchterms) {
+	/*
 	var curTermsArray = searchterms.split(',');
 	var currentTermsString = '';
 	curTermsArray.forEach( element => {
 		console.log('current el: |' + element + '|');
 		currentTermsString += "<a class='activekeywords plain' href='javascript:void(0)' onclick='javascript:removeActiveSearchterm(this);'> <span class='glyphicon glyphicon-remove-circle'></span>" + "&nbsp;" + decodeURI(element) + "</a>"
 	});
-	document.getElementById('removetermlinks').innerHTML = currentTermsString;
-	document.getElementById('currentsearchterms').innerHTML = searchterms;
+	*/
+	console.log('creating terms object');
+	termsObj = createCurrentSearchTermsObject(searchterms);
+	document.getElementById('removetermlinks').innerHTML = termsObj.getCurrentTermsHtml;
+	document.getElementById('currentsearchterms').innerHTML = termsObj.getCurrentTerms();
 	document.getElementById('suggestions').style.display = 'none';
 	document.getElementById('searchtext').value = "";
 }
