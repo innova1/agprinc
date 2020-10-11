@@ -5,12 +5,13 @@ exports.getFilteredItems = async function(req, res) {
     const searchterms = req.query.searchterms;
 	if(debug) console.log('in search with searchterms-' + decodeURI(searchterms));
 	searchtermsArray = searchterms.split(',');
+	var filteredItemsArray = new Array();
 	try {
-		const principlesArray = await db.getMatchedItems(searchtermsArray);
+		filteredItemsArray = await db.getMatchedItems(searchtermsArray);
 	} catch(err) {
 		console.log("error in searchcontroller.getFilteredItems with " + err);
 	}
-	return principlesArray;
+	return filteredItemsArray;
 }
 
 /*

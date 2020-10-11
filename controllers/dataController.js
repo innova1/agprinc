@@ -172,7 +172,7 @@ exports.getSearchMap = function() {
 }
 
 exports.getMatchedItems = async function( searchTerms ) {
-	const resultArray = new Array();
+	var resultArray = new Array();
 	try {
 		resultArray = await getItemsFilteredByKeywords( searchTerms );
 	} catch(err) {
