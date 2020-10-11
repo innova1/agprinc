@@ -176,7 +176,7 @@ exports.getFilteredItems = async function( searchWordsArray ) {
 	try {
 		resultArray = await getItemsFilteredByKeywords( searchWordsArray );
 	} catch(err) {
-		console.log('error in db.getMatchItems with ' + err);
+		console.log('error in db.getFilteredItems with ' + err);
 	}
 	return resultArray;
 }
@@ -414,9 +414,9 @@ async function getItemsFilteredByKeywords( searchWordsArray ) {
     const debug = true;
     if(debug) { console.log('in getItemsFilteredByKeywords with ' + searchWordsArray[0])};
     //const dataArray = getDataArray();
+    const foundItems = new Array();
     try {
         const dataArray = await getPrinciplesArray('all','');
-        const foundItems = new Array();
 		if(debug) console.log('db.getFilteredItems just before create search map');
         const searchMap = await createSearchMap();
 		if(debug) console.log('db.getFilteredItems just after create search map. searchMap length: ' + searchMap.size);
