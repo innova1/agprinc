@@ -171,10 +171,10 @@ exports.getSearchMap = function() {
     return createSearchMap();
 }
 
-exports.getMatchedItems = async function( searchtext ) {
+exports.getFilteredItems = async function( searchWordsArray ) {
 	var resultArray = new Array();
 	try {
-		resultArray = await getItemsFilteredByKeywords( searchtext );
+		resultArray = await getItemsFilteredByKeywords( searchWordsArray );
 	} catch(err) {
 		console.log('error in db.getMatchItems with ' + err);
 	}
@@ -409,10 +409,10 @@ async function createSearchMap() {
     return searchMap;
 }
 
-/* returns array of principles filtered by searchtext */
-async function getItemsFilteredByKeywords( searchtext ) {
+/* returns array of principles filtered by searchWordsArray */
+async function getItemsFilteredByKeywords( searchWordsArray ) {
     const debug = true;
-    if(debug) { console.log('in searchForKeywords with ' + searchtext)};
+    if(debug) { console.log('in getItemsFilteredByKeywords with ' + searchWordsArray[0])};
     //const dataArray = getDataArray();
     try {
         const dataArray = await getPrinciplesArray('all','');
@@ -422,7 +422,7 @@ async function getItemsFilteredByKeywords( searchtext ) {
 		if(debug) console.log('db.getFilteredItems just after create search map. searchMap length: ' + searchMap.size);
         var foundIndexes = new Array();
         var locations = new Array();
-        for( const searchTerm of searchtext ) {
+        for( const searchTerm of searchWordsArray ) {
 		  if(debug) console.log('looking at searchTerm: ' + searchTerm);
           var searchObj = searchMap.get(searchTerm.toLowerCase());
           if(searchObj) {
@@ -439,11 +439,11 @@ async function getItemsFilteredByKeywords( searchtext ) {
         }
         if(debug && foundItems[0]) { console.log('first found item is ' + foundItems[0].framework) } else { console.log('none found') };
         
-        return foundItems;
-        
     } catch(err) {
         console.log('error in dataController.getItemsFilteredByKeywords ' + err.message );
     }
+	
+	return foundItems;
   
 }
 

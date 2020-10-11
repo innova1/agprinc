@@ -1,7 +1,7 @@
 const db = require('./dataController');
 
 exports.getSearchWords = async function(req, res) {
-	const debug = true;
+	const debug = false;
     const searchtext = req.query.searchtext;
 	if(debug) console.log('in search with searchtext-' + decodeURI(searchtext));
 	var searchWordsArray = new Array();
@@ -44,5 +44,15 @@ exports.getItems = async function(req, res) {
 }
 
 exports.getFilteredItems = async function(req, res) {
+	const debug = false;
+    const searchWords = req.params.searchwords;
+	const searchWordsArray = searchWords.split(',');
+	if(debug) { console.log('in / in searchController.getFilteredItems(' + searchWords + ')')};
+	try {
+    	const itemsArray = await db.getFilteredItems(searchWordsArray);
+	} catch(err) {
+		console.log('error in search controller.getFilteredItems with ' + err);
+	}
 	
+    res.json({ filteredItems: itemsArray });
 }

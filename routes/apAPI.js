@@ -16,7 +16,7 @@ router.get('/keywords?', async function(req, res) {
 /* Manage search functionality */
 router.get('/wordsmatch', srch.getSearchWords);
 
-/* return filtered items for local update */
+/* return filtered items for local update param is string of searchwords*/
 router.get('/search', srch.getFilteredItems);
 
 /* GET all agile principles json */
