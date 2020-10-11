@@ -131,7 +131,8 @@ $(function() {
     console.log("value is " + value);
 
      if (value.length >= minlength ) {
-        if (searchRequest != null) { searchRequest.abort(); }
+        if (searchRequest != null) { searchRequest.abort(); 
+		console.log("about to ajax");
         searchRequest = $.ajax({
             type: "GET",
             url: "/api/agileframeworks/keywords?",
