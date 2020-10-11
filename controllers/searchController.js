@@ -2,9 +2,8 @@ const db = require('./dataController');
 
 exports.getFilteredItems = async function(req, res) {
 	const debug = true;
-    const searchtext = req.query.searchterms;
+    const searchtext = req.query.searchtext;
 	if(debug) console.log('in search with searchterms-' + decodeURI(searchterms));
-	searchtermsArray = searchterms.split(',');
 	var filteredItemsArray = new Array();
 	try {
 		filteredItemsArray = await db.getKeywordMatch(searchtext);
