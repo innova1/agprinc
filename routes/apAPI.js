@@ -14,7 +14,7 @@ router.get('/keywords?', async function(req, res) {
 
 
 /* Manage search functionality */
-router.get('/searchtext', srch.getSearchWords);
+router.get('/wordsmatch', srch.getSearchWords);
 
 /* return filtered items for local update */
 router.get('/search', srch.getFilteredItems);

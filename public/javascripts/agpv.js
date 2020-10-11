@@ -114,7 +114,7 @@ function replaceItemsPanels(framework) {
 function replaceFilteredItemsPanels(searchterms) {
 	$.ajax({
 		type: "GET",
-		url: "/api/agileframeworks/search?searchterms=" + searchterms,
+		url: "/api/agileframeworks/search?searchtext=" + searchtext,
 		dataType: "json",
 		success: function(result) {
 			populateItemsPanels(result.items);
@@ -154,7 +154,7 @@ $(function() {
             success: function(msg){
                 if(msg.result[0]) {
                   var resultList = '<ul style="list-style-type: none"><li><b>Suggestions</b></li>';
-                  var curSearchField = document.getElementById('currentSearchterms');
+                  var curSearchField = document.getElementById('currentSearchTerms');
                   var curSearchTerms = (curSearchField?curSearchField.innerHTML + ",":"");
                   console.log("in success 1 with " + msg.result[0] );
                   //we need to check if the value is the same

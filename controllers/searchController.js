@@ -42,3 +42,7 @@ exports.getItems = async function(req, res) {
 	
     res.json({ items: itemsArray });
 }
+
+exports.getFilteredItems = async function(req, res) {
+	
+}
