@@ -21,7 +21,7 @@ router.get('/search', srch.getFilteredItems);
 
 /* GET all agile principles json */
 router.get('/frameworks', async function(req, res) {
-	const debug = false;
+	const debug = true;
 	if(debug) { console.log('in /frameworks'); }
     const frameworksArray = await db.getFrameworksArray();
     if(debug) { console.log('in router get /frameworks with frameworks ' + frameworksArray ); }
