@@ -1,56 +1,59 @@
-    .my-space-grid { 
-      margin-bottom: 15px;
-    }
-    .my-show-grid-ptitle {
-      border: 1px solid darkgreen;
-    }
-    .my-show-grid-ptext {
-      border-left: 1px solid darkgreen;
-      border-right: 1px solid darkgreen;
-      border-bottom: 1px solid darkgreen;
-    }
-    .ag-title-bgcolor {
-      background-color: darkseagreen;
-    }
-    .ag-text-bgcolor {
-      background-color: white;
-    }
-    .value>.panel-heading { /*value heading color*/
-      color: #333;
-      background-color: #aaddf7;
-     }
-    .principle>.panel-heading { /*principle heading color*/
-      color: #333;
-      background-color: #99e7cc;
-     }
-     .searchform {
-       margin-left  : 20px;
-       margin-top: 10px;
-       border: 1px solid red;
-     }
-     .center {
-       text-align: center;
-     }
-     .selected {
-       font-weight: bold;
-       font-size: 1.2em;
-     }
-     a.plain {
-       text-decoration: none;
-       color: black;
-     }
-     div#suggestions {
-       display: none;
-       border: 2px inset black;
-       width: 300px;
-       padding: 10px 10px 10px 10px;
-     }
-     .inline {
-       display: inline;
-     }
-     .activekeywords {
-       margin-left: 15px;
-     }
-     #currentSearchterms {
-       display: block; /*change this to block in test*/
-     }
+.my-space-grid { 
+	margin-bottom: 15px;
+}
+.my-show-grid-ptitle {
+	border: 1px solid darkgreen;
+}
+.my-show-grid-ptext {
+	border-left: 1px solid darkgreen;
+	border-right: 1px solid darkgreen;
+	border-bottom: 1px solid darkgreen;
+}
+.ag-title-bgcolor {
+	background-color: darkseagreen;
+}
+.ag-text-bgcolor {
+	background-color: white;
+}
+.value>.panel-heading { /*value heading color*/
+	color: #333;
+	background-color: #aaddf7;
+}
+.principle>.panel-heading { /*principle heading color*/
+	color: #333;
+	background-color: #99e7cc;
+}
+.searchform {
+	margin-left  : 20px;
+	margin-top: 10px;
+	border: 1px solid red;
+}
+.center {
+	text-align: center;
+}
+.selected {
+	font-weight: bold;
+	font-size: 1.2em;
+}
+a.plain {
+	text-decoration: none;
+	color: black;
+}
+div#suggestions {
+	display: none;
+	border: 2px inset black;
+	width: 300px;
+	padding: 10px 10px 10px 10px;
+}
+.inline {
+	display: inline;
+}
+.activekeywords {
+	margin-left: 15px;
+}
+#currentSearchterms {
+	display: block; /*change this to block in test*/
+}
+#sidepanelheader {
+	font-size: 10px;
+}
