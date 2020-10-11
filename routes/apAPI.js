@@ -19,19 +19,19 @@ router.get('/searchterms', srch.getSearchTerms);
 /* return filtered items for local update */
 router.get('/search', srch.getFilteredItems);
 
-/* return all agile principles as jason */
-router.get('/:framework', srch.getItems);
-
 /* GET all agile principles json */
 router.get('/frameworks', async function(req, res) {
 	const debug = false;
-	if(debug) { console.log('in /'); }
+	if(debug) { console.log('in /frameworks'); }
     const frameworksArray = await db.getFrameworksArray();
     if(debug) { console.log('in router get /frameworks with frameworks ' + frameworksArray ); }
     //db.getframeworks();
     //db.isIDInRange(framework, 30);
     res.json({ AFs: frameworksArray });
 });
+
+/* return all agile principles as jason */
+router.get('/:framework', srch.getItems);
 
 /*
 possible new model
