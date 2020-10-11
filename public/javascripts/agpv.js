@@ -173,8 +173,8 @@ function populateCurrentSearchTermsDiv(searchterms) {
 	*/
 	console.log('creating terms object');
 	if(currentSearchTermsObject=="") currentSearchTermsObject = createCurrentSearchTermsObject(searchterms);
-	document.getElementById('removetermlinks').innerHTML = termsObj.getCurrentTermsHtml();
-	document.getElementById('currentsearchterms').innerHTML = termsObj.getCurrentTerms();
+	document.getElementById('removetermlinks').innerHTML = currentSearchTermsObject.getCurrentTermsHtml();
+	document.getElementById('currentsearchterms').innerHTML = currentSearchTermsObject.getCurrentTerms();
 	document.getElementById('suggestions').style.display = 'none';
 	document.getElementById('searchtext').value = "";
 }
