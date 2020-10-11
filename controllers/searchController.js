@@ -1,16 +1,16 @@
 const db = require('./dataController');
 
-exports.getFilteredItems = async function(req, res) {
+exports.getSearchWords = async function(req, res) {
 	const debug = true;
     const searchtext = req.query.searchtext;
 	if(debug) console.log('in search with searchtext-' + decodeURI(searchtext));
-	var filteredItemsArray = new Array();
+	var searchWordsArray = new Array();
 	try {
-		filteredItemsArray = await db.getKeywordMatch(searchtext);
+		searchWordsArray = await db.getKeywordMatch(searchtext);
 	} catch(err) {
-		console.log("error in searchcontroller.getFilteredItems with " + err);
+		console.log("error in searchcontroller.getSearchWords with " + err);
 	}
-	res.json( {filteredItems: filteredItemsArray} );
+	res.json( {searchWords: searchWordsArray} );
 }
 
 /*
