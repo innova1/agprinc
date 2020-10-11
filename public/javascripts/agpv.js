@@ -161,7 +161,7 @@ $(function() {
                   if (value==$(oldThis).val()) {
                     console.log("in success 2 in if with " + msg.result[0] );
                     msg.result.forEach( element => {
-                      resultList = resultList + '<li><a href="/agileframeworks/search?searchterms=' + curSearchTerms + element + '"/>' + element + '</a></li>';
+                      resultList = resultList + '<li><a href="/agileframeworks/search?searchwords=' + curSearchTerms + element + '"/>' + element + '</a></li>';
                     });
                     resultList = resultList + '</ul>';
                     suggElement.innerHTML = resultList;
