@@ -114,7 +114,7 @@ function replaceItemsPanels(framework) {
 function replaceFilteredItemsPanels(searchterms) {
 	$.ajax({
 		type: "GET",
-		url: "/api/agileframeworks/search?searchtext=" + searchtext,
+		url: "/api/agileframeworks/search?searchtext=" + searchterms,
 		dataType: "json",
 		success: function(result) {
 			populateItemsPanels(result.items);
@@ -161,7 +161,7 @@ $(function() {
                   if (value==$(oldThis).val()) {
                     console.log("in success 2 in if with " + msg.result[0] );
                     msg.result.forEach( element => {
-                      resultList = resultList + '<li><a href="/agileframeworks/search?searchwords=' + curSearchTerms + element + '"/>' + element + '</a></li>';
+                      resultList = resultList + "<li><a href='javascript:void(0);' onclick='javascript:replaceFilteredItemsPanels('" + curSearchTerms + element + '"/>' + element + '</a></li>';
                     });
                     resultList = resultList + '</ul>';
                     suggElement.innerHTML = resultList;
