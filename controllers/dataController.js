@@ -172,7 +172,11 @@ exports.getSearchMap = function() {
 }
 
 exports.getMatchedItems = async function( searchTerms ) {
-    return await getItemsFilteredByKeywords( searchTerms );
+	try {
+		return await getItemsFilteredByKeywords( searchTerms );
+	} catch(err) {
+		console.log('error in db.getMatchItems with ' + err);
+	}
 }
 
 exports.updateKeywords = async function( framework, type, id, keywords ) {
@@ -361,7 +365,7 @@ function getDataArray() {
 		if no, then create the object and add to the array
 */
 async function createSearchMap() {
-    const debug = false;
+    const debug = true;
   	//const dataArray = getDataArray(); //full data array of all values and principle objects
     const dataArray = await getPrinciplesArray('all','');
     var searchMap = new Map(); //Map being built of a list of objects with keyword and location of the word
