@@ -221,6 +221,7 @@ exports.getKeywordMatch = async function a( searchtext ) {
 	if(debug) { console.log('searchtext is ' + searchtext) };
 	const keywordsMap = new Map();
 	var keywords = new Array();
+	if(debug) var count = 0;
 	try {
 		var result = new Array();
 		const keywordsMap = await createSearchMap();
@@ -230,7 +231,7 @@ exports.getKeywordMatch = async function a( searchtext ) {
 			//take searchtext and then compare with the searchtext.length number of chars at the start of each
 			var elstring = element.keyword + '';
 			var str = elstring.substring(0, searchtext.length);
-			if(debug) { console.log( 'comparing ' + str + ' with ' + searchtext ) };
+			if(debug) { console.log( ++count + 'comparing ' + str + ' with ' + searchtext ) };
 			if( str.toUpperCase()==searchtext.toUpperCase() ) {
 				if(debug) { console.log( 'pushing compared ' + str + ' with ' + searchtext ) };
 				result.push(elstring); 
