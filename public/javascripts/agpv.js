@@ -57,6 +57,7 @@ function populateFrameworksPanel( objs ) {
 	var framework = "";
 	var obj = new Object();
 	var itemsHtml = "";
+	var jscriptString = "";
 	
 	itemsHtml  = "<div class='panel panel-default'>";
 	itemsHtml += "<div class='panel-heading'>";
@@ -66,7 +67,8 @@ function populateFrameworksPanel( objs ) {
 	itemsHtml += "<ul class='list-group'>";
 	objs.forEach( obj => {
 		itemsHtml += "<li class='list-group-item'>";
-		itemsHtml += "<a class='menu' href='javascript:void(0)' onclick='javascript:replaceItemsPanels('" + obj.framework + "')> <span id='" + obj.framework + "'>" + obj.frameworkdisplay + "</span>";
+		jscriptString = "javascript:replaceItemsPanels('" + obj.framework + "')";
+		itemsHtml += "<a class='menu' href='javascript:void(0)' onclick=" + jscriptString + "> <span id='" + obj.framework + "'>" + obj.frameworkdisplay + "</span>";
 		itemsHtml += "</li>";
 	});
 	itemsHtml += "</ul>";
