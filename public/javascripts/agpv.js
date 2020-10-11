@@ -153,10 +153,14 @@ function createCurrentSearchTermsObject(searchterms) {
 			}
 			return terms;
 		}
-		
+		removeTerm: function(term) {
+			currentTermsMap.delete(term);
+		}
 	};
 	return currentTermsObject;
 }
+
+const currentSearchTermsObject;
 
 function populateCurrentSearchTermsDiv(searchterms) {
 	/*
@@ -168,7 +172,7 @@ function populateCurrentSearchTermsDiv(searchterms) {
 	});
 	*/
 	console.log('creating terms object');
-	termsObj = createCurrentSearchTermsObject(searchterms);
+	if(!currentSearchTermsObject) currentSearchTermsObject = createCurrentSearchTermsObject(searchterms);
 	document.getElementById('removetermlinks').innerHTML = termsObj.getCurrentTermsHtml();
 	document.getElementById('currentsearchterms').innerHTML = termsObj.getCurrentTerms();
 	document.getElementById('suggestions').style.display = 'none';
@@ -235,6 +239,11 @@ $(function() {
 });
 
 function removeActiveSearchterm(element) {
+	currentSearchTermsObject.removeTerm(element.text);
+	populateCurrentSearchTermsDiv(currentSearchTermsObject.getCurrentTerms());
+}
+
+function removeActiveSearchterm2(element) {
 	console.log("removing |" + element.text + "|");
 	var term = element.text.trim();
 	var curSearchField = document.getElementById('currentsearchterms');
