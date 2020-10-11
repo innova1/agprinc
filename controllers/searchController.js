@@ -10,7 +10,6 @@ exports.getFilteredItems = async function(req, res) {
 	} catch(err) {
 		console.log("error in searchcontroller.getFilteredItems with " + err);
 	}
-    if(debug) console.log('in router: len is ' + searchMap.length);
 	return principlesArray;
 }
 

@@ -438,7 +438,7 @@ async function getItemsFilteredByKeywords( searchTerms ) {
         return foundItems;
         
     } catch(err) {
-        console.log('error in dataController.searchForKeywords ' + err.message );
+        console.log('error in dataController.getItemsFilteredByKeywords ' + err.message );
     }
   
 }
