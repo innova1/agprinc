@@ -103,9 +103,9 @@ function replaceItemsPanels(framework) {
 		url: "/api/agileframeworks/" + framework,
 		dataType: "json",
 		success: function(result) {
-			//populateItemsPanels(JSON.stringify(result.items));
-			//console.log("value: " + result.items[0].type);
 			populateItemsPanels(result.items);
+			isSmallViewport.addListener(setMenuCollapsed);
+			setMenuCollapsed(isSmallViewport);
 		}
 	});
 }
@@ -117,8 +117,6 @@ function replaceFrameworksPanel() {
 		dataType: "json",
 		success: function(result) {
 			populateFrameworksPanel(result.AFs);
-			isSmallViewport.addListener(setMenuCollapsed);
-			setMenuCollapsed(isSmallViewport);
 		}
 	});
 }
