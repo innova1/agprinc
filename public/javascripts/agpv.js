@@ -196,7 +196,7 @@ $(function() {
 });
 
 function removeActiveSearchterm(element) {
-  console.log("removing " + element.value);
+  console.log("removing " + element.text);
   var curSearchField = document.getElementById('currentsearchterms');
   var curTerms = curSearchField.innerHTML;
   console.log("curTerms: " + curTerms);
