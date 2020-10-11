@@ -114,7 +114,7 @@ function replaceItemsPanels(framework) {
 function replaceFilteredItemsPanels(searchterms) {
 	$.ajax({
 		type: "GET",
-		url: "/api/agileframeworks/search?searchtext=" + searchterms,
+		url: "/api/agileframeworks/search?searchwords=" + searchterms,
 		dataType: "json",
 		success: function(result) {
 			populateItemsPanels(result.items);
