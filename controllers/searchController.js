@@ -10,7 +10,7 @@ exports.getFilteredItems = async function(req, res) {
 	} catch(err) {
 		console.log("error in searchcontroller.getFilteredItems with " + err);
 	}
-	return filteredItemsArray;
+	res.json( {filteredItems: filteredItemsArray} );
 }
 
 /*
