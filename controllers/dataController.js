@@ -422,6 +422,7 @@ async function getItemsFilteredByKeywords( searchTerms ) {
         var foundIndexes = new Array();
         var locations = new Array();
         for( const searchTerm of searchTerms ) {
+		  if(debug) console.log('looking at searchTerm: ' + searchTerm);
           var searchObj = searchMap.get(searchTerm.toLowerCase());
           if(searchObj) {
             locations = searchObj.locations;
