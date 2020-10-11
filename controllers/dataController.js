@@ -361,13 +361,13 @@ function getDataArray() {
 		if no, then create the object and add to the array
 */
 async function createSearchMap() {
+    const debug = true;
   	//const dataArray = getDataArray(); //full data array of all values and principle objects
     const dataArray = await getPrinciplesArray('','');
     var searchMap = new Map(); //Map being built of a list of objects with keyword and location of the word
     var tempArray = new Array(); //temporary holding tank of keywords to be tested and added if not already there. if already there, then just add location to the end of the item on the search array
     var locationObj = new Object();
     var searchObj = new Object();
-    const debug = false;
     var index = -1;
 
     for( const a of dataArray ) {
