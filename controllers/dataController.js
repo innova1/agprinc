@@ -139,7 +139,7 @@ exports.getFrameworksArray = async function() {
 	const s = new Set();
 	const frameworks = new Array();
 	try {
-		const p = await getPrinciplesArray('','');
+		const p = await getPrinciplesArray('all','');
 		if(debug) { console.log('data array length is ' + p.length); }
 		//const p = getDataArray();
 		const iterator = p.keys();				
