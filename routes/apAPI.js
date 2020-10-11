@@ -5,7 +5,7 @@ const srch = require('../controllers/searchController');
 
 /* live search against keywords */
 router.get('/keywords?', async function(req, res) {
-	const debug = false;
+	const debug = true;
 	const searchText = req.query.keyword;
 	if(debug) { console.log('in keyword search with ' + searchText) };
 	const result = await db.getKeywordMatch(searchText);
