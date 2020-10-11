@@ -160,7 +160,7 @@ function createCurrentSearchTermsObject(searchterms) {
 	return currentTermsObject;
 }
 
-const currentSearchTermsObject = "";
+let currentSearchTermsObject = "";
 
 function populateCurrentSearchTermsDiv(searchterms) {
 	/*
