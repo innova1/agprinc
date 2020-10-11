@@ -211,7 +211,7 @@ exports.updateKeywords = async function( framework, type, id, keywords ) {
 
 /* returns array of keywords that match the string of first characters filtered by searchText for keyword suggestions list */
 exports.getKeywordMatch = async function a( searchText ) {
-	const debug = true;
+	const debug = false;
 	if(debug) { console.log('searchtext is ' + searchText) };
 	const keywordsMap = new Map();
 	var keywords = new Array();
@@ -361,7 +361,7 @@ function getDataArray() {
 		if no, then create the object and add to the array
 */
 async function createSearchMap() {
-    const debug = true;
+    const debug = false;
   	//const dataArray = getDataArray(); //full data array of all values and principle objects
     const dataArray = await getPrinciplesArray('all','');
     var searchMap = new Map(); //Map being built of a list of objects with keyword and location of the word
