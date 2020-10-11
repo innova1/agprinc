@@ -63,7 +63,7 @@ function populateFrameworksPanel( objs ) {
 	itemsHtml += "<div class='panel-heading'>";
 	itemsHtml += "<a class='plain' href='#sidepanel' data-toggle='collapse'><h3 class='panel-title'>Frameworks</h3>";
 	itemsHtml += "</div>"; //close div panel heading
-	itemsHtml += "<div class='panel-collapse collapse show' id='sidepanel'>"
+	itemsHtml += "<div class='panel-collapse collapse' id='sidepanel'>"
 	itemsHtml += "<ul class='list-group'>";
 	objs.forEach( obj => {
 		itemsHtml += "<li class='list-group-item'>";
