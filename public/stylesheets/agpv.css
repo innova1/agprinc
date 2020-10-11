@@ -51,7 +51,7 @@ div#suggestions {
 .activekeywords {
 	margin-left: 15px;
 }
-#currentSearchterms {
+#currentsearchterms {
 	display: block; /*change this to block in test*/
 }
 .panel-title {

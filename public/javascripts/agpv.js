@@ -118,8 +118,18 @@ function replaceFilteredItemsPanels(searchterms) {
 		dataType: "json",
 		success: function(result) {
 			populateItemsPanels(result.filteredItems);
+			populateCurrentSearchTermsDiv(searchterms);
 		}
 	});
+}
+
+function populateCurrentSearchTermsDiv(searchterms) {
+	var curTermsArray = search.split(',');
+	var currentTermsString
+	curTermsArray.forEach( element => {
+		currentTermsString += "<a class='activekeywords plain' onclick='javascript:removeActiveSearchterm(this);'> <span class='glyphicon glyphicon-remove-circle'></span>" + element + "</a>"
+	});
+	document.getElementById('currentSearchTerms').innerHTML = currentTermsString;
 }
 
 function replaceFrameworksPanel() {
@@ -154,7 +164,7 @@ $(function() {
             success: function(msg){
                 if(msg.result[0]) {
                   var resultList = '<ul style="list-style-type: none"><li><b>Suggestions</b></li>';
-                  var curSearchField = document.getElementById('currentSearchTerms');
+                  var curSearchField = document.getElementById('currentsearchterms');
                   var curSearchTerms = (curSearchField?curSearchField.innerHTML + ",":"");
                   console.log("in success 1 with " + msg.result[0] );
                   //we need to check if the value is the same
@@ -162,9 +172,8 @@ $(function() {
 					console.log("in success 2 in if with " + msg.result[0] );
 					var jscriptcall = '';
 					msg.result.forEach( element => {
-						//jscriptString = "javascript:replaceItemsPanels('" + obj.framework + "')"
 						jscriptString = "javascript:replaceFilteredItemsPanels('" + curSearchTerms + encodeURI(element) + "')"
-						console.log('adding jscript: |' + jscriptString + '|')
+						//console.log('adding jscript: |' + jscriptString + '|')
 						resultList = resultList + "<li><a href='javascript:void(0);' onclick=" + jscriptString + ">" + element + "</a></li>";
 					});
 					resultList = resultList + '</ul>';
@@ -232,7 +241,6 @@ function removeActiveSearchterm(term) {
     href = href + "search?searchterms=" + result;
     curSearchField.innerHTML = result;
   }
-  //window.location.href = href;
 }
 
 /*
