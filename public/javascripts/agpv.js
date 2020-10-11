@@ -61,7 +61,7 @@ function populateFrameworksPanel( objs ) {
 	
 	itemsHtml  = "<div class='panel panel-default'>";
 	itemsHtml += "<div class='panel-heading'>";
-	itemsHtml += "<a id='sidepanelheader' class='plain' href='#sidepanel' data-toggle='collapse'><h5 class='panel-title'>Choose Framework</h5>";
+	itemsHtml += "<a id='sidepanelheader' class='plain' href='#sidepanel' data-toggle='collapse'><h3 class='panel-title'>Choose Framework</h3>";
 	itemsHtml += "</div>"; //close div panel heading
 	itemsHtml += "<div class='panel-collapse collapse' id='sidepanel'>"
 	itemsHtml += "<ul class='list-group'>";
@@ -131,8 +131,7 @@ $(function() {
     console.log("value is " + value);
 
      if (value.length >= minlength ) {
-        if (searchRequest != null) 
-            searchRequest.abort();
+        if (searchRequest != null) { searchRequest.abort(); }
         searchRequest = $.ajax({
             type: "GET",
             url: "/api/agileframeworks/keywords?",
@@ -154,6 +153,7 @@ $(function() {
                     });
                     resultList = resultList + '</ul>';
                     suggElement.innerHTML = resultList;
+					console.log("about to display block on suggetions");
                     suggElement.style.display = 'block';
                   }
                 }
