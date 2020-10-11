@@ -46,10 +46,11 @@ exports.getItems = async function(req, res) {
 exports.getFilteredItems = async function(req, res) {
 	const debug = true;
     const searchWords = req.query.searchwords;
+	var itemsArray = new Array();
 	try {
 		const searchWordsArray = searchWords.split(',');
 		if(debug) { console.log('in / in searchController.getFilteredItems(' + searchWords + ')')};
-    	const itemsArray = await db.getFilteredItems(searchWordsArray);
+    	itemsArray = await db.getFilteredItems(searchWordsArray);
 	} catch(err) {
 		console.log('error in search controller.getFilteredItems with ' + err);
 	}
