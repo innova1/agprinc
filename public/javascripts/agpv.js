@@ -169,7 +169,7 @@ function populateCurrentSearchTermsDiv(searchterms) {
 	*/
 	console.log('creating terms object');
 	termsObj = createCurrentSearchTermsObject(searchterms);
-	document.getElementById('removetermlinks').innerHTML = termsObj.getCurrentTermsHtml;
+	document.getElementById('removetermlinks').innerHTML = termsObj.getCurrentTermsHtml();
 	document.getElementById('currentsearchterms').innerHTML = termsObj.getCurrentTerms();
 	document.getElementById('suggestions').style.display = 'none';
 	document.getElementById('searchtext').value = "";
