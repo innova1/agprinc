@@ -132,6 +132,7 @@ function populateCurrentSearchTermsDiv(searchterms) {
 	});
 	document.getElementById('removetermlinks').innerHTML = currentTermsString;
 	document.getElementById('currentsearchterms').innerHTML = searchterms;
+	document.getElementById('currentsearchterms')style.display = 'none';;
 }
 
 function replaceFrameworksPanel() {
