@@ -195,9 +195,9 @@ $(function() {
   });
 });
 
-function removeActiveSearchterm(term) {
-  console.log("removing " + term);
-  var curSearchField = document.getElementById('currentSearchterms');
+function removeActiveSearchterm(element) {
+  console.log("removing " + element.value);
+  var curSearchField = document.getElementById('currentsearchterms');
   var curTerms = curSearchField.innerHTML;
   console.log("curTerms: " + curTerms);
   var countarray = curTerms.split(',');
