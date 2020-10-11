@@ -196,14 +196,15 @@ $(function() {
 });
 
 function removeActiveSearchterm(element) {
-  console.log("removing |" + element.text + "|");
-  var curSearchField = document.getElementById('currentsearchterms');
-  var curTerms = curSearchField.innerHTML;
-  console.log("curTerms: " + curTerms);
-  var countarray = curTerms.split(',');
-  var count = countarray.length-1;
-  var subCurTerms = '';
-  var result = '';
+	console.log("removing |" + element.text + "|");
+	var term = element.text.trim();
+	var curSearchField = document.getElementById('currentsearchterms');
+	var curTerms = curSearchField.innerHTML;
+	console.log("curTerms: " + curTerms);
+	var countarray = curTerms.split(',');
+	var count = countarray.length-1;
+	var subCurTerms = '';
+	var result = '';
   /*
     do a search on a string and get index
     get substring from 0 to searchreturnedindex-1 ( if not 0 to remove the comma) then, if searchreturnedindex + term.length to full string length and concatenate
