@@ -20,8 +20,7 @@ router.get('/searchterms', srch.getSearchTerms);
 router.get('/search', srch.getFilteredItems);
 
 /* return all agile principles as jason */
-router.get('/', srch.getAllItems);
-
+router.get('/:framework', srch.getItems);
 
 /* GET all agile principles json */
 router.get('/frameworks', async function(req, res) {
@@ -47,14 +46,18 @@ router.get('/frameworks/', function(req, res) {
 });
 */
 
+
 /* GET one framework of agile principles json */
+/*
 router.get('/:framework', function(req, res) {
     const framework = req.params.framework;
     //console.log('in router get /:framework with ' + framework );
     const principlesArray = db.getPrinciplesArray(framework, '');
     res.json({ principlesArray: principlesArray });
 });
+*/
 
+/*
 router.get('/:framework/:type', function(req, res) {
     const framework = req.params.framework;
     const type = req.params.type;
@@ -62,6 +65,7 @@ router.get('/:framework/:type', function(req, res) {
     const principlesArray = db.getPrinciplesArray(framework, type);
     res.json({ principlesArray: principlesArray });
 });
+*/
 
 /*
 router.get('/:framework/:type/numbers', function(req, res) {
@@ -72,6 +76,7 @@ router.get('/:framework/:type/numbers', function(req, res) {
 */
 
 /* GET specific agile principle json */
+/*
 router.get('/:framework/:type/:id', function(req, res) {
     const framework = req.params.framework;
     const type = req.params.type;
@@ -86,6 +91,6 @@ router.get('/:framework/:type/:id', function(req, res) {
         }
     } 
 });
-
+*/
 
 module.exports = router;

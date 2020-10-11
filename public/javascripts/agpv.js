@@ -1,6 +1,6 @@
 
 replaceFrameworksPanel();
-replaceItemsPanels();
+replaceItemsPanels('all');
 /*
 calling these functions in the replace frameworks panel ajax call
 as an exercise later can try to figure out how to make this work with async await
@@ -95,10 +95,10 @@ function setSelected(selectedFramework) {
   //console.log("added .selected to " + selectedFramework)
 }
 
-function replaceItemsPanels() {
+function replaceItemsPanels(framework) {
 	$.ajax({
 		type: "GET",
-		url: "/api/agileframeworks/",
+		url: "/api/agileframeworks/" + framework,
 		dataType: "json",
 		success: function(result) {
 			//populateItemsPanels(JSON.stringify(result.items));

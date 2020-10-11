@@ -27,11 +27,11 @@ exports.getSearchTerms = async function(req, res) {
 	return "";
 }
 
-exports.getAllItems = async function(req, res) {
+exports.getItems = async function(req, res) {
 	const debug = true;
-	if(debug) { console.log('in / in searchController')};
-    const itemsArray = await db.getPrinciplesArray('','');
+    const framework = req.params.framework;
+	if(debug) { console.log('in / in searchController.getItems')};
+    const itemsArray = await db.getPrinciplesArray(framework,'');
 	
     res.json({ items: itemsArray });
 }
-
