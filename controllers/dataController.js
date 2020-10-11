@@ -171,8 +171,8 @@ exports.getSearchMap = function() {
     return createSearchMap();
 }
 
-exports.getMatchedItems = function( searchTerms ) {
-    return getItemsFilteredByKeywords( searchTerms );
+exports.getMatchedItems = async function( searchTerms ) {
+    return await getItemsFilteredByKeywords( searchTerms );
 }
 
 exports.updateKeywords = async function( framework, type, id, keywords ) {
@@ -404,7 +404,7 @@ async function createSearchMap() {
 
 /* returns array of principles filtered by searchTerms */
 async function getItemsFilteredByKeywords( searchTerms ) {
-    const debug = false;
+    const debug = true;
     if(debug) { console.log('in searchForKeywords with ' + searchTerms)};
     //const dataArray = getDataArray();
     try {
