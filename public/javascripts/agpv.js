@@ -152,7 +152,7 @@ function createCurrentSearchTermsObject(searchterms) {
 				}
 			}
 			return terms;
-		}
+		},
 		removeTerm: function(term) {
 			currentTermsMap.delete(term);
 		}
