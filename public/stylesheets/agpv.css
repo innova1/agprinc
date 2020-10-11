@@ -54,6 +54,6 @@ div#suggestions {
 #currentSearchterms {
 	display: block; /*change this to block in test*/
 }
-#sidepanelheader {
-	font-size: 8px;
+.panel-title {
+	font-size: 14px;
 }
