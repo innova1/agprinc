@@ -117,7 +117,7 @@ function replaceFilteredItemsPanels(searchterms) {
 		url: "/api/agileframeworks/search?searchwords=" + searchterms,
 		dataType: "json",
 		success: function(result) {
-			populateItemsPanels(result.items);
+			populateItemsPanels(result.filteredItems);
 		}
 	});
 }
