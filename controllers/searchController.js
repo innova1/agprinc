@@ -2,8 +2,12 @@ const db = require('./dataController');
 
 exports.getFilteredItems = async function(req, res) {
 	const debug = true;
-	
-	return "";
+    const searchterms = req.query.searchterms;
+	if(debug) console.log('in search with searchterms-' + decodeURI(searchterms));
+	searchtermsArray = searchterms.split(',');
+    const principlesArray = await db.getMatchedItems(searchtermsArray);
+    if(debug) console.log('in router: len is ' + searchMap.length);
+	return principlesArray;
 }
 
 /*

@@ -111,6 +111,17 @@ function replaceItemsPanels(framework) {
 	});
 }
 
+function replaceFilteredItemsPanels(searchterms) {
+	$.ajax({
+		type: "GET",
+		url: "/api/agileframeworks/search?searchterms=" + searchterms,
+		dataType: "json",
+		success: function(result) {
+			populateItemsPanels(result.items);
+		}
+	});
+}
+
 function replaceFrameworksPanel() {
 	$.ajax({
 		type: "GET",

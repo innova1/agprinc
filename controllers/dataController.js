@@ -408,7 +408,7 @@ async function getItemsFilteredByKeywords( searchTerms ) {
     if(debug) { console.log('in searchForKeywords with ' + searchTerms)};
     //const dataArray = getDataArray();
     try {
-        const dataArray = await getPrinciplesArray('','');
+        const dataArray = await getPrinciplesArray('all','');
         const foundItems = new Array();
         const searchMap = await createSearchMap();
         var foundIndexes = new Array();
