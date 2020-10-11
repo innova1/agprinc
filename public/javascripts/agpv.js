@@ -124,7 +124,7 @@ function replaceFilteredItemsPanels(searchterms) {
 }
 
 function populateCurrentSearchTermsDiv(searchterms) {
-	var curTermsArray = search.split(',');
+	var curTermsArray = searchterms.split(',');
 	var currentTermsString = '';
 	curTermsArray.forEach( element => {
 		currentTermsString += "<a class='activekeywords plain' onclick='javascript:removeActiveSearchterm(this);'> <span class='glyphicon glyphicon-remove-circle'></span>" + element + "</a>"
