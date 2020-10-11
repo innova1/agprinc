@@ -129,7 +129,7 @@ function populateCurrentSearchTermsDiv(searchterms) {
 	curTermsArray.forEach( element => {
 		currentTermsString += "<a class='activekeywords plain' onclick='javascript:removeActiveSearchterm(this);'> <span class='glyphicon glyphicon-remove-circle'></span>" + element + "</a>"
 	});
-	document.getElementById('currentSearchTerms').innerHTML = currentTermsString;
+	document.getElementById('currentsearchterms').innerHTML = currentTermsString;
 }
 
 function replaceFrameworksPanel() {
