@@ -162,12 +162,12 @@ $(function() {
 					console.log("in success 2 in if with " + msg.result[0] );
 					var jscriptcall = '';
 					msg.result.forEach( element => {
-						jscriptcall = "javascript:replaceFilteredItemsPanels('" + curSearchTerms + element + "');";
-						resultList = resultList + "<li><a href='javascript:void(0);' onclick='" + jscriptcall + "'/>" + element + "</a></li>";
+						jscriptcall = "javascript:replaceFilteredItemsPanels(\'" + curSearchTerms + element + "\');";
+						resultList = resultList + "<li><a href='javascript:void(0);' onclick=\'" + jscriptcall + "\'/>" + element + "</a></li>";
 					});
 					resultList = resultList + '</ul>';
 					suggElement.innerHTML = resultList;
-					console.log("about to display block on suggetions");
+					console.log("about to display block on suggestions");
 					suggElement.style.display = 'block';
                   }
                 }
