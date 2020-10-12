@@ -126,6 +126,7 @@ function replaceFilteredItemsPanels(searchterms) {
 function createCurrentSearchTermsObject(term) {
 	var currentTermsObject = new Object();
 	var currentTermsMap = new Map();
+	var currentTermsString = "";
 	//var currentTermsArray = searchterms.split(',');
 	//var currentTermsString = '';
 	/*
@@ -157,7 +158,7 @@ function createCurrentSearchTermsObject(term) {
 		},
 		addTerm: function(t) {
 			console.log('adding |' + t + '|');
-			var currentTermsString += "<a class='activekeywords plain' href='javascript:void(0)' onclick='javascript:removeActiveSearchterm(this);'> <span class='glyphicon glyphicon-remove-circle'></span>" + "&nbsp;" + decodeURI(t) + "</a>"
+			currentTermsString = "<a class='activekeywords plain' href='javascript:void(0)' onclick='javascript:removeActiveSearchterm(this);'> <span class='glyphicon glyphicon-remove-circle'></span>" + "&nbsp;" + decodeURI(t) + "</a>"
 			currentTermsMap.set(t, currentTermsString);
 		},
 		removeTerm: function(t) {
