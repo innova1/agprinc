@@ -119,7 +119,7 @@ function replaceFilteredItemsPanels(term) {
 	console.log('will ajax for items with /api/agileframeworks/search?searchwords=' + termsObj.getCurrentTerms())
 	$.ajax({
 		type: "GET",
-		url: "/api/agileframeworks/search?searchwords=" + termsObj.getCurrentTerms,
+		url: "/api/agileframeworks/search?searchwords=" + termsObj.getCurrentTerms(),
 		dataType: "json",
 		success: function(result) {
 			populateItemsPanels(result.filteredItems);
