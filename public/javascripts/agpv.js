@@ -10,7 +10,7 @@ as an exercise later can try to figure out how to make this work with async awai
 
 var isSmallViewport = window.matchMedia("(max-width: 1000px)");
 
-var selF = document.getElementById('currentFramework').innerHTML;
+var selF = document.getElementById('selectedFramework').innerHTML;
 if(selF != '') {
 	console.log("current framework: |" + selF + "|");
 	setSelected(selF);
