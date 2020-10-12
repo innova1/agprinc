@@ -157,7 +157,7 @@ function createCurrentSearchTermsObject(term) {
 		},
 		addTerm: function(t) {
 			console.log('adding |' + t + '|');
-			currentTermsString += "<a class='activekeywords plain' href='javascript:void(0)' onclick='javascript:removeActiveSearchterm(this);'> <span class='glyphicon glyphicon-remove-circle'></span>" + "&nbsp;" + decodeURI(t) + "</a>"
+			var currentTermsString += "<a class='activekeywords plain' href='javascript:void(0)' onclick='javascript:removeActiveSearchterm(this);'> <span class='glyphicon glyphicon-remove-circle'></span>" + "&nbsp;" + decodeURI(t) + "</a>"
 			currentTermsMap.set(t, currentTermsString);
 		},
 		removeTerm: function(t) {
