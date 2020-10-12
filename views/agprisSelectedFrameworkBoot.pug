@@ -12,7 +12,6 @@ block body
       div.navbar-header
         a.navbar-brand(href='/agileframeworks/all')
           | Agile Values and Principles
-        div#currentframework
         form.navbar-form.navbar-left(action='/agileframeworks/search', method='GET')
           div.form-group
             input.form-control#searchtext(type='text', name='searchtext', placeholder='Search Text', autocomplete="off")  
@@ -21,7 +20,8 @@ block body
           div.inline#removetermlinks
   div.container
     div.row
-      p.hide#selectedFramework
+      p#currentFramework
+      p#selectedFramework
       div.col-md-2#frameworksMenuPanel
       div.col-md-8#itemsPanels
       div.col-md-2
