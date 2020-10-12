@@ -1,6 +1,6 @@
 const debug = true;
-await replaceFrameworksPanel();
-await replaceItemsPanels('all');
+replaceFrameworksPanel();
+replaceItemsPanels('all');
 /*
 calling these functions in the replace frameworks panel ajax call
 as an exercise later can try to figure out how to make this work with async await
