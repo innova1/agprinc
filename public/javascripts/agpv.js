@@ -128,9 +128,8 @@ function replaceFilteredItemsPanels(term) {
 }
 
 function currentTermsObject() {
-	this.currentTermsMap = new Map();
-	this.currentTermsString = "";
-	this.currentTermsMap: currentTermsMap,
+	this.currentTermsMap = new Map(),
+	this.currentTermsString = "",
 	this.getCurrentTermsHtml = function() {
 		var termsHtml = "";
 		for( let str of currentTermsMap.values() ) {
