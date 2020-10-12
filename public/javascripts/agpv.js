@@ -93,6 +93,7 @@ function setSelected(selectedFramework) {
 	console.log('set selected fra: selF: ' + selectedFramework);
 	if(selectedFramework != "" && selectedFramework != "all") {
 		frameworksArray.forEach( f => {
+			console.log("in set selected fr: in array loop removing selected on " + selectedFramework);
 			document.getElementById(f).classList.remove('selected');
 		});
 		document.getElementById(selectedFramework).classList.add('selected');
