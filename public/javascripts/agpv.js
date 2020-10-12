@@ -166,7 +166,7 @@ function createCurrentSearchTermsObject(term) {
 			console.log('removing |' + t + '|');
 			currentTermsMap.delete(t);
 			console.log('map size: ' + currentTermsMap.size);
-			for(let m of currentTermsMap.keys) {
+			for(let m of currentTermsMap.keys()) {
 				console.log('map key: ' + m + ', map value: ' + currentTermsMap.get(m));
 			}
 		}
