@@ -116,7 +116,7 @@ let termsObj = new currentTermsObject();
 
 function replaceFilteredItemsPanels(term) {
 	termsObj.addTerm(encodeURI(term));
-	console.log('will ajax for items with ' + termsObj.getCurrentTerms())
+	console.log('will ajax for items with /api/agileframeworks/search?searchwords=' + termsObj.getCurrentTerms())
 	$.ajax({
 		type: "GET",
 		url: "/api/agileframeworks/search?searchwords=" + termsObj.getCurrentTerms,
