@@ -104,6 +104,7 @@ function setSelected(selectedFramework) {
 		var currFramElement = document.getElementById('currentFrameworkDisplay')
 		if(currFramElement) {
 			currFramElement.innerHTML = "";
+		}
 	}
 //console.log("added .selected to " + selectedFramework)
 }
