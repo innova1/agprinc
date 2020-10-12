@@ -178,9 +178,9 @@ function populateCurrentSearchTermsDiv() {
 		currentTermsString += "<a class='activekeywords plain' href='javascript:void(0)' onclick='javascript:removeActiveSearchterm(this);'> <span class='glyphicon glyphicon-remove-circle'></span>" + "&nbsp;" + decodeURI(element) + "</a>"
 	});
 	*/
-	/*if(currentSearchTermsObject=="") { 
+	/*if(current SearchTermsObject=="") { 
 		console.log('creating terms object');
-		currentSearchTermsObject = createCurrentSearchTermsObject(searchterms);
+		currentSearchTermsObject = createCurrent SearchTermsObject(searchterms);
 	}*/
 	console.log("updating remove links div with " + termsObj.getCurrentTermsHtml());
 	document.getElementById('removetermlinks').innerHTML = termsObj.getCurrentTermsHtml();
@@ -250,8 +250,8 @@ $(function() {
 });
 
 function removeActiveSearchterm(element) {
-	currentSearchTermsObject.removeTerm(element.text);
-	populateCurrentSearchTermsDiv(currentSearchTermsObject.getCurrentTerms());
+	termsObj.removeTerm(element.text);
+	populateCurrentSearchTermsDiv(termsObj.getCurrentTerms());
 }
 
 function removeActiveSearchterm2(element) {
