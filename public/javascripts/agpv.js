@@ -88,6 +88,7 @@ function setMenuCollapsed(isSmallViewport) {
 }
 
 function setSelected(selectedFramework) {
+	console.log('set selected fra: selF: ' + selectedFramework);
   if(selectedFramework != "" || selectedFramework != "all") {
     document.getElementById(selectedFramework).classList.add('selected');
   }
