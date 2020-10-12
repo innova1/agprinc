@@ -106,6 +106,7 @@ async function replaceItemsPanels(framework) {
 		dataType: "json",
 		success: function(result) {
 			populateItemsPanels(result.items);
+			setSelected(framework);
 			isSmallViewport.addListener(setMenuCollapsed);
 			setMenuCollapsed(isSmallViewport);
 		}
