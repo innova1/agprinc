@@ -164,6 +164,7 @@ function createCurrentSearchTermsObject(term) {
 		removeTerm: function(t) {
 			console.log('removing |' + t + '|');
 			currentTermsMap.delete(t);
+			console.log*('map size: ' + currentTermsMap.size);
 		}
 	};
 	currentTermsObject.addTerm(term);
