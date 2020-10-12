@@ -165,6 +165,9 @@ function currentTermsObject() {
 		for(let m of this.currentTermsMap.keys()) {
 			console.log('map key: ' + m + ', map value: ' + this.currentTermsMap.get(m));
 		}
+	},
+	this.size = function(t) {
+		return this.currentTermsMap.size;
 	}
 }
 
@@ -259,7 +262,11 @@ function removeActiveSearchterm(element) {
 	if(debug) console.log('will remove ' + element.text.trim());
 	termsObj.removeTerm(element.text.trim());
 	populateCurrentSearchTermsDiv(termsObj.getCurrentTerms());
-	replaceFilteredItemsPanels();
+	if(termsObj.size==0) {
+		replaceItemsPanels('all');
+	} else {
+		replaceFilteredItemsPanels();
+	}
 }
 
 function removeActiveSearchterm2(element) {
