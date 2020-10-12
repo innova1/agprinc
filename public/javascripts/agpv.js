@@ -162,6 +162,7 @@ function createCurrentSearchTermsObject(term) {
 			currentTermsMap.set(t, currentTermsString);
 		},
 		removeTerm: function(t) {
+			console.log('removing |' + t + '|');
 			currentTermsMap.delete(t);
 		}
 	};
