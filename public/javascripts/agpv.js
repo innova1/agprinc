@@ -185,7 +185,9 @@ function populateCurrentSearchTermsDiv(searchterms) {
 		console.log('creating terms object');
 		currentSearchTermsObject = createCurrentSearchTermsObject(searchterms);
 	}
+	console.log("updating remove links div with " + currentSearchTermsObject.getCurrentTermsHtml());
 	document.getElementById('removetermlinks').innerHTML = currentSearchTermsObject.getCurrentTermsHtml();
+	console.log("updating search terms div with " + currentSearchTermsObject.getCurrentTerms());
 	document.getElementById('currentsearchterms').innerHTML = currentSearchTermsObject.getCurrentTerms();
 	document.getElementById('suggestions').style.display = 'none';
 	document.getElementById('searchtext').value = "";
