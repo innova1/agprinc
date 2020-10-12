@@ -132,7 +132,7 @@ function currentTermsObject() {
 	this.currentTermsString = "",
 	this.getCurrentTermsHtml = function() {
 		var termsHtml = "";
-		for( let str of currentTermsMap.values() ) {
+		for( let str of this.currentTermsMap.values() ) {
 			console.log('in getcurrenttermshtml in obj add to string: ' + str);
 			termsHtml += str;
 		}
@@ -140,7 +140,7 @@ function currentTermsObject() {
 	},
 	this.getCurrentTerms = function() {
 		var terms = "";
-		for( let str of currentTermsMap.keys() ) {
+		for( let str of this.currentTermsMap.keys() ) {
 			if(terms == "") {
 				terms = str;
 			} else {
@@ -151,19 +151,19 @@ function currentTermsObject() {
 	},
 	this.addTerm = function(t) {
 		console.log('adding |' + t + '|');
-		currentTermsString = "<a class='activekeywords plain' href='javascript:void(0)' onclick='javascript:removeActiveSearchterm(this);'> <span class='glyphicon glyphicon-remove-circle'></span>" + "&nbsp;" + decodeURI(t) + "</a>"
-		currentTermsMap.set(t, currentTermsString);
-		console.log('map size: ' + currentTermsMap.size);
-		for(let m of currentTermsMap.keys()) {
-			console.log('map key: ' + m + ', map value: ' + currentTermsMap.get(m));
+		this.currentTermsString = "<a class='activekeywords plain' href='javascript:void(0)' onclick='javascript:removeActiveSearchterm(this);'> <span class='glyphicon glyphicon-remove-circle'></span>" + "&nbsp;" + decodeURI(t) + "</a>"
+		this.currentTermsMap.set(t, this.currentTermsString);
+		console.log('map size: ' + this.currentTermsMap.size);
+		for(let m of this.currentTermsMap.keys()) {
+			console.log('map key: ' + m + ', map value: ' + this.currentTermsMap.get(m));
 		}
 	},
 	this.removeTerm = function(t) {
 		console.log('removing |' + t + '|');
-		currentTermsMap.delete(t);
-		console.log('map size: ' + currentTermsMap.size);
-		for(let m of currentTermsMap.keys()) {
-			console.log('map key: ' + m + ', map value: ' + currentTermsMap.get(m));
+		this.currentTermsMap.delete(t);
+		console.log('map size: ' + this.currentTermsMap.size);
+		for(let m of this.currentTermsMap.keys()) {
+			console.log('map key: ' + m + ', map value: ' + this.currentTermsMap.get(m));
 		}
 	}
 }
