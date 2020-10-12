@@ -161,7 +161,7 @@ function currentTermsObject() {
 	},
 	this.removeTerm = function(t) {
 		console.log('removing |' + t + '|');
-		this.currentTermsMap.delete(encodeUIR(t);
+		this.currentTermsMap.delete(encodeUIR(t));
 		console.log('map size: ' + this.currentTermsMap.size);
 		for(let m of this.currentTermsMap.keys()) {
 			console.log('map key: ' + m + ', map value: ' + this.currentTermsMap.get(m));
