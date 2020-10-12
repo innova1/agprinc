@@ -248,9 +248,9 @@ $(function() {
   });
 });
 
-function addActiveSearchterm(element) {
-	if(debug) console.log('will add ' + element.text.trim());
-	termsObj.addTerm(element.text.trim());
+function addActiveSearchterm(term) {
+	if(debug) console.log('will add ' + term);
+	termsObj.addTerm(term);
 	populateCurrentSearchTermsDiv(termsObj.getCurrentTerms());
 	replaceFilteredItemsPanels();
 }
