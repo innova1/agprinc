@@ -160,6 +160,7 @@ function createCurrentSearchTermsObject(term) {
 			console.log('adding |' + t + '|');
 			currentTermsString = "<a class='activekeywords plain' href='javascript:void(0)' onclick='javascript:removeActiveSearchterm(this);'> <span class='glyphicon glyphicon-remove-circle'></span>" + "&nbsp;" + decodeURI(t) + "</a>"
 			currentTermsMap.set(t, currentTermsString);
+			console.log('map size: ' + currentTermsMap.size);
 		},
 		removeTerm: function(t) {
 			console.log('removing |' + t + '|');
