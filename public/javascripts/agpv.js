@@ -131,7 +131,7 @@ function currentTermsObject() {
 	this.currentTermsMap = new Map();
 	this.currentTermsString = "";
 	this.currentTermsMap: currentTermsMap,
-	this.getCurrentTermsHtml: function() {
+	this.getCurrentTermsHtml = function() {
 		var termsHtml = "";
 		for( let str of currentTermsMap.values() ) {
 			console.log('in getcurrenttermshtml in obj add to string: ' + str);
@@ -139,7 +139,7 @@ function currentTermsObject() {
 		}
 		return termsHtml;
 	},
-	this.getCurrentTerms: function() {
+	this.getCurrentTerms = function() {
 		var terms = "";
 		for( let str of currentTermsMap.keys() ) {
 			if(terms == "") {
@@ -150,7 +150,7 @@ function currentTermsObject() {
 		}
 		return terms;
 	},
-	this.addTerm: function(t) {
+	this.addTerm = function(t) {
 		console.log('adding |' + t + '|');
 		currentTermsString = "<a class='activekeywords plain' href='javascript:void(0)' onclick='javascript:removeActiveSearchterm(this);'> <span class='glyphicon glyphicon-remove-circle'></span>" + "&nbsp;" + decodeURI(t) + "</a>"
 		currentTermsMap.set(t, currentTermsString);
@@ -159,7 +159,7 @@ function currentTermsObject() {
 			console.log('map key: ' + m + ', map value: ' + currentTermsMap.get(m));
 		}
 	},
-	this.removeTerm: function(t) {
+	this.removeTerm = function(t) {
 		console.log('removing |' + t + '|');
 		currentTermsMap.delete(t);
 		console.log('map size: ' + currentTermsMap.size);
