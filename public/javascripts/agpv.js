@@ -127,7 +127,7 @@ function replaceFilteredItemsPanels(term) {
 	});
 }
 
-function currentTermsObject() = {
+function currentTermsObject() {
 	var currentTermsObject = new Object();
 	var currentTermsMap = new Map();
 	var currentTermsString = "";
