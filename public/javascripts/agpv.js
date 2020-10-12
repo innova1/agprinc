@@ -96,7 +96,7 @@ function setSelected(selectedFramework) {
 			document.getElementById(f).classList.remove('selected');
 		});
 		document.getElementById(selectedFramework).classList.add('selected');
-		var currFramElement = document.getElementById('currentFrameworkDisplay')
+		var currFramElement = document.getElementById('selectedFramework')
 		if(currFramElement) {
 			currFramElement.innerHTML = selectedFramework;
 		}
@@ -104,7 +104,7 @@ function setSelected(selectedFramework) {
 			document.getElementById(f).classList.remove('selected');
 		});
 	} else {
-		var currFramElement = document.getElementById('currentFrameworkDisplay')
+		var currFramElement = document.getElementById('selectedFramework')
 		if(currFramElement) {
 			currFramElement.innerHTML = "";
 		}
