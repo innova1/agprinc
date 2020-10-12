@@ -164,7 +164,7 @@ function createCurrentSearchTermsObject(term) {
 			currentTermsMap.delete(t);
 		}
 	};
-	currentTermsObject.add(term);
+	currentTermsObject.addTerm(term);
 	return currentTermsObject;
 }
 
