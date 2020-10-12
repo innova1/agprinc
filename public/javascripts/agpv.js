@@ -131,11 +131,11 @@ function currentTermsObject() {
 	this.currentTermsMap = new Map(),
 	this.currentTermsString = "",
 		
-	this.getCurrentTermsHtml = function(enc) {
+	this.getCurrentTermsHtml = function() {
 		var termsHtml = "";
 		for( let str of this.currentTermsMap.values() ) {
 			//console.log('in getcurrenttermshtml in obj add to string: ' + str);
-			termsHtml += encodeURI(str);
+			termsHtml += str;
 		}
 		return termsHtml;
 	},
