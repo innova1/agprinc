@@ -114,8 +114,7 @@ async function replaceItemsPanels(framework) {
 
 let termsObj = new currentTermsObject();
 
-function replaceFilteredItemsPanels(term) {
-	termsObj.addTerm(encodeURI(term));
+function replaceFilteredItemsPanels() {
 	console.log('will ajax for items with /api/agileframeworks/search?searchwords=' + termsObj.getCurrentTerms())
 	$.ajax({
 		type: "GET",
@@ -230,7 +229,7 @@ $(function() {
 					console.log("in success 2 in if with " + msg.result[0] );
 					var jscriptcall = '';
 					msg.result.forEach( element => {
-						jscriptString = "javascript:replaceFilteredItemsPanels('" + encodeURI(element) + "')"
+						jscriptString = "javascript:addActiveSearchterm('" + encodeURI(element) + "')"
 						//console.log('adding jscript: |' + jscriptString + '|')
 						resultList = resultList + "<li><a href='javascript:void(0);' onclick=" + jscriptString + ">" + element + "</a></li>";
 					});
@@ -249,10 +248,18 @@ $(function() {
   });
 });
 
+function addActiveSearchterm(element) {
+	if(debug) console.log('will add ' + element.text.trim());
+	termsObj.addTerm(element.text.trim());
+	populateCurrentSearchTermsDiv(termsObj.getCurrentTerms());
+	replaceFilteredItemsPanels();
+}
+
 function removeActiveSearchterm(element) {
 	if(debug) console.log('will remove ' + element.text.trim());
 	termsObj.removeTerm(element.text.trim());
 	populateCurrentSearchTermsDiv(termsObj.getCurrentTerms());
+	replaceFilteredItemsPanels();
 }
 
 function removeActiveSearchterm2(element) {
