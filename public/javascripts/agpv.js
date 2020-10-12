@@ -96,7 +96,10 @@ function setSelected(selectedFramework) {
 			document.getElementById(f).classList.remove('selected');
 		});
 		document.getElementById(selectedFramework).classList.add('selected');
-		document.getElementById('currentFrameworkDisplay').innerHTML = selectedFramework;
+		var currFramElement = document.getElementById('currentFrameworkDisplay')
+		if(currFramElement) {
+			currFramElement.innerHTML = selectedFramework;
+		}
 		frameworksArray.forEach( f => {
 			document.getElementById(f).classList.remove('selected');
 		});
