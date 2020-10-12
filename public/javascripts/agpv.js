@@ -115,7 +115,7 @@ async function replaceItemsPanels(framework) {
 let termsObj = new currentTermsObject();
 
 function replaceFilteredItemsPanels() {
-	console.log('will ajax for items with /api/agileframeworks/search?searchwords=' + termsObj.getCurrentTerms())
+	//console.log('will ajax for items with /api/agileframeworks/search?searchwords=' + termsObj.getCurrentTerms())
 	$.ajax({
 		type: "GET",
 		url: "/api/agileframeworks/search?searchwords=" + termsObj.getCurrentTerms(),
@@ -133,7 +133,7 @@ function currentTermsObject() {
 	this.getCurrentTermsHtml = function() {
 		var termsHtml = "";
 		for( let str of this.currentTermsMap.values() ) {
-			console.log('in getcurrenttermshtml in obj add to string: ' + str);
+			//console.log('in getcurrenttermshtml in obj add to string: ' + str);
 			termsHtml += str;
 		}
 		return termsHtml;
@@ -153,9 +153,9 @@ function currentTermsObject() {
 		console.log('adding |' + t + '|');
 		this.currentTermsString = "<a class='activekeywords plain' href='javascript:void(0)' onclick='javascript:removeActiveSearchterm(this);'> <span class='glyphicon glyphicon-remove-circle'></span>" + "&nbsp;" + decodeURI(t) + "</a>"
 		this.currentTermsMap.set(t, this.currentTermsString);
-		console.log('map size: ' + this.currentTermsMap.size);
+		//console.log('map size: ' + this.currentTermsMap.size);
 		for(let m of this.currentTermsMap.keys()) {
-			console.log('map key: ' + m + ', map value: ' + this.currentTermsMap.get(m));
+			//console.log('map key: ' + m + ', map value: ' + this.currentTermsMap.get(m));
 		}
 	},
 	this.removeTerm = function(t) {
@@ -184,9 +184,9 @@ function populateCurrentSearchTermsDiv() {
 		console.log('creating terms object');
 		currentSearchTermsObject = createCurrent SearchTermsObject(searchterms);
 	}*/
-	console.log("updating remove links div with " + termsObj.getCurrentTermsHtml());
+	//console.log("updating remove links div with " + termsObj.getCurrentTermsHtml());
 	document.getElementById('removetermlinks').innerHTML = termsObj.getCurrentTermsHtml();
-	console.log("updating search terms div with " + termsObj.getCurrentTerms());
+	//console.log("updating search terms div with " + termsObj.getCurrentTerms());
 	document.getElementById('currentsearchterms').innerHTML = termsObj.getCurrentTerms();
 	document.getElementById('suggestions').style.display = 'none';
 	document.getElementById('searchtext').value = "";
@@ -209,11 +209,11 @@ $(function() {
   $("#searchtext").keyup(function() {
     var oldThis = this,
     value = $(this).val();
-    console.log("value is " + value);
+    //console.log("value is " + value);
 
      if (value.length >= minlength ) {
         if (searchRequest != null) { searchRequest.abort(); }
-		console.log("about to ajax");
+		//console.log("about to ajax");
         searchRequest = $.ajax({
             type: "GET",
             url: "/api/agileframeworks/keywords?",
@@ -226,10 +226,10 @@ $(function() {
                   var resultList = '<ul style="list-style-type: none"><li><b>Suggestions</b></li>';
                   var curSearchField = document.getElementById('currentsearchterms');
                   var curSearchTerms = (curSearchField.innerHTML!=''?curSearchField.innerHTML + ",":"");
-                  console.log("in success 1 with " + msg.result[0] );
+                  //console.log("in success 1 with " + msg.result[0] );
                   //we need to check if the value is the same
                   if (value==$(oldThis).val()) {
-					console.log("in success 2 in if with " + msg.result[0] );
+					//console.log("in success 2 in if with " + msg.result[0] );
 					var jscriptcall = '';
 					msg.result.forEach( element => {
 						jscriptString = "javascript:addActiveSearchterm('" + encodeURI(element) + "')"
@@ -238,7 +238,7 @@ $(function() {
 					});
 					resultList = resultList + '</ul>';
 					suggElement.innerHTML = resultList;
-					console.log("about to display block on suggestions");
+					//console.log("about to display block on suggestions");
 					suggElement.style.display = 'block';
                   }
                 }
@@ -271,11 +271,11 @@ function removeActiveSearchterm(element) {
 }
 
 function removeActiveSearchterm2(element) {
-	console.log("removing |" + element.text + "|");
+	//console.log("removing |" + element.text + "|");
 	var term = element.text.trim();
 	var curSearchField = document.getElementById('currentsearchterms');
 	var curTerms = curSearchField.innerHTML;
-	console.log("curTerms: " + curTerms);
+	//console.log("curTerms: " + curTerms);
 	var countarray = curTerms.split(',');
 	var count = countarray.length-1;
 	var subCurTerms = '';
@@ -285,7 +285,7 @@ function removeActiveSearchterm2(element) {
     get substring from 0 to searchreturnedindex-1 ( if not 0 to remove the comma) then, if searchreturnedindex + term.length to full string length and concatenate
   */
   var matchIndex = curTerms.search( term );
-  console.log("index is " + matchIndex);
+  //console.log("index is " + matchIndex);
   if(matchIndex>-1) { //value found
     if(matchIndex==0) { //found at first position
       if(term == curTerms.length ) { //this is the only term in current searchterms
@@ -295,10 +295,10 @@ function removeActiveSearchterm2(element) {
       }
     } else {  //it's a word in the middle of the string or at the end
       if( matchIndex+term.length==curTerms.length ) {  //if term is the last word of string
-        console.log("term is last word of string");
+        //console.log("term is last word of string");
         result = curTerms.substring(0,matchIndex-1);
       } else { //word in the middle of the string
-        console.log("term is in the middle of string");
+        //console.log("term is in the middle of string");
         var s1 = curTerms.substring(0,matchIndex-1);
         var s2 = curTerms.substring(matchIndex+term.length,curTerms.length)
         result = s1 + s2;
@@ -307,11 +307,11 @@ function removeActiveSearchterm2(element) {
   }
   /*
     if(!curTerms) { curTerms = '' }
-    console.log("terms is " + terms);
+    //console.log("terms is " + terms);
     curTerms = curTerms + terms;
-    console.log("curTerms is " + curTerms);
+    //console.log("curTerms is " + curTerms);
   */
-  console.log("result: " + result + " with count: " + count);
+  //console.log("result: " + result + " with count: " + count);
   var href = "/agileframeworks/";
   if(count==0) {
     href = href + "all";
