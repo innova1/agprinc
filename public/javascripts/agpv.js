@@ -12,10 +12,10 @@ var isSmallViewport = window.matchMedia("(max-width: 1000px)");
 
 var selF = document.getElementById('currentFramework').innerHTML;
 if(selF != '') {
-	//console.log("current framework: |" + selF + "|");
+	console.log("current framework: |" + selF + "|");
 	setSelected(selF);
 } else {
-	//console.log("current framework is not defined");
+	console.log("current framework is not defined");
 }
 
 var searchRequest = null;
