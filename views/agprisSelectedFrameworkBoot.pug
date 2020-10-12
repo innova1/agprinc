@@ -10,10 +10,9 @@ block body
   nav.navbar.navbar-default
     div.container-fluid
       div.navbar-header
-        br
-        div.currentFrameworkDisplay current framework here
       a.navbar-brand(href='/agileframeworks/all')
         | Agile Values and Principles
+        div.currentFrameworkDisplay current framework here
       form.navbar-form.navbar-left(action='/agileframeworks/search', method='GET')
         div.form-group
           input.form-control#searchtext(type='text', name='searchtext', placeholder='Search Text', autocomplete="off")  
