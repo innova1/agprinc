@@ -92,9 +92,13 @@ function setMenuCollapsed(isSmallViewport) {
 function setSelected(selectedFramework) {
 	console.log('set selected fra: selF: ' + selectedFramework);
 	if(selectedFramework != "" && selectedFramework != "all") {
+		var frameElement;
 		frameworksArray.forEach( f => {
 			console.log("in set selected fr: in array loop removing selected on " + f + " div");
-			document.getElementById(f).classList.remove('selected');
+			frameElement = document.getElementById(f);
+			if(frameElement && frameElement.classList.contains('selected')) {
+				document.getElementById(f).classList.remove('selected');
+			}
 		});
 		console.log("in set selected fr: setting selected to " + selectedFramework + " div");
 		document.getElementById(selectedFramework).classList.add('selected');
