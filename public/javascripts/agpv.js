@@ -15,6 +15,7 @@ var selF = document.getElementById('selectedFramework').innerHTML;
 
 var searchRequest = null;
 var suggElement = document.getElementById('suggestions');
+var frameworksArray = new Array();
 
 function populateItemsPanels( objs ) {
 	var itemTitle = "";
@@ -62,6 +63,7 @@ function populateFrameworksPanel( objs ) {
 	itemsHtml += "<div class='panel-collapse collapse' id='sidepanel'>"
 	itemsHtml += "<ul class='list-group'>";
 	objs.forEach( obj => {
+		framework.push(obj.framework);
 		itemsHtml += "<li class='list-group-item'>";
 		jscriptString = "javascript:replaceItemsPanels('" + obj.framework + "')";
 		itemsHtml += "<a class='menu' href='javascript:void(0)' onclick=" + jscriptString + "> <span id='" + obj.framework + "'>" + obj.frameworkdisplay + "</span>";
@@ -90,8 +92,14 @@ function setMenuCollapsed(isSmallViewport) {
 function setSelected(selectedFramework) {
 	console.log('set selected fra: selF: ' + selectedFramework);
 	if(selectedFramework != "" && selectedFramework != "all") {
+		frameworksArray.forEach( f => {
+			document.getElementById(f).classList.remove('selected');
+		});
 		document.getElementById(selectedFramework).classList.add('selected');
 		document.getElementById('currentFrameworkDisplay').innerHTML = selectedFramework;
+		frameworksArray.forEach( f => {
+			document.getElementById(f).classList.remove('selected');
+		});
 	} else {
 		document.getElementById('currentFrameworkDisplay').innerHTML = "";
 	}
