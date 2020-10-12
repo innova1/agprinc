@@ -101,7 +101,9 @@ function setSelected(selectedFramework) {
 			document.getElementById(f).classList.remove('selected');
 		});
 	} else {
-		document.getElementById('currentFrameworkDisplay').innerHTML = "";
+		var currFramElement = document.getElementById('currentFrameworkDisplay')
+		if(currFramElement) {
+			currFramElement.innerHTML = "";
 	}
 //console.log("added .selected to " + selectedFramework)
 }
