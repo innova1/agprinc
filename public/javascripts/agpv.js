@@ -250,6 +250,7 @@ $(function() {
 });
 
 function removeActiveSearchterm(element) {
+	if(debug) console.log('will remove ' + element.text);
 	termsObj.removeTerm(element.text);
 	populateCurrentSearchTermsDiv(termsObj.getCurrentTerms());
 }
