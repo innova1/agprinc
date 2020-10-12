@@ -26,6 +26,7 @@ function populateItemsPanels( objs ) {
 	var obj = new Object();
 	var itemsHtml = "";
 	var itemHtml = "";
+	console.log('in populateItemsPanels with obj size: ' + objs.length)
 
 	objs.forEach( obj => {
 		itemHtml = "<div class='panel panel-primary " + obj.type + "'>";
@@ -110,7 +111,6 @@ function replaceItemsPanels(framework) {
 		}
 	});
 }
-
 
 let termsObj = new currentTermsObject();
 
