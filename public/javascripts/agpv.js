@@ -111,78 +111,67 @@ function replaceItemsPanels(framework) {
 	});
 }
 
+
+let termsObj = new currentTermsObject();
+
 function replaceFilteredItemsPanels(term) {
-	currentSearchTermsObject.addTerm(encodeURI(term));
+	termsObj.addTerm(encodeURI(term));
 	$.ajax({
 		type: "GET",
-		url: "/api/agileframeworks/search?searchwords=" + currentSearchTermsObject.getCurrentTerms,
+		url: "/api/agileframeworks/search?searchwords=" + termsObj.getCurrentTerms,
 		dataType: "json",
 		success: function(result) {
 			populateItemsPanels(result.filteredItems);
-			populateCurrentSearchTermsDiv(searchterms);
+			populateCurrentSearchTermsDiv();
 		}
 	});
 }
 
-function createCurrentSearchTermsObject(term) {
+function currentTermsObject() = {
 	var currentTermsObject = new Object();
 	var currentTermsMap = new Map();
 	var currentTermsString = "";
-	//var currentTermsArray = searchterms.split(',');
-	//var currentTermsString = '';
-	/*
-	currentTermsArray.forEach( element => {
-		console.log('current el: |' + element + '|');
-		currentTermsString += "<a class='activekeywords plain' href='javascript:void(0)' onclick='javascript:removeActiveSearchterm(this);'> <span class='glyphicon glyphicon-remove-circle'></span>" + "&nbsp;" + decodeURI(element) + "</a>"
-		currentTermsMap.set(element, currentTermsString);
-	});
-	*/
-	currentTermsObject = {
-		currentTermsMap: currentTermsMap,
-		getCurrentTermsHtml: function() {
-			var termsHtml = "";
-			for( let str of currentTermsMap.values() ) {
-				console.log('in getcurrenttermshtml in obj add to string: ' + str);
-				termsHtml += str;
-			}
-			return termsHtml;
-		},
-		getCurrentTerms: function() {
-			var terms = "";
-			for( let str of currentTermsMap.keys() ) {
-				if(terms == "") {
-					terms = str;
-				} else {
-					terms += ',' + str;
-				}
-			}
-			return terms;
-		},
-		addTerm: function(t) {
-			console.log('adding |' + t + '|');
-			currentTermsString = "<a class='activekeywords plain' href='javascript:void(0)' onclick='javascript:removeActiveSearchterm(this);'> <span class='glyphicon glyphicon-remove-circle'></span>" + "&nbsp;" + decodeURI(t) + "</a>"
-			currentTermsMap.set(t, currentTermsString);
-			console.log('map size: ' + currentTermsMap.size);
-			for(let m of currentTermsMap.keys()) {
-				console.log('map key: ' + m + ', map value: ' + currentTermsMap.get(m));
-			}
-		},
-		removeTerm: function(t) {
-			console.log('removing |' + t + '|');
-			currentTermsMap.delete(t);
-			console.log('map size: ' + currentTermsMap.size);
-			for(let m of currentTermsMap.keys()) {
-				console.log('map key: ' + m + ', map value: ' + currentTermsMap.get(m));
+	currentTermsMap: currentTermsMap,
+	getCurrentTermsHtml: function() {
+		var termsHtml = "";
+		for( let str of currentTermsMap.values() ) {
+			console.log('in getcurrenttermshtml in obj add to string: ' + str);
+			termsHtml += str;
+		}
+		return termsHtml;
+	},
+	getCurrentTerms: function() {
+		var terms = "";
+		for( let str of currentTermsMap.keys() ) {
+			if(terms == "") {
+				terms = str;
+			} else {
+				terms += ',' + str;
 			}
 		}
-	};
-	currentTermsObject.addTerm(term);
-	return currentTermsObject;
+		return terms;
+	},
+	addTerm: function(t) {
+		console.log('adding |' + t + '|');
+		currentTermsString = "<a class='activekeywords plain' href='javascript:void(0)' onclick='javascript:removeActiveSearchterm(this);'> <span class='glyphicon glyphicon-remove-circle'></span>" + "&nbsp;" + decodeURI(t) + "</a>"
+		currentTermsMap.set(t, currentTermsString);
+		console.log('map size: ' + currentTermsMap.size);
+		for(let m of currentTermsMap.keys()) {
+			console.log('map key: ' + m + ', map value: ' + currentTermsMap.get(m));
+		}
+	},
+	removeTerm: function(t) {
+		console.log('removing |' + t + '|');
+		currentTermsMap.delete(t);
+		console.log('map size: ' + currentTermsMap.size);
+		for(let m of currentTermsMap.keys()) {
+			console.log('map key: ' + m + ', map value: ' + currentTermsMap.get(m));
+		}
+	}
 }
 
-let currentSearchTermsObject = new currentSearchTermsObject();
 
-function populateCurrentSearchTermsDiv(searchterms) {
+function populateCurrentSearchTermsDiv() {
 	/*
 	var curTermsArray = searchterms.split(',');
 	var currentTermsString = '';
@@ -195,10 +184,10 @@ function populateCurrentSearchTermsDiv(searchterms) {
 		console.log('creating terms object');
 		currentSearchTermsObject = createCurrentSearchTermsObject(searchterms);
 	}*/
-	console.log("updating remove links div with " + currentSearchTermsObject.getCurrentTermsHtml());
-	document.getElementById('removetermlinks').innerHTML = currentSearchTermsObject.getCurrentTermsHtml();
-	console.log("updating search terms div with " + currentSearchTermsObject.getCurrentTerms());
-	document.getElementById('currentsearchterms').innerHTML = currentSearchTermsObject.getCurrentTerms();
+	console.log("updating remove links div with " + termsObj.getCurrentTermsHtml());
+	document.getElementById('removetermlinks').innerHTML = termsObj.getCurrentTermsHtml();
+	console.log("updating search terms div with " + termsObj.getCurrentTerms());
+	document.getElementById('currentsearchterms').innerHTML = termsObj.getCurrentTerms();
 	document.getElementById('suggestions').style.display = 'none';
 	document.getElementById('searchtext').value = "";
 }
