@@ -262,7 +262,8 @@ function removeActiveSearchterm(element) {
 	if(debug) console.log('will remove ' + element.text.trim());
 	termsObj.removeTerm(element.text.trim());
 	populateCurrentSearchTermsDiv(termsObj.getCurrentTerms());
-	if(termsObj.size==0) {
+	if(debug) console.log("termsObj size: " + termsObj.size())
+	if(termsObj.size()==0) {
 		replaceItemsPanels('all');
 	} else {
 		replaceFilteredItemsPanels();
