@@ -111,10 +111,11 @@ function replaceItemsPanels(framework) {
 	});
 }
 
-function replaceFilteredItemsPanels(searchterms) {
+function replaceFilteredItemsPanels(term) {
+	currentSearchTermsObject.addTerm(encodeURI(term));
 	$.ajax({
 		type: "GET",
-		url: "/api/agileframeworks/search?searchwords=" + searchterms,
+		url: "/api/agileframeworks/search?searchwords=" + currentSearchTermsObject.getCurrentTerms,
 		dataType: "json",
 		success: function(result) {
 			populateItemsPanels(result.filteredItems);
@@ -178,7 +179,7 @@ function createCurrentSearchTermsObject(term) {
 	return currentTermsObject;
 }
 
-let currentSearchTermsObject = "";
+let currentSearchTermsObject = new currentSearchTermsObject();
 
 function populateCurrentSearchTermsDiv(searchterms) {
 	/*
@@ -189,10 +190,10 @@ function populateCurrentSearchTermsDiv(searchterms) {
 		currentTermsString += "<a class='activekeywords plain' href='javascript:void(0)' onclick='javascript:removeActiveSearchterm(this);'> <span class='glyphicon glyphicon-remove-circle'></span>" + "&nbsp;" + decodeURI(element) + "</a>"
 	});
 	*/
-	if(currentSearchTermsObject=="") { 
+	/*if(currentSearchTermsObject=="") { 
 		console.log('creating terms object');
 		currentSearchTermsObject = createCurrentSearchTermsObject(searchterms);
-	}
+	}*/
 	console.log("updating remove links div with " + currentSearchTermsObject.getCurrentTermsHtml());
 	document.getElementById('removetermlinks').innerHTML = currentSearchTermsObject.getCurrentTermsHtml();
 	console.log("updating search terms div with " + currentSearchTermsObject.getCurrentTerms());
@@ -241,7 +242,7 @@ $(function() {
 					console.log("in success 2 in if with " + msg.result[0] );
 					var jscriptcall = '';
 					msg.result.forEach( element => {
-						jscriptString = "javascript:replaceFilteredItemsPanels('" + curSearchTerms + encodeURI(element) + "')"
+						jscriptString = "javascript:replaceFilteredItemsPanels('" + encodeURI(element) + "')"
 						//console.log('adding jscript: |' + jscriptString + '|')
 						resultList = resultList + "<li><a href='javascript:void(0);' onclick=" + jscriptString + ">" + element + "</a></li>";
 					});
