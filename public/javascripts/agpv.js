@@ -116,6 +116,7 @@ let termsObj = new currentTermsObject();
 
 function replaceFilteredItemsPanels(term) {
 	termsObj.addTerm(encodeURI(term));
+	console.log('will ajax for items with ' + termsObj.getCurrentTerms)
 	$.ajax({
 		type: "GET",
 		url: "/api/agileframeworks/search?searchwords=" + termsObj.getCurrentTerms,
@@ -167,7 +168,6 @@ function currentTermsObject() {
 		}
 	}
 }
-
 
 function populateCurrentSearchTermsDiv() {
 	/*
