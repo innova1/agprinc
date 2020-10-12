@@ -94,7 +94,7 @@ function setMenuCollapsed(isSmallViewport) {
 
 function setSelected(selectedFramework) {
   if(selectedFramework) {
-    document.getElementById('selectedFramework').classList.add('selected');
+    document.getElementById(selectedFramework).classList.add('selected');
   }
   //console.log("added .selected to " + selectedFramework)
 }
