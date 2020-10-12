@@ -101,7 +101,6 @@ function setSelected(selectedFramework) {
 			}
 		});
 		console.log("in set selected fr: setting selected to " + selectedFramework + " div");
-		document.getElementById(selectedFramework).classList.add('selected');
 		var currFramElement = document.getElementById('selectedFramework')
 		if(currFramElement) {
 			currFramElement.innerHTML = selectedFramework;
@@ -109,6 +108,7 @@ function setSelected(selectedFramework) {
 		frameworksArray.forEach( f => {
 			document.getElementById(f).classList.remove('selected');
 		});
+		document.getElementById(selectedFramework).classList.add('selected');
 	} else {
 		var currFramElement = document.getElementById('selectedFramework')
 		if(currFramElement) {
