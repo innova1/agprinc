@@ -63,7 +63,7 @@ function populateFrameworksPanel( objs ) {
 	itemsHtml += "<div class='panel-collapse collapse' id='sidepanel'>"
 	itemsHtml += "<ul class='list-group'>";
 	objs.forEach( obj => {
-		framework.push(obj.framework);
+		frameworksArray.push(obj.framework);
 		itemsHtml += "<li class='list-group-item'>";
 		jscriptString = "javascript:replaceItemsPanels('" + obj.framework + "')";
 		itemsHtml += "<a class='menu' href='javascript:void(0)' onclick=" + jscriptString + "> <span id='" + obj.framework + "'>" + obj.frameworkdisplay + "</span>";
