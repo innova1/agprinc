@@ -1,4 +1,4 @@
-
+const debug = true;
 replaceFrameworksPanel();
 replaceItemsPanels('all');
 /*
