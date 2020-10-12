@@ -142,6 +142,7 @@ function createCurrentSearchTermsObject(term) {
 		getCurrentTermsHtml: function() {
 			var termsHtml = "";
 			for( let str of currentTermsMap.values() ) {
+				console.log('in getcurrenttermshtml in obj add to string: ' + str);
 				termsHtml += str;
 			}
 			return termsHtml;
