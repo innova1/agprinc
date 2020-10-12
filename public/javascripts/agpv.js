@@ -1,6 +1,6 @@
 const debug = true;
-replaceFrameworksPanel();
-replaceItemsPanels('all');
+await replaceFrameworksPanel();
+await replaceItemsPanels('all');
 /*
 calling these functions in the replace frameworks panel ajax call
 as an exercise later can try to figure out how to make this work with async await
@@ -99,8 +99,8 @@ function setSelected(selectedFramework) {
   //console.log("added .selected to " + selectedFramework)
 }
 
-function replaceItemsPanels(framework) {
-	$.ajax({
+async function replaceItemsPanels(framework) {
+	await $.ajax({
 		type: "GET",
 		url: "/api/agileframeworks/" + framework,
 		dataType: "json",
@@ -190,8 +190,8 @@ function populateCurrentSearchTermsDiv() {
 	document.getElementById('searchtext').value = "";
 }
 
-function replaceFrameworksPanel() {
-	$.ajax({
+async function replaceFrameworksPanel() {
+	await $.ajax({
 		type: "GET",
 		url: "/api/agileframeworks/frameworks/",
 		dataType: "json",
