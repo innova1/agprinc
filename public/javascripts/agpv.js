@@ -11,7 +11,7 @@ as an exercise later can try to figure out how to make this work with async awai
 var isSmallViewport = window.matchMedia("(max-width: 1000px)");
 
 var selF = document.getElementById('selectedFramework').innerHTML;
-//setSelected(selF);
+setSelected(selF);
 
 var searchRequest = null;
 var suggElement = document.getElementById('suggestions');
@@ -113,7 +113,7 @@ async function replaceItemsPanels(framework) {
 		dataType: "json",
 		success: function(result) {
 			populateItemsPanels(result.items);
-			//setSelected(framework);
+			setSelected(framework);
 			isSmallViewport.addListener(setMenuCollapsed);
 			setMenuCollapsed(isSmallViewport);
 		}
