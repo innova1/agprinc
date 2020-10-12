@@ -1,6 +1,7 @@
 
 replaceFrameworksPanel();
 replaceItemsPanels('all');
+let currentSearchTermsObject = new currentSearchTermsObject();
 /*
 calling these functions in the replace frameworks panel ajax call
 as an exercise later can try to figure out how to make this work with async await
@@ -179,8 +180,6 @@ function createCurrentSearchTermsObject(term) {
 	currentTermsObject.addTerm(term);
 	return currentTermsObject;
 }
-
-let currentSearchTermsObject = new currentSearchTermsObject();
 
 function populateCurrentSearchTermsDiv(searchterms) {
 	/*
