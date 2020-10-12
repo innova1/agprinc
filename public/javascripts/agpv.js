@@ -130,11 +130,12 @@ function replaceFilteredItemsPanels() {
 function currentTermsObject() {
 	this.currentTermsMap = new Map(),
 	this.currentTermsString = "",
-	this.getCurrentTermsHtml = function() {
+		
+	this.getCurrentTermsHtml = function(enc) {
 		var termsHtml = "";
 		for( let str of this.currentTermsMap.values() ) {
 			//console.log('in getcurrenttermshtml in obj add to string: ' + str);
-			termsHtml += str;
+			termsHtml += encodeURI(str);
 		}
 		return termsHtml;
 	},
@@ -160,7 +161,7 @@ function currentTermsObject() {
 	},
 	this.removeTerm = function(t) {
 		console.log('removing |' + t + '|');
-		this.currentTermsMap.delete(t);
+		this.currentTermsMap.delete(encodeUIR(t);
 		console.log('map size: ' + this.currentTermsMap.size);
 		for(let m of this.currentTermsMap.keys()) {
 			console.log('map key: ' + m + ', map value: ' + this.currentTermsMap.get(m));
