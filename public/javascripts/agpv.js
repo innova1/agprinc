@@ -123,16 +123,18 @@ function replaceFilteredItemsPanels(searchterms) {
 	});
 }
 
-function createCurrentSearchTermsObject(searchterms) {
+function createCurrentSearchTermsObject(term) {
 	var currentTermsObject = new Object();
 	var currentTermsMap = new Map();
-	var currentTermsArray = searchterms.split(',');
-	var currentTermsString = '';
+	//var currentTermsArray = searchterms.split(',');
+	//var currentTermsString = '';
+	/*
 	currentTermsArray.forEach( element => {
 		console.log('current el: |' + element + '|');
 		currentTermsString += "<a class='activekeywords plain' href='javascript:void(0)' onclick='javascript:removeActiveSearchterm(this);'> <span class='glyphicon glyphicon-remove-circle'></span>" + "&nbsp;" + decodeURI(element) + "</a>"
 		currentTermsMap.set(element, currentTermsString);
 	});
+	*/
 	currentTermsObject = {
 		currentTermsMap: currentTermsMap,
 		getCurrentTermsHtml: function() {
@@ -153,10 +155,16 @@ function createCurrentSearchTermsObject(searchterms) {
 			}
 			return terms;
 		},
-		removeTerm: function(term) {
-			currentTermsMap.delete(term);
+		addTerm: function(t) {
+			console.log('adding |' + t + '|');
+			currentTermsString += "<a class='activekeywords plain' href='javascript:void(0)' onclick='javascript:removeActiveSearchterm(this);'> <span class='glyphicon glyphicon-remove-circle'></span>" + "&nbsp;" + decodeURI(t) + "</a>"
+			currentTermsMap.set(t, currentTermsString);
+		},
+		removeTerm: function(t) {
+			currentTermsMap.delete(t);
 		}
 	};
+	currentTermsObject.add(term);
 	return currentTermsObject;
 }
 
