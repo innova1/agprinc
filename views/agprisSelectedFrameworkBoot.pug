@@ -10,14 +10,16 @@ block body
   nav.navbar.navbar-default
     div.container-fluid
       div.navbar-header
-        a.navbar-brand(href='/agileframeworks/all')
-          | Agile Values and Principles
-        form.navbar-form.navbar-left(action='/agileframeworks/search', method='GET')
-          div.form-group
-            input.form-control#searchtext(type='text', name='searchtext', placeholder='Search Text', autocomplete="off")  
-            div#suggestions
-          div#currentsearchterms
-          div.inline#removetermlinks
+        br
+        div.#currentFrameworkDisplay
+      a.navbar-brand(href='/agileframeworks/all')
+        | Agile Values and Principles
+      form.navbar-form.navbar-left(action='/agileframeworks/search', method='GET')
+        div.form-group
+          input.form-control#searchtext(type='text', name='searchtext', placeholder='Search Text', autocomplete="off")  
+          div#suggestions
+        div#currentsearchterms
+        div.inline#removetermlinks
   div.container
     div.row
       p.hide#selectedFramework
