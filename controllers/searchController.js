@@ -29,7 +29,7 @@ exports.getSearchWords = async function(req, res) {
 */
 
 exports.getSearchTerms = async function(req, res) {
-	const debug = true;
+	const debug = false;
 	
 	return "";
 }

@@ -52,7 +52,7 @@ div#suggestions {
 	margin-left: 15px;
 }
 #currentsearchterms {
-	display: block; /*change this to block in test*/
+	display: none; /*change this to block in test*/
 }
 .panel-title {
 	font-size: 14px;
