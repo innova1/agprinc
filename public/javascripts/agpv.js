@@ -356,7 +356,7 @@ function removeActiveSearchterm2(element) {
 }
 
 $("form").on("submit", function (e) {
-	alert("submit");
+	
 });
 
 /*
