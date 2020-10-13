@@ -87,9 +87,11 @@ function setMenuCollapsed(isSmallViewport) {
 	if( isSmallViewport.matches ) {
 		//document.getElementById("sidepanel").classList.remove('show');
 		document.getElementById("sidepanel").classList.remove('in');
+		console.log("in largeviewport side pane classlist: " + document.getElementById("sidepanel").classList)
 	} else {
 		//document.getElementById("sidepanel").classList.add('show');
 		document.getElementById("sidepanel").classList.add('in');
+		console.log("in smallviewport match side pane classlist: " + document.getElementById("sidepanel").classList)
 	}
 }
 
