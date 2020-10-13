@@ -86,11 +86,13 @@ function setMenuCollapsed(isSmallViewport) {
 	if(true) console.log('calling set Menu Collapsed');
 	if( isSmallViewport.matches ) {
 		//document.getElementById("sidepanel").classList.remove('show');
-		document.getElementById("sidepanel").classList.remove('in');
+		//document.getElementById("sidepanel").classList.remove('in');
+		document.getElementById("sidepanel").collapse("hide");
 		console.log("in largeviewport side pane classlist: " + document.getElementById("sidepanel").classList)
 	} else {
 		//document.getElementById("sidepanel").classList.add('show');
-		document.getElementById("sidepanel").classList.add('in');
+		//document.getElementById("sidepanel").classList.add('in');
+		document.getElementById("sidepanel").collapse("show");
 		console.log("in smallviewport match side pane classlist: " + document.getElementById("sidepanel").classList)
 	}
 }
