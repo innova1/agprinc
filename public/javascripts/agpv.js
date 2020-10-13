@@ -356,6 +356,7 @@ function removeActiveSearchterm2(element) {
 }
 
 $("form").on("submit", function (e) {
+	console.log('in form submit jquery')
 	$.ajax({
 		type: "GET",
 		url: "/api/agileframeworks/manifesto",
