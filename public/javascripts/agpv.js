@@ -229,7 +229,7 @@ function replaceFrameworksPanel(framework) {
 			populateFrameworksPanel(result.AFs);
 			setSelected(framework);
 			isSmallViewport.addListener(setMenuCollapsed);
-			console.log('listener added to ismallviewport')
+			//console.log('listener added to ismallviewport')
 			setMenuCollapsed(isSmallViewport);
 		}
 	});
