@@ -362,7 +362,7 @@ $("form").on("submit", function (e) {
 		url: "/api/agileframeworks/manifesto",
 		dataType: "json",
 		success: function(result) {
-			console.log('result: ' + result.items[0])
+			console.log('result: ' + result.items[0].framework)
 		}
 	});
 	e.preventDefault();
