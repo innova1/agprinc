@@ -119,7 +119,7 @@ function setSelected(selectedFramework) {
 }
 
 async function replaceItemsPanels(framework) {
-	await $.ajax({
+	$.ajax({
 		type: "GET",
 		url: "/api/agileframeworks/" + framework,
 		dataType: "json",
