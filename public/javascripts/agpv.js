@@ -356,7 +356,14 @@ function removeActiveSearchterm2(element) {
 }
 
 $("form").on("submit", function (e) {
-	
+	$.ajax({
+		type: "GET",
+		url: "/api/agileframeworks/manifesto",
+		dataType: "json",
+		success: function(result) {
+			console.log('result: ' + result.items[0])
+		}
+	});
 });
 
 /*
