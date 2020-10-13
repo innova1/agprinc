@@ -123,7 +123,7 @@ async function replaceItemsPanels(framework) {
 		type: "GET",
 		url: "/api/agileframeworks/" + framework,
 		dataType: "json",
-		success: function(result) {
+		success: async function(result) {
 			await populateItemsPanels(result.items);
 			setSelected(framework);
 			isSmallViewport.addListener(setMenuCollapsed);
