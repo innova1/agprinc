@@ -132,6 +132,7 @@ function replaceItemsPanels(framework) {
 		success: function(result) {
 			populateItemsPanels(result.items);
 			setSelected(framework);
+			setMenuCollapsed(isSmallViewport);
 		}
 	});
 }
