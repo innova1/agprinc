@@ -365,6 +365,7 @@ $("form").on("submit", function (e) {
 			console.log('result: ' + result.items[0])
 		}
 	});
+	e.preventDefault();
 });
 
 /*
