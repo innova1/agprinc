@@ -122,16 +122,13 @@ function setSelected(selectedFramework) {
 //if(debug) console.log("added .selected to " + selectedFramework)
 }
 
-async function replaceItemsPanels(framework) {
+function replaceItemsPanels(framework) {
 	$.ajax({
 		type: "GET",
 		url: "/api/agileframeworks/" + framework,
 		dataType: "json",
 		success: function(result) {
 			populateItemsPanels(result.items);
-			setSelected(framework);
-			isSmallViewport.addListener(setMenuCollapsed);
-			setMenuCollapsed(isSmallViewport);
 		}
 	});
 }
@@ -224,6 +221,9 @@ function replaceFrameworksPanel() {
 		dataType: "json",
 		success: function(result) {
 			populateFrameworksPanel(result.AFs);
+			setSelected(framework);
+			isSmallViewport.addListener(setMenuCollapsed);
+			setMenuCollapsed(isSmallViewport);
 		}
 	});
 }
