@@ -17,7 +17,7 @@ var searchRequest = null;
 var suggElement = document.getElementById('suggestions');
 var frameworksArray = new Array();
 
-function populateItemsPanels( objs ) {
+async function populateItemsPanels( objs ) {
 	var itemTitle = "";
 	var obj = new Object();
 	var itemsHtml = "";
@@ -50,7 +50,7 @@ function populateItemsPanels( objs ) {
                     a.menu(href='/agileframeworks/' + f.framework ) <span id=#{f.framework}>#{f.frameworkdisplay}</span>
 */
 
-function populateFrameworksPanel( objs ) {
+async function populateFrameworksPanel( objs ) {
 	var framework = "";
 	var obj = new Object();
 	var itemsHtml = "";
@@ -124,7 +124,7 @@ async function replaceItemsPanels(framework) {
 		url: "/api/agileframeworks/" + framework,
 		dataType: "json",
 		success: function(result) {
-			populateItemsPanels(result.items);
+			await populateItemsPanels(result.items);
 			setSelected(framework);
 			isSmallViewport.addListener(setMenuCollapsed);
 			setMenuCollapsed(isSmallViewport);
