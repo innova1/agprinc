@@ -83,8 +83,7 @@ async function populateFrameworksPanel( objs ) {
 }
 
 function setMenuCollapsed(isSmallViewport) {
-	//if(debug) console.log('calling set Menu Collapsed');
-	alert("menu collapsed called")
+	if(true) console.log('calling set Menu Collapsed');
 	if( isSmallViewport.matches ) {
 		//document.getElementById("sidepanel").classList.remove('show');
 		document.getElementById("sidepanel").classList.remove('in');
