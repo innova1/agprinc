@@ -355,6 +355,10 @@ function removeActiveSearchterm2(element) {
   }
 }
 
+$("form").on("submit", function (e) {
+	alert("submit");
+});
+
 /*
           - var terms = ""
           if searchtermsArray
