@@ -1,7 +1,7 @@
 const debug = false;
 setup();
 async function setup() {
-	await replaceFrameworksPanel();
+	await replaceFrameworksPanel('all');
 	replaceItemsPanels('all');
 	
 }
@@ -214,7 +214,7 @@ function populateCurrentSearchTermsDiv() {
 	document.getElementById('searchtext').value = "";
 }
 
-function replaceFrameworksPanel() {
+function replaceFrameworksPanel(framework) {
 	$.ajax({
 		type: "GET",
 		url: "/api/agileframeworks/frameworks/",
