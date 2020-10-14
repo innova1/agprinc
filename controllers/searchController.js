@@ -3,10 +3,10 @@ const db = require('./dataController');
 exports.getSearchWords = async function(req, res) {
 	const debug = false;
     const searchtext = req.query.searchtext;
-	if(debug) console.log('in search with searchtext-' + decodeURI(searchtext));
+	if(debug) console.log('in search with searchtext-' + decodeURI(searchtext).replace(/\s/g, '+'));
 	var searchWordsArray = new Array();
 	try {
-		searchWordsArray = await db.getKeywordMatch(searchtext);
+		searchWordsArray = await db.getKeywordMatch(decodeURI(searchtext).replace(/\s/g, '+'));
 	} catch(err) {
 		console.log("error in searchcontroller.getSearchWords with " + err);
 	}
