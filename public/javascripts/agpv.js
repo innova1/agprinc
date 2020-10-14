@@ -357,13 +357,17 @@ function removeActiveSearchterm2(element) {
 
 $("form").on("submit", function (e) {
 	var dataString = $(this).serialize();
-	console.log('in form submit jquery with ' + dataString);
+	var searchtext = dataString.substring(dataString.indexOf('='), dataString.length);
+	console.log('in form submit jquery with ' + dataString + ' and searchtext: ' + searchtext);
 	$.ajax({
 		type: "GET",
 		url: "/api/agileframeworks/suggestions?" + dataString,
 		dataType: "json",
 		success: function(result) {
-			console.log('result: ' + result.items[0].framework)
+			console.log('result: ' + result.searchwords[0])
+			result.searchwords.forEach( s => {
+				if(s === )
+			});
 		}
 	});
 	e.preventDefault();
