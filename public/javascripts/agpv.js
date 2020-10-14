@@ -178,7 +178,7 @@ function currentTermsObject() {
 	},
 	this.addTerm = function(t) {
 		if(debug) console.log('adding |' + t + '|');
-		this.currentTermsString = "<a class='activekeywords plain' href='javascript:void(0)' onclick='javascript:removeActiveSearchterm(this);'> <span class='glyphicon glyphicon-remove-circle'></span>" + "&nbsp;" + decodeURI(t) + "</a>"
+		this.currentTermsString = "<a class='activekeywords plain' href='javascript:void(0)' onclick='javascript:removeActiveSearchterm(this);'> <span class='glyphicon glyphicon-remove-circle'></span>" + "&nbsp;" + decodeURI(t).replace(/\+/g, ' ') + "</a>"
 		this.currentTermsMap.set(t, this.currentTermsString);
 		//if(debug) console.log('map size: ' + this.currentTermsMap.size);
 		for(let m of this.currentTermsMap.keys()) {
