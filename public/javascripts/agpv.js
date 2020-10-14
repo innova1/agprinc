@@ -366,7 +366,9 @@ $("form").on("submit", function (e) {
 		success: function(result) {
 			console.log('result: ' + result.searchwords[0])
 			result.searchwords.forEach( s => {
-				if(s === )
+				if(s === searchtext) {
+					console.log('match');
+				}
 			});
 		}
 	});
