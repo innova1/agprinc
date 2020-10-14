@@ -4,6 +4,7 @@ const db = require('../controllers/dataController');
 const srch = require('../controllers/searchController');
 
 /* live search against keywords */
+/*
 router.get('/suggestions?', async function(req, res) {
 	const debug = false;
 	const searchText = req.query.searchtext;
@@ -11,10 +12,10 @@ router.get('/suggestions?', async function(req, res) {
 	const result = await db.getKeywordMatch(searchText);
 	res.json({result: result});
 });
-
+*/
 
 /* Manage search functionality */
-router.get('/wordsmatch', srch.getSearchWords);
+router.get('/suggestions', srch.getSearchWords);
 
 /* return filtered items for local update param is string of searchwords*/
 router.get('/search', srch.getFilteredItems);
