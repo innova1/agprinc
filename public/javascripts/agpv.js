@@ -188,7 +188,7 @@ function currentTermsObject() {
 	},
 	this.removeTerm = function(t) {
 		if(debug) console.log('removing |' + t + '|');
-		this.currentTermsMap.delete(encodeURI(t));
+		this.currentTermsMap.delete(t.replace(/\s/g, '+'));
 		if(debug) console.log('map size: ' + this.currentTermsMap.size);
 		for(let m of this.currentTermsMap.keys()) {
 			if(debug) console.log('map key: ' + m + ', map value: ' + this.currentTermsMap.get(m));
@@ -264,7 +264,7 @@ $(function() {
 					//if(debug) console.log("in success 2 in if with " + msg.result[0] );
 					var jscriptcall = '';
 					msg.searchWords.forEach( element => {
-						jscriptString = "javascript:addActiveSearchterm('" + encodeURI(element) + "')"
+						jscriptString = "javascript:addActiveSearchterm('" + element.replace(/\s/g, '+') + "')"
 						//if(debug) console.log('adding jscript: |' + jscriptString + '|')
 						resultList = resultList + "<li><a href='javascript:void(0);' onclick=" + jscriptString + ">" + element + "</a></li>";
 					});
