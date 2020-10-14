@@ -371,7 +371,7 @@ $("form").on("submit", function (e) {
 			const found = result.searchWords.find( s => s.toUpperCase().replace(/\s/g, '+') === searchtext.toUpperCase() );
 			//console.log('found: ' + found);
 			if(found) {
-				addActiveSearchterm(searchtext.replace(/'+'/g, ' '));
+				addActiveSearchterm(searchtext.replace(/\+/g, ' '));
 			} else {
 				alert('Select one of the suggestions from the list');
 			}
