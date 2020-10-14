@@ -369,6 +369,7 @@ $("form").on("submit", function (e) {
 				if(s === searchtext) {
 					addActiveSearchterm(encodeURI(searchtext));
 				} else {
+					console.log("about to populate suggelement")
 					suggElement.innerHTML = 'Search term not found. Please enter some text and choose a word or phrase from this list.';
 					//suggElement.style.display = 'block';
 				}
