@@ -364,8 +364,8 @@ $("form").on("submit", function (e) {
 		url: "/api/agileframeworks/suggestions?" + dataString,
 		dataType: "json",
 		success: function(result) {
-			console.log('result: ' + result.searchwords[0])
-			result.searchwords.forEach( s => {
+			console.log('result: ' + result.searchWords[0])
+			result.searchWords.forEach( s => {
 				if(s === searchtext) {
 					console.log('match');
 				}
