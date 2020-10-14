@@ -295,7 +295,7 @@ function addActiveSearchterm(term) {
 
 function removeActiveSearchterm(element) {
 	if(debug) console.log('will remove ' + element.text.trim());
-	termsObj.removeTerm(element.text.trim());
+	termsObj.removeTerm(element.text.trim().replace(/\s/g, '+'));
 	populateCurrentSearchTermsDiv(termsObj.getCurrentTerms());
 	if(debug) console.log("termsObj size: " + termsObj.size())
 	if(termsObj.size()==0) {
@@ -303,59 +303,6 @@ function removeActiveSearchterm(element) {
 	} else {
 		replaceFilteredItemsPanels();
 	}
-}
-
-function removeActiveSearchterm2(element) {
-	//if(debug) console.log("removing |" + element.text + "|");
-	var term = element.text.trim();
-	var curSearchField = document.getElementById('currentsearchterms');
-	var curTerms = curSearchField.innerHTML;
-	//if(debug) console.log("curTerms: " + curTerms);
-	var countarray = curTerms.split(',');
-	var count = countarray.length-1;
-	var subCurTerms = '';
-	var result = '';
-  /*
-    do a search on a string and get index
-    get substring from 0 to searchreturnedindex-1 ( if not 0 to remove the comma) then, if searchreturnedindex + term.length to full string length and concatenate
-  */
-  var matchIndex = curTerms.search( term );
-  //if(debug) console.log("index is " + matchIndex);
-  if(matchIndex>-1) { //value found
-    if(matchIndex==0) { //found at first position
-      if(term == curTerms.length ) { //this is the only term in current searchterms
-        result = ''; //remove the whole thing
-      } else { //word is the first of the string but there's more
-        result = curTerms.substring(term.length+1,curTerms.length)
-      }
-    } else {  //it's a word in the middle of the string or at the end
-      if( matchIndex+term.length==curTerms.length ) {  //if term is the last word of string
-        //if(debug) console.log("term is last word of string");
-        result = curTerms.substring(0,matchIndex-1);
-      } else { //word in the middle of the string
-        //if(debug) console.log("term is in the middle of string");
-        var s1 = curTerms.substring(0,matchIndex-1);
-        var s2 = curTerms.substring(matchIndex+term.length,curTerms.length)
-        result = s1 + s2;
-      }
-    }
-  }
-  /*
-    if(!curTerms) { curTerms = '' }
-    //if(debug) console.log("terms is " + terms);
-    curTerms = curTerms + terms;
-    //if(debug) console.log("curTerms is " + curTerms);
-  */
-  //if(debug) console.log("result: " + result + " with count: " + count);
-  var href = "/agileframeworks/";
-  if(count==0) {
-    href = href + "all";
-    //curSearchField.innerHTML = "";
-    document.getElementById('removetermlinks').innerHTML="";
-  } else {
-    href = href + "search?searchterms=" + result;
-    curSearchField.innerHTML = result;
-  }
 }
 
 $("form").on("submit", function (e) {
