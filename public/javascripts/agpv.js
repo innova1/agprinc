@@ -369,9 +369,7 @@ $("form").on("submit", function (e) {
 			if(found) {
 				addActiveSearchterm(encodeURI(searchtext));
 			} else {
-				console.log("about to populate suggelement")
-				suggElement.innerHTML = 'Search term not found. Please enter some text and choose a word or phrase from this list.';
-				//suggElement.style.display = 'block';
+				alert('select an item from the list');
 			}
 		}
 	});
