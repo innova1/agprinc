@@ -248,9 +248,9 @@ $(function() {
 		//if(debug) console.log("about to ajax");
         searchRequest = $.ajax({
             type: "GET",
-            url: "/api/agileframeworks/keywords?",
+            url: "/api/agileframeworks/suggestions?",
             data: {
-                'keyword' : value
+                'searchtext' : value
             },
             dataType: "json",
             success: function(msg){
@@ -360,7 +360,7 @@ $("form").on("submit", function (e) {
 	console.log('in form submit jquery with ' + dataString);
 	$.ajax({
 		type: "GET",
-		url: "/api/agileframeworks/keywords?",
+		url: "/api/agileframeworks/suggestions?" + dataString,
 		dataType: "json",
 		success: function(result) {
 			console.log('result: ' + result.items[0].framework)

@@ -411,7 +411,7 @@ async function createSearchMap() {
 
 /* returns array of principles filtered by searchWordsArray */
 async function getItemsFilteredByKeywords( searchWordsArray ) {
-    const debug = true;
+    const debug = false;
     if(debug) { console.log('in getItemsFilteredByKeywords with ' + searchWordsArray[0])};
     //const dataArray = getDataArray();
     const foundItems = new Array();
