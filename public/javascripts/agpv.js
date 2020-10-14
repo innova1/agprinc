@@ -365,15 +365,14 @@ $("form").on("submit", function (e) {
 		dataType: "json",
 		success: function(result) {
 			console.log('result: ' + result.searchWords[0])
-			result.searchWords.forEach( s => {
-				if(s === searchtext) {
-					addActiveSearchterm(encodeURI(searchtext));
-				} else {
-					console.log("about to populate suggelement")
-					suggElement.innerHTML = 'Search term not found. Please enter some text and choose a word or phrase from this list.';
-					//suggElement.style.display = 'block';
-				}
-			});
+			const found = result.searchWords.find( s => s===searchtext);
+			if(found) {
+				addActiveSearchterm(encodeURI(searchtext));
+			} else {
+				console.log("about to populate suggelement")
+				suggElement.innerHTML = 'Search term not found. Please enter some text and choose a word or phrase from this list.';
+				//suggElement.style.display = 'block';
+			}
 		}
 	});
 	e.preventDefault();
