@@ -217,7 +217,7 @@ exports.updateKeywords = async function( framework, type, id, keywords ) {
 
 /* returns array of keywords that match the string of first characters filtered by searchtext for keyword suggestions list */
 exports.getKeywordMatch = async function a( searchtext ) {
-	const debug = false;
+	const debug = true;
 	if(debug) { console.log('searchtext is ' + searchtext) };
 	const keywordsMap = new Map();
 	var keywords = new Array();
