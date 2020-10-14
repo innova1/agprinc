@@ -6,7 +6,7 @@ exports.getSearchWords = async function(req, res) {
 	if(debug) console.log('in search with searchtext-' + decodeURI(searchtext).replace(/\s/g, '+'));
 	var searchWordsArray = new Array();
 	try {
-		searchWordsArray = await db.getKeywordMatch(decodeURI(searchtext).replace(/\s/g, '+'));
+		searchWordsArray = await db.getKeywordMatch(searchtext);
 	} catch(err) {
 		console.log("error in searchcontroller.getSearchWords with " + err);
 	}
