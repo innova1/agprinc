@@ -356,10 +356,11 @@ function removeActiveSearchterm2(element) {
 }
 
 $("form").on("submit", function (e) {
-	console.log('in form submit jquery')
+	var dataString = $(this).serialize();
+	console.log('in form submit jquery with ' + dataString);
 	$.ajax({
 		type: "GET",
-		url: "/api/agileframeworks/manifesto",
+		url: "/api/agileframeworks/keywords?",
 		dataType: "json",
 		success: function(result) {
 			console.log('result: ' + result.items[0].framework)
