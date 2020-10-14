@@ -357,7 +357,7 @@ function removeActiveSearchterm2(element) {
 
 $("form").on("submit", function (e) {
 	var dataString = $(this).serialize();
-	var searchtext = dataString.substring(dataString.indexOf('='), dataString.length);
+	var searchtext = dataString.substring(dataString.indexOf('=')+1, dataString.length);
 	console.log('in form submit jquery with ' + dataString + ' and searchtext: ' + searchtext);
 	$.ajax({
 		type: "GET",
