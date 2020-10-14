@@ -368,7 +368,7 @@ $("form").on("submit", function (e) {
 		dataType: "json",
 		success: function(result) {
 			//console.log('result: ' + result.searchWords[0])
-			const found = result.searchWords.find( s => s.toUpperCase() === searchtext.toUpperCase() );
+			const found = result.searchWords.find( s => s.toUpperCase().replace(/\s/g, '+') === searchtext.toUpperCase() );
 			//console.log('found: ' + found);
 			if(found) {
 				addActiveSearchterm(encodeURI(searchtext));
