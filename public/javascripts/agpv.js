@@ -369,7 +369,7 @@ $("form").on("submit", function (e) {
 			if(found) {
 				addActiveSearchterm(encodeURI(searchtext));
 			} else {
-				alert('select an item from the list');
+				alert('Select one of the suggestions from the list');
 			}
 		}
 	});
