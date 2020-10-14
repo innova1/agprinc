@@ -367,7 +367,10 @@ $("form").on("submit", function (e) {
 			console.log('result: ' + result.searchWords[0])
 			result.searchWords.forEach( s => {
 				if(s === searchtext) {
-					console.log('match');
+					addActiveSearchterm(encodeURI(searchtext));
+				} else {
+					suggElement.innerHTML = 'Search term not found. Please enter some text and choose a word or phrase from this list.';
+					//suggElement.style.display = 'block';
 				}
 			});
 		}
