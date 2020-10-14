@@ -273,7 +273,10 @@ $(function() {
 					//if(debug) console.log("about to display block on suggestions");
 					suggElement.style.display = 'block';
                   }
-                }
+                } else {
+				  suggElement.innerHTML = '';
+				  suggElement.style.display = 'none';
+				}
             }
         });
     } else {
