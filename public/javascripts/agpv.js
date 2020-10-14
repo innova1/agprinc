@@ -370,7 +370,7 @@ $("form").on("submit", function (e) {
 			//console.log('result: ' + result.searchWords[0])
 			const found = result.searchWords.find( s => {
 				s.toUpperCase() === searchtext.toUpperCase();
-				console.log('compared ' + s.toUpperCase() + ' to ' + searchtext.toUpperCase() );
+				console.log('found: ' + found + ', compared ' + s.toUpperCase() + ' to ' + searchtext.toUpperCase() );
 			});
 			if(found) {
 				addActiveSearchterm(encodeURI(searchtext));
