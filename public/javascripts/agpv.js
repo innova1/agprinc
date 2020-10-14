@@ -263,7 +263,7 @@ $(function() {
                   if (value==$(oldThis).val()) {
 					//if(debug) console.log("in success 2 in if with " + msg.result[0] );
 					var jscriptcall = '';
-					msg.result.forEach( element => {
+					msg.searchWords.forEach( element => {
 						jscriptString = "javascript:addActiveSearchterm('" + encodeURI(element) + "')"
 						//if(debug) console.log('adding jscript: |' + jscriptString + '|')
 						resultList = resultList + "<li><a href='javascript:void(0);' onclick=" + jscriptString + ">" + element + "</a></li>";
