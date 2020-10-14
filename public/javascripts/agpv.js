@@ -369,7 +369,7 @@ $("form").on("submit", function (e) {
 		success: function(result) {
 			//console.log('result: ' + result.searchWords[0])
 			function strinqual(s) {s.toUpperCase() === searchtext.toUpperCase()}
-			const found = result.searchWords.find(stringqual);
+			const found = result.searchWords.find(strinqual);
 			//const found = result.searchWords.find( s => s.toUpperCase() === searchtext.toUpperCase() );
 			//console.log('compared ' + s.toUpperCase() + ' to ' + searchtext.toUpperCase() );
 			console.log('found: ' + found);
