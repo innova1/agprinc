@@ -358,14 +358,14 @@ function removeActiveSearchterm2(element) {
 $("form").on("submit", function (e) {
 	var dataString = $(this).serialize();
 	var searchtext = dataString.substring(dataString.indexOf('=')+1, dataString.length);
-	console.log('in form submit jquery with ' + dataString + ' and searchtext: ' + searchtext);
+	//console.log('in form submit jquery with ' + dataString + ' and searchtext: ' + searchtext);
 	$.ajax({
 		type: "GET",
 		url: "/api/agileframeworks/suggestions?" + dataString,
 		dataType: "json",
 		success: function(result) {
-			console.log('result: ' + result.searchWords[0])
-			const found = result.searchWords.find( s => s===searchtext);
+			//console.log('result: ' + result.searchWords[0])
+			const found = result.searchWords.find( s => s.toUpperCase() === searchtext.toUpperCase() );
 			if(found) {
 				addActiveSearchterm(encodeURI(searchtext));
 			} else {
