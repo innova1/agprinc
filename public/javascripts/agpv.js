@@ -254,7 +254,7 @@ $(function() {
             },
             dataType: "json",
             success: function(msg){
-                if(msg.result[0]) {
+                if(msg.searchWords[0]) {
                   var resultList = '<ul style="list-style-type: none"><li><b>Suggestions</b></li>';
                   var curSearchField = document.getElementById('currentsearchterms');
                   var curSearchTerms = (curSearchField.innerHTML!=''?curSearchField.innerHTML + ",":"");
