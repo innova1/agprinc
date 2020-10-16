@@ -118,7 +118,7 @@ function setSelected(selectedFramework) {
 						frameElement.classList.remove('selected');
 					}
 				} else if( f == selectedFramework ) {
-					selFrElement.classList.add('selected');
+					frameElement.classList.add('selected');
 				}
 			}
 		});
