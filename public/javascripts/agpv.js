@@ -110,24 +110,22 @@ function setSelected(selectedFramework) {
 		frameworksArray.forEach( f => {
 			if(debug) console.log("in set selected fr: in array loop removing selected on " + f + " div");
 			frameElement = document.getElementById(f);
-			if(frameElement && frameElement.classList.contains('selected')) {
-				document.getElementById(f).classList.remove('selected');
+			if(frameElement) {
+				if(frameElement.classList.contains('selected')) {
+					if( f == selectedFramework ) {
+						frameElement.parentElement.setAttribute("onclick", "replaceItemsPanels('all')");
+					} else {
+						frameElement.classList.remove('selected');
+					}
+				} else if( f == selectedFramework ) {
+					selFrElement.classList.add('selected');
+				}
 			}
 		});
 		if(debug) console.log("in set selected fr: setting selected to " + selectedFramework + " div");
 		var currFramElement = document.getElementById('selectedFramework')
 		if(currFramElement) {
 			currFramElement.innerHTML = selectedFramework;
-		}
-		/* duplicate code?
-		frameworksArray.forEach( f => {
-			document.getElementById(f).classList.remove('selected');
-		});
-		*/
-		var selFrElement = document.getElementById(selectedFramework);
-		if(selFrElement) {
-			selFrElement.classList.add('selected');
-			selFrElement.parentElement.setAttribute("onclick", "replaceItemsPanels('all')");
 		}
 	} else {
 		var currFramElement = document.getElementById('selectedFramework')
