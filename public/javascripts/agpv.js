@@ -130,6 +130,7 @@ function setSelected(selectedFramework) {
 }
 
 function replaceItemsPanels(framework) {
+	const debug = true;
 	let url;
 	if(termsObj.size() > 0) {
 		if(debug) console.log('in replaceitemspanels, termsObj size should be 0 and is ' + termsObj.size() );
