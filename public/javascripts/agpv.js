@@ -151,7 +151,7 @@ function replaceFilteredItemsPanels(framework) {
 		url: url = "/api/agileframeworks/search?framework=" + framework + "&searchwords=" + termsObj.getCurrentTerms(),
 		dataType: "json",
 		success: function(result) {
-			populateItemsPanels(framework, result.filteredItems);
+			populateItemsPanels(result.filteredItems);
 			populateCurrentSearchTermsDiv();
 		}
 	});
