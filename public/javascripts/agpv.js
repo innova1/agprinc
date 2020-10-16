@@ -180,8 +180,9 @@ function replaceItemsPanels(framework) {
 let termsObj = new currentTermsObject();
 
 function replaceFilteredItemsPanels(framework) {
-	const debug = false;
-	//if(debug) console.log('will ajax for items with /api/agileframeworks/search?searchwords=' + termsObj.getCurrentTerms())
+	const debug = true;
+	if(debug) console.log('will ajax for items with /api/agileframeworks/search?searchwords=' + termsObj.getCurrentTerms())
+	
 	$.ajax({
 		type: "GET",
 		url: url = "/api/agileframeworks/search?framework=" + framework + "&searchwords=" + termsObj.getCurrentTerms(),
