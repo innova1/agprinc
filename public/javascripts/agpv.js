@@ -1,4 +1,4 @@
-const debug = false;
+
 setup();
 async function setup() {
 	await replaceFrameworksPanel('all');
@@ -101,6 +101,7 @@ function setMenuCollapsed(isSmallViewport) {
 }
 
 function setSelected(selectedFramework) {
+	var debug = true;
 	if(debug) console.log('set selected fra: selF: ' + selectedFramework);
 	if(selectedFramework != "" && selectedFramework != "all") {
 		var frameElement;
