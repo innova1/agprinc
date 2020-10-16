@@ -292,7 +292,7 @@ function addActiveSearchterm(term) {
 	populateCurrentSearchTermsDiv(termsObj.getCurrentTerms());
 	var currFramElement = document.getElementById('selectedFramework')
 	if(currFramElement) {
-		framework = currFramElement.innerHTML = selectedFramework;
+		framework = currFramElement.innerHTML;
 	} else {
 		framework = 'all';
 	}
@@ -307,7 +307,7 @@ function removeActiveSearchterm(element) {
 	if(debug) console.log("termsObj size: " + termsObj.size())
 	var currFramElement = document.getElementById('selectedFramework')
 	if(currFramElement) {
-		framework = currFramElement.innerHTML = selectedFramework;
+		framework = currFramElement.innerHTML;
 	} else {
 		framework = 'all';
 	}
