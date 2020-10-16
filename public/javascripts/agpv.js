@@ -22,6 +22,7 @@ var suggElement = document.getElementById('suggestions');
 var frameworksArray = new Array();
 
 async function populateItemsPanels( objs ) {
+	const debug = false;
 	var itemTitle = "";
 	var obj = new Object();
 	var itemsHtml = "";
@@ -86,6 +87,7 @@ async function populateFrameworksPanel( objs ) {
 }
 
 function setMenuCollapsed(isSmallViewport) {
+	const debug = false;
 	if(debug) console.log('calling set Menu Collapsed');
 	if( isSmallViewport.matches ) {
 		//document.getElementById("sidepanel").classList.remove('show');
@@ -101,7 +103,7 @@ function setMenuCollapsed(isSmallViewport) {
 }
 
 function setSelected(selectedFramework) {
-	var debug = true;
+	const debug = true;
 	if(debug) console.log('set selected fra: selF: ' + selectedFramework);
 	if(selectedFramework != "" && selectedFramework != "all") {
 		var frameElement;
@@ -162,6 +164,7 @@ function replaceItemsPanels(el, framework) {
 let termsObj = new currentTermsObject();
 
 function replaceFilteredItemsPanels(framework) {
+	const debug = false;
 	//if(debug) console.log('will ajax for items with /api/agileframeworks/search?searchwords=' + termsObj.getCurrentTerms())
 	$.ajax({
 		type: "GET",
@@ -175,6 +178,7 @@ function replaceFilteredItemsPanels(framework) {
 }
 
 function currentTermsObject() {
+	const debug = false;
 	this.currentTermsMap = new Map(),
 	this.currentTermsString = "",
 	this.getCurrentTermsHtml = function() {
@@ -206,6 +210,7 @@ function currentTermsObject() {
 		}
 	},
 	this.removeTerm = function(t) {
+		const debug = false;
 		if(debug) console.log('removing |' + t + '|');
 		this.currentTermsMap.delete(t.replace(/\s/g, '+'));
 		if(debug) console.log('map size: ' + this.currentTermsMap.size);
@@ -256,6 +261,7 @@ async function replaceFrameworksPanel(framework) {
 
 $(function() {
   var minlength = 3;
+	const debug = false;
 
   $("#searchtext").keyup(function() {
     var oldThis = this,
@@ -314,6 +320,7 @@ $(function() {
 });
 
 function addActiveSearchterm(term) {
+	const debug = false;
 	if(debug) console.log('will add ' + term);
 	var framework = '';
 	termsObj.addTerm(term);
@@ -329,6 +336,7 @@ function addActiveSearchterm(term) {
 }
 
 function removeActiveSearchterm(element) {
+	const debug = false;
 	if(debug) console.log('will remove ' + element.text.trim());
 	var framework = '';
 	termsObj.removeTerm(element.text.trim().replace(/\s/g, '+'));
