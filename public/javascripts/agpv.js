@@ -112,13 +112,18 @@ function setSelected(selectedFramework) {
 			frameElement = document.getElementById(f);
 			if(frameElement) {
 				if( f == selectedFramework ) {
-					frameElement.classList.add('selected');
-					frameElement.parentElement.setAttribute("onclick", "replaceItemsPanels('all')");
+					if(frameElement.classList.contains('selected')) {
+						frameElement.classList.remove('selected');
+						frameElement.parentElement.setAttribute("onclick", "replaceItemsPanels(\'" + f + "\')");
+					} else {
+						frameElement.classList.add('selected');
+						frameElement.parentElement.setAttribute("onclick", "replaceItemsPanels('all')");
+					}
 				} else { //this is not the currently selected framework
 					if(frameElement.classList.contains('selected')) {
 						frameElement.classList.remove('selected');
+						frameElement.parentElement.setAttribute("onclick", "replaceItemsPanels(\'" + f + "\')");
 					}
-					frameElement.parentElement.setAttribute("onclick", "replaceItemsPanels(\'" + f + "\')");
 				}
 			}
 		});
