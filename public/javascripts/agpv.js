@@ -170,6 +170,7 @@ function replaceItemsPanels(framework) {
 		url: url,
 		dataType: "json",
 		success: function(result) {
+			if(debug) console.log("result.items count: " + result.items.length)
 			populateItemsPanels(result.items);
 			setSelected(framework);
 			setMenuCollapsed(isSmallViewport);
