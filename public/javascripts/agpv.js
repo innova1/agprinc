@@ -2,7 +2,7 @@
 setup();
 async function setup() {
 	await replaceFrameworksPanel('all');
-	replaceItemsPanels('all', null);
+	replaceItemsPanels('all');
 	
 }
 /*
@@ -73,7 +73,7 @@ async function populateFrameworksPanel( objs ) {
 	objs.forEach( obj => {
 		frameworksArray.push(obj.framework);
 		itemsHtml += "<li class='list-group-item'>";
-		jscriptString = "onclick=\'javascript:replaceItemsPanels(\"" + obj.framework + "\", this)\'";
+		jscriptString = "onclick=\'javascript:replaceItemsPanels(\"" + obj.framework + "\")\'";
 		itemsHtml += "<a class=\'menu\' href=\'javascript:void(0)\' " + jscriptString + "> <span id=\'" + obj.framework + "\'>" + obj.frameworkdisplay + "</span>";
 		itemsHtml += "</li>";
 	});
@@ -132,9 +132,9 @@ function setSelected(selectedFramework) {
 //if(debug) console.log("added .selected to " + selectedFramework)
 }
 
-function replaceItemsPanels(framework, el) {
+function replaceItemsPanels(framework) {
 	const debug = true;
-	if(debug) console.log('in replaceItemsPanels with ' + framework + ', this: |' + el + '|' );
+	if(debug) console.log('in replaceItemsPanels with ' + framework );
 	let url;
 	if(termsObj.size() > 0) {
 		if(debug) console.log('in replaceitemspanels, termsObj size should be >0 and is ' + termsObj.size() );
@@ -143,11 +143,11 @@ function replaceItemsPanels(framework, el) {
 		if(debug) console.log('in replaceitemspanels, termsObj size should be 0 and is ' + termsObj.size() );
 		url = "/api/agileframeworks/" + framework;
 	}
-	
+	/*
 	 if($(el).length) {
 		 $(el).setAttribute("onclick", "replaceItemsPanels('all', this)")
 	 }
-	
+	*/
 	
 	$.ajax({
 		type: "GET",
@@ -350,7 +350,7 @@ function removeActiveSearchterm(element) {
 		framework = 'all';
 	}
 	if(termsObj.size()==0) {
-		replaceItemsPanels('all', null);
+		replaceItemsPanels('all');
 	} else {
 		replaceFilteredItemsPanels(framework);
 	}
