@@ -350,7 +350,7 @@ function removeActiveSearchterm(element) {
 		framework = 'all';
 	}
 	if(termsObj.size()==0) {
-		replaceItemsPanels('all');
+		replaceItemsPanels(null, 'all');
 	} else {
 		replaceFilteredItemsPanels(framework);
 	}
