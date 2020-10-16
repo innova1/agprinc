@@ -130,9 +130,14 @@ function setSelected(selectedFramework) {
 }
 
 function replaceItemsPanels(framework) {
-	$.ajax({
+	let url;
+	if(termsObj.size() > 0) {
+		url = "/api/agileframeworks/search?framework=" + framework + "&searchwords=" + termsObj.getCurrentTerms();
+	} else {
+		url = "/api/agileframeworks/" + framework;
+	}
 		type: "GET",
-		url: "/api/agileframeworks/" + framework,
+		url: url,
 		dataType: "json",
 		success: function(result) {
 			populateItemsPanels(result.items);
