@@ -27,15 +27,18 @@ async function populateItemsPanels( objs ) {
 	var itemsHtml = "";
 	var itemHtml = "";
 	//if(debug) console.log('in populateItemsPanels with obj size: ' + objs.length)
-
-	objs.forEach( obj => {
-		itemHtml = "<div class='panel panel-primary " + obj.type + "'>";
-		itemTitle = "<h3 class='panel-title'>" + obj.frameworkdisplay + " " + obj.type + " " + obj.id + "</h3>"
-		itemHtml += "<div class='panel-heading'>" + itemTitle + "</div>";
-		itemHtml += "<div class='panel-body'>" + obj.text + "</div>";
-		itemHtml += "</div>";
-		itemsHtml += itemHtml;
-	});
+	try {
+		objs.forEach( obj => {
+			itemHtml = "<div class='panel panel-primary " + obj.type + "'>";
+			itemTitle = "<h3 class='panel-title'>" + obj.frameworkdisplay + " " + obj.type + " " + obj.id + "</h3>"
+			itemHtml += "<div class='panel-heading'>" + itemTitle + "</div>";
+			itemHtml += "<div class='panel-body'>" + obj.text + "</div>";
+			itemHtml += "</div>";
+			itemsHtml += itemHtml;
+		});
+	} catch(err) {
+		console.log('error in populateItemsPanels with ' + err);
+	}
 	
 	document.getElementById('itemsPanels').innerHTML = itemsHtml;
 }
