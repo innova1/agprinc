@@ -111,14 +111,13 @@ function setSelected(selectedFramework) {
 			if(debug) console.log("in set selected fr: in array loop removing selected on " + f + " div");
 			frameElement = document.getElementById(f);
 			if(frameElement) {
-				if(frameElement.classList.contains('selected')) {
-					if( f == selectedFramework ) {
-						frameElement.parentElement.setAttribute("onclick", "replaceItemsPanels('all')");
-					} else {
+				if( f == selectedFramework ) {
+					frameElement.classList.add('selected');
+					frameElement.parentElement.setAttribute("onclick", "replaceItemsPanels('all')");
+				} else { //this is not the currently selected framework
+					if(frameElement.classList.contains('selected')) {
 						frameElement.classList.remove('selected');
 					}
-				} else if( f == selectedFramework ) {
-					frameElement.classList.add('selected');
 					frameElement.parentElement.setAttribute("onclick", "replaceItemsPanels(" + f + ")");
 				}
 			}
