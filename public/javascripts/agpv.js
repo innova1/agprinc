@@ -238,8 +238,8 @@ function populateCurrentSearchTermsDiv() {
 	document.getElementById('searchtext').value = "";
 }
 
-function replaceFrameworksPanel(framework) {
-	$.ajax({
+async function replaceFrameworksPanel(framework) {
+	await $.ajax({
 		type: "GET",
 		url: "/api/agileframeworks/frameworks/",
 		dataType: "json",
