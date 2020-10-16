@@ -143,7 +143,7 @@ function replaceItemsPanels(framework) {
 	
 	$.ajax({
 		type: "GET",
-		url: "/api/agileframeworks/" + framework,
+		url: url,
 		dataType: "json",
 		success: function(result) {
 			populateItemsPanels(result.items);
