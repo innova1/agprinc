@@ -136,8 +136,10 @@ function replaceItemsPanels(framework) {
 	} else {
 		url = "/api/agileframeworks/" + framework;
 	}
+	
+	$.ajax({
 		type: "GET",
-		url: url,
+		url: "/api/agileframeworks/" + framework,
 		dataType: "json",
 		success: function(result) {
 			populateItemsPanels(result.items);
