@@ -188,6 +188,7 @@ function replaceFilteredItemsPanels(framework) {
 		url: url = "/api/agileframeworks/search?framework=" + framework + "&searchwords=" + termsObj.getCurrentTerms(),
 		dataType: "json",
 		success: function(result) {
+			if(debug) console.log("result size: " + result.length)
 			populateItemsPanels(result.filteredItems);
 			populateCurrentSearchTermsDiv();
 		}
