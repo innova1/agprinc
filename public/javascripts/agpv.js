@@ -73,7 +73,7 @@ async function populateFrameworksPanel( objs ) {
 		frameworksArray.push(obj.framework);
 		itemsHtml += "<li class='list-group-item'>";
 		jscriptString = "javascript:replaceItemsPanels(" + "this" + ", \'" + obj.framework + "\'" + ")";
-		itemsHtml += "<a class=\'menu\' href=\'javascript:void(0)\' onclick=" + jscriptString + "> <span id=\'" + obj.framework + "\'>" + obj.frameworkdisplay + "</span>";
+		itemsHtml += "<a class=\'menu\' href=\'javascript:void(0)\' onclick='" + jscriptString + "'> <span id=\'" + obj.framework + "\'>" + obj.frameworkdisplay + "</span>";
 		itemsHtml += "</li>";
 	});
 	itemsHtml += "</ul>";
