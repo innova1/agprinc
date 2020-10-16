@@ -72,7 +72,7 @@ async function populateFrameworksPanel( objs ) {
 	objs.forEach( obj => {
 		frameworksArray.push(obj.framework);
 		itemsHtml += "<li class='list-group-item'>";
-		jscriptString = "javascript:replaceItemsPanels('" + obj.framework + "')";
+		jscriptString = "javascript:replaceItemsPanels('this, " + obj.framework + "')";
 		itemsHtml += "<a class='menu' href='javascript:void(0)' onclick=" + jscriptString + "> <span id='" + obj.framework + "'>" + obj.frameworkdisplay + "</span>";
 		itemsHtml += "</li>";
 	});
@@ -129,7 +129,7 @@ function setSelected(selectedFramework) {
 //if(debug) console.log("added .selected to " + selectedFramework)
 }
 
-function replaceItemsPanels(framework) {
+function replaceItemsPanels(aLinkObj, framework) {
 	const debug = true;
 	if(debug) console.log('in replaceItemsPanels with ' + framework );
 	let url;
@@ -140,6 +140,8 @@ function replaceItemsPanels(framework) {
 		if(debug) console.log('in replaceitemspanels, termsObj size should be 0 and is ' + termsObj.size() );
 		url = "/api/agileframeworks/" + framework;
 	}
+	
+	aLinkObj.setAttribute("onclick", "replaceItemsPanels(this,'all')")
 	
 	$.ajax({
 		type: "GET",
