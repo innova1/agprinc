@@ -76,7 +76,7 @@ async function populateFrameworksPanel( objs ) {
 		frameworksArray.push(obj.framework);
 		itemsHtml += "<li class='list-group-item'>";
 		jscriptString = "onclick=\'javascript:replaceItemsPanels(\"" + obj.framework + "\")\'";
-		itemsHtml += "<a class=\'menu\' href=\'javascript:void(0)\' " + jscriptString + "> <span id=\'" + obj.framework + "\'>" + obj.frameworkdisplay + "</span>";
+		itemsHtml += "<a class=\'menu plain\' href=\'javascript:void(0)\' " + jscriptString + "> <span id=\'" + obj.framework + "\'>" + obj.frameworkdisplay + "</span>";
 		itemsHtml += "</li>";
 	});
 	itemsHtml += "</ul>";
@@ -105,7 +105,7 @@ function setMenuCollapsed(isSmallViewport) {
 }
 
 function setSelected(selectedFramework) {
-	const debug = true;
+	const debug = false;
 	if(debug) console.log('set selected fra: selF: ' + selectedFramework);
 //	if(selectedFramework != "" && selectedFramework != "all") {
 	var frameElement;
