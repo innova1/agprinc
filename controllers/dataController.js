@@ -415,7 +415,7 @@ async function getItemsFilteredByKeywords( searchWordsArray, framework ) {
     if(debug) { console.log('in getItemsFilteredByKeywords with ' + searchWordsArray[0])};
     //const dataArray = getDataArray();
     const foundItems = new Array();
-	const dataArray = new Array();
+	let dataArray = new Array();
     try {
 		if(framework='all') {
         	dataArray = await getPrinciplesArray('all','');
