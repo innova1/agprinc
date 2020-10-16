@@ -171,10 +171,10 @@ exports.getSearchMap = function() {
     return createSearchMap();
 }
 
-exports.getFilteredItems = async function( searchWordsArray, framework ) {
+exports.getFilteredItems = async function( framework, searchWordsArray ) {
 	var resultArray = new Array();
 	try {
-		resultArray = await getItemsFilteredByKeywords( searchWordsArray, framework );
+		resultArray = await getItemsFilteredByKeywords( framework, searchWordsArray );
 	} catch(err) {
 		console.log('error in db.getFilteredItems with ' + err);
 	}
@@ -367,10 +367,10 @@ function getDataArray() {
 		if yes, then add this pointer to the array in the object
 		if no, then create the object and add to the array
 */
-async function createSearchMap() {
+async function createSearchMap(framework) {
     const debug = false;
   	//const dataArray = getDataArray(); //full data array of all values and principle objects
-    const dataArray = await getPrinciplesArray('all','');
+    const dataArray = await getPrinciplesArray(framework,'');
     var searchMap = new Map(); //Map being built of a list of objects with keyword and location of the word
     var tempArray = new Array(); //temporary holding tank of keywords to be tested and added if not already there. if already there, then just add location to the end of the item on the search array
     var locationObj = new Object();
@@ -410,20 +410,15 @@ async function createSearchMap() {
 }
 
 /* returns array of principles filtered by searchWordsArray */
-async function getItemsFilteredByKeywords( searchWordsArray, framework ) {
+async function getItemsFilteredByKeywords( framework, searchWordsArray ) {
     const debug = false;
     if(debug) { console.log('in getItemsFilteredByKeywords with ' + searchWordsArray[0])};
     //const dataArray = getDataArray();
     const foundItems = new Array();
-	let dataArray = new Array();
     try {
-		if(framework='all') {
-        	dataArray = await getPrinciplesArray('all','');
-		} else {
-        	dataArray = await getPrinciplesArray(framework,'');
-		}
+        const dataArray = await getPrinciplesArray('all','');
 		if(debug) console.log('db.getFilteredItems just before create search map');
-        const searchMap = await createSearchMap();
+        const searchMap = await createSearchMap(framework);
 		if(debug) console.log('db.getFilteredItems just after create search map. searchMap length: ' + searchMap.size);
         var foundIndexes = new Array();
         var locations = new Array();

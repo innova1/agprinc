@@ -51,7 +51,7 @@ exports.getFilteredItems = async function(req, res) {
 	try {
 		const searchWordsArray = searchWords.split(',');
 		if(debug) { console.log('in / in searchController.getFilteredItems(' + searchWords + ', ' + framework + ')')};
-    	itemsArray = await db.getFilteredItems(searchWordsArray, framework);
+    	itemsArray = await db.getFilteredItems(framework, searchWordsArray);
 	} catch(err) {
 		console.log('error in search controller.getFilteredItems with ' + err);
 	}
