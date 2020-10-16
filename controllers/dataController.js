@@ -430,9 +430,9 @@ async function getItemsFilteredByKeywords( framework, searchWordsArray ) {
             for( const l of locations ) {
               if( foundIndexes.indexOf(l.index) == -1 ) {
                 foundIndexes.push(l.index);
-                foundItems.push(dataArray[l.index]);
+                foundItems.push(dataArray.find( element => element.id == l.id && element.framework == l.framework );
               } else {
-                if(debug) { console.log('skipping ' + dataArray[l.index].shortdescription + ' because already added') };
+                if(debug) { console.log('skipping ' + searchMap[l.index].shortdescription + ' because already added') };
               }
             }
           }
