@@ -2,7 +2,7 @@
 setup();
 async function setup() {
 	await replaceFrameworksPanel('all');
-	replaceItemsPanels(null, 'all');
+	replaceItemsPanels('all', null);
 	
 }
 /*
@@ -73,7 +73,7 @@ async function populateFrameworksPanel( objs ) {
 	objs.forEach( obj => {
 		frameworksArray.push(obj.framework);
 		itemsHtml += "<li class='list-group-item'>";
-		jscriptString = "onclick=\'javascript:replaceItemsPanels(this, \"" + obj.framework + "\")\'";
+		jscriptString = "onclick=\'javascript:replaceItemsPanels(\"" + obj.framework + ", this\")\'";
 		itemsHtml += "<a class=\'menu\' href=\'javascript:void(0)\' " + jscriptString + "> <span id=\'" + obj.framework + "\'>" + obj.frameworkdisplay + "</span>";
 		itemsHtml += "</li>";
 	});
@@ -132,7 +132,7 @@ function setSelected(selectedFramework) {
 //if(debug) console.log("added .selected to " + selectedFramework)
 }
 
-function replaceItemsPanels(el, framework) {
+function replaceItemsPanels(framework, el) {
 	const debug = true;
 	if(debug) console.log('in replaceItemsPanels with ' + framework );
 	let url;
@@ -145,7 +145,7 @@ function replaceItemsPanels(el, framework) {
 	}
 	
 	 if($(el).length) {
-		 $(el).setAttribute("onclick", "replaceItemsPanels(this,'all')")
+		 $(el).setAttribute("onclick", "replaceItemsPanels('all', this)")
 	 }
 	
 	
@@ -350,7 +350,7 @@ function removeActiveSearchterm(element) {
 		framework = 'all';
 	}
 	if(termsObj.size()==0) {
-		replaceItemsPanels(null, 'all');
+		replaceItemsPanels('all', null);
 	} else {
 		replaceFilteredItemsPanels(framework);
 	}
