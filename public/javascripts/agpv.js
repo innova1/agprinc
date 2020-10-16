@@ -127,7 +127,7 @@ function setSelected(selectedFramework) {
 		var selFrElement = document.getElementById(selectedFramework);
 		if(selFrElement) {
 			selFrElement.classList.add('selected');
-			selFrElement.setAttribute("onclick", "replaceItemsPanels('all')");
+			selFrElement.parentElement.setAttribute("onclick", "replaceItemsPanels('all')");
 		}
 	} else {
 		var currFramElement = document.getElementById('selectedFramework')
