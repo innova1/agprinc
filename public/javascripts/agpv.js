@@ -134,7 +134,7 @@ function setSelected(selectedFramework) {
 
 function replaceItemsPanels(framework, el) {
 	const debug = true;
-	if(debug) console.log('in replaceItemsPanels with ' + framework + ', this: |' + el.onclick + '|' );
+	if(debug) console.log('in replaceItemsPanels with ' + framework + ', this: |' + el + '|' );
 	let url;
 	if(termsObj.size() > 0) {
 		if(debug) console.log('in replaceitemspanels, termsObj size should be >0 and is ' + termsObj.size() );
