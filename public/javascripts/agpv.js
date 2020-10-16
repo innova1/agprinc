@@ -75,7 +75,7 @@ async function populateFrameworksPanel( objs ) {
 		jscriptString = "javascript:replaceItemsPanels(this, " + "\'" + obj.framework + "\'" + ")";
 		itemsHtml += "<a class=\'menu\' href=\'javascript:void(0)\' onclick=" + jscriptString + "> <span id=\'" + obj.framework + "\'>" + obj.frameworkdisplay + "</span>";
 		itemsHtml += "</li>";
-	});godo 
+	});
 	itemsHtml += "</ul>";
 	itemsHtml += "</div>"; //close div panel-collapse
 	itemsHtml += "</div>"; //close div panel-default
