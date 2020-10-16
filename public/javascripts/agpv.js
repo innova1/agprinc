@@ -294,7 +294,7 @@ function addActiveSearchterm(term) {
 	if(currFramElement) {
 		framework = currFramElement.innerHTML;
 	}
-	if(framework='') {
+	if(framework=='') {
 		framework = 'all';
 	}
 	replaceFilteredItemsPanels(framework);
@@ -310,7 +310,7 @@ function removeActiveSearchterm(element) {
 	if(currFramElement) {
 		framework = currFramElement.innerHTML;
 	}
-	if(framework='') {
+	if(framework=='') {
 		framework = 'all';
 	}
 	if(termsObj.size()==0) {
