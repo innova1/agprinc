@@ -132,8 +132,10 @@ function setSelected(selectedFramework) {
 function replaceItemsPanels(framework) {
 	let url;
 	if(termsObj.size() > 0) {
+		if(debug) console.log('in replaceitemspanels, termsObj size should be 0 and is ' + termsObj.size() );
 		url = "/api/agileframeworks/search?framework=" + framework + "&searchwords=" + termsObj.getCurrentTerms();
 	} else {
+		if(debug) console.log('in replaceitemspanels, termsObj size should be >0 and is ' + termsObj.size() );
 		url = "/api/agileframeworks/" + framework;
 	}
 	
