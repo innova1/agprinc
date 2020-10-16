@@ -45,7 +45,7 @@ exports.getItems = async function(req, res) {
 }
 
 exports.getFilteredItems = async function(req, res) {
-	const debug = false;
+	const debug = true;
     const searchWords = req.query.searchwords;
 	const framework = req.query.framework;
 	var itemsArray = new Array();
