@@ -415,11 +415,12 @@ async function getItemsFilteredByKeywords( searchWordsArray, framework ) {
     if(debug) { console.log('in getItemsFilteredByKeywords with ' + searchWordsArray[0])};
     //const dataArray = getDataArray();
     const foundItems = new Array();
+	const dataArray = new Array();
     try {
 		if(framework='all') {
-        	const dataArray = await getPrinciplesArray('all','');
+        	dataArray = await getPrinciplesArray('all','');
 		} else {
-        	const dataArray = await getPrinciplesArray(framework,'');
+        	dataArray = await getPrinciplesArray(framework,'');
 		}
 		if(debug) console.log('db.getFilteredItems just before create search map');
         const searchMap = await createSearchMap();
