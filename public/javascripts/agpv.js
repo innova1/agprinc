@@ -14,8 +14,10 @@ as an exercise later can try to figure out how to make this work with async awai
 
 var isSmallViewport = window.matchMedia("(max-width: 1000px)");
 
+/*
 var selF = document.getElementById('selectedFramework').innerHTML;
 setSelected(selF);
+*/
 
 var searchRequest = null;
 var suggElement = document.getElementById('suggestions');
@@ -105,40 +107,45 @@ function setMenuCollapsed(isSmallViewport) {
 function setSelected(selectedFramework) {
 	const debug = true;
 	if(debug) console.log('set selected fra: selF: ' + selectedFramework);
-	if(selectedFramework != "" && selectedFramework != "all") {
-		var frameElement;
-		frameworksArray.forEach( f => {
-			if(debug) console.log("in set selected fr: in array loop removing selected on " + f + " div");
-			frameElement = document.getElementById(f);
-			if(frameElement) {
-				if( f == selectedFramework ) {
-					if(frameElement.classList.contains('selected')) {
-						frameElement.classList.remove('selected');
-						frameElement.parentElement.setAttribute("onclick", "replaceItemsPanels(\'" + f + "\')");
-					} else {
-						frameElement.classList.add('selected');
-						frameElement.parentElement.setAttribute("onclick", "replaceItemsPanels('all')");
-					}
-				} else { //this is not the currently selected framework
-					if(frameElement.classList.contains('selected')) {
-						frameElement.classList.remove('selected');
-						frameElement.parentElement.setAttribute("onclick", "replaceItemsPanels(\'" + f + "\')");
-					}
+//	if(selectedFramework != "" && selectedFramework != "all") {
+	var frameElement;
+	frameworksArray.forEach( f => {
+		if(debug) console.log("in set selected fr: in array loop removing selected on " + f + " div");
+		frameElement = document.getElementById(f);
+		if(frameElement) {
+			if(debug) console.log 'if frameElement true'
+			if( f == selectedFramework ) {
+				if(debug) console.log('f is selected. f:' + f + ", selected: " + selectedFramework)
+				if(frameElement.classList.contains('selected')) {
+					if(debug) console.log( 'classList contains selected')
+					frameElement.classList.remove('selected');
+					frameElement.parentElement.setAttribute("onclick", "replaceItemsPanels(\'" + f + "\')");
+				} else {
+					if(debug) console.log( 'classList does not already contain selected')
+					frameElement.classList.add('selected');
+					frameElement.parentElement.setAttribute("onclick", "replaceItemsPanels('all')");
+				}
+			} else { //this is not the currently selected framework
+				if(debug) console.log('f is NOT selected. f:' + f + ", selected: " + selectedFramework)
+				if(frameElement.classList.contains('selected')) {
+					if(debug) console.log( 'classList already contains selected -- removing')
+					frameElement.classList.remove('selected');
+					frameElement.parentElement.setAttribute("onclick", "replaceItemsPanels(\'" + f + "\')");
 				}
 			}
-		});
-		if(debug) console.log("in set selected fr: setting selected to " + selectedFramework + " div");
-		var currFramElement = document.getElementById('selectedFramework')
-		if(currFramElement) {
-			currFramElement.innerHTML = selectedFramework;
 		}
-	} else {
-		var currFramElement = document.getElementById('selectedFramework')
-		if(currFramElement) {
-			currFramElement.innerHTML = "";
-		}
+	});
+	if(debug) console.log("in set selected fr: setting selected to " + selectedFramework + " div");
+	var currFramElement = document.getElementById('selectedFramework')
+	if(currFramElement) {
+		currFramElement.innerHTML = selectedFramework;
 	}
-//if(debug) console.log("added .selected to " + selectedFramework)
+//	} else {
+	var currFramElement = document.getElementById('selectedFramework')
+	if(currFramElement) {
+		currFramElement.innerHTML = "";
+	}
+//	}
 }
 
 function replaceItemsPanels(framework) {
