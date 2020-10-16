@@ -2,7 +2,7 @@
 setup();
 async function setup() {
 	await replaceFrameworksPanel('all');
-	replaceItemsPanels('all');
+	replaceItemsPanels(null, 'all');
 	
 }
 /*
