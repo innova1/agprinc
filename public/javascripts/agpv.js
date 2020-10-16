@@ -149,7 +149,7 @@ function setSelected(selectedFramework) {
 }
 
 function replaceItemsPanels(framework) {
-	const debug = false;
+	const debug = true;
 	if(debug) console.log('in replaceItemsPanels with ' + framework );
 	let url;
 	if(termsObj.size() > 0) {
