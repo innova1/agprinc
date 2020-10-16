@@ -141,14 +141,14 @@ function replaceItemsPanels(framework) {
 
 let termsObj = new currentTermsObject();
 
-function replaceFilteredItemsPanels() {
+function replaceFilteredItemsPanels(framework) {
 	//if(debug) console.log('will ajax for items with /api/agileframeworks/search?searchwords=' + termsObj.getCurrentTerms())
 	$.ajax({
 		type: "GET",
-		url: "/api/agileframeworks/search?searchwords=" + termsObj.getCurrentTerms(),
+		url: url = "/api/agileframeworks/search?framework=" + framework + "&searchwords=" + termsObj.getCurrentTerms(),
 		dataType: "json",
 		success: function(result) {
-			populateItemsPanels(result.filteredItems);
+			populateItemsPanels(framework, result.filteredItems);
 			populateCurrentSearchTermsDiv();
 		}
 	});
@@ -287,20 +287,34 @@ $(function() {
 
 function addActiveSearchterm(term) {
 	if(debug) console.log('will add ' + term);
+	var framework = '';
 	termsObj.addTerm(term);
 	populateCurrentSearchTermsDiv(termsObj.getCurrentTerms());
-	replaceFilteredItemsPanels();
+	var currFramElement = document.getElementById('selectedFramework')
+	if(currFramElement) {
+		framework = currFramElement.innerHTML = selectedFramework;
+	} else {
+		framework = 'all';
+	}
+	replaceFilteredItemsPanels(framework);
 }
 
 function removeActiveSearchterm(element) {
 	if(debug) console.log('will remove ' + element.text.trim());
+	var framework = '';
 	termsObj.removeTerm(element.text.trim().replace(/\s/g, '+'));
 	populateCurrentSearchTermsDiv(termsObj.getCurrentTerms());
 	if(debug) console.log("termsObj size: " + termsObj.size())
+	var currFramElement = document.getElementById('selectedFramework')
+	if(currFramElement) {
+		framework = currFramElement.innerHTML = selectedFramework;
+	} else {
+		framework = 'all';
+	}
 	if(termsObj.size()==0) {
 		replaceItemsPanels('all');
 	} else {
-		replaceFilteredItemsPanels();
+		replaceFilteredItemsPanels(framework);
 	}
 }
 

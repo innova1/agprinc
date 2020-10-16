@@ -171,10 +171,10 @@ exports.getSearchMap = function() {
     return createSearchMap();
 }
 
-exports.getFilteredItems = async function( searchWordsArray ) {
+exports.getFilteredItems = async function( searchWordsArray, framework ) {
 	var resultArray = new Array();
 	try {
-		resultArray = await getItemsFilteredByKeywords( searchWordsArray );
+		resultArray = await getItemsFilteredByKeywords( searchWordsArray, framework );
 	} catch(err) {
 		console.log('error in db.getFilteredItems with ' + err);
 	}
@@ -410,13 +410,17 @@ async function createSearchMap() {
 }
 
 /* returns array of principles filtered by searchWordsArray */
-async function getItemsFilteredByKeywords( searchWordsArray ) {
+async function getItemsFilteredByKeywords( searchWordsArray, framework ) {
     const debug = false;
     if(debug) { console.log('in getItemsFilteredByKeywords with ' + searchWordsArray[0])};
     //const dataArray = getDataArray();
     const foundItems = new Array();
     try {
-        const dataArray = await getPrinciplesArray('all','');
+		if(framework='all') {
+        	const dataArray = await getPrinciplesArray('all','');
+		} else {
+        	const dataArray = await getPrinciplesArray(framework,'');
+		}
 		if(debug) console.log('db.getFilteredItems just before create search map');
         const searchMap = await createSearchMap();
 		if(debug) console.log('db.getFilteredItems just after create search map. searchMap length: ' + searchMap.size);
