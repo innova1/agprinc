@@ -118,7 +118,7 @@ function setSelected(selectedFramework) {
 					if(frameElement.classList.contains('selected')) {
 						frameElement.classList.remove('selected');
 					}
-					frameElement.parentElement.setAttribute("onclick", "replaceItemsPanels(" + f + ")");
+					frameElement.parentElement.setAttribute("onclick", "replaceItemsPanels(\'" + f + "\')");
 				}
 			}
 		});
