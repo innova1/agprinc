@@ -113,7 +113,7 @@ function setSelected(selectedFramework) {
 		if(debug) console.log("in set selected fr: in array loop removing selected on " + f + " div");
 		frameElement = document.getElementById(f);
 		if(frameElement) {
-			if(debug) console.log 'if frameElement true'
+			if(debug) console.log( 'if frameElement true' )
 			if( f == selectedFramework ) {
 				if(debug) console.log('f is selected. f:' + f + ", selected: " + selectedFramework)
 				if(frameElement.classList.contains('selected')) {
