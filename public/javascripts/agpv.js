@@ -129,7 +129,7 @@ function setSelected(selectedFramework) {
 //if(debug) console.log("added .selected to " + selectedFramework)
 }
 
-function replaceItemsPanels(aLinkObj, framework) {
+function replaceItemsPanels(el, framework) {
 	const debug = true;
 	if(debug) console.log('in replaceItemsPanels with ' + framework );
 	let url;
@@ -140,8 +140,8 @@ function replaceItemsPanels(aLinkObj, framework) {
 		if(debug) console.log('in replaceitemspanels, termsObj size should be 0 and is ' + termsObj.size() );
 		url = "/api/agileframeworks/" + framework;
 	}
-	 if(aLinkObj[0].length) {
-		 aLinkObj[0].setAttribute("onclick", "replaceItemsPanels(this,'all')")
+	 if(el[0].length) {
+		 el[0].setAttribute("onclick", "replaceItemsPanels(this,'all')")
 	 }
 	
 	
