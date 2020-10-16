@@ -140,10 +140,11 @@ function replaceItemsPanels(el, framework) {
 		if(debug) console.log('in replaceitemspanels, termsObj size should be 0 and is ' + termsObj.size() );
 		url = "/api/agileframeworks/" + framework;
 	}
+	/*
 	 if($(el).length) {
 		 $(el).setAttribute("onclick", "replaceItemsPanels(this,'all')")
 	 }
-	
+	*/
 	
 	$.ajax({
 		type: "GET",
