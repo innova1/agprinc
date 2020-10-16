@@ -254,6 +254,13 @@ $(function() {
   $("#searchtext").keyup(function() {
     var oldThis = this,
     value = $(this).val();
+	var currFramElement = document.getElementById('selectedFramework')
+	if(currFramElement) {
+		framework = currFramElement.innerHTML;
+	}
+	if(framework=='') {
+		framework = 'all';
+	}
     //if(debug) console.log("value is " + value);
 
      if (value.length >= minlength ) {
@@ -263,6 +270,7 @@ $(function() {
             type: "GET",
             url: "/api/agileframeworks/suggestions?",
             data: {
+				'framework': framework,
                 'searchtext' : value
             },
             dataType: "json",

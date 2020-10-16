@@ -216,7 +216,7 @@ exports.updateKeywords = async function( framework, type, id, keywords ) {
 }
 
 /* returns array of keywords that match the string of first characters filtered by searchtext for keyword suggestions list */
-exports.getKeywordMatch = async function a( searchtext ) {
+exports.getKeywordMatch = async function a( framework, searchtext ) {
 	const debug = false;
 	if(debug) { console.log('searchtext is ' + searchtext) };
 	const keywordsMap = new Map();
@@ -224,7 +224,7 @@ exports.getKeywordMatch = async function a( searchtext ) {
 	if(debug) var count = 0;
 	var result = new Array();
 	try {
-		const keywordsMap = await createSearchMap();
+		const keywordsMap = await createSearchMap(framework);
 		keywords = [ ...keywordsMap.values() ];
 		if(debug) console.log('keyword array length: ' + keywords.length);
 		keywords.forEach( element => {
