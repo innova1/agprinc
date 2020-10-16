@@ -293,7 +293,8 @@ function addActiveSearchterm(term) {
 	var currFramElement = document.getElementById('selectedFramework')
 	if(currFramElement) {
 		framework = currFramElement.innerHTML;
-	} else {
+	}
+	if(framework='') {
 		framework = 'all';
 	}
 	replaceFilteredItemsPanels(framework);
@@ -308,7 +309,8 @@ function removeActiveSearchterm(element) {
 	var currFramElement = document.getElementById('selectedFramework')
 	if(currFramElement) {
 		framework = currFramElement.innerHTML;
-	} else {
+	}
+	if(framework='') {
 		framework = 'all';
 	}
 	if(termsObj.size()==0) {
