@@ -119,10 +119,16 @@ function setSelected(selectedFramework) {
 		if(currFramElement) {
 			currFramElement.innerHTML = selectedFramework;
 		}
+		/* duplicate code?
 		frameworksArray.forEach( f => {
 			document.getElementById(f).classList.remove('selected');
 		});
-		document.getElementById(selectedFramework).classList.add('selected');
+		*/
+		var selFrElement = document.getElementById(selectedFramework);
+		if(selFrElement) {
+			selFrElement.classList.add('selected');
+			selFrElement.setAttribute("onclick", "replaceItemsPanels('all')");
+		}
 	} else {
 		var currFramElement = document.getElementById('selectedFramework')
 		if(currFramElement) {
