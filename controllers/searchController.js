@@ -57,5 +57,5 @@ exports.getFilteredItems = async function(req, res) {
 		console.log('error in search controller.getFilteredItems with ' + err);
 	}
 	
-    res.json({ filteredItems: itemsArray });
+    res.json({ items: itemsArray });
 }
