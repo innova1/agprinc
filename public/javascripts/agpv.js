@@ -158,7 +158,7 @@ function setSelected(selectedFramework) {
 }
 
 function replaceItemsPanels(framework) {
-	const debug = true;
+	const debug = false;
 	if(debug) console.log('in replaceItemsPanels with ' + framework );
 	let url;
 	if(termsObj.size() > 0) {
@@ -190,7 +190,7 @@ function replaceItemsPanels(framework) {
 let termsObj = new currentTermsObject();
 
 function replaceFilteredItemsPanels(framework) {
-	const debug = true;
+	const debug = false;
 	if(debug) console.log('will ajax for items with /api/agileframeworks/search?searchwords=' + termsObj.getCurrentTerms())
 	
 	$.ajax({
