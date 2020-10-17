@@ -31,13 +31,22 @@ async function populateItemsPanels( objs ) {
 	var itemHtml = "";
 	//if(debug) console.log('in populateItemsPanels with obj size: ' + objs.length)
 	try {
-		objs.forEach( obj => {
+		if(objs.length==0) {
+			itemHtml = "<div class='panel panel-primary'>";
+			itemTitle = "<h3 class='panel-title'>No items match in this framework.</h3>"
+			itemHtml += "<div class='panel-heading'>" + itemTitle + "</div>";
+			itemHtml += "<div class='panel-body'></div>";
+			itemHtml += "</div>";
+			itemsHtml += itemHtml;
+		} else {
+			objs.forEach( obj => {
 			itemHtml = "<div class='panel panel-primary " + obj.type + "'>";
 			itemTitle = "<h3 class='panel-title'>" + obj.frameworkdisplay + " " + obj.type + " " + obj.id + "</h3>"
 			itemHtml += "<div class='panel-heading'>" + itemTitle + "</div>";
 			itemHtml += "<div class='panel-body'>" + obj.text + "</div>";
 			itemHtml += "</div>";
 			itemsHtml += itemHtml;
+			}
 		});
 	} catch(err) {
 		console.log('error in populateItemsPanels with ' + err);
@@ -170,15 +179,10 @@ function replaceItemsPanels(framework) {
 		url: url,
 		dataType: "json",
 		success: function(result) {
-			if(result) {
-				if(debug) console.log("result.items count: " + result.items.length)
-				populateItemsPanels(result.items);
-				setSelected(framework);
-				setMenuCollapsed(isSmallViewport);
-			} else {
-				if(debug) console.log("in else result.items count: " + result.items.length)
-				console.log('no items returned')
-			}
+			if(debug) console.log("result.items count: " + result.items.length)
+			populateItemsPanels(result.items);
+			setSelected(framework);
+			setMenuCollapsed(isSmallViewport);
 		}
 	});
 }
