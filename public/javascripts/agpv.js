@@ -150,10 +150,12 @@ function setSelected(selectedFramework) {
 		currFramElement.innerHTML = selectedFramework;
 	}
 //	} else {
+	/*
 	var currFramElement = document.getElementById('selectedFramework')
 	if(currFramElement) {
 		currFramElement.innerHTML = "";
 	}
+	*/
 //	}
 }
 
