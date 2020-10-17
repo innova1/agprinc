@@ -36,8 +36,17 @@
 	font-size: 1.2em;
 }
 a.plain {
-	text-decoration-line: none;
-	text-decoration-style: none;
+	text-decoration: none;
+}
+
+a:link, a:visited {
+  color: blue;
+  text-decoration: none;
+  cursor: auto;
+}
+
+a:link:active, a:visited:active {
+  color: blue;
 }
 div#suggestions {
 	display: none;
