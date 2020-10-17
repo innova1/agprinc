@@ -37,6 +37,7 @@
 }
 a.plain {
 	text-decoration-line: none;
+	text-decoration-style: none;
 }
 div#suggestions {
 	display: none;
