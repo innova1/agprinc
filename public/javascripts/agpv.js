@@ -40,14 +40,14 @@ async function populateItemsPanels( objs ) {
 			itemsHtml += itemHtml;
 		} else {
 			objs.forEach( obj => {
-			itemHtml = "<div class='panel panel-primary " + obj.type + "'>";
-			itemTitle = "<h3 class='panel-title'>" + obj.frameworkdisplay + " " + obj.type + " " + obj.id + "</h3>"
-			itemHtml += "<div class='panel-heading'>" + itemTitle + "</div>";
-			itemHtml += "<div class='panel-body'>" + obj.text + "</div>";
-			itemHtml += "</div>";
-			itemsHtml += itemHtml;
-			}
-		});
+				itemHtml = "<div class='panel panel-primary " + obj.type + "'>";
+				itemTitle = "<h3 class='panel-title'>" + obj.frameworkdisplay + " " + obj.type + " " + obj.id + "</h3>"
+				itemHtml += "<div class='panel-heading'>" + itemTitle + "</div>";
+				itemHtml += "<div class='panel-body'>" + obj.text + "</div>";
+				itemHtml += "</div>";
+				itemsHtml += itemHtml;
+			});
+		}
 	} catch(err) {
 		console.log('error in populateItemsPanels with ' + err);
 	}
