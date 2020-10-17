@@ -77,7 +77,7 @@ async function populateFrameworksPanel( objs ) {
 	
 	itemsHtml  = "<div class='panel panel-default'>";
 	itemsHtml += "<div class='panel-heading'>";
-	itemsHtml += "<a id='sidepanelheader' href='#sidepanel' data-toggle='collapse'><h3 class='panel-title'>Choose Framework</h3>" + isSmallViewport.matches;
+	itemsHtml += "<a id='sidepanelheader' href='#sidepanel' data-toggle='collapse'><h3 class='panel-title'>Choose Framework</h3>" + (isSmallViewport.matches?$('#selectedFramework'):"");
 	itemsHtml += "</div>"; //close div panel heading
 	itemsHtml += "<div class='panel-collapse collapse' id='sidepanel'>"
 	itemsHtml += "<ul class='list-group'>";
