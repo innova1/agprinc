@@ -77,7 +77,7 @@ async function populateFrameworksPanel( objs ) {
 	
 	itemsHtml  = "<div class='panel panel-default'>";
 	itemsHtml += "<div class='panel-heading'>";
-	itemsHtml += "<a id='sidepanelheader' class='plain' href='#sidepanel' data-toggle='collapse'><h3 class='panel-title'>Choose Framework</h3>";
+	itemsHtml += "<a id='sidepanelheader' href='#sidepanel' data-toggle='collapse'><h3 class='panel-title'>Choose Framework</h3>";
 	itemsHtml += "</div>"; //close div panel heading
 	itemsHtml += "<div class='panel-collapse collapse' id='sidepanel'>"
 	itemsHtml += "<ul class='list-group'>";
@@ -85,7 +85,7 @@ async function populateFrameworksPanel( objs ) {
 		frameworksArray.push(obj.framework);
 		itemsHtml += "<li class='list-group-item'>";
 		jscriptString = "onclick=\'javascript:replaceItemsPanels(\"" + obj.framework + "\")\'";
-		itemsHtml += "<a class=\'menu plain\' href=\'javascript:void(0)\' " + jscriptString + "> <span id=\'" + obj.framework + "\'>" + obj.frameworkdisplay + "</span>";
+		itemsHtml += "<a class=\'menu\' href=\'javascript:void(0)\' " + jscriptString + "> <span id=\'" + obj.framework + "\'>" + obj.frameworkdisplay + "</span>";
 		itemsHtml += "</li>";
 	});
 	itemsHtml += "</ul>";
@@ -230,7 +230,7 @@ function currentTermsObject() {
 	},
 	this.addTerm = function(t) {
 		if(debug) console.log('adding |' + t + '|');
-		this.currentTermsString = "<a class='activekeywords' href='javascript:void(0)' onclick='javascript:removeActiveSearchterm(this);'> <span class='glyphicon glyphicon-remove-circle'></span>" + "&nbsp;" + decodeURI(t).replace(/\+/g, ' ') + "</a>"
+		this.currentTermsString = "<a class='activekeywords plain' href='javascript:void(0)' onclick='javascript:removeActiveSearchterm(this);'> <span class='glyphicon glyphicon-remove-circle'></span>" + "&nbsp;" + decodeURI(t).replace(/\+/g, ' ') + "</a>"
 		this.currentTermsMap.set(t, this.currentTermsString);
 		//if(debug) console.log('map size: ' + this.currentTermsMap.size);
 		for(let m of this.currentTermsMap.keys()) {
