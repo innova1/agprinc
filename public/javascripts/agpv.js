@@ -193,8 +193,8 @@ function replaceFilteredItemsPanels(framework) {
 		url: url = "/api/agileframeworks/search?framework=" + framework + "&searchwords=" + termsObj.getCurrentTerms(),
 		dataType: "json",
 		success: function(result) {
-			if(debug) console.log("result size: " + result.filteredItems.length)
-			populateItemsPanels(result.filteredItems);
+			if(debug) console.log("result size: " + result.items.length)
+			populateItemsPanels(result.items);
 			populateCurrentSearchTermsDiv();
 		}
 	});
