@@ -40,14 +40,10 @@ a.plain {
 }
 
 a:link, a:visited {
-  color: darkblue;
   text-decoration: none;
   cursor: pointer;
 }
 
-a:link:active, a:visited:active {
-  color: blue;
-}
 div#suggestions {
 	display: none;
 	border: 2px inset black;
