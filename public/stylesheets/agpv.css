@@ -36,8 +36,7 @@
 	font-size: 1.2em;
 }
 a.plain {
-	text-decoration: none;
-	color: black;
+	text-decoration-line: none;
 }
 div#suggestions {
 	display: none;
