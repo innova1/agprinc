@@ -40,9 +40,9 @@ a.plain {
 }
 
 a:link, a:visited {
-  color: blue;
+  color: lightblue;
   text-decoration: none;
-  cursor: auto;
+  cursor: pointer;
 }
 
 a:link:active, a:visited:active {
