@@ -176,7 +176,7 @@ function replaceItemsPanels(framework) {
 				setSelected(framework);
 				setMenuCollapsed(isSmallViewport);
 			} else {
-				if(debug) console.log("result.items count: " + result.items.length)
+				if(debug) console.log("in else result.items count: " + result.items.length)
 				console.log('no items returned')
 			}
 		}
