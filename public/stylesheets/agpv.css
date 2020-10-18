@@ -39,7 +39,7 @@ a.plain {
 	text-decoration: none;
 }
 
-a:link, a:visited {
+a:link.menu, a:visited.menu {
   text-decoration: none;
   cursor: pointer;
 }
@@ -58,7 +58,4 @@ div#suggestions {
 }
 #currentsearchterms {
 	display: none; /*change this to block in test*/
-}
-.xpanel-title {
-	font-size: 14px;
 }
