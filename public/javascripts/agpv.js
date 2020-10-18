@@ -97,7 +97,7 @@ async function populateFrameworksPanel( objs ) {
 	//if(debug) console.log('setsidepanel');
 	//if(debug) console.log('about to populate frameworksMenuPanel with ' + itemsHtml);
 	document.getElementById('frameworksMenuPanel').innerHTML = itemsHtml;
-	frameworkObjArray.push({framework:'all', frameworkdisplay:'All frameworks'})
+	frameworkObjArray.push({framework:'all', frameworkdisplay:'All'})
 }
 
 function setMenuCollapsed(isSmallViewport) {
