@@ -60,6 +60,11 @@ div#suggestionsx {
 	width: 300px;
 	padding: 10px 10px 10px 10px;
 }
+ul.suggestions {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
 .inline {
 	display: inline;
 }
