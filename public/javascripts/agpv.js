@@ -321,7 +321,7 @@ $(function() {
 						resultList = resultList + '</ul>';
 						*/
 						$('#suggestion-title').text('suggestion title');
-						$('#suggestions').text().getSuggestionPanelHTML(msg.searchWords);
+						$('#suggestions').text(getSuggestionPanelHTML(msg.searchWords));
 						//suggElement.innerHTML = getSuggestionPanelHTML(msg.searchWords);  //resultList;
 						//if(debug) console.log("about to display block on suggestions");
 						suggElement.style.display = 'block';
