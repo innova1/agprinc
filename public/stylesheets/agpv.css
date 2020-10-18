@@ -38,7 +38,7 @@
 a.navbar-brand {
 	color: #337ab7;
 }
-a:link.navbar-brand, a:visited.navbar-brand {
+a:link.navbar-brand, a:visited.navbar-brand, a:hover.navbar-brand {
 	color: #337ab7;
 }
 a.plain {
