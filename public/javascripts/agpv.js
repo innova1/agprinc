@@ -256,6 +256,7 @@ function populateCurrentSearchTermsDiv() {
 	document.getElementById('removetermlinks').innerHTML = termsObj.getCurrentTermsHtml();
 	//if(debug) console.log("updating search terms div with " + termsObj.getCurrentTerms());
 	document.getElementById('currentsearchterms').innerHTML = termsObj.getCurrentTerms();
+	$("#suggestion-panel").collapse('hide');
 	document.getElementById('suggestions').style.display = 'none';
 	document.getElementById('searchtext').value = "";
 }
