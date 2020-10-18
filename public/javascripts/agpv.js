@@ -21,7 +21,6 @@ setSelected(selF);
 
 var searchRequest = null;
 var suggElement = document.getElementById('suggestions');
-var frameworksArray = new Array();
 var frameworkObjArray = new Array ();
 
 async function populateItemsPanels( objs ) {
@@ -71,23 +70,21 @@ async function populateItemsPanels( objs ) {
 */
 
 async function populateFrameworksPanel( objs ) {
-	const debug = true;
+	const debug = false;
 	var framework = "";
 	var obj = new Object();
 	var itemsHtml = "";
 	var jscriptString = "";
 	frameworkObjArray = objs;
-	frameworkObjArray.push({framework:'all', frameworkdisplay:'All frameworks'})
 	if(debug) console.log('setting up frameworks panel html')
 	
 	itemsHtml  = "<div class='panel panel-default'>";
 	itemsHtml += "<div class='panel-heading'>";
-	itemsHtml += "<a id='sidepanelheader' href='#sidepanel' data-toggle='collapse'><h3 class='panel-title'><div id='panelTitle'>Choose framework</div><div id='displaySelectedFramework'></div></h3></a>";
+	itemsHtml += "<a id='sidepanelheader' href='#sidepanel' data-toggle='collapse'><h3 class='panel-title'><div id='panel-title-div'>Choose framework</div><div id='displaySelectedFramework'></div></h3></a>";
 	itemsHtml += "</div>"; //close div panel heading
 	itemsHtml += "<div class='panel-collapse collapse' id='sidepanel'>"
 	itemsHtml += "<ul class='list-group'>";
 	objs.forEach( obj => {
-		frameworksArray.push(obj.framework);
 		itemsHtml += "<li class='list-group-item'>";
 		jscriptString = "onclick=\'javascript:replaceItemsPanels(\"" + obj.framework + "\")\'";
 		itemsHtml += "<a class=\'menu\' href=\'javascript:void(0)\' " + jscriptString + "> <span id=\'" + obj.framework + "\'>" + obj.frameworkdisplay + "</span>";
@@ -100,6 +97,7 @@ async function populateFrameworksPanel( objs ) {
 	//if(debug) console.log('setsidepanel');
 	//if(debug) console.log('about to populate frameworksMenuPanel with ' + itemsHtml);
 	document.getElementById('frameworksMenuPanel').innerHTML = itemsHtml;
+	frameworkObjArray.push({framework:'all', frameworkdisplay:'All frameworks'})
 }
 
 function setMenuCollapsed(isSmallViewport) {
@@ -111,8 +109,8 @@ function setMenuCollapsed(isSmallViewport) {
 		$(".collapse").collapse('hide');
 		$('#displaySelectedFramework').addClass('show');
 		$('#displaySelectedFramework').removeClass('hide');
-		$('#panelTitle').addClass('hide');
-		$('#panelTitle').removeClass('show');
+		$('#panel-title-div').addClass('hide');
+		$('#panel-title-div').removeClass('show');
 		//console.log("in largeviewport side pane classlist: " + document.getElementById("sidepanel").classList)
 	} else {
 		//document.getElementById("sidepanel").classList.add('show');
@@ -120,39 +118,39 @@ function setMenuCollapsed(isSmallViewport) {
 		$(".collapse").collapse('show');
 		$('#displaySelectedFramework').addClass('hide');
 		$('#displaySelectedFramework').removeClass('show');
-		$('#panelTitle').addClass('show');
-		$('#panelTitle').removeClass('hide');
+		$('#panel-title-div').addClass('show');
+		$('#panel-title-div').removeClass('hide');
 		//console.log("in smallviewport match side pane classlist: " + document.getElementById("sidepanel").classList)
 	}
 }
 
 function setSelected(selectedFramework) {
-	const debug = true;
+	const debug = false;
 	if(debug) console.log('set selected fra: selF: ' + selectedFramework);
 //	if(selectedFramework != "" && selectedFramework != "all") {
 	var frameElement;
-	frameworksArray.forEach( f => {
-		if(debug) console.log("in set selected fr: in array loop removing selected on " + f + " div");
-		frameElement = document.getElementById(f);
+	frameworkObjArray.forEach( fObj => {
+		if(debug) console.log("in set selected fr: in array loop removing selected on " + fObj.framework + " div");
+		frameElement = document.getElementById(fObj.framework);
 		if(frameElement) {
 			if(debug) console.log( 'if frameElement true' )
-			if( f == selectedFramework ) {
-				if(debug) console.log('f is selected. f:' + f + ", selected: " + selectedFramework)
+			if( fObj.framework == selectedFramework ) {
+				if(debug) console.log('f is selected. f:' + fObj.framework + ", selected: " + selectedFramework)
 				if(frameElement.classList.contains('selected')) {
 					if(debug) console.log( 'classList contains selected')
 					frameElement.classList.remove('selected');
-					frameElement.parentElement.setAttribute("onclick", "replaceItemsPanels(\'" + f + "\')");
+					frameElement.parentElement.setAttribute("onclick", "replaceItemsPanels(\'" + fObj.framework + "\')");
 				} else {
 					if(debug) console.log( 'classList does not already contain selected')
 					frameElement.classList.add('selected');
 					frameElement.parentElement.setAttribute("onclick", "replaceItemsPanels('all')");
 				}
 			} else { //this is not the currently selected framework
-				if(debug) console.log('f is NOT selected. f:' + f + ", selected: " + selectedFramework)
+				if(debug) console.log('f is NOT selected. f:' + fObj.framework + ", selected: " + selectedFramework)
 				if(frameElement.classList.contains('selected')) {
 					if(debug) console.log( 'classList already contains selected -- removing')
 					frameElement.classList.remove('selected');
-					frameElement.parentElement.setAttribute("onclick", "replaceItemsPanels(\'" + f + "\')");
+					frameElement.parentElement.setAttribute("onclick", "replaceItemsPanels(\'" + fObj.framework + "\')");
 				}
 			}
 		}
