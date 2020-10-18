@@ -324,18 +324,20 @@ $(function() {
 						$('#suggestions').html(getSuggestionPanelHTML(msg.searchWords));
 						//suggElement.innerHTML = getSuggestionPanelHTML(msg.searchWords);  //resultList;
 						//if(debug) console.log("about to display block on suggestions");
+						$("#suggestion-panel").collapse('show');
 						suggElement.style.display = 'block';
 					}
-                } else {
-				  suggElement.innerHTML = '';
-				  suggElement.style.display = 'none';
+				} else {
+					suggElement.innerHTML = '';
+					$("#suggestion-panel").collapse('hide');
+					suggElement.style.display = 'none';
 				}
-            }
-        });
-    } else {
-      suggElement.innerHTML = '';
-      suggElement.style.display = 'none';
-    }
+			}
+		});
+	 } else {
+		suggElement.innerHTML = '';
+		suggElement.style.display = 'none';
+	 }
   });
 });
 
