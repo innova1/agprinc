@@ -406,6 +406,8 @@ function getSuggestionPanelHTML(searchWordsArray) {
 			resultList = resultList + "<li><a href='javascript:void(0);' onclick=" + jscriptString + ">" + element + "</a></li>";
 		});
 	resultList = resultList + '</ul>';
+	
+	return resultList;
 }
 
 /*
