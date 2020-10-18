@@ -159,6 +159,7 @@ function setSelected(selectedFramework) {
 	if(currFramElement) {
 		currFramElement.innerHTML = selectedFramework;
 	}
+	console.log(JSON.stringify(frameworkObjArray))
 	var fObj = frameworkObjArray.find( ({ framework }) => framework == selectedFramework );
 	$('#displayselectedframework').text(fObj.framework == 'all'?"All Frameworks":fObj.frameworkdisplay);
 //	} else {
