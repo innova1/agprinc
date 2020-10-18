@@ -39,6 +39,10 @@ a.plain {
 	text-decoration: none;
 }
 
+a#sidepanelheader {
+	color: white;
+}
+
 a:link.menu, a:visited.menu {
   text-decoration: none;
   cursor: pointer;
