@@ -43,7 +43,7 @@ a#sidepanelheader {
 	color: white;
 }
 
-a:link.menu, a:visited.menu {
+a:link, a:visited {
   text-decoration: none;
   cursor: pointer;
 }
