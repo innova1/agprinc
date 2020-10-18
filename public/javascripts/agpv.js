@@ -104,12 +104,17 @@ function setMenuCollapsed(isSmallViewport) {
 		//document.getElementById("sidepanel").classList.remove('show');
 		//document.getElementById("sidepanel").classList.remove('in');
 		$(".collapse").collapse('hide');
-		$('#sidepanel').hasClass('in')?"":$('#displayselectedframework').text($('#selectedFramework').text())
+		if( $('#sidepanel').hasClass('in') ) { 
+			$('#displayselectedframework').css('display: none;');
+		}
 		//console.log("in largeviewport side pane classlist: " + document.getElementById("sidepanel").classList)
 	} else {
 		//document.getElementById("sidepanel").classList.add('show');
 		//document.getElementById("sidepanel").classList.add('in');
 		$(".collapse").collapse('show');
+		if( !$('#sidepanel').hasClass('in') ) { 
+			$('#displayselectedframework').css('display: inline;');
+		}
 		//console.log("in smallviewport match side pane classlist: " + document.getElementById("sidepanel").classList)
 	}
 }
