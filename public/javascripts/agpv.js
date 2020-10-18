@@ -403,7 +403,7 @@ $("form").on("submit", function (e) {
 
 function getSuggestionPanelHTML(searchWordsArray) {
 	
-	var resultList = '<ul style="list-style-type: none">';
+	var resultList = '<ul style="list-style-type: bullet;">';
 	var jscriptcall = '';
 	searchWordsArray.forEach( element => {
 	jscriptString = "javascript:addActiveSearchterm('" + element.replace(/\s/g, '+') + "')"
