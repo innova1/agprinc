@@ -64,7 +64,7 @@ ul.suggestions {
 	list-style-type: none;
 	margin: 0;
 	padding: 0;
-	border: 1px solid red;
+	/*border: 1px solid red;*/
 }
 .inline {
 	display: inline;
