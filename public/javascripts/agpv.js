@@ -104,7 +104,7 @@ function setMenuCollapsed(isSmallViewport) {
 		//document.getElementById("sidepanel").classList.remove('show');
 		//document.getElementById("sidepanel").classList.remove('in');
 		$(".collapse").collapse('hide');
-		($('#sidepanel').hasClass('in')?"":$('#displayselectedframework').text($('#selectedFramework').text())
+		$('#sidepanel').hasClass('in')?"":$('#displayselectedframework').text($('#selectedFramework').text()
 		//console.log("in largeviewport side pane classlist: " + document.getElementById("sidepanel").classList)
 	} else {
 		//document.getElementById("sidepanel").classList.add('show');
