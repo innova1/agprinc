@@ -54,7 +54,7 @@ a:link, a:visited {
   cursor: pointer;
 }
 
-div#suggestions {
+div#suggestionsx {
 	display: none;
 	border: 2px inset black;
 	width: 300px;
