@@ -22,7 +22,7 @@ setSelected(selF);
 var searchRequest = null;
 var suggElement = document.getElementById('suggestions');
 var frameworksArray = new Array();
-const frameworkObjArray = new Array ();
+var frameworkObjArray = new Array ();
 
 async function populateItemsPanels( objs ) {
 	const debug = false;
