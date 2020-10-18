@@ -71,12 +71,14 @@ async function populateItemsPanels( objs ) {
 */
 
 async function populateFrameworksPanel( objs ) {
+	const debug = true;
 	var framework = "";
 	var obj = new Object();
 	var itemsHtml = "";
 	var jscriptString = "";
 	frameworkObjArray = objs;
 	frameworkObjArray.push({framework:'all', frameworkdisplay:'All frameworks'})
+	if(debug) console.log('setting up frameworks panel html')
 	
 	itemsHtml  = "<div class='panel panel-default'>";
 	itemsHtml += "<div class='panel-heading'>";
@@ -125,7 +127,7 @@ function setMenuCollapsed(isSmallViewport) {
 }
 
 function setSelected(selectedFramework) {
-	const debug = false;
+	const debug = true;
 	if(debug) console.log('set selected fra: selF: ' + selectedFramework);
 //	if(selectedFramework != "" && selectedFramework != "all") {
 	var frameElement;
