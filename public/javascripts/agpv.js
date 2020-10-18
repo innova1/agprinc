@@ -78,7 +78,7 @@ async function populateFrameworksPanel( objs ) {
 	frameworkObjArray = objs;
 	if(debug) console.log('setting up frameworks panel html')
 	
-	itemsHtml  = "<div class='panel panel-default'>";
+	itemsHtml  = "<div class='panel panel-primary'>";
 	itemsHtml += "<div class='panel-heading'>";
 	itemsHtml += "<a id='sidepanelheader' href='#sidepanel' data-toggle='collapse'><h3 class='panel-title'><div id='panel-title-div'>Choose framework</div><div id='displaySelectedFramework'></div></h3></a>";
 	itemsHtml += "</div>"; //close div panel heading
