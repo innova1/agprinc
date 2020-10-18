@@ -163,7 +163,7 @@ function setSelected(selectedFramework) {
 		currFramElement.innerHTML = selectedFramework;
 	}
 	var sfObj = frameworkObjArray.find( ({ framework }) => framework === selectedFramework )
-	$('#displaySelectedFramework').text(sfObj.frameworkdisplay)
+	$('#displaySelectedFramework').text('Selected framework: ' + sfObj.frameworkdisplay)
 //	} else {
 	/*
 	var currFramElement = document.getElementById('selectedFramework')
