@@ -23,6 +23,38 @@ var searchRequest = null;
 var suggElement = document.getElementById('suggestions');
 var frameworkObjArray = new Array ();
 
+let termsObj = new currentTermsObject();
+
+function replaceItemsPanels(framework) {
+	const debug = false;
+	if(debug) console.log('in replaceItemsPanels with ' + framework );
+	let url;
+	if(termsObj.size() > 0) {
+		if(debug) console.log('in replaceitemspanels, termsObj size should be >0 and is ' + termsObj.size() );
+		url = "/api/agileframeworks/search?framework=" + framework + "&searchwords=" + termsObj.getCurrentTerms();
+	} else {
+		if(debug) console.log('in replaceitemspanels, termsObj size should be 0 and is ' + termsObj.size() );
+		url = "/api/agileframeworks/" + framework;
+	}
+	/*
+	 if($(el).length) {
+		 $(el).setAttribute("onclick", "replaceItemsPanels('all', this)")
+	 }
+	*/
+	
+	$.ajax({
+		type: "GET",
+		url: url,
+		dataType: "json",
+		success: function(result) {
+			if(debug) console.log("result.items count: " + result.items.length)
+			populateItemsPanels(result.items);
+			setSelected(framework);
+			setMenuCollapsed(isSmallViewport);
+		}
+	});
+}
+
 async function populateItemsPanels( objs ) {
 	const debug = false;
 	var itemTitle = "";
@@ -55,19 +87,21 @@ async function populateItemsPanels( objs ) {
 	document.getElementById('itemsPanels').innerHTML = itemsHtml;
 }
 
-/*
-
-          div.panel.panel-default
-            div.panel-heading
-              a.plain(href='#sidepanel' data-toggle='collapse')
-                h3.panel-title Frameworks
-                  //a(href='/agileframeworks/all' data-toggle='collapse') Frameworks
-            div.panel-collapse.collapse.show#sidepanel
-              ul.list-group
-                each f in frameworks
-                  li.list-group-item 
-                    a.menu(href='/agileframeworks/' + f.framework ) <span id=#{f.framework}>#{f.frameworkdisplay}</span>
-*/
+function replaceFilteredItemsPanels(framework) {
+	const debug = false;
+	if(debug) console.log('will ajax for items with /api/agileframeworks/search?searchwords=' + termsObj.getCurrentTerms())
+	
+	$.ajax({
+		type: "GET",
+		url: url = "/api/agileframeworks/search?framework=" + framework + "&searchwords=" + termsObj.getCurrentTerms(),
+		dataType: "json",
+		success: function(result) {
+			if(debug) console.log("result size: " + result.items.length)
+			populateItemsPanels(result.items);
+			populateCurrentSearchTermsDiv();
+		}
+	});
+}
 
 async function populateFrameworksPanel( objs ) {
 	const debug = false;
@@ -170,54 +204,6 @@ function setSelected(selectedFramework) {
 	}
 	*/
 //	}
-}
-
-function replaceItemsPanels(framework) {
-	const debug = false;
-	if(debug) console.log('in replaceItemsPanels with ' + framework );
-	let url;
-	if(termsObj.size() > 0) {
-		if(debug) console.log('in replaceitemspanels, termsObj size should be >0 and is ' + termsObj.size() );
-		url = "/api/agileframeworks/search?framework=" + framework + "&searchwords=" + termsObj.getCurrentTerms();
-	} else {
-		if(debug) console.log('in replaceitemspanels, termsObj size should be 0 and is ' + termsObj.size() );
-		url = "/api/agileframeworks/" + framework;
-	}
-	/*
-	 if($(el).length) {
-		 $(el).setAttribute("onclick", "replaceItemsPanels('all', this)")
-	 }
-	*/
-	
-	$.ajax({
-		type: "GET",
-		url: url,
-		dataType: "json",
-		success: function(result) {
-			if(debug) console.log("result.items count: " + result.items.length)
-			populateItemsPanels(result.items);
-			setSelected(framework);
-			setMenuCollapsed(isSmallViewport);
-		}
-	});
-}
-
-let termsObj = new currentTermsObject();
-
-function replaceFilteredItemsPanels(framework) {
-	const debug = false;
-	if(debug) console.log('will ajax for items with /api/agileframeworks/search?searchwords=' + termsObj.getCurrentTerms())
-	
-	$.ajax({
-		type: "GET",
-		url: url = "/api/agileframeworks/search?framework=" + framework + "&searchwords=" + termsObj.getCurrentTerms(),
-		dataType: "json",
-		success: function(result) {
-			if(debug) console.log("result size: " + result.items.length)
-			populateItemsPanels(result.items);
-			populateCurrentSearchTermsDiv();
-		}
-	});
 }
 
 function currentTermsObject() {
@@ -429,5 +415,19 @@ $("form").on("submit", function (e) {
                 | &nbsp;#{term}
               - terms = terms + ',' + term;
             div#currentSearchterms #{terms.substring(1,terms.length)}
+*/
+
+/*
+
+          div.panel.panel-default
+            div.panel-heading
+              a.plain(href='#sidepanel' data-toggle='collapse')
+                h3.panel-title Frameworks
+                  //a(href='/agileframeworks/all' data-toggle='collapse') Frameworks
+            div.panel-collapse.collapse.show#sidepanel
+              ul.list-group
+                each f in frameworks
+                  li.list-group-item 
+                    a.menu(href='/agileframeworks/' + f.framework ) <span id=#{f.framework}>#{f.frameworkdisplay}</span>
 */
 			
