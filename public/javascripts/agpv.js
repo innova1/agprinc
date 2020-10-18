@@ -337,6 +337,7 @@ $(function() {
 		});
 	 } else {
 		suggElement.innerHTML = '';
+		$("#suggestion-panel").collapse('hide');
 		suggElement.style.display = 'none';
 	 }
   });
@@ -403,7 +404,7 @@ $("form").on("submit", function (e) {
 
 function getSuggestionPanelHTML(searchWordsArray) {
 	
-	var resultList = '<ul style="list-style-type: bullet;">';
+	var resultList = '<ul style="list-style-type: none; margin-left: 0px;">';
 	var jscriptcall = '';
 	searchWordsArray.forEach( element => {
 	jscriptString = "javascript:addActiveSearchterm('" + element.replace(/\s/g, '+') + "')"
