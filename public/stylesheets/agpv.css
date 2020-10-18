@@ -35,6 +35,9 @@
 	font-weight: bold;
 	font-size: 1.1em;
 }
+a.navbar-brand {
+	color: #337ab7;
+}
 a.plain {
 	text-decoration: none;
 }
