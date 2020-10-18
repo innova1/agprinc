@@ -103,7 +103,7 @@ async function populateFrameworksPanel( objs ) {
 	itemsHtml += "<div class='panel-heading'>";
 	itemsHtml += "<a id='sidepanelheader' href='#sidepanel' data-toggle='collapse'><h3 class='panel-title'><div id='panel-title-div'>Frameworks</div><div id='displaySelectedFramework'></div></h3></a>";
 	itemsHtml += "</div>"; //close div panel heading
-	itemsHtml += "<div class='panel-collapse collapsef' id='sidepanel'>"
+	itemsHtml += "<div class='panel-collapse collapse' id='sidepanel'>"
 	itemsHtml += "<ul class='list-group'>";
 	objs.forEach( obj => {
 		itemsHtml += "<li class='list-group-item'>";
@@ -127,7 +127,7 @@ function setMenuCollapsed(isSmallViewport) {
 	if( isSmallViewport.matches ) {
 		//document.getElementById("sidepanel").classList.remove('show');
 		//document.getElementById("sidepanel").classList.remove('in');
-		$(".collapsef").collapse('hide');
+		$(".collapse").collapse('hide');
 		$('#displaySelectedFramework').addClass('show');
 		$('#displaySelectedFramework').removeClass('hide');
 		$('#panel-title-div').addClass('hide');
@@ -136,7 +136,7 @@ function setMenuCollapsed(isSmallViewport) {
 	} else {
 		//document.getElementById("sidepanel").classList.add('show');
 		//document.getElementById("sidepanel").classList.add('in');
-		$(".collapsef").collapse('show');
+		$(".collapse").collapse('show');
 		$('#displaySelectedFramework').addClass('hide');
 		$('#displaySelectedFramework').removeClass('show');
 		$('#panel-title-div').addClass('show');
