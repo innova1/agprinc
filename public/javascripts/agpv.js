@@ -127,7 +127,7 @@ function setMenuCollapsed(isSmallViewport) {
 	if( isSmallViewport.matches ) {
 		//document.getElementById("sidepanel").classList.remove('show');
 		//document.getElementById("sidepanel").classList.remove('in');
-		$(".collapse").collapse('hide');
+		$("#sidepanel").collapse('hide');
 		$('#displaySelectedFramework').addClass('show');
 		$('#displaySelectedFramework').removeClass('hide');
 		$('#panel-title-div').addClass('hide');
@@ -136,7 +136,7 @@ function setMenuCollapsed(isSmallViewport) {
 	} else {
 		//document.getElementById("sidepanel").classList.add('show');
 		//document.getElementById("sidepanel").classList.add('in');
-		$(".collapse").collapse('show');
+		$("#sidepanel").collapse('show');
 		$('#displaySelectedFramework').addClass('hide');
 		$('#displaySelectedFramework').removeClass('show');
 		$('#panel-title-div').addClass('show');
