@@ -22,6 +22,7 @@ setSelected(selF);
 var searchRequest = null;
 var suggElement = document.getElementById('suggestions');
 var frameworksArray = new Array();
+conts frameworkObjArray = new Array ();
 
 async function populateItemsPanels( objs ) {
 	const debug = false;
@@ -74,6 +75,7 @@ async function populateFrameworksPanel( objs ) {
 	var obj = new Object();
 	var itemsHtml = "";
 	var jscriptString = "";
+	frameworkObjArray = objs;
 	
 	itemsHtml  = "<div class='panel panel-default'>";
 	itemsHtml += "<div class='panel-heading'>";
@@ -157,7 +159,7 @@ function setSelected(selectedFramework) {
 	if(currFramElement) {
 		currFramElement.innerHTML = selectedFramework;
 	}
-	var fObj = frameworksArray.find( ({ framework }) => framework == selectedFramework );
+	var fObj = frameworkObjArray.find( ({ framework }) => framework == selectedFramework );
 	$('#displayselectedframework').text(fObj.framework == 'all'?"All Frameworks":fObj.frameworkdisplay);
 //	} else {
 	/*
