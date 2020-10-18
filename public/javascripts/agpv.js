@@ -77,7 +77,7 @@ async function populateFrameworksPanel( objs ) {
 	
 	itemsHtml  = "<div class='panel panel-default'>";
 	itemsHtml += "<div class='panel-heading'>";
-	itemsHtml += "<a id='sidepanelheader' href='#sidepanel' data-toggle='collapse'><h3 class='panel-title'>Choose Framework " + ($('#sidepanel').hasClass('in')?"":$('#selectedFramework').text()+'framework here') + "</h3>";
+	itemsHtml += "<a id='sidepanelheader' href='#sidepanel' data-toggle='collapse'><h3 class='panel-title'>Choose Framework <span id='displayselectedframework'></span></h3>";
 	itemsHtml += "</div>"; //close div panel heading
 	itemsHtml += "<div class='panel-collapse collapse' id='sidepanel'>"
 	itemsHtml += "<ul class='list-group'>";
@@ -104,6 +104,7 @@ function setMenuCollapsed(isSmallViewport) {
 		//document.getElementById("sidepanel").classList.remove('show');
 		//document.getElementById("sidepanel").classList.remove('in');
 		$(".collapse").collapse('hide');
+		($('#sidepanel').hasClass('in')?"":$('#displayselectedframework').text($('#selectedFramework').text())
 		//console.log("in largeviewport side pane classlist: " + document.getElementById("sidepanel").classList)
 	} else {
 		//document.getElementById("sidepanel").classList.add('show');
