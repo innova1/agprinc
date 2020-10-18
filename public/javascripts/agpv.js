@@ -3,22 +3,9 @@ setup();
 async function setup() {
 	await replaceFrameworksPanel('all');
 	replaceItemsPanels('all');
-	
 }
-/*
-calling these functions in the replace frameworks panel ajax call
-as an exercise later can try to figure out how to make this work with async await
-	isSmallViewport.addListener(setMenuCollapsed);
-	setMenuCollapsed(isSmallViewport);
-*/
 
 var isSmallViewport = window.matchMedia("(max-width: 1000px)");
-
-/*
-var selF = document.getElementById('selectedFramework').innerHTML;
-setSelected(selF);
-*/
-
 var searchRequest = null;
 var suggElement = document.getElementById('suggestions');
 var frameworkObjArray = new Array ();
@@ -316,25 +303,28 @@ $(function() {
             },
             dataType: "json",
             success: function(msg){
-                if(msg.searchWords[0]) {
-                  var resultList = '<ul style="list-style-type: none"><li><b>Suggestions</b></li>';
-                  var curSearchField = document.getElementById('currentsearchterms');
-                  var curSearchTerms = (curSearchField.innerHTML!=''?curSearchField.innerHTML + ",":"");
-                  //if(debug) console.log("in success 1 with " + msg.result[0] );
-                  //we need to check if the value is the same
-                  if (value==$(oldThis).val()) {
-					//if(debug) console.log("in success 2 in if with " + msg.result[0] );
-					var jscriptcall = '';
-					msg.searchWords.forEach( element => {
+				if(msg.searchWords[0]) {
+					//var resultList = '<ul style="list-style-type: none"><li><b>Suggestions</b></li>';
+					var curSearchField = document.getElementById('currentsearchterms');
+					var curSearchTerms = (curSearchField.innerHTML!=''?curSearchField.innerHTML + ",":"");
+					//if(debug) console.log("in success 1 with " + msg.result[0] );
+					//we need to check if the value is the same
+					if (value==$(oldThis).val()) {
+						//if(debug) console.log("in success 2 in if with " + msg.result[0] );
+						/*
+						var jscriptcall = '';
+						msg.searchWords.forEach( element => {
 						jscriptString = "javascript:addActiveSearchterm('" + element.replace(/\s/g, '+') + "')"
 						//if(debug) console.log('adding jscript: |' + jscriptString + '|')
 						resultList = resultList + "<li><a href='javascript:void(0);' onclick=" + jscriptString + ">" + element + "</a></li>";
-					});
-					resultList = resultList + '</ul>';
-					suggElement.innerHTML = resultList;
-					//if(debug) console.log("about to display block on suggestions");
-					suggElement.style.display = 'block';
-                  }
+						});
+						resultList = resultList + '</ul>';
+						*/
+
+						suggElement.innerHTML = getSuggestionPanelHTML(msg.searchWords);  //resultList;
+						//if(debug) console.log("about to display block on suggestions");
+						suggElement.style.display = 'block';
+					}
                 } else {
 				  suggElement.innerHTML = '';
 				  suggElement.style.display = 'none';
@@ -407,6 +397,17 @@ $("form").on("submit", function (e) {
 	e.preventDefault();
 });
 
+function getSuggestionPanelHTML(searchWordsArray) {
+	var resultList = '<ul style="list-style-type: none"><li><b>Suggestions</b></li>';
+	var jscriptcall = '';
+	msg.searchWords.forEach( element => {
+		jscriptString = "javascript:addActiveSearchterm('" + element.replace(/\s/g, '+') + "')"
+			//if(debug) console.log('adding jscript: |' + jscriptString + '|')
+			resultList = resultList + "<li><a href='javascript:void(0);' onclick=" + jscriptString + ">" + element + "</a></li>";
+		});
+	resultList = resultList + '</ul>';
+}
+
 /*
           - var terms = ""
           if searchtermsArray
@@ -431,3 +432,7 @@ $("form").on("submit", function (e) {
                     a.menu(href='/agileframeworks/' + f.framework ) <span id=#{f.framework}>#{f.frameworkdisplay}</span>
 */
 			
+/*
+var selF = document.getElementById('selectedFramework').innerHTML;
+setSelected(selF);
+*/
