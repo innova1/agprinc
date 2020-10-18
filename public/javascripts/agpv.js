@@ -161,7 +161,8 @@ function setSelected(selectedFramework) {
 	}
 	console.log(JSON.stringify(frameworkObjArray))
 	var fObj = frameworkObjArray.find( ({ framework }) => framework == selectedFramework );
-	$('#displayselectedframework').text(fObj.framework == 'all'?"All Frameworks":fObj.frameworkdisplay);
+	if(!fObj) fObj = { framework: 'all', frameworkdisplay: 'All frameworks'}
+	$('#displayselectedframework').text(fObj.frameworkdisplay);
 //	} else {
 	/*
 	var currFramElement = document.getElementById('selectedFramework')
