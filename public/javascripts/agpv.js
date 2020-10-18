@@ -109,19 +109,19 @@ function setMenuCollapsed(isSmallViewport) {
 		//document.getElementById("sidepanel").classList.remove('show');
 		//document.getElementById("sidepanel").classList.remove('in');
 		$(".collapse").collapse('hide');
-		//if( $('#sidepanel').hasClass('in') ) { 
-			$('#displaySelectedFramework').addClass('show');
-			$('#displaySelectedFramework').removeClass('hide');
-		//}
+		/*
+		$('#displaySelectedFramework').addClass('show');
+		$('#displaySelectedFramework').removeClass('hide');
+		*/
 		//console.log("in largeviewport side pane classlist: " + document.getElementById("sidepanel").classList)
 	} else {
 		//document.getElementById("sidepanel").classList.add('show');
 		//document.getElementById("sidepanel").classList.add('in');
 		$(".collapse").collapse('show');
-		//if( !$('#sidepanel').hasClass('in') ) { 
-			$('#displaySelectedFramework').addClass('hide');
-			$('#displaySelectedFramework').removeClass('show');
-		//}
+		/*
+		$('#displaySelectedFramework').addClass('hide');
+		$('#displaySelectedFramework').removeClass('show');
+		*/
 		//console.log("in smallviewport match side pane classlist: " + document.getElementById("sidepanel").classList)
 	}
 }
