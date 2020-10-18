@@ -157,6 +157,7 @@ function setSelected(selectedFramework) {
 	if(currFramElement) {
 		currFramElement.innerHTML = selectedFramework;
 	}
+	$('#displayselectedframework').text(selectedFramework);
 //	} else {
 	/*
 	var currFramElement = document.getElementById('selectedFramework')
