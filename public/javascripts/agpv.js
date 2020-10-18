@@ -77,7 +77,7 @@ async function populateFrameworksPanel( objs ) {
 	
 	itemsHtml  = "<div class='panel panel-default'>";
 	itemsHtml += "<div class='panel-heading'>";
-	itemsHtml += "<a id='sidepanelheader' href='#sidepanel' data-toggle='collapse'><h3 class='panel-title'>Choose Framework <span style='display: inline;' id='displayselectedframework'>framework here</span></h3>";
+	itemsHtml += "<a id='sidepanelheader' href='#sidepanel' data-toggle='collapse'><h3 class='panel-title'>Choose Framework <div style='display: inline;' id='displayselectedframework'>framework here</div></h3>";
 	itemsHtml += "</div>"; //close div panel heading
 	itemsHtml += "<div class='panel-collapse collapse' id='sidepanel'>"
 	itemsHtml += "<ul class='list-group'>";
@@ -157,7 +157,8 @@ function setSelected(selectedFramework) {
 	if(currFramElement) {
 		currFramElement.innerHTML = selectedFramework;
 	}
-	$('#displayselectedframework').text(selectedFramework);
+	var fObj = frameworksArray.find( ({ framework }) => name == selectedFramework );
+	$('#displayselectedframework').text(fObj.framework == 'all'?"All Frameworks":fObj.frameworkdisplay);
 //	} else {
 	/*
 	var currFramElement = document.getElementById('selectedFramework')
