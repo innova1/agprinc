@@ -257,7 +257,7 @@ function populateCurrentSearchTermsDiv() {
 	//if(debug) console.log("updating search terms div with " + termsObj.getCurrentTerms());
 	document.getElementById('currentsearchterms').innerHTML = termsObj.getCurrentTerms();
 	$("#suggestion-panel").collapse('hide');
-	document.getElementById('suggestions').style.display = 'none';
+	//***document.getElementById('suggestions').style.display = 'none';
 	document.getElementById('searchtext').value = "";
 }
 
@@ -326,19 +326,19 @@ $(function() {
 						//suggElement.innerHTML = getSuggestionPanelHTML(msg.searchWords);  //resultList;
 						//if(debug) console.log("about to display block on suggestions");
 						$("#suggestion-panel").collapse('show');
-						suggElement.style.display = 'block';
+						//***suggElement.style.display = 'block';
 					}
 				} else {
 					suggElement.innerHTML = '';
 					$("#suggestion-panel").collapse('hide');
-					suggElement.style.display = 'none';
+					//***suggElement.style.display = 'none';
 				}
 			}
 		});
 	 } else {
 		suggElement.innerHTML = '';
 		$("#suggestion-panel").collapse('hide');
-		suggElement.style.display = 'none';
+		//***suggElement.style.display = 'none';
 	 }
   });
 });
