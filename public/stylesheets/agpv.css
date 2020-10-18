@@ -59,6 +59,6 @@ div#suggestions {
 #currentsearchterms {
 	display: none; /*change this to block in test*/
 }
-.panel-title {
+.xpanel-title {
 	font-size: 14px;
 }
