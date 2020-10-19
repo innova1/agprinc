@@ -368,7 +368,7 @@ function getDataArray() {
 		if no, then create the object and add to the array
 */
 async function createSearchMap(framework) {
-    const debug = true;
+    const debug = false;
   	//const dataArray = getDataArray(); //full data array of all values and principle objects
     const dataArray = await getPrinciplesArray(framework,'');
     var searchMap = new Map(); //Map being built of a list of objects with keyword and location of the word
@@ -411,7 +411,7 @@ async function createSearchMap(framework) {
 
 /* returns array of principles filtered by searchWordsArray */
 async function getItemsFilteredByKeywords( framework, searchWordsArray ) {
-    const debug = false;
+    const debug = true;
     if(debug) { console.log('in getItemsFilteredByKeywords with ' + searchWordsArray[0])};
     //const dataArray = getDataArray();
     const foundItems = new Array();
@@ -430,7 +430,7 @@ async function getItemsFilteredByKeywords( framework, searchWordsArray ) {
             for( const l of locations ) {
               if( foundIndexes.indexOf(l.index) == -1 ) {
                 foundIndexes.push(l.index);
-                foundItems.push(dataArray.find( element => element.id == l.id && element.framework == l.framework ));
+                foundItems.push(dataArray.find( element => element.id == l.id && element.framework == l.framework && element.type == l.type ));
               } else {
                 if(debug) { console.log('skipping ' + searchMap[l.index].shortdescription + ' because already added') };
               }
