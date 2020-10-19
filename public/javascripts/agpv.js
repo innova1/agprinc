@@ -381,17 +381,18 @@ function removeActiveSearchterm(element) {
 }
 
 $("form").on("submit", function (e) {
+	conts debug = true;
 	var dataString = $(this).serialize();
 	var searchtext = dataString.substring(dataString.indexOf('=')+1, dataString.length);
-	//console.log('in form submit jquery with ' + dataString + ' and searchtext: ' + searchtext);
+	if(debug) console.log('in form submit jquery with ' + dataString + ' and searchtext: ' + searchtext);
 	$.ajax({
 		type: "GET",
 		url: "/api/agileframeworks/suggestions?" + dataString,
 		dataType: "json",
 		success: function(result) {
-			//console.log('result: ' + result.searchWords[0])
+			if(debug) console.log('result: ' + result.searchWords[0])
 			const found = result.searchWords.find( s => s.toUpperCase().replace(/\s/g, '+') === searchtext.toUpperCase() );
-			//console.log('found: ' + found);
+			if(debug) console.log('found: ' + found);
 			if(found) {
 				addActiveSearchterm(searchtext.replace(/\+/g, '+'));
 			} else {

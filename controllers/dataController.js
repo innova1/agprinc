@@ -392,6 +392,7 @@ async function createSearchMap(framework) {
             if(debug) { console.log('keywork ' + kwd + ' not already in search obj'); }
             locationObj = { index: index, framework: a.framework, type: a.type, id: a.id };
             var locations = new Array();
+			if(debug) console.log('about to push location. Index:' + index + ', framework:' + a.framework + ', type:' + a.type + ', id:' + a.id };
             locations.push(locationObj);
             searchObj = { keyword: kwd, locations: locations };
             searchMap.set(kwd.toLowerCase(), searchObj);
