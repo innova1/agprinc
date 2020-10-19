@@ -288,53 +288,6 @@ function getCurrentFramework() {
 	return result;
 }
 
-$(function() {
-  var minlength = 3;
-	const debug = false;
-
-  $("#searchtext").keyup(function() {
-    var oldThis = this,
-    value = $(this).val();
-	var framework = getCurrentFramework();
-    //if(debug) console.log("value is " + value);
-
-     if (value.length >= minlength ) {
-        if (searchRequest != null) { searchRequest.abort(); }
-		//if(debug) console.log("about to ajax");
-        searchRequest = $.ajax({
-            type: "GET",
-            url: "/api/agileframeworks/suggestions?",
-            data: {
-				'framework': framework,
-                'searchtext' : value
-            },
-            dataType: "json",
-            success: function(msg){
-				if(msg.searchWords[0]) {
-					//var curSearchField = document.getElementById('currentsearchterms');
-					//var curSearchTerms = (curSearchField.innerHTML!=''?curSearchField.innerHTML + ",":"");
-					if(debug) console.log("in success 1 with " + msg.result[0] );
-					//we need to check if the value is the same
-					if (value==$(oldThis).val()) {
-						if(debug) console.log("in success 2 in if with " + msg.result[0] );
-						$('#suggestion-title').html('Suggestions');
-						$('#suggestions').html(getSuggestionPanelHTML(msg.searchWords));
-						if(debug) console.log("about to display block on suggestions");
-						$("#suggestion-panel").collapse('show');
-					}
-				} else {
-					suggElement.innerHTML = '';
-					$("#suggestion-panel").collapse('hide');
-				}
-			}
-		});
-	 } else {
-		suggElement.innerHTML = '';
-		$("#suggestion-panel").collapse('hide');
-	 }
-  });
-});
-
 function addActiveSearchterm(term) {
 	const debug = false;
 	if(debug) console.log('will add ' + term);
@@ -357,6 +310,55 @@ function removeActiveSearchterm(element) {
 		replaceFilteredItemsPanels(framework);
 	}
 }
+
+$(function() {
+  var minlength = 3;
+	const debug = false;
+
+$("#searchtext").keyup(function() {
+	var oldThis = this,
+	value = $(this).val();
+	var framework = getCurrentFramework();
+	//if(debug) console.log("value is " + value);
+
+	 if (value.length >= minlength ) {
+		if (searchRequest != null) { searchRequest.abort(); }
+		//if(debug) console.log("about to ajax");
+		searchRequest = $.ajax({
+			type: "GET",
+			url: "/api/agileframeworks/suggestions?",
+			data: {
+				'framework': framework,
+				'searchtext' : value
+			},
+			dataType: "json",
+			success: function(msg){
+				if(msg.searchWords[0]) {
+					//var curSearchField = document.getElementById('currentsearchterms');
+					//var curSearchTerms = (curSearchField.innerHTML!=''?curSearchField.innerHTML + ",":"");
+					if(debug) console.log("in success 1 with " + msg.result[0] );
+					//we need to check if the value is the same
+					if (value==$(oldThis).val()) {
+						if(debug) console.log("in success 2 in if with " + msg.result[0] );
+						$('#suggestion-title').html('Suggestions');
+						$('#suggestions').html(getSuggestionPanelHTML(msg.searchWords));
+						if(debug) console.log("about to display block on suggestions");
+						$("#suggestion-panel").collapse('show');
+					}
+				} else {
+					$('#suggestions').html('');
+					//suggElement.innerHTML = '';
+					$("#suggestion-panel").collapse('hide');
+				}
+			}
+		});
+	 } else {
+		$('#suggestions').html('');
+		//suggElement.innerHTML = '';
+		$("#suggestion-panel").collapse('hide');
+	 }
+  });
+});
 
 $("form").on("submit", function (e) {
 	const debug = true;
