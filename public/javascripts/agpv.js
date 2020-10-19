@@ -395,7 +395,7 @@ $("form").on("submit", function (e) {
 			if(found) {
 				addActiveSearchterm(searchtext.replace(/\+/g, '+'));
 			} else {
-				alert('Select one of the suggestions from the list');
+				alert('<div class="alert alert-warning" role="alert">Select one of the suggestions from the list</div>');
 			}
 		}
 	});
