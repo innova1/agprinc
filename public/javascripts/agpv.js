@@ -381,7 +381,7 @@ function removeActiveSearchterm(element) {
 }
 
 $("form").on("submit", function (e) {
-	conts debug = true;
+	const debug = true;
 	var dataString = $(this).serialize();
 	var searchtext = dataString.substring(dataString.indexOf('=')+1, dataString.length);
 	if(debug) console.log('in form submit jquery with ' + dataString + ' and searchtext: ' + searchtext);
