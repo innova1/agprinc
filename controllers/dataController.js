@@ -386,10 +386,10 @@ async function createSearchMap(framework) {
       tempArray = a.keywords;
       if(tempArray) {
         for( const kwd of tempArray ) {
-          if(debug) { console.log('looking at object with keyword ' + kwd); }
+          //if(debug) { console.log('looking at object with keyword ' + kwd); }
           searchObj = searchMap.get(kwd);
           if(!searchObj) { //the keyword is not already in the map, then add
-            if(debug) { console.log('keywork ' + kwd + ' not already in search obj'); }
+            //if(debug) { console.log('keywork ' + kwd + ' not already in search obj'); }
             locationObj = { index: index, framework: a.framework, type: a.type, id: a.id };
             var locations = new Array();
             locations.push(locationObj);
