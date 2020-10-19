@@ -395,9 +395,9 @@ async function createSearchMap(framework) {
             locations.push(locationObj);
             searchObj = { keyword: kwd, locations: locations };
             searchMap.set(kwd.toLowerCase(), searchObj);
-            if(debug) { console.log('added location ' + a.framework + ':' + a.type + ':' + a.id + ' to new search object ' + searchObj.keyword); }
+            if(debug && searchObj.keyword == 'business') { console.log('added location ' + a.framework + ':' + a.type + ':' + a.id + ' to new search object ' + searchObj.keyword); }
           } else { //add location to existing
-            if(debug) { console.log('adding location ' + a.framework + ':' + a.type + ':' + a.id + ' to existing search object ' + searchObj.keyword); }
+            if(debug && searchObj.keyword == 'business') { console.log('adding location ' + a.framework + ':' + a.type + ':' + a.id + ' to existing search object ' + searchObj.keyword); }
             locationObj = { index: index, framework: a.framework, type: a.type, id: a.id };
             searchObj.locations.push(locationObj);
           }
