@@ -349,16 +349,9 @@ $(function() {
 function addActiveSearchterm(term) {
 	const debug = false;
 	if(debug) console.log('will add ' + term);
-	var framework = '';
+	var framework = getCurrentFramework();
 	termsObj.addTerm(term);
 	populateCurrentSearchTermsDiv(termsObj.getCurrentTerms());
-	var currFramElement = document.getElementById('selectedFramework')
-	if(currFramElement) {
-		framework = currFramElement.innerHTML;
-	}
-	if(framework=='') {
-		framework = 'all';
-	}
 	replaceFilteredItemsPanels(framework);
 }
 
