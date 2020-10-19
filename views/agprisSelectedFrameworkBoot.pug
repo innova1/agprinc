@@ -9,11 +9,11 @@ block append scripts
 block body
   nav.navbar.navbar-default
     div.container-fluid
+      div.alert.alert-warning(role='alert')
+        | Select one of the suggestions from the list
       div.navbar-header
       a.navbar-brand(href='/agileframeworks/all')
         span.panel.panel-primary Agile Values and Principles
-      div.alert.alert-warning(role='alert')
-        | Select one of the suggestions from the list
       form.navbar-form.navbar-left(action='')
         div.form-group
           input.form-control#searchtext(type='text', name='searchtext', placeholder='Search Text', autocomplete="off")
