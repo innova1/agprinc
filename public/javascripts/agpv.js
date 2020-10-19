@@ -177,10 +177,13 @@ function setSelected(selectedFramework) {
 		}
 	});
 	if(debug) console.log("in set selected fr: setting selected to " + selectedFramework + " div");
+	$('#selectedFramework').text(selectedFramework);
+	/*
 	var currFramElement = document.getElementById('selectedFramework')
 	if(currFramElement) {
 		currFramElement.innerHTML = selectedFramework;
 	}
+	*/
 	var sfObj = frameworkObjArray.find( ({ framework }) => framework === selectedFramework )
 	$('#displaySelectedFramework').text('Selected framework: ' + sfObj.frameworkdisplay)
 //	} else {
