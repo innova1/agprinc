@@ -276,6 +276,15 @@ async function replaceFrameworksPanel(framework) {
 	});
 }
 
+function getCurrentFramework() {
+	var result = '';
+	result = $('#selectedFramework').text();
+	if(result=='') {
+		result = 'all';
+	}
+	return result;
+}
+
 $(function() {
   var minlength = 3;
 	const debug = false;
@@ -383,11 +392,12 @@ function removeActiveSearchterm(element) {
 $("form").on("submit", function (e) {
 	const debug = true;
 	var dataString = $(this).serialize();
+	var framework = getCurrentFramework();
 	var searchtext = dataString.substring(dataString.indexOf('=')+1, dataString.length);
 	if(debug) console.log('in form submit jquery with ' + dataString + ' and searchtext: ' + searchtext);
 	$.ajax({
 		type: "GET",
-		url: "/api/agileframeworks/suggestions?" + dataString,
+		url: "/api/agileframeworks/suggestions?" + 'framework=' + framework + '&' + dataString,
 		dataType: "json",
 		success: function(result) {
 			if(debug) console.log('result: ' + result.searchWords[0])
