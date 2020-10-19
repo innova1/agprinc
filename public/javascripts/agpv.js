@@ -358,17 +358,10 @@ function addActiveSearchterm(term) {
 function removeActiveSearchterm(element) {
 	const debug = false;
 	if(debug) console.log('will remove ' + element.text.trim());
-	var framework = '';
 	termsObj.removeTerm(element.text.trim().replace(/\s/g, '+'));
 	populateCurrentSearchTermsDiv(termsObj.getCurrentTerms());
 	if(debug) console.log("termsObj size: " + termsObj.size())
-	var currFramElement = document.getElementById('selectedFramework')
-	if(currFramElement) {
-		framework = currFramElement.innerHTML;
-	}
-	if(framework=='') {
-		framework = 'all';
-	}
+	var framework = getCurrentFramework();
 	if(termsObj.size()==0) {
 		replaceItemsPanels('all');
 	} else {
