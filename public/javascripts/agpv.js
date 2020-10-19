@@ -292,13 +292,7 @@ $(function() {
   $("#searchtext").keyup(function() {
     var oldThis = this,
     value = $(this).val();
-	var currFramElement = document.getElementById('selectedFramework')
-	if(currFramElement) {
-		framework = currFramElement.innerHTML;
-	}
-	if(framework=='') {
-		framework = 'all';
-	}
+	var framework = getCurrentFramework();
     //if(debug) console.log("value is " + value);
 
      if (value.length >= minlength ) {
