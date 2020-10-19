@@ -392,12 +392,12 @@ function removeActiveSearchterm(element) {
 $("form").on("submit", function (e) {
 	const debug = true;
 	var dataString = $(this).serialize();
-	var framework = getCurrentFramework();
+	var frameworkString = 'framework=' + getCurrentFramework();
 	var searchtext = dataString.substring(dataString.indexOf('=')+1, dataString.length);
 	if(debug) console.log('in form submit jquery with ' + dataString + ' and searchtext: ' + searchtext);
 	$.ajax({
 		type: "GET",
-		url: "/api/agileframeworks/suggestions?" + 'framework=' + framework + '&' + dataString,
+		url: "/api/agileframeworks/suggestions?" + frameworkString + '&' + dataString,
 		dataType: "json",
 		success: function(result) {
 			if(debug) console.log('result: ' + result.searchWords[0])
