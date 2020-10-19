@@ -311,40 +311,26 @@ $(function() {
             dataType: "json",
             success: function(msg){
 				if(msg.searchWords[0]) {
-					//var resultList = '<ul style="list-style-type: none"><li><b>Suggestions</b></li>';
-					var curSearchField = document.getElementById('currentsearchterms');
-					var curSearchTerms = (curSearchField.innerHTML!=''?curSearchField.innerHTML + ",":"");
-					//if(debug) console.log("in success 1 with " + msg.result[0] );
+					//var curSearchField = document.getElementById('currentsearchterms');
+					//var curSearchTerms = (curSearchField.innerHTML!=''?curSearchField.innerHTML + ",":"");
+					if(debug) console.log("in success 1 with " + msg.result[0] );
 					//we need to check if the value is the same
 					if (value==$(oldThis).val()) {
-						//if(debug) console.log("in success 2 in if with " + msg.result[0] );
-						/*
-						var jscriptcall = '';
-						msg.searchWords.forEach( element => {
-						jscriptString = "javascript:addActiveSearchterm('" + element.replace(/\s/g, '+') + "')"
-						//if(debug) console.log('adding jscript: |' + jscriptString + '|')
-						resultList = resultList + "<li><a href='javascript:void(0);' onclick=" + jscriptString + ">" + element + "</a></li>";
-						});
-						resultList = resultList + '</ul>';
-						*/
+						if(debug) console.log("in success 2 in if with " + msg.result[0] );
 						$('#suggestion-title').html('Suggestions');
 						$('#suggestions').html(getSuggestionPanelHTML(msg.searchWords));
-						//suggElement.innerHTML = getSuggestionPanelHTML(msg.searchWords);  //resultList;
-						//if(debug) console.log("about to display block on suggestions");
+						if(debug) console.log("about to display block on suggestions");
 						$("#suggestion-panel").collapse('show');
-						//***suggElement.style.display = 'block';
 					}
 				} else {
 					suggElement.innerHTML = '';
 					$("#suggestion-panel").collapse('hide');
-					//***suggElement.style.display = 'none';
 				}
 			}
 		});
 	 } else {
 		suggElement.innerHTML = '';
 		$("#suggestion-panel").collapse('hide');
-		//***suggElement.style.display = 'none';
 	 }
   });
 });
