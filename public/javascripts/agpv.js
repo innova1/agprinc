@@ -156,27 +156,39 @@ function setSelected(selectedFramework) {
 	var frameElement;
 	frameworkObjArray.forEach( fObj => {
 		if(debug) console.log("in set selected fr: in array loop removing selected on " + fObj.framework + " div");
-		frameElement = document.getElementById(fObj.framework);
-		//frameElement = $('#' + fObj.framework);
+		//frameElement = document.getElementById(fObj.framework);
+		frameElement = $('#' + fObj.framework);
 		if(frameElement) {
 			if(debug) console.log( 'if frameElement true' )
 			if( fObj.framework == selectedFramework ) {
 				if(debug) console.log('f is selected. f:' + fObj.framework + ", selected: " + selectedFramework)
-				if(frameElement.classList.contains('selected')) {
+				//if(frameElement.classList.contains('selected')) {
+				if(frameElement.hasClass('selected')) {
 					if(debug) console.log( 'classList contains selected')
-					frameElement.classList.remove('selected');
-					frameElement.parentElement.setAttribute("onclick", "replaceItemsPanels(\'" + fObj.framework + "\')");
+					//frameElement.classList.remove('selected');
+					frameElement.removeClass('selected');
+					//frameElement.parentElement.setAttribute("onclick", "replaceItemsPanels(\'" + fObj.framework + "\')");
+					frameElement.offsetParent.css("onclick", "replaceItemsPanels(\'" + fObj.framework + "\')");
 				} else {
 					if(debug) console.log( 'classList does not already contain selected')
-					frameElement.classList.add('selected');
-					frameElement.parentElement.setAttribute("onclick", "replaceItemsPanels('all')");
+					//frameElement.classList.add('selected');
+					frameElement.addClass('selected');
+					//frameElement.parentElement.setAttribute("onclick", "replaceItemsPanels('all')");
+					frameElement.offsetParent.css("onclick", "replaceItemsPanels('all')");
 				}
 			} else { //this is not the currently selected framework
 				if(debug) console.log('f is NOT selected. f:' + fObj.framework + ", selected: " + selectedFramework)
+				/*
 				if(frameElement.classList.contains('selected')) {
 					if(debug) console.log( 'classList already contains selected -- removing')
 					frameElement.classList.remove('selected');
 					frameElement.parentElement.setAttribute("onclick", "replaceItemsPanels(\'" + fObj.framework + "\')");
+				}
+				*/
+				if(frameElement.hasClass('selected')) {
+					if(debug) console.log( 'classList already contains selected -- removing')
+					frameElement.removeClass('selected');
+					frameElement.offsetParent.css("onclick", "replaceItemsPanels(\'" + fObj.framework + "\')");
 				}
 			}
 		}
