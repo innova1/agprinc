@@ -299,8 +299,8 @@ function populateCurrentSearchTermsDiv() {
 	});
 }
 
-async function replaceFrameworksPanel(framework) {
-	await $.ajax({
+function replaceFrameworksPanel(framework) {
+	$.ajax({
 		type: "GET",
 		url: "/api/agileframeworks/frameworks/",
 		dataType: "json",
