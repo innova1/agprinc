@@ -163,38 +163,36 @@ function populateFrameworksPanel( objs ) {
 
 function populateFrameworksPanel2( objs ) {
 	console.log('in pop fra pane 2')
-	$(function() {
-		const debug = false;
-		var framework = "";
-		var obj = new Object();
-		var itemsHtml = "";
-		var jscriptString = "";
-		frameworkObjArray = objs;
-		var panel = $('#frameworksMenuPanel');
-		if(debug) console.log('setting up frameworks panel html')
+	const debug = false;
+	var framework = "";
+	var obj = new Object();
+	var itemsHtml = "";
+	var jscriptString = "";
+	frameworkObjArray = objs;
+	var panel = $('#frameworksMenuPanel');
+	if(debug) console.log('setting up frameworks panel html')
 
-		panel.html("<div class='panel panel-primary'>");
-		panel.html("<div class='panel-heading'>");
-		panel.html("<a id='sidepanelheader' href='#sidepanel' data-toggle='collapse'><h3 class='panel-title'><div id='fmenu-panel-title-div'>Frameworks</div><div id='displaySelectedFramework'></div></h3></a>");
-		panel.html("</div>"); //close div panel heading
-		panel.html("<div class='panel-collapse collapse' id='sidepanel'>");
-		panel.html("<ul class='list-group'>");
-		objs.forEach( obj => {
-			panel.html("<li class='list-group-item'>");
-			//jscriptString = "onclick=\'javascript:replaceItemsPanels(\"" + obj.framework + "\")\'";
-			panel.html("<a class=\'menu\' href=\'javascript:void(0)\' " + jscriptString + "> <span id=\'" + obj.framework + "\'>" + obj.frameworkdisplay + "</span>");
-			panel.html("</li>");
-		});
-		panel.html("</ul>");
-		panel.html("</div>"); //close div panel-collapse
-		panel.html("</div>"); //close div panel-default
-
-		//if(debug) console.log('setsidepanel');
-		//if(debug) console.log('about to populate frameworksMenuPanel with ' + itemsHtml);
-		//document.getElementById('frameworksMenuPanel').innerHTML = itemsHtml;
-		//$('#frameworksMenuPanel').html(itemsHtml);
-		frameworkObjArray.push({framework:'all', frameworkdisplay:'All'})
+	panel.html("<div class='panel panel-primary'>");
+	panel.html("<div class='panel-heading'>");
+	panel.html("<a id='sidepanelheader' href='#sidepanel' data-toggle='collapse'><h3 class='panel-title'><div id='fmenu-panel-title-div'>Frameworks</div><div id='displaySelectedFramework'></div></h3></a>");
+	panel.html("</div>"); //close div panel heading
+	panel.html("<div class='panel-collapse collapse' id='sidepanel'>");
+	panel.html("<ul class='list-group'>");
+	objs.forEach( obj => {
+		panel.html("<li class='list-group-item'>");
+		//jscriptString = "onclick=\'javascript:replaceItemsPanels(\"" + obj.framework + "\")\'";
+		panel.html("<a class=\'menu\' href=\'javascript:void(0)\' " + jscriptString + "> <span id=\'" + obj.framework + "\'>" + obj.frameworkdisplay + "</span>");
+		panel.html("</li>");
 	});
+	panel.html("</ul>");
+	panel.html("</div>"); //close div panel-collapse
+	panel.html("</div>"); //close div panel-default
+
+	//if(debug) console.log('setsidepanel');
+	//if(debug) console.log('about to populate frameworksMenuPanel with ' + itemsHtml);
+	//document.getElementById('frameworksMenuPanel').innerHTML = itemsHtml;
+	//$('#frameworksMenuPanel').html(itemsHtml);
+	frameworkObjArray.push({framework:'all', frameworkdisplay:'All'})
 }
 
 function setMenuCollapsed(isSmallViewport) {
