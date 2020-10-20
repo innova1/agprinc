@@ -308,9 +308,9 @@ function replaceFrameworksPanel(framework) {
 		url: "/api/agileframeworks/frameworks/",
 		dataType: "json",
 		success: function(result) {
+			populateFrameworksPanel(result.AFs);
 			console.log('calling set selected from replace framework')
 			setSelected(framework);
-			populateFrameworksPanel(result.AFs);
 			isSmallViewport.addListener(setMenuCollapsed);
 			//console.log('listener added to ismallviewport')
 			setMenuCollapsed(isSmallViewport);
