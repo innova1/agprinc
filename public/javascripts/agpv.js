@@ -45,7 +45,7 @@ function replaceItemsPanels(framework) {
 }
 
 async function populateItemsPanels( objs ) {
-	populateCurrentSearchTerms2( objs );
+	populateItemsPanels2( objs );
 	/*
 	const debug = false;
 	var itemTitle = "";
