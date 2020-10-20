@@ -44,10 +44,11 @@ function replaceItemsPanels(framework) {
 	});
 }
 
-async function populateItemsPanels( objs ) 
+
+async function populateItemsPanels( objs ) {
 	if(false) {
 		populateItemsPanels2( objs );
-	} else 
+	} else {
 		const debug = false;
 		var itemTitle = "";
 		var obj = new Object();
