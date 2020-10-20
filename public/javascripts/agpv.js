@@ -120,7 +120,8 @@ async function populateFrameworksPanel( objs ) {
 	
 	//if(debug) console.log('setsidepanel');
 	//if(debug) console.log('about to populate frameworksMenuPanel with ' + itemsHtml);
-	document.getElementById('frameworksMenuPanel').innerHTML = itemsHtml;
+	//document.getElementById('frameworksMenuPanel').innerHTML = itemsHtml;
+	$('#frameworksMenuPanel').html(itemsHtml);
 	frameworkObjArray.push({framework:'all', frameworkdisplay:'All'})
 }
 
@@ -155,7 +156,8 @@ function setSelected(selectedFramework) {
 	var frameElement;
 	frameworkObjArray.forEach( fObj => {
 		if(debug) console.log("in set selected fr: in array loop removing selected on " + fObj.framework + " div");
-		frameElement = document.getElementById(fObj.framework);
+		//frameElement = document.getElementById(fObj.framework);
+		frameElement = $('#' + fObj.framework);
 		if(frameElement) {
 			if(debug) console.log( 'if frameElement true' )
 			if( fObj.framework == selectedFramework ) {
