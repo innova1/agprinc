@@ -168,7 +168,7 @@ function setSelected(selectedFramework) {
 					//frameElement.classList.remove('selected');
 					frameElement.removeClass('selected');
 					//frameElement.parentElement.setAttribute("onclick", "replaceItemsPanels(\'" + fObj.framework + "\')");
-					frameElement.offsetParent.css("onclick", "replaceItemsPanels(\'" + fObj.framework + "\')");
+					frameElement.offsetParent().css("onclick", "replaceItemsPanels(\'" + fObj.framework + "\')");
 				} else {
 					if(debug) console.log( 'classList does not already contain selected')
 					//frameElement.classList.add('selected');
