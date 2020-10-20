@@ -176,7 +176,7 @@ function populateFrameworksPanel2( objs ) {
 		panel.html("<div class='panel-heading'>");
 		panel.html("<a id='sidepanelheader' href='#sidepanel' data-toggle='collapse'><h3 class='panel-title'><div id='fmenu-panel-title-div'>Frameworks</div><div id='displaySelectedFramework'></div></h3></a>");
 		panel.html("</div>"); //close div panel heading
-		panel.html("<div class='panel-collapse collapse' id='sidepanel'>)"
+		panel.html("<div class='panel-collapse collapse' id='sidepanel'>");
 		panel.html("<ul class='list-group'>");
 		objs.forEach( obj => {
 			panel.html("<li class='list-group-item'>");
