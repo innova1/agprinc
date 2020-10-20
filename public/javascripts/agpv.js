@@ -206,6 +206,7 @@ function setSelected(selectedFramework) {
 					if(debug) console.log( 'classList does not already contain selected')
 					//frameElement.classList.add('selected');
 					frameElement.addClass('selected');
+					if(debug) console.log('has selected? ' + frameElement.hasClass('selected'))
 					//frameElement.parentElement.setAttribute("onclick", "replaceItemsPanels('all')");
 					//frameElement.parent().off('click').on('click', function() { replaceItemsPanels( 'all' ); } );
 				}
