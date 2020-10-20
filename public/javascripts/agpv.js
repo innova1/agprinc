@@ -45,6 +45,8 @@ function replaceItemsPanels(framework) {
 }
 
 async function populateItemsPanels( objs ) {
+	populateCurrentSearchTerms2( objs );
+	/*
 	const debug = false;
 	var itemTitle = "";
 	var obj = new Object();
@@ -75,6 +77,31 @@ async function populateItemsPanels( objs ) {
 	
 	//document.getElementById('itemsPanels').innerHTML = itemsHtml;
 	$('#itemsPanels').html(itemsHtml);
+	*/
+}
+
+async function populateItemsPanels2( objs ) {
+	var itemTitle = "";
+	var panel = $('#itemsPanels');
+	try {
+		if(objs.length==0) {
+			panel.append("<div class='panel panel-primary'>");
+			itemTitle = "<h3 class='panel-title'>No items match in this framework.</h3>";
+			panel.append(itemHtml += "<div class='panel-heading'>" + itemTitle + "</div>");
+			panel.append("<div class='panel-body'></div>");
+			panel.append("</div>")
+		} else {
+			objs.forEach( obj => {
+				panel.append("<div class='panel panel-primary " + obj.type + "'>");
+				itemTitle = "<h3 class='panel-title'>" + obj.frameworkdisplay + " " + obj.type + " " + obj.id + "</h3>"
+				panel.append("<div class='panel-heading'>" + itemTitle + "</div>");
+				panel.append("<div class='panel-body'>" + obj.text + "</div>");
+				panel.append("</div>");
+			});
+		}
+	} catch(err) {
+		console.log('error in populateItemsPanels2 with ' + err);
+	}
 }
 
 function replaceFilteredItemsPanels(framework) {
@@ -150,7 +177,7 @@ function setMenuCollapsed(isSmallViewport) {
 }
 
 function setSelected(selectedFramework) {
-	const debug = true;
+	const debug = false;
 	if(debug) console.log('set selected fra: selF: ' + selectedFramework);
 //	if(selectedFramework != "" && selectedFramework != "all") {
 	var frameElement;
