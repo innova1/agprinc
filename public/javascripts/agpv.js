@@ -173,20 +173,20 @@ function populateFrameworksPanel2( objs ) {
 	if(debug) console.log('setting up frameworks panel html')
 
 	panel.html("<div class='panel panel-primary'>");
-	panel.html("<div class='panel-heading'>");
-	panel.html("<a id='sidepanelheader' href='#sidepanel' data-toggle='collapse'><h3 class='panel-title'><div id='fmenu-panel-title-div'>Frameworks</div><div id='displaySelectedFramework'></div></h3></a>");
-	panel.html("</div>"); //close div panel heading
-	panel.html("<div class='panel-collapse collapse' id='sidepanel'>");
-	panel.html("<ul class='list-group'>");
+	panel.append("<div class='panel-heading'>");
+	panel.append("<a id='sidepanelheader' href='#sidepanel' data-toggle='collapse'><h3 class='panel-title'><div id='fmenu-panel-title-div'>Frameworks</div><div id='displaySelectedFramework'></div></h3></a>");
+	panel.append("</div>"); //close div panel heading
+	panel.append("<div class='panel-collapse collapse' id='sidepanel'>");
+	panel.append("<ul class='list-group'>");
 	objs.forEach( obj => {
-		panel.html("<li class='list-group-item'>");
+		panel.append("<li class='list-group-item'>");
 		//jscriptString = "onclick=\'javascript:replaceItemsPanels(\"" + obj.framework + "\")\'";
-		panel.html("<a class=\'menu\' href=\'javascript:void(0)\' " + jscriptString + "> <span id=\'" + obj.framework + "\'>" + obj.frameworkdisplay + "</span>");
-		panel.html("</li>");
+		panel.append("<a class=\'menu\' href=\'javascript:void(0)\' " + jscriptString + "> <span id=\'" + obj.framework + "\'>" + obj.frameworkdisplay + "</span>");
+		panel.append("</li>");
 	});
-	panel.html("</ul>");
-	panel.html("</div>"); //close div panel-collapse
-	panel.html("</div>"); //close div panel-default
+	panel.append("</ul>");
+	panel.append("</div>"); //close div panel-collapse
+	panel.append("</div>"); //close div panel-default
 
 	//if(debug) console.log('setsidepanel');
 	//if(debug) console.log('about to populate frameworksMenuPanel with ' + itemsHtml);
