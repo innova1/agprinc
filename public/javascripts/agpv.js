@@ -210,6 +210,7 @@ function setSelected(selectedFramework) {
 				}
 			} else { //this is not the currently selected framework
 				if(debug) console.log('f is NOT selected. f:' + fObj.framework + ", selected: " + selectedFramework)
+				if(debug) console.log('adding click replace items panels with ' + fObj.framework);
 				frameElement.offsetParent().off('click').on('click', function() { replaceItemsPanels(fObj.framework) } );
 				if(frameElement.hasClass('selected')) {
 					if(debug) console.log( 'classList already contains selected -- removing')
