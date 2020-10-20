@@ -44,40 +44,41 @@ function replaceItemsPanels(framework) {
 	});
 }
 
-async function populateItemsPanels( objs ) {
-	populateItemsPanels2( objs );
-	/*
-	const debug = false;
-	var itemTitle = "";
-	var obj = new Object();
-	var itemsHtml = "";
-	var itemHtml = "";
-	//if(debug) console.log('in populateItemsPanels with obj size: ' + objs.length)
-	try {
-		if(objs.length==0) {
-			itemHtml = "<div class='panel panel-primary'>";
-			itemTitle = "<h3 class='panel-title'>No items match in this framework.</h3>"
-			itemHtml += "<div class='panel-heading'>" + itemTitle + "</div>";
-			itemHtml += "<div class='panel-body'></div>";
-			itemHtml += "</div>";
-			itemsHtml += itemHtml;
-		} else {
-			objs.forEach( obj => {
-				itemHtml = "<div class='panel panel-primary " + obj.type + "'>";
-				itemTitle = "<h3 class='panel-title'>" + obj.frameworkdisplay + " " + obj.type + " " + obj.id + "</h3>"
+async function populateItemsPanels( objs ) 
+	if(false) {
+		populateItemsPanels2( objs );
+	} else 
+		const debug = false;
+		var itemTitle = "";
+		var obj = new Object();
+		var itemsHtml = "";
+		var itemHtml = "";
+		//if(debug) console.log('in populateItemsPanels with obj size: ' + objs.length)
+		try {
+			if(objs.length==0) {
+				itemHtml = "<div class='panel panel-primary'>";
+				itemTitle = "<h3 class='panel-title'>No items match in this framework.</h3>"
 				itemHtml += "<div class='panel-heading'>" + itemTitle + "</div>";
-				itemHtml += "<div class='panel-body'>" + obj.text + "</div>";
+				itemHtml += "<div class='panel-body'></div>";
 				itemHtml += "</div>";
 				itemsHtml += itemHtml;
-			});
+			} else {
+				objs.forEach( obj => {
+					itemHtml = "<div class='panel panel-primary " + obj.type + "'>";
+					itemTitle = "<h3 class='panel-title'>" + obj.frameworkdisplay + " " + obj.type + " " + obj.id + "</h3>"
+					itemHtml += "<div class='panel-heading'>" + itemTitle + "</div>";
+					itemHtml += "<div class='panel-body'>" + obj.text + "</div>";
+					itemHtml += "</div>";
+					itemsHtml += itemHtml;
+				});
+			}
+		} catch(err) {
+			console.log('error in populateItemsPanels with ' + err);
 		}
-	} catch(err) {
-		console.log('error in populateItemsPanels with ' + err);
+
+		//document.getElementById('itemsPanels').innerHTML = itemsHtml;
+		$('#itemsPanels').html(itemsHtml);
 	}
-	
-	//document.getElementById('itemsPanels').innerHTML = itemsHtml;
-	$('#itemsPanels').html(itemsHtml);
-	*/
 }
 
 async function populateItemsPanels2( objs ) {
