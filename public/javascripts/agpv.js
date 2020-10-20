@@ -156,8 +156,8 @@ function setSelected(selectedFramework) {
 	var frameElement;
 	frameworkObjArray.forEach( fObj => {
 		if(debug) console.log("in set selected fr: in array loop removing selected on " + fObj.framework + " div");
-		//frameElement = document.getElementById(fObj.framework);
-		frameElement = $('#' + fObj.framework);
+		frameElement = document.getElementById(fObj.framework);
+		//frameElement = $('#' + fObj.framework);
 		if(frameElement) {
 			if(debug) console.log( 'if frameElement true' )
 			if( fObj.framework == selectedFramework ) {
@@ -261,12 +261,15 @@ function populateCurrentSearchTermsDiv() {
 		currentSearchTermsObject = createCurrent SearchTermsObject(searchterms);
 	}*/
 	//if(debug) console.log("updating remove links div with " + termsObj.getCurrentTermsHtml());
-	document.getElementById('removetermlinks').innerHTML = termsObj.getCurrentTermsHtml();
+	//document.getElementById('removetermlinks').innerHTML = termsObj.getCurrentTermsHtml();
+	$('#removetermlinks').html(termsObj.getCurrentTermsHtml());
 	//if(debug) console.log("updating search terms div with " + termsObj.getCurrentTerms());
-	document.getElementById('currentsearchterms').innerHTML = termsObj.getCurrentTerms();
+	//document.getElementById('currentsearchterms').innerHTML = termsObj.getCurrentTerms();
+	$('#currentsearchterms').html(termsObj.getCurrentTerms());
 	$("#suggestion-panel").collapse('hide');
 	//***document.getElementById('suggestions').style.display = 'none';
 	document.getElementById('searchtext').value = "";
+	//$('#searchtext').val('');
 }
 
 async function replaceFrameworksPanel(framework) {
