@@ -185,40 +185,38 @@ function setSelected(selectedFramework) {
 	const debug = false;
 	if(debug) console.log('set selected fra: selF: ' + selectedFramework);
 	var frameElement;
-	$(function() {
-		frameworkObjArray.forEach( fObj => {
-			if(debug) console.log("in set selected fr: in array loop removing selected on " + fObj.framework + " div");
-			//frameElement = document.getElementById(fObj.framework);
-			frameElement = $('#' + fObj.framework);
-			if(frameElement) {
-				if(debug) console.log( 'if frameElement true' )
-				if( fObj.framework == selectedFramework ) {
-					if(debug) console.log('f is selected. f:' + fObj.framework + ", selected: " + selectedFramework)
-					//if(frameElement.classList.contains('selected')) {
-					if(frameElement.hasClass('selected')) {
-						if(debug) console.log( 'classList contains selected')
-						//frameElement.classList.remove('selected');
-						frameElement.removeClass('selected');
-						//frameElement.parentElement.setAttribute("onclick", "replaceItemsPanels(\'" + fObj.framework + "\')");
-						frameElement.offsetParent().off('click').on('click', function() { replaceItemsPanels(fObj.framework); } );
-					} else {
-						if(debug) console.log( 'classList does not already contain selected')
-						//frameElement.classList.add('selected');
-						frameElement.addClass('selected');
-						//frameElement.parentElement.setAttribute("onclick", "replaceItemsPanels('all')");
-						frameElement.offsetParent().off('click').on('click', function() { replaceItemsPanels('all'); } );
-					}
-				} else { //this is not the currently selected framework
-					if(debug) console.log('f is NOT selected. f:' + fObj.framework + ", selected: " + selectedFramework)
-					if(frameElement.hasClass('selected')) {
-						if(debug) console.log( 'classList already contains selected -- removing')
-						frameElement.removeClass('selected');
-						frameElement.offsetParent().off('click').on('click', function() { replaceItemsPanels(fObj.framework) } );
-					}
+	frameworkObjArray.forEach( fObj => {
+		if(debug) console.log("in set selected fr: in array loop removing selected on " + fObj.framework + " div");
+		//frameElement = document.getElementById(fObj.framework);
+		frameElement = $('#' + fObj.framework);
+		if(frameElement) {
+			if(debug) console.log( 'if frameElement true' )
+			if( fObj.framework == selectedFramework ) {
+				if(debug) console.log('f is selected. f:' + fObj.framework + ", selected: " + selectedFramework)
+				//if(frameElement.classList.contains('selected')) {
+				if(frameElement.hasClass('selected')) {
+					if(debug) console.log( 'classList contains selected')
+					//frameElement.classList.remove('selected');
+					frameElement.removeClass('selected');
+					//frameElement.parentElement.setAttribute("onclick", "replaceItemsPanels(\'" + fObj.framework + "\')");
+					frameElement.offsetParent().off('click').on('click', function() { replaceItemsPanels(fObj.framework); } );
+				} else {
+					if(debug) console.log( 'classList does not already contain selected')
+					//frameElement.classList.add('selected');
+					frameElement.addClass('selected');
+					//frameElement.parentElement.setAttribute("onclick", "replaceItemsPanels('all')");
+					frameElement.offsetParent().off('click').on('click', function() { replaceItemsPanels('all'); } );
+				}
+			} else { //this is not the currently selected framework
+				if(debug) console.log('f is NOT selected. f:' + fObj.framework + ", selected: " + selectedFramework)
+				if(frameElement.hasClass('selected')) {
+					if(debug) console.log( 'classList already contains selected -- removing')
+					frameElement.removeClass('selected');
+					frameElement.offsetParent().off('click').on('click', function() { replaceItemsPanels(fObj.framework) } );
 				}
 			}
-		});
-		
+		}
+
 		if(debug) console.log("in set selected fr: setting selected to " + selectedFramework + " div");
 		$('#selectedFramework').text(selectedFramework);
 		var sfObj = frameworkObjArray.find( ({ framework }) => framework === selectedFramework )
