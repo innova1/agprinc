@@ -168,13 +168,13 @@ function setSelected(selectedFramework) {
 					//frameElement.classList.remove('selected');
 					frameElement.removeClass('selected');
 					//frameElement.parentElement.setAttribute("onclick", "replaceItemsPanels(\'" + fObj.framework + "\')");
-					frameElement.offsetParent().click("replaceItemsPanels(\'" + fObj.framework + "\')");
+					frameElement.offsetParent().click(function() {replaceItemsPanels(fObj.framework)});
 				} else {
 					if(debug) console.log( 'classList does not already contain selected')
 					//frameElement.classList.add('selected');
 					frameElement.addClass('selected');
 					//frameElement.parentElement.setAttribute("onclick", "replaceItemsPanels('all')");
-					frameElement.offsetParent().click("replaceItemsPanels('all')");
+					frameElement.offsetParent().click(function() {replaceItemsPanels('all');});
 				}
 			} else { //this is not the currently selected framework
 				if(debug) console.log('f is NOT selected. f:' + fObj.framework + ", selected: " + selectedFramework)
@@ -188,7 +188,7 @@ function setSelected(selectedFramework) {
 				if(frameElement.hasClass('selected')) {
 					if(debug) console.log( 'classList already contains selected -- removing')
 					frameElement.removeClass('selected');
-					frameElement.offsetParent().click("replaceItemsPanels(\'" + fObj.framework + "\')");
+					frameElement.offsetParent().click(function() {replaceItemsPanels(fObj.framework)});
 				}
 			}
 		}
