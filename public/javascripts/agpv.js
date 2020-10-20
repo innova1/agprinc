@@ -17,9 +17,9 @@ let termsObj = new currentTermsObject();
 function replaceItemsPanels(framework, isSelected) {
 	$(function() {
 		const debug = false;
-		if(debug) console.log('in replaceItemsPanels with ' + framework );
 		let url;
 		var adjustedFramework = (isSelected?'all':framework);
+		if(debug) console.log('in replaceItemsPanels with ' + framework + ' and ' + adjustedFramework );
 		if(termsObj.size() > 0) {
 			if(debug) console.log('in replaceitemspanels, termsObj size should be >0 and is ' + termsObj.size() );
 			url = "/api/agileframeworks/search?framework=" + adjustedFramework + "&searchwords=" + termsObj.getCurrentTerms();
@@ -27,6 +27,7 @@ function replaceItemsPanels(framework, isSelected) {
 			if(debug) console.log('in replaceitemspanels, termsObj size should be 0 and is ' + termsObj.size() );
 			url = "/api/agileframeworks/" + adjustedFramework;
 		}
+		if(debug) console.log('url: ' + url);
 		$.ajax({
 			type: "GET",
 			url: url,
@@ -183,7 +184,7 @@ function setMenuCollapsed(isSmallViewport) {
 }
 
 function setSelected(selectedFramework) {
-	const debug = true;
+	const debug = false;
 	if(debug) console.log('set selected fra: selF: ' + selectedFramework);
 	var frameElement;
 	frameworkObjArray.forEach( fObj => {
