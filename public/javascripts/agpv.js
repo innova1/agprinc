@@ -46,7 +46,7 @@ function replaceItemsPanels(framework) {
 
 
 async function populateItemsPanels( objs ) {
-	$(function) {
+	$(function {
 		if(false) {
 			populateItemsPanels2( objs );
 		} else {
@@ -81,7 +81,7 @@ async function populateItemsPanels( objs ) {
 			//document.getElementById('itemsPanels').innerHTML = itemsHtml;
 			$('#itemsPanels').html(itemsHtml);
 		}
-	}
+	});
 }
 
 async function populateItemsPanels2( objs ) {
