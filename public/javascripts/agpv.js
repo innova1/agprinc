@@ -219,9 +219,9 @@ function setSelected(selectedFramework) {
 				}
 			}
 			if(debug) console.log('in set selected calling on click for ' + fObj.framework + ", " + frameElement.hasClass('selected'))
-			frameElement.parent().off('click').on('click', function() { replaceItemsPanels( fObj.framework, frameElement.hasClass('selected') ); } );
-			if(debug) console.log('parent:' + frameElement.parent().html())
-			if(debug) console.log('css: ' + frameElement.css())
+			frameElement.parent().parent().off('click').on('click', function() { replaceItemsPanels( fObj.framework, frameElement.hasClass('selected') ); } );
+			if(debug) console.log('parent:' + frameElement.parent()parent().html())
+			if(debug) console.log('css: ' + frameElement.css('selected'))
 		}
 
 		if(debug) console.log("in set selected fr: setting selected to " + selectedFramework + " div");
