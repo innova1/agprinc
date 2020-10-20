@@ -85,27 +85,29 @@ async function populateItemsPanels( objs ) {
 }
 
 async function populateItemsPanels2( objs ) {
-	var itemTitle = "";
-	var panel = $('#itemsPanels');
-	try {
-		if(objs.length==0) {
-			panel.append("<div class='panel panel-primary'>");
-			itemTitle = "<h3 class='panel-title'>No items match in this framework.</h3>";
-			panel.append("<div class='panel-heading'>" + itemTitle + "</div>");
-			panel.append("<div class='panel-body'></div>");
-			panel.append("</div>")
-		} else {
-			objs.forEach( obj => {
-				panel.append("<div class='panel panel-primary " + obj.type + "'>");
-				itemTitle = "<h3 class='panel-title'>" + obj.frameworkdisplay + " " + obj.type + " " + obj.id + "</h3>"
+	$(function() {
+		var itemTitle = "";
+		var panel = $('#itemsPanels');
+		try {
+			if(objs.length==0) {
+				panel.append("<div class='panel panel-primary'>");
+				itemTitle = "<h3 class='panel-title'>No items match in this framework.</h3>";
 				panel.append("<div class='panel-heading'>" + itemTitle + "</div>");
-				panel.append("<div class='panel-body'>" + obj.text + "</div>");
-				panel.append("</div>");
-			});
+				panel.append("<div class='panel-body'></div>");
+				panel.append("</div>")
+			} else {
+				objs.forEach( obj => {
+					panel.append("<div class='panel panel-primary " + obj.type + "'>");
+					itemTitle = "<h3 class='panel-title'>" + obj.frameworkdisplay + " " + obj.type + " " + obj.id + "</h3>"
+					panel.append("<div class='panel-heading'>" + itemTitle + "</div>");
+					panel.append("<div class='panel-body'>" + obj.text + "</div>");
+					panel.append("</div>");
+				});
+			}
+		} catch(err) {
+			console.log('error in populateItemsPanels2 with ' + err);
 		}
-	} catch(err) {
-		console.log('error in populateItemsPanels2 with ' + err);
-	}
+	});
 }
 
 function replaceFilteredItemsPanels(framework) {
