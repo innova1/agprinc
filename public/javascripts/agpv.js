@@ -1,5 +1,5 @@
-
-setup();
+$(document).ready(setup);
+//setup();
 function setup() {
 	console.log('calling replaceFrameworksPanel from setup()')
 	replaceFrameworksPanel('all');
