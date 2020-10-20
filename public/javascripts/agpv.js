@@ -184,7 +184,7 @@ function setMenuCollapsed(isSmallViewport) {
 }
 
 function setSelected(selectedFramework) {
-	const debug = false;
+	const debug = true;
 	if(debug) console.log('set selected fra: selF: ' + selectedFramework);
 	var frameElement;
 	frameworkObjArray.forEach( fObj => {
@@ -218,7 +218,7 @@ function setSelected(selectedFramework) {
 					frameElement.removeClass('selected');
 				}
 			}
-			console.log('in set selected calling on click for ' + fObj.framework + ", " + frameElement.hasClass('selected'))
+			if(debug) console.log('in set selected calling on click for ' + fObj.framework + ", " + frameElement.hasClass('selected'))
 			frameElement.parent().off('click').on('click', function() { replaceItemsPanels( fObj.framework, frameElement.hasClass('selected') ); } );
 		}
 
