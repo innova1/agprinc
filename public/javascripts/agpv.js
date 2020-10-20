@@ -125,59 +125,63 @@ function replaceFilteredItemsPanels(framework) {
 }
 
 async function populateFrameworksPanel( objs ) {
-	const debug = false;
-	var framework = "";
-	var obj = new Object();
-	var itemsHtml = "";
-	var jscriptString = "";
-	frameworkObjArray = objs;
-	if(debug) console.log('setting up frameworks panel html')
-	
-	itemsHtml  = "<div class='panel panel-primary'>";
-	itemsHtml += "<div class='panel-heading'>";
-	itemsHtml += "<a id='sidepanelheader' href='#sidepanel' data-toggle='collapse'><h3 class='panel-title'><div id='fmenu-panel-title-div'>Frameworks</div><div id='displaySelectedFramework'></div></h3></a>";
-	itemsHtml += "</div>"; //close div panel heading
-	itemsHtml += "<div class='panel-collapse collapse' id='sidepanel'>"
-	itemsHtml += "<ul class='list-group'>";
-	objs.forEach( obj => {
-		itemsHtml += "<li class='list-group-item'>";
-		jscriptString = "onclick=\'javascript:replaceItemsPanels(\"" + obj.framework + "\")\'";
-		itemsHtml += "<a class=\'menu\' href=\'javascript:void(0)\' " + jscriptString + "> <span id=\'" + obj.framework + "\'>" + obj.frameworkdisplay + "</span>";
-		itemsHtml += "</li>";
+	$(function() {
+		const debug = false;
+		var framework = "";
+		var obj = new Object();
+		var itemsHtml = "";
+		var jscriptString = "";
+		frameworkObjArray = objs;
+		if(debug) console.log('setting up frameworks panel html')
+
+		itemsHtml  = "<div class='panel panel-primary'>";
+		itemsHtml += "<div class='panel-heading'>";
+		itemsHtml += "<a id='sidepanelheader' href='#sidepanel' data-toggle='collapse'><h3 class='panel-title'><div id='fmenu-panel-title-div'>Frameworks</div><div id='displaySelectedFramework'></div></h3></a>";
+		itemsHtml += "</div>"; //close div panel heading
+		itemsHtml += "<div class='panel-collapse collapse' id='sidepanel'>"
+		itemsHtml += "<ul class='list-group'>";
+		objs.forEach( obj => {
+			itemsHtml += "<li class='list-group-item'>";
+			jscriptString = "onclick=\'javascript:replaceItemsPanels(\"" + obj.framework + "\")\'";
+			itemsHtml += "<a class=\'menu\' href=\'javascript:void(0)\' " + jscriptString + "> <span id=\'" + obj.framework + "\'>" + obj.frameworkdisplay + "</span>";
+			itemsHtml += "</li>";
+		});
+		itemsHtml += "</ul>";
+		itemsHtml += "</div>"; //close div panel-collapse
+		itemsHtml += "</div>"; //close div panel-default
+
+		//if(debug) console.log('setsidepanel');
+		//if(debug) console.log('about to populate frameworksMenuPanel with ' + itemsHtml);
+		//document.getElementById('frameworksMenuPanel').innerHTML = itemsHtml;
+		$('#frameworksMenuPanel').html(itemsHtml);
+		frameworkObjArray.push({framework:'all', frameworkdisplay:'All'})
 	});
-	itemsHtml += "</ul>";
-	itemsHtml += "</div>"; //close div panel-collapse
-	itemsHtml += "</div>"; //close div panel-default
-	
-	//if(debug) console.log('setsidepanel');
-	//if(debug) console.log('about to populate frameworksMenuPanel with ' + itemsHtml);
-	//document.getElementById('frameworksMenuPanel').innerHTML = itemsHtml;
-	$('#frameworksMenuPanel').html(itemsHtml);
-	frameworkObjArray.push({framework:'all', frameworkdisplay:'All'})
 }
 
 function setMenuCollapsed(isSmallViewport) {
 	const debug = false;
 	if(debug) console.log('calling set Menu Collapsed');
-	if( isSmallViewport.matches ) {
-		//document.getElementById("sidepanel").classList.remove('show');
-		//document.getElementById("sidepanel").classList.remove('in');
-		$("#sidepanel").collapse('hide');
-		$('#displaySelectedFramework').addClass('show');
-		$('#displaySelectedFramework').removeClass('hide');
-		$('#fmenu-panel-title-div').addClass('hide');
-		$('#fmenu-panel-title-div').removeClass('show');
-		//console.log("in largeviewport side pane classlist: " + document.getElementById("sidepanel").classList)
-	} else {
-		//document.getElementById("sidepanel").classList.add('show');
-		//document.getElementById("sidepanel").classList.add('in');
-		$("#sidepanel").collapse('show');
-		$('#displaySelectedFramework').addClass('hide');
-		$('#displaySelectedFramework').removeClass('show');
-		$('#fmenu-panel-title-div').addClass('show');
-		$('#fmenu-panel-title-div').removeClass('hide');
-		//console.log("in smallviewport match side pane classlist: " + document.getElementById("sidepanel").classList)
-	}
+	$(function() {
+		if( isSmallViewport.matches ) {
+			//document.getElementById("sidepanel").classList.remove('show');
+			//document.getElementById("sidepanel").classList.remove('in');
+			$("#sidepanel").collapse('hide');
+			$('#displaySelectedFramework').addClass('show');
+			$('#displaySelectedFramework').removeClass('hide');
+			$('#fmenu-panel-title-div').addClass('hide');
+			$('#fmenu-panel-title-div').removeClass('show');
+			//console.log("in largeviewport side pane classlist: " + document.getElementById("sidepanel").classList)
+		} else {
+			//document.getElementById("sidepanel").classList.add('show');
+			//document.getElementById("sidepanel").classList.add('in');
+			$("#sidepanel").collapse('show');
+			$('#displaySelectedFramework').addClass('hide');
+			$('#displaySelectedFramework').removeClass('show');
+			$('#fmenu-panel-title-div').addClass('show');
+			$('#fmenu-panel-title-div').removeClass('hide');
+			//console.log("in smallviewport match side pane classlist: " + document.getElementById("sidepanel").classList)
+		}
+	});
 }
 
 function setSelected(selectedFramework) {
@@ -284,16 +288,18 @@ function populateCurrentSearchTermsDiv() {
 		if(debug) console.log('creating terms object');
 		currentSearchTermsObject = createCurrent SearchTermsObject(searchterms);
 	}*/
-	//if(debug) console.log("updating remove links div with " + termsObj.getCurrentTermsHtml());
-	//document.getElementById('removetermlinks').innerHTML = termsObj.getCurrentTermsHtml();
-	$('#removetermlinks').html(termsObj.getCurrentTermsHtml());
-	//if(debug) console.log("updating search terms div with " + termsObj.getCurrentTerms());
-	//document.getElementById('currentsearchterms').innerHTML = termsObj.getCurrentTerms();
-	$('#currentsearchterms').html(termsObj.getCurrentTerms());
-	$("#suggestion-panel").collapse('hide');
-	//***document.getElementById('suggestions').style.display = 'none';
-	//document.getElementById('searchtext').value = "";
-	$('#searchtext').val('');
+	$(function() {
+		//if(debug) console.log("updating remove links div with " + termsObj.getCurrentTermsHtml());
+		//document.getElementById('removetermlinks').innerHTML = termsObj.getCurrentTermsHtml();
+		$('#removetermlinks').html(termsObj.getCurrentTermsHtml());
+		//if(debug) console.log("updating search terms div with " + termsObj.getCurrentTerms());
+		//document.getElementById('currentsearchterms').innerHTML = termsObj.getCurrentTerms();
+		$('#currentsearchterms').html(termsObj.getCurrentTerms());
+		$("#suggestion-panel").collapse('hide');
+		//***document.getElementById('suggestions').style.display = 'none';
+		//document.getElementById('searchtext').value = "";
+		$('#searchtext').val('');
+	});
 }
 
 async function replaceFrameworksPanel(framework) {
@@ -312,12 +318,14 @@ async function replaceFrameworksPanel(framework) {
 }
 
 function getCurrentFramework() {
-	var result = '';
-	result = $('#selectedFramework').text();
-	if(result=='') {
-		result = 'all';
-	}
-	return result;
+	$(function() {
+		var result = '';
+		result = $('#selectedFramework').text();
+		if(result=='') {
+			result = 'all';
+		}
+		return result;
+	});
 }
 
 function addActiveSearchterm(term) {
