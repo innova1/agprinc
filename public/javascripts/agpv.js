@@ -46,7 +46,7 @@ function replaceItemsPanels(framework) {
 
 
 async function populateItemsPanels( objs ) {
-	$(function {
+	$(function() {
 		if(false) {
 			populateItemsPanels2( objs );
 		} else {
