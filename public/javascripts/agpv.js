@@ -33,7 +33,7 @@ function replaceItemsPanels(framework) {
 			success: function(result) {
 				if(debug) console.log("result.items count: " + result.items.length)
 				populateItemsPanels(result.items);
-				console.log('calling set selected from replace framework')
+				console.log('calling set selected from replace items panels')
 				setSelected(framework);
 				setMenuCollapsed(isSmallViewport);
 			}
