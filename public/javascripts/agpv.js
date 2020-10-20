@@ -268,8 +268,8 @@ function populateCurrentSearchTermsDiv() {
 	$('#currentsearchterms').html(termsObj.getCurrentTerms());
 	$("#suggestion-panel").collapse('hide');
 	//***document.getElementById('suggestions').style.display = 'none';
-	document.getElementById('searchtext').value = "";
-	//$('#searchtext').val('');
+	//document.getElementById('searchtext').value = "";
+	$('#searchtext').val('');
 }
 
 async function replaceFrameworksPanel(framework) {
