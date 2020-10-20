@@ -181,7 +181,6 @@ function setMenuCollapsed(isSmallViewport) {
 function setSelected(selectedFramework) {
 	const debug = false;
 	if(debug) console.log('set selected fra: selF: ' + selectedFramework);
-//	if(selectedFramework != "" && selectedFramework != "all") {
 	var frameElement;
 	$(function() {
 		frameworkObjArray.forEach( fObj => {
@@ -208,13 +207,6 @@ function setSelected(selectedFramework) {
 					}
 				} else { //this is not the currently selected framework
 					if(debug) console.log('f is NOT selected. f:' + fObj.framework + ", selected: " + selectedFramework)
-					/*
-					if(frameElement.classList.contains('selected')) {
-						if(debug) console.log( 'classList already contains selected -- removing')
-						frameElement.classList.remove('selected');
-						frameElement.parentElement.setAttribute("onclick", "replaceItemsPanels(\'" + fObj.framework + "\')");
-					}
-					*/
 					if(frameElement.hasClass('selected')) {
 						if(debug) console.log( 'classList already contains selected -- removing')
 						frameElement.removeClass('selected');
@@ -223,25 +215,12 @@ function setSelected(selectedFramework) {
 				}
 			}
 		});
+		
+		if(debug) console.log("in set selected fr: setting selected to " + selectedFramework + " div");
+		$('#selectedFramework').text(selectedFramework);
+		var sfObj = frameworkObjArray.find( ({ framework }) => framework === selectedFramework )
+		$('#displaySelectedFramework').text('Selected framework: ' + sfObj.frameworkdisplay)
 	});
-	if(debug) console.log("in set selected fr: setting selected to " + selectedFramework + " div");
-	$('#selectedFramework').text(selectedFramework);
-	/*
-	var currFramElement = document.getElementById('selectedFramework')
-	if(currFramElement) {
-		currFramElement.innerHTML = selectedFramework;
-	}
-	*/
-	var sfObj = frameworkObjArray.find( ({ framework }) => framework === selectedFramework )
-	$('#displaySelectedFramework').text('Selected framework: ' + sfObj.frameworkdisplay)
-//	} else {
-	/*
-	var currFramElement = document.getElementById('selectedFramework')
-	if(currFramElement) {
-		currFramElement.innerHTML = "";
-	}
-	*/
-//	}
 }
 
 function currentTermsObject() {
