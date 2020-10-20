@@ -32,6 +32,7 @@ function replaceItemsPanels(framework) {
 			success: function(result) {
 				if(debug) console.log("result.items count: " + result.items.length)
 				populateItemsPanels(result.items);
+				console.log('calling set selected from replace framework')
 				setSelected(framework);
 				setMenuCollapsed(isSmallViewport);
 			}
@@ -304,6 +305,7 @@ async function replaceFrameworksPanel(framework) {
 		dataType: "json",
 		success: function(result) {
 			populateFrameworksPanel(result.AFs);
+			console.log('calling set selected from replace framework')
 			setSelected(framework);
 			isSmallViewport.addListener(setMenuCollapsed);
 			//console.log('listener added to ismallviewport')
