@@ -140,7 +140,7 @@ function populateFrameworksPanel( objs ) {
 		itemsHtml += "<ul class='list-group'>";
 		objs.forEach( obj => {
 			itemsHtml += "<li class='list-group-item'>";
-			jscriptString = "onclick=\'javascript:replaceItemsPanels(\"" + obj.framework + "\")\'";
+			//jscriptString = "onclick=\'javascript:replaceItemsPanels(\"" + obj.framework + "\")\'";
 			itemsHtml += "<a class=\'menu\' href=\'javascript:void(0)\' " + jscriptString + "> <span id=\'" + obj.framework + "\'>" + obj.frameworkdisplay + "</span>";
 			itemsHtml += "</li>";
 		});
