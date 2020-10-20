@@ -174,7 +174,7 @@ function setSelected(selectedFramework) {
 					//frameElement.classList.add('selected');
 					frameElement.addClass('selected');
 					//frameElement.parentElement.setAttribute("onclick", "replaceItemsPanels('all')");
-					frameElement.offsetParent.css("onclick", "replaceItemsPanels('all')");
+					frameElement.offsetParent().css("onclick", "replaceItemsPanels('all')");
 				}
 			} else { //this is not the currently selected framework
 				if(debug) console.log('f is NOT selected. f:' + fObj.framework + ", selected: " + selectedFramework)
@@ -188,7 +188,7 @@ function setSelected(selectedFramework) {
 				if(frameElement.hasClass('selected')) {
 					if(debug) console.log( 'classList already contains selected -- removing')
 					frameElement.removeClass('selected');
-					frameElement.offsetParent.css("onclick", "replaceItemsPanels(\'" + fObj.framework + "\')");
+					frameElement.offsetParent().css("onclick", "replaceItemsPanels(\'" + fObj.framework + "\')");
 				}
 			}
 		}
