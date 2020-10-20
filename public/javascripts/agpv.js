@@ -11,36 +11,31 @@ var searchRequest = null;
 //var suggElement = document.getElementById('suggestions');
 var frameworkObjArray = new Array ();
 
-
 let termsObj = new currentTermsObject();
 
 function replaceItemsPanels(framework) {
-	const debug = false;
-	if(debug) console.log('in replaceItemsPanels with ' + framework );
-	let url;
-	if(termsObj.size() > 0) {
-		if(debug) console.log('in replaceitemspanels, termsObj size should be >0 and is ' + termsObj.size() );
-		url = "/api/agileframeworks/search?framework=" + framework + "&searchwords=" + termsObj.getCurrentTerms();
-	} else {
-		if(debug) console.log('in replaceitemspanels, termsObj size should be 0 and is ' + termsObj.size() );
-		url = "/api/agileframeworks/" + framework;
-	}
-	/*
-	 if($(el).length) {
-		 $(el).setAttribute("onclick", "replaceItemsPanels('all', this)")
-	 }
-	*/
-	
-	$.ajax({
-		type: "GET",
-		url: url,
-		dataType: "json",
-		success: function(result) {
-			if(debug) console.log("result.items count: " + result.items.length)
-			populateItemsPanels(result.items);
-			setSelected(framework);
-			setMenuCollapsed(isSmallViewport);
+	$(function() {
+		const debug = false;
+		if(debug) console.log('in replaceItemsPanels with ' + framework );
+		let url;
+		if(termsObj.size() > 0) {
+			if(debug) console.log('in replaceitemspanels, termsObj size should be >0 and is ' + termsObj.size() );
+			url = "/api/agileframeworks/search?framework=" + framework + "&searchwords=" + termsObj.getCurrentTerms();
+		} else {
+			if(debug) console.log('in replaceitemspanels, termsObj size should be 0 and is ' + termsObj.size() );
+			url = "/api/agileframeworks/" + framework;
 		}
+		$.ajax({
+			type: "GET",
+			url: url,
+			dataType: "json",
+			success: function(result) {
+				if(debug) console.log("result.items count: " + result.items.length)
+				populateItemsPanels(result.items);
+				setSelected(framework);
+				setMenuCollapsed(isSmallViewport);
+			}
+		});
 	});
 }
 
@@ -354,52 +349,52 @@ function removeActiveSearchterm(element) {
 }
 
 $(function() {
-  var minlength = 3;
+	var minlength = 3;
 	const debug = false;
 
-$("#searchtext").keyup(function() {
-	var oldThis = this,
-	value = $(this).val();
-	var framework = getCurrentFramework();
-	//if(debug) console.log("value is " + value);
+	$("#searchtext").keyup(function() {
+		var oldThis = this,
+		value = $(this).val();
+		var framework = getCurrentFramework();
+		//if(debug) console.log("value is " + value);
 
-	 if (value.length >= minlength ) {
-		if (searchRequest != null) { searchRequest.abort(); }
-		//if(debug) console.log("about to ajax");
-		searchRequest = $.ajax({
-			type: "GET",
-			url: "/api/agileframeworks/suggestions?",
-			data: {
-				'framework': framework,
-				'searchtext' : value
-			},
-			dataType: "json",
-			success: function(msg){
-				if(msg.searchWords[0]) {
-					//var curSearchField = document.getElementById('currentsearchterms');
-					//var curSearchTerms = (curSearchField.innerHTML!=''?curSearchField.innerHTML + ",":"");
-					if(debug) console.log("in success 1 with " + msg.result[0] );
-					//we need to check if the value is the same
-					if (value==$(oldThis).val()) {
-						if(debug) console.log("in success 2 in if with " + msg.result[0] );
-						$('#suggestion-title').html('Suggestions');
-						$('#suggestions').html(getSuggestionPanelHTML(msg.searchWords));
-						if(debug) console.log("about to display block on suggestions");
-						$("#suggestion-panel").collapse('show');
+		if (value.length >= minlength ) {
+			if (searchRequest != null) { searchRequest.abort(); }
+			//if(debug) console.log("about to ajax");
+			searchRequest = $.ajax({
+				type: "GET",
+				url: "/api/agileframeworks/suggestions?",
+				data: {
+					'framework': framework,
+					'searchtext' : value
+				},
+				dataType: "json",
+				success: function(msg){
+					if(msg.searchWords[0]) {
+						//var curSearchField = document.getElementById('currentsearchterms');
+						//var curSearchTerms = (curSearchField.innerHTML!=''?curSearchField.innerHTML + ",":"");
+						if(debug) console.log("in success 1 with " + msg.result[0] );
+						//we need to check if the value is the same
+						if (value==$(oldThis).val()) {
+							if(debug) console.log("in success 2 in if with " + msg.result[0] );
+							$('#suggestion-title').html('Suggestions');
+							$('#suggestions').html(getSuggestionPanelHTML(msg.searchWords));
+							if(debug) console.log("about to display block on suggestions");
+							$("#suggestion-panel").collapse('show');
+						}
+					} else {
+						$('#suggestions').html('');
+						//suggElement.innerHTML = '';
+						$("#suggestion-panel").collapse('hide');
 					}
-				} else {
-					$('#suggestions').html('');
-					//suggElement.innerHTML = '';
-					$("#suggestion-panel").collapse('hide');
 				}
-			}
-		});
-	 } else {
-		$('#suggestions').html('');
-		//suggElement.innerHTML = '';
-		$("#suggestion-panel").collapse('hide');
-	 }
-  });
+			});
+		} else {
+			$('#suggestions').html('');
+			//suggElement.innerHTML = '';
+			$("#suggestion-panel").collapse('hide');
+		}
+	});
 });
 
 $("form").on("submit", function (e) {
