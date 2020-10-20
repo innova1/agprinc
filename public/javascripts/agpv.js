@@ -162,6 +162,7 @@ function populateFrameworksPanel( objs ) {
 }
 
 function populateFrameworksPanel2( objs ) {
+	console.log('in pop fra pane 2')
 	$(function() {
 		const debug = false;
 		var framework = "";
