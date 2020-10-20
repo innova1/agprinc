@@ -14,17 +14,18 @@ var frameworkObjArray = new Array ();
 
 let termsObj = new currentTermsObject();
 
-function replaceItemsPanels(framework) {
+function replaceItemsPanels(framework, isSelected) {
 	$(function() {
 		const debug = false;
 		if(debug) console.log('in replaceItemsPanels with ' + framework );
 		let url;
+		var adjustedFramework = (isSelected?'all':framework);
 		if(termsObj.size() > 0) {
 			if(debug) console.log('in replaceitemspanels, termsObj size should be >0 and is ' + termsObj.size() );
-			url = "/api/agileframeworks/search?framework=" + framework + "&searchwords=" + termsObj.getCurrentTerms();
+			url = "/api/agileframeworks/search?framework=" + adjustedFramework + "&searchwords=" + termsObj.getCurrentTerms();
 		} else {
 			if(debug) console.log('in replaceitemspanels, termsObj size should be 0 and is ' + termsObj.size() );
-			url = "/api/agileframeworks/" + framework;
+			url = "/api/agileframeworks/" + adjustedFramework;
 		}
 		$.ajax({
 			type: "GET",
@@ -39,7 +40,6 @@ function replaceItemsPanels(framework) {
 		});
 	});
 }
-
 
 function populateItemsPanels( objs ) {
 	$(function() {
@@ -200,23 +200,25 @@ function setSelected(selectedFramework) {
 					//frameElement.classList.remove('selected');
 					frameElement.removeClass('selected');
 					//frameElement.parentElement.setAttribute("onclick", "replaceItemsPanels(\'" + fObj.framework + "\')");
-					frameElement.parent().off('click').on('click', function() { replaceItemsPanels(fObj.framework); } );
+					//frameElement.parent().off('click').on('click', function() { replaceItemsPanels( fObj.framework ); } );
 				} else {
 					if(debug) console.log( 'classList does not already contain selected')
 					//frameElement.classList.add('selected');
 					frameElement.addClass('selected');
 					//frameElement.parentElement.setAttribute("onclick", "replaceItemsPanels('all')");
-					frameElement.parent().off('click').on('click', function() { replaceItemsPanels('all'); } );
+					//frameElement.parent().off('click').on('click', function() { replaceItemsPanels( 'all' ); } );
 				}
 			} else { //this is not the currently selected framework
 				if(debug) console.log('f is NOT selected. f:' + fObj.framework + ", selected: " + selectedFramework)
 				if(debug) console.log('adding click replace items panels with ' + fObj.framework);
-				frameElement.parent().off('click').on('click', function() { replaceItemsPanels(fObj.framework) } );
+				//frameElement.parent().off('click').on('click', function() { replaceItemsPanels( fObj.framework ) } );
 				if(frameElement.hasClass('selected')) {
 					if(debug) console.log( 'classList already contains selected -- removing')
 					frameElement.removeClass('selected');
 				}
 			}
+			
+			frameElement.parent().off('click').on('click', function() { replaceItemsPanels( fObj.framework, frameElement.hasClass('selected') ); } );
 		}
 
 		if(debug) console.log("in set selected fr: setting selected to " + selectedFramework + " div");
