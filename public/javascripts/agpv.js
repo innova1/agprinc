@@ -40,7 +40,7 @@ function replaceItemsPanels(framework) {
 }
 
 
-async function populateItemsPanels( objs ) {
+function populateItemsPanels( objs ) {
 	$(function() {
 		if(false) {
 			populateItemsPanels2( objs );
@@ -79,7 +79,7 @@ async function populateItemsPanels( objs ) {
 	});
 }
 
-async function populateItemsPanels2( objs ) {
+function populateItemsPanels2( objs ) {
 	$(function() {
 		var itemTitle = "";
 		var panel = $('#itemsPanels');
@@ -121,7 +121,7 @@ function replaceFilteredItemsPanels(framework) {
 	});
 }
 
-async function populateFrameworksPanel( objs ) {
+function populateFrameworksPanel( objs ) {
 	$(function() {
 		const debug = false;
 		var framework = "";
