@@ -5,10 +5,12 @@ async function setup() {
 	replaceItemsPanels('all');
 }
 
-var isSmallViewport = window.matchMedia("(max-width: 1000px)");
-var searchRequest = null;
-var suggElement = document.getElementById('suggestions');
-var frameworkObjArray = new Array ();
+$(function() {
+	var isSmallViewport = window.matchMedia("(max-width: 1000px)");
+	var searchRequest = null;
+	var suggElement = document.getElementById('suggestions');
+	var frameworkObjArray = new Array ();
+});
 
 let termsObj = new currentTermsObject();
 
