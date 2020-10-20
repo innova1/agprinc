@@ -182,7 +182,7 @@ function setMenuCollapsed(isSmallViewport) {
 }
 
 function setSelected(selectedFramework) {
-	const debug = false;
+	const debug = true;
 	if(debug) console.log('set selected fra: selF: ' + selectedFramework);
 	var frameElement;
 	frameworkObjArray.forEach( fObj => {
