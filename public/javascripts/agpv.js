@@ -87,7 +87,7 @@ async function populateItemsPanels2( objs ) {
 		if(objs.length==0) {
 			panel.append("<div class='panel panel-primary'>");
 			itemTitle = "<h3 class='panel-title'>No items match in this framework.</h3>";
-			panel.append(itemHtml += "<div class='panel-heading'>" + itemTitle + "</div>");
+			panel.append("<div class='panel-heading'>" + itemTitle + "</div>");
 			panel.append("<div class='panel-body'></div>");
 			panel.append("</div>")
 		} else {
