@@ -1,6 +1,7 @@
 
 setup();
 async function setup() {
+	console.log('calling replaceFrameworksPanel from setup()')
 	await replaceFrameworksPanel('all');
 	replaceItemsPanels('all');
 }
