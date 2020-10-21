@@ -421,7 +421,7 @@ $(function() {
 
 		if (value.length >= minlength ) {
 			if (searchRequest != null) { searchRequest.abort(); }
-			if(debug) console.log("about to ajax");
+			if(debug) console.log("about to ajax with " + framework + "=" + value);
 			searchRequest = $.ajax({
 				type: "GET",
 				url: "/api/agileframeworks/suggestions?",
