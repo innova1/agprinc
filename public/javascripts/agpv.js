@@ -224,7 +224,7 @@ function setMenuCollapsed(isSmallViewport) {
 }
 
 function setSelected(selectedFramework) {
-	const debug = false;
+	const debug = true;
 	if(debug) console.log('set selected fra: selF: ' + selectedFramework);
 	var frameElement;
 	frameworkObjArray.forEach( fObj => {
@@ -232,7 +232,7 @@ function setSelected(selectedFramework) {
 		//frameElement = document.getElementById(fObj.framework);
 		frameElement = $('#' + fObj.framework);
 		if(frameElement) {
-			if(debug) console.log( 'if frameElement true' )
+			if(debug) console.log( 'framElement: ' + frameElement.attr('class') )
 			if( fObj.framework == selectedFramework ) {
 				if(debug) console.log('f is selected. f:' + fObj.framework + ", selected: " + selectedFramework)
 				//if(frameElement.classList.contains('selected')) {
