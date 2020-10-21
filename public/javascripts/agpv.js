@@ -236,7 +236,7 @@ function setSelected(selectedFramework) {
 			if(debug) console.log( 'frameElement: ' + frameElement.attr('id') )
 			if( fObj.framework == selectedFramework ) {
 				wasSelected = true;
-				if(debug) console.log('f is selected. f:' + fObj.framework + ", selected: " + selectedFramework)
+				if(debug) console.log('f is selected. f:' + fObj.framework + ", selected: " + selectedFramework + ", wasSelected: " + wasSelected)
 				//if(frameElement.classList.contains('selected')) {
 				if(frameElement.hasClass('selected')) {
 					if(debug) console.log( 'classList contains selected')
@@ -263,7 +263,7 @@ function setSelected(selectedFramework) {
 					frameElement.removeClass('selected');
 				}
 			}
-			if(debug) console.log('in set selected calling on click for ' + fObj.framework + ", " + frameElement.hasClass('selected'))
+			if(debug) console.log('in set selected calling on click for ' + fObj.framework + ", " + wasSelected)
 			frameElement.parent().parent().off('click').on('click', function() { replaceItemsPanels( fObj.framework, wasSelected ); } );
 			if(debug) console.log('parent:' + frameElement.parent().parent().html() + ', click:' + frameElement.parent().parent().attr('on'))
 			if(debug) console.log('html: ' + frameElement.html())
