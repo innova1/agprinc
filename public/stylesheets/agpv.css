@@ -35,6 +35,11 @@
 	font-weight: bold;
 	font-size: 1.1em;
 }
+
+#navbar-header {
+	margin-left: 10px;
+}
+
 .navbar-form {
 	margin-top: 5px;
 	margin-bottom: 0;
