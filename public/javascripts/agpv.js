@@ -487,7 +487,7 @@ $("form").on("submit", function (e) {
 });
 
 function getSuggestionPanelHTML(searchWordsArray) {
-	var debug = true;
+	var debug = false;
 	var resultList = '<ul class="suggestions">';
 	var jscriptcall = '';
 	searchWordsArray.forEach( element => {
