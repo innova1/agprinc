@@ -35,7 +35,7 @@ function replaceItemsPanels(framework, wasSelected) {
 			success: function(result) {
 				if(debug) console.log("result.items count: " + result.items.length)
 				populateItemsPanels(result.items);
-				setSelected(framework);
+				setSelected(adjustedFramework);
 				setMenuCollapsed(isSmallViewport);
 			}
 		});
