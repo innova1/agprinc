@@ -171,22 +171,23 @@ function populateFrameworksPanel2( objs ) {
 	frameworkObjArray = objs;
 	var panel = $('#frameworksMenuPanel');
 	if(debug) console.log('setting up frameworks panel html')
-
-	panel.html("<div class='panel panel-primary'>");
-	panel.append("<div class='panel-heading'>");
-	panel.append("<a id='sidepanelheader' href='#sidepanel' data-toggle='collapse'><h3 class='panel-title'><div id='fmenu-panel-title-div'>Frameworks</div><div id='displaySelectedFramework'></div></h3></a>");
-	panel.append("</div>"); //close div panel heading
-	panel.append("<div class='panel-collapse collapse' id='sidepanel'>");
-	panel.append("<ul class='list-group'>");
+	var litag = "";
+	var atag = "";
+	var lis = "";
+	
+	var paneldiv = $("<div class='panel panel-primary'>");
+	var headingdiv = $("<div class='panel-heading'>");
+	var asidepanel = "<a id='sidepanelheader' href='#sidepanel' data-toggle='collapse'><h3 class='panel-title'><div id='fmenu-panel-title-div'>Frameworks</div><div id='displaySelectedFramework'></div></h3></a>";
+	var panelcollapse = $("<div class='panel-collapse collapse' id='sidepanel'>");
+	var ullist = $("<ul class='list-group'>");
 	objs.forEach( obj => {
-		panel.append("<li class='list-group-item'>");
+		litag = "<li class='list-group-item'>";
 		//jscriptString = "onclick=\'javascript:replaceItemsPanels(\"" + obj.framework + "\")\'";
-		panel.append("<a class=\'menu\' href=\'javascript:void(0)\' " + jscriptString + "> <span id=\'" + obj.framework + "\'>" + obj.frameworkdisplay + "</span>");
-		panel.append("</li>");
+		atag = "<a class=\'menu\' href=\'javascript:void(0)\' " + jscriptString + "> <span id=\'" + obj.framework + "\'>" + obj.frameworkdisplay + "</span></a>";
+		lis += lis + litag + atag + "</li>"
 	});
-	panel.append("</ul>");
-	panel.append("</div>"); //close div panel-collapse
-	panel.append("</div>"); //close div panel-default
+	ullist.html(list);
+	panel.append(paneldiv.html(headingdiv.html(asidepanel)).append(panelcollapse.html(ullist)))
 
 	//if(debug) console.log('setsidepanel');
 	//if(debug) console.log('about to populate frameworksMenuPanel with ' + itemsHtml);
