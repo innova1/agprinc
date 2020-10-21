@@ -266,7 +266,7 @@ function setSelected(selectedFramework) {
 			if(true) console.log('in set selected calling on click for ' + fObj.framework + ", " + wasSelected)
 			//frameElement.parent().parent().off('click').on('click', function() { replaceItemsPanels( fObj.framework, wasSelected ); } );
 			frameElement.parent().parent().off().on('click', function() { alert("didn't work"); } );
-			frameElement.parent().parent().off().on('click', { framework: fObj.framework, wasSelected: wasSelected }, replaceItemsPanels );
+			frameElement.parent().parent().off().on('click', { framework: fObj.framework, wasSelected: wasSelected }, redirectReplaceItemsPanels );
 			if(debug) console.log('parent:' + frameElement.parent().parent().html() + ', click:' + frameElement.parent().parent().attr('click'))
 			if(debug) console.log('html: ' + frameElement.html())
 		}
@@ -276,6 +276,10 @@ function setSelected(selectedFramework) {
 		var sfObj = frameworkObjArray.find( ({ framework }) => framework === selectedFramework )
 		$('#displaySelectedFramework').text('Selected framework: ' + sfObj.frameworkdisplay)
 	});
+}
+
+function redirectReplaceItemsPanels(event) {
+	replaceFilteredItemsPanels(event.data.framework, event.data.wasSelected);
 }
 
 function setSelected2(selectedFramework) {
