@@ -16,7 +16,7 @@ let termsObj = new currentTermsObject();
 
 function replaceItemsPanels(framework, isSelected) {
 	$(function() {
-		const debug = true;
+		const debug = false;
 		let url;
 		var adjustedFramework = (isSelected?'all':framework);
 		if(debug) console.log('in replaceItemsPanels with ' + framework + ' and ' + adjustedFramework + 'isSelected: ' + isSelected );
@@ -162,7 +162,7 @@ function populateFrameworksPanel( objs ) {
 }
 
 function populateFrameworksPanel2( objs ) {
-	console.log('in pop fra pane 2')
+	console.log('in pop fra pane 2 with objs size:' + objs.length)
 	const debug = false;
 	var framework = "";
 	var obj = new Object();
@@ -223,7 +223,7 @@ function setMenuCollapsed(isSmallViewport) {
 }
 
 function setSelected(selectedFramework) {
-	const debug = true;
+	const debug = false;
 	if(debug) console.log('set selected fra: selF: ' + selectedFramework);
 	var frameElement;
 	frameworkObjArray.forEach( fObj => {
@@ -448,7 +448,7 @@ $(function() {
 });
 
 $("form").on("submit", function (e) {
-	const debug = true;
+	const debug = false;
 	var dataString = $(this).serialize();
 	var frameworkString = 'framework=' + getCurrentFramework();
 	var searchtext = dataString.substring(dataString.indexOf('=')+1, dataString.length);
