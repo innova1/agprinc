@@ -235,17 +235,17 @@ function setSelected(selectedFramework) {
 		if(frameElement && fObj.framework != 'all') {
 			if(debug) console.log( 'frameElement: ' + frameElement.attr('id') )
 			if( fObj.framework == selectedFramework ) {
-				wasSelected = true;
 				if(debug) console.log('f is selected. f:' + fObj.framework + ", selected: " + selectedFramework + ", wasSelected: " + wasSelected)
 				//if(frameElement.classList.contains('selected')) {
 				if(frameElement.hasClass('selected')) {
+					wasSelected = false;
 					if(debug) console.log( 'classList contains selected')
 					//frameElement.classList.remove('selected');
 					frameElement.removeClass('selected');
 					//frameElement.parentElement.setAttribute("onclick", "replaceItemsPanels(\'" + fObj.framework + "\')");
 					//frameElement.parent().off('click').on('click', function() { replaceItemsPanels( fObj.framework ); } );
 				} else {
-					wasSelected = false;
+					wasSelected = true;
 					if(debug) console.log( 'classList does not already contain selected')
 					//frameElement.classList.add('selected');
 					frameElement.addClass('selected');
