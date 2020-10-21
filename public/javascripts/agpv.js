@@ -14,12 +14,12 @@ var frameworkObjArray = new Array ();
 
 let termsObj = new currentTermsObject();
 
-function replaceItemsPanels(framework, isSelected) {
+function replaceItemsPanels(framework, wasSelected) {
 	$(function() {
 		const debug = false;
 		let url;
-		var adjustedFramework = (isSelected?'all':framework);
-		if(debug) console.log('in replaceItemsPanels with ' + framework + ' and ' + adjustedFramework + 'isSelected: ' + isSelected );
+		var adjustedFramework = (wasSelected?'all':framework);
+		if(debug) console.log('in replaceItemsPanels with ' + framework + ' and ' + adjustedFramework + 'wasSelected: ' + wasSelected );
 		if(termsObj.size() > 0) {
 			if(debug) console.log('in replaceitemspanels, termsObj size should be >0 and is ' + termsObj.size() );
 			url = "/api/agileframeworks/search?framework=" + adjustedFramework + "&searchwords=" + termsObj.getCurrentTerms();
@@ -225,6 +225,7 @@ function setMenuCollapsed(isSmallViewport) {
 
 function setSelected(selectedFramework) {
 	const debug = true;
+	var wasSelected = false;
 	if(debug) console.log('set selected fra: selF: ' + selectedFramework);
 	var frameElement;
 	frameworkObjArray.forEach( fObj => {
@@ -234,6 +235,7 @@ function setSelected(selectedFramework) {
 		if(frameElement && fObj.framework != 'all') {
 			if(debug) console.log( 'frameElement: ' + frameElement.attr('id') )
 			if( fObj.framework == selectedFramework ) {
+				wasSelected = true;
 				if(debug) console.log('f is selected. f:' + fObj.framework + ", selected: " + selectedFramework)
 				//if(frameElement.classList.contains('selected')) {
 				if(frameElement.hasClass('selected')) {
@@ -243,6 +245,7 @@ function setSelected(selectedFramework) {
 					//frameElement.parentElement.setAttribute("onclick", "replaceItemsPanels(\'" + fObj.framework + "\')");
 					//frameElement.parent().off('click').on('click', function() { replaceItemsPanels( fObj.framework ); } );
 				} else {
+					wasSelected = false;
 					if(debug) console.log( 'classList does not already contain selected')
 					//frameElement.classList.add('selected');
 					frameElement.addClass('selected');
@@ -251,6 +254,7 @@ function setSelected(selectedFramework) {
 					//frameElement.parent().off('click').on('click', function() { replaceItemsPanels( 'all' ); } );
 				}
 			} else { //this is not the currently selected framework
+				wasSelected = false;
 				if(debug) console.log('f is NOT selected. f:' + fObj.framework + ", selected: " + selectedFramework)
 				if(debug) console.log('adding click replace items panels with ' + fObj.framework);
 				//frameElement.parent().off('click').on('click', function() { replaceItemsPanels( fObj.framework ) } );
@@ -260,7 +264,7 @@ function setSelected(selectedFramework) {
 				}
 			}
 			if(debug) console.log('in set selected calling on click for ' + fObj.framework + ", " + frameElement.hasClass('selected'))
-			frameElement.parent().off('click').on('click', function() { replaceItemsPanels( fObj.framework, frameElement.hasClass('selected') ); } );
+			frameElement.parent().off('click').on('click', function() { replaceItemsPanels( fObj.framework, wasSelected ); } );
 			if(debug) console.log('parent:' + frameElement.parent().html() + ', click:' + frameElement.parent().attr('click'))
 			if(debug) console.log('html: ' + frameElement.html())
 		}
