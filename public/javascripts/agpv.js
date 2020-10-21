@@ -380,7 +380,7 @@ function getCurrentFramework() {
 	$(function() {
 		var result = '';
 		result = $('#selectedFramework').html();
-		if(debug) console.log('got ' + result + 'from #selectedFramework')
+		if(debug) console.log('in getcurrentframework got ' + result + 'from #selectedFramework')
 		if(result=='') {
 			result = 'all';
 		}
@@ -416,7 +416,7 @@ $(function() {
 	var minlength = 3;
 	const debug = true;
 	var framework = getCurrentFramework();
-	if(debug) console.log("framework is " + framework)
+	if(debug) console.log( "in $ function--framework is " + framework)
 
 	$("#searchtext").keyup(function() {
 		var oldThis = this,
