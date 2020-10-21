@@ -416,6 +416,7 @@ $(function() {
 	var minlength = 3;
 	const debug = true;
 	var framework = getCurrentFramework();
+	if(debug) console.log("framework is " + framework)
 
 	$("#searchtext").keyup(function() {
 		var oldThis = this,
