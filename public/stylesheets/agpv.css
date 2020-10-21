@@ -48,7 +48,7 @@ a.navbar-brand {
 	padding: 10px 10px;
 	font-size: 20px;
 	line-height: 22px;
-	margin-left: 10px;
+	margin-left: 50px;
 	border:1px solid black;
 }
 a:link.navbar-brand, a:visited.navbar-brand, a:hover.navbar-brand {
