@@ -16,7 +16,7 @@ let termsObj = new currentTermsObject();
 
 function replaceItemsPanels(framework, wasSelected) {
 	$(function() {
-		const debug = true;
+		const debug = false;
 		let url;
 		var adjustedFramework = (wasSelected?'all':framework);
 		if(debug) console.log('in replaceItemsPanels with ' + framework + ' and ' + adjustedFramework + ', wasSelected: ' + wasSelected );
@@ -163,7 +163,7 @@ function populateFrameworksPanel( objs ) {
 
 function populateFrameworksPanel2( objs ) {
 	console.log('in pop fra pane 2 with objs size:' + objs.length)
-	const debug = true;
+	const debug = false;
 	var framework = "";
 	var obj = new Object();
 	var itemsHtml = "";
