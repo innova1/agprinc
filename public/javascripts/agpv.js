@@ -415,11 +415,11 @@ function removeActiveSearchterm(element) {
 $(function() {
 	var minlength = 3;
 	const debug = true;
+	var framework = getCurrentFramework();
 
 	$("#searchtext").keyup(function() {
 		var oldThis = this,
 		value = $(this).val();
-		var framework = getCurrentFramework();
 		if(debug) console.log("value is " + value + ", framework is " + framework);
 
 		if (value.length >= minlength ) {
