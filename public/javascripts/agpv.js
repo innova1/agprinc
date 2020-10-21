@@ -16,7 +16,7 @@ let termsObj = new currentTermsObject();
 
 function replaceItemsPanels(framework, wasSelected) {
 	$(function() {
-		const debug = false;
+		const debug = true;
 		let url;
 		var adjustedFramework = (wasSelected?'all':framework);
 		if(debug) console.log('in replaceItemsPanels with ' + framework + ' and ' + adjustedFramework + 'wasSelected: ' + wasSelected );
