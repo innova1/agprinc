@@ -417,10 +417,10 @@ $(function() {
 	$("#searchtext").keyup(function() {
 		var oldThis = this,
 		value = $(this).val();
-		var framework = getCurrentFramework();
 		if(debug) console.log("value is " + value + ", framework is " + framework);
 
 		if (value.length >= minlength ) {
+			var framework = getCurrentFramework();
 			if (searchRequest != null) { searchRequest.abort(); }
 			if(debug) console.log( "in $ function after value check--framework is " + framework)
 			if(debug) console.log("about to ajax with framework=" + framework + " and value=" + value);
