@@ -376,12 +376,15 @@ function replaceFrameworksPanel(framework) {
 }
 
 function getCurrentFramework() {
+	var debug = true;
 	$(function() {
 		var result = '';
 		result = $('#selectedFramework').text();
+		if(debug) console.log('got ' + result + 'from #selectedFramework')
 		if(result=='') {
 			result = 'all';
 		}
+		if(debug) console.log('now result is ' + result)
 		return result;
 	});
 }
