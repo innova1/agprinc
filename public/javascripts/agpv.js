@@ -280,7 +280,7 @@ function setSelected(selectedFramework) {
 
 function redirectReplaceItemsPanels(event) {
 	console.log('calling replaceFilteredItemsPanels with framework: ' + event.data.framework + ', wasSelected: ' + event.data.wasSelected)
-	replaceFilteredItemsPanels(event.data.framework, event.data.wasSelected);
+	replaceItemsPanels(event.data.framework, event.data.wasSelected);
 }
 
 function setSelected2(selectedFramework) {
