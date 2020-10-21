@@ -184,7 +184,7 @@ function populateFrameworksPanel2( objs ) {
 		//if(debug) console.log('in forEach with ' + obj.framework)
 		litag = "<li class='list-group-item'>";
 		//jscriptString = "onclick=\'javascript:replaceItemsPanels(\"" + obj.framework + "\")\'";
-		atag = "<a class=\'menu\' href=\'javascript:void(0)\' " + jscriptString + "> <span id=\'" + obj.framework + "\'>" + obj.frameworkdisplay + "</span></a>";
+		atag = "<a class=\'menu\' href=\'javascript:void(0)\' onclick=''" + jscriptString + "> <span id=\'" + obj.framework + "\'>" + obj.frameworkdisplay + "</span></a>";
 		lis += litag + atag + "</li>"
 	});
 	ullist.html(lis);
