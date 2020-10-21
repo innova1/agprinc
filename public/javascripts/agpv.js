@@ -411,7 +411,7 @@ function removeActiveSearchterm(element) {
 
 $(function() {
 	var minlength = 3;
-	const debug = false;
+	const debug = true;
 
 	$("#searchtext").keyup(function() {
 		var oldThis = this,
