@@ -19,7 +19,7 @@ function replaceItemsPanels(framework, wasSelected) {
 		const debug = true;
 		let url;
 		var adjustedFramework = (wasSelected?'all':framework);
-		if(debug) console.log('in replaceItemsPanels with ' + framework + ' and ' + adjustedFramework + 'wasSelected: ' + wasSelected );
+		if(debug) console.log('in replaceItemsPanels with ' + framework + ' and ' + adjustedFramework + ', wasSelected: ' + wasSelected );
 		if(termsObj.size() > 0) {
 			if(debug) console.log('in replaceitemspanels, termsObj size should be >0 and is ' + termsObj.size() );
 			url = "/api/agileframeworks/search?framework=" + adjustedFramework + "&searchwords=" + termsObj.getCurrentTerms();
@@ -265,7 +265,7 @@ function setSelected(selectedFramework) {
 			}
 			if(true) console.log('in set selected calling on click for ' + fObj.framework + ", " + wasSelected)
 			//frameElement.parent().parent().off('click').on('click', function() { replaceItemsPanels( fObj.framework, wasSelected ); } );
-			frameElement.parent().parent().off().on('click', function() { replaceItemsPanels( fObj.framework, wasSelected ); } );
+			frameElement.parent().parent().off().on('click', function() { replaceItemsPanels( fObj.framework, true ); } );
 			if(debug) console.log('parent:' + frameElement.parent().parent().html() + ', click:' + frameElement.parent().parent().attr('click'))
 			if(debug) console.log('html: ' + frameElement.html())
 		}
