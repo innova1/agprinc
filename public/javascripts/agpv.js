@@ -376,10 +376,10 @@ function replaceFrameworksPanel(framework) {
 }
 
 function getCurrentFramework() {
-	var debug = true;
+	var debug = true; 
 	$(function() {
 		var result = '';
-		result = $('#selectedFramework').text();
+		result = $('#selectedFramework').html();
 		if(debug) console.log('got ' + result + 'from #selectedFramework')
 		if(result=='') {
 			result = 'all';
