@@ -35,7 +35,7 @@ function replaceItemsPanels(framework, isSelected) {
 			success: function(result) {
 				if(debug) console.log("result.items count: " + result.items.length)
 				populateItemsPanels(result.items);
-				//setSelected(framework);
+				setSelected(framework);
 				setMenuCollapsed(isSmallViewport);
 			}
 		});
@@ -181,7 +181,7 @@ function populateFrameworksPanel2( objs ) {
 	var panelcollapse = $("<div class='panel-collapse collapse' id='sidepanel'>");
 	var ullist = $("<ul class='list-group'>");
 	objs.forEach( obj => {
-		if(debug) console.log('in forEach with ' + obj.framework)
+		//if(debug) console.log('in forEach with ' + obj.framework)
 		litag = "<li class='list-group-item'>";
 		//jscriptString = "onclick=\'javascript:replaceItemsPanels(\"" + obj.framework + "\")\'";
 		atag = "<a class=\'menu\' href=\'javascript:void(0)\' " + jscriptString + "> <span id=\'" + obj.framework + "\'>" + obj.frameworkdisplay + "</span></a>";
