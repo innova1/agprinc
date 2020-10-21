@@ -224,7 +224,7 @@ function setMenuCollapsed(isSmallViewport) {
 }
 
 function setSelected(selectedFramework) {
-	const debug = true;
+	const debug = false;
 	var wasSelected = false;
 	if(debug) console.log('set selected fra: selF: ' + selectedFramework);
 	var frameElement;
@@ -263,9 +263,9 @@ function setSelected(selectedFramework) {
 					frameElement.removeClass('selected');
 				}
 			}
-			if(debug) console.log('in set selected calling on click for ' + fObj.framework + ", " + wasSelected)
+			if(true) console.log('in set selected calling on click for ' + fObj.framework + ", " + wasSelected)
 			//frameElement.parent().parent().off('click').on('click', function() { replaceItemsPanels( fObj.framework, wasSelected ); } );
-			frameElement.parent().parent().off('click').on('click', function() { alert('hello' + wasSelected); replaceItemsPanels( fObj.framework, wasSelected ); } );
+			frameElement.parent().parent().off('click').on('click', function() { alert('hello, ' + wasSelected); replaceItemsPanels( fObj.framework, wasSelected ); } );
 			if(debug) console.log('parent:' + frameElement.parent().parent().html() + ', click:' + frameElement.parent().parent().attr('click'))
 			if(debug) console.log('html: ' + frameElement.html())
 		}
