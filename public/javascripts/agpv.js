@@ -186,7 +186,7 @@ function populateFrameworksPanel2( objs ) {
 		atag = "<a class=\'menu\' href=\'javascript:void(0)\' " + jscriptString + "> <span id=\'" + obj.framework + "\'>" + obj.frameworkdisplay + "</span></a>";
 		lis += lis + litag + atag + "</li>"
 	});
-	ullist.html(list);
+	ullist.html(lis);
 	panel.append(paneldiv.html(headingdiv.html(asidepanel)).append(panelcollapse.html(ullist)))
 
 	//if(debug) console.log('setsidepanel');
