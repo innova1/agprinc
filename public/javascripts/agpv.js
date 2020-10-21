@@ -424,7 +424,7 @@ $(function() {
 			var framework = getCurrentFramework();
 			if(debug) console.log( "in $ function after value check--framework is " + framework)
 			if(debug) console.log("about to ajax with framework=" + framework + " and value=" + value);
-			if(debug) console.log("field sel frmwrk: " + $('#selectedFramework').html();)
+			if(debug) console.log("field sel frmwrk: " + $('#selectedFramework').html());
 			searchRequest = $.ajax({
 				type: "GET",
 				
