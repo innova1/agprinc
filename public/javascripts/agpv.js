@@ -265,7 +265,7 @@ function setSelected(selectedFramework) {
 			}
 			if(debug) console.log('in set selected calling on click for ' + fObj.framework + ", " + wasSelected)
 			frameElement.parent().parent().off('click').on('click', function() { replaceItemsPanels( fObj.framework, wasSelected ); } );
-			if(debug) console.log('parent:' + frameElement.parent().parent().html() + ', click:' + frameElement.parent().parent().attr('on'))
+			if(debug) console.log('parent:' + frameElement.parent().parent().html() + ', click:' + frameElement.parent().parent().attr('click'))
 			if(debug) console.log('html: ' + frameElement.html())
 		}
 
