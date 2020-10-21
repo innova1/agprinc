@@ -415,8 +415,6 @@ function removeActiveSearchterm(element) {
 $(function() {
 	var minlength = 3;
 	const debug = true;
-	var framework = getCurrentFramework();
-	if(debug) console.log( "in $ function--framework is " + framework)
 
 	$("#searchtext").keyup(function() {
 		var oldThis = this,
@@ -425,6 +423,8 @@ $(function() {
 
 		if (value.length >= minlength ) {
 			if (searchRequest != null) { searchRequest.abort(); }
+			var framework = getCurrentFramework();
+			if(debug) console.log( "in $ function--framework is " + framework)
 			if(debug) console.log("about to ajax with framework=" + framework + " and value=" + value);
 			searchRequest = $.ajax({
 				type: "GET",
