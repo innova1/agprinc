@@ -232,7 +232,7 @@ function setSelected(selectedFramework) {
 		//frameElement = document.getElementById(fObj.framework);
 		frameElement = $('#' + fObj.framework);
 		if(frameElement) {
-			if(debug) console.log( 'framElement: ' + frameElement.attr('class') )
+			if(debug) console.log( 'frameElement: ' + frameElement.attr('id') )
 			if( fObj.framework == selectedFramework ) {
 				if(debug) console.log('f is selected. f:' + fObj.framework + ", selected: " + selectedFramework)
 				//if(frameElement.classList.contains('selected')) {
