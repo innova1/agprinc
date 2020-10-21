@@ -163,7 +163,7 @@ function populateFrameworksPanel( objs ) {
 
 function populateFrameworksPanel2( objs ) {
 	console.log('in pop fra pane 2 with objs size:' + objs.length)
-	const debug = false;
+	const debug = true;
 	var framework = "";
 	var obj = new Object();
 	var itemsHtml = "";
@@ -181,6 +181,7 @@ function populateFrameworksPanel2( objs ) {
 	var panelcollapse = $("<div class='panel-collapse collapse' id='sidepanel'>");
 	var ullist = $("<ul class='list-group'>");
 	objs.forEach( obj => {
+		if(debug) console.log('in forEach with ' + obj.framework)
 		litag = "<li class='list-group-item'>";
 		//jscriptString = "onclick=\'javascript:replaceItemsPanels(\"" + obj.framework + "\")\'";
 		atag = "<a class=\'menu\' href=\'javascript:void(0)\' " + jscriptString + "> <span id=\'" + obj.framework + "\'>" + obj.frameworkdisplay + "</span></a>";
