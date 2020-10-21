@@ -1,33 +1,33 @@
 extends ../node_modules/jade-bootstrap/_bootstrap
 
 block append styles
-  link(rel="stylesheet",href="/stylesheets/agpv.css")
+	link(rel="stylesheet",href="/stylesheets/agpv.css")
 
 block append scripts
-  script(src="/javascripts/agpv.js")
+	script(src="/javascripts/agpv.js")
 
 block body
-  nav.navbar.navbar-default
-    div.container
-      div.navbar-header
-        a.navbar-brand(href='/agileframeworks/all') Agile Values and Principles
-      form.navbar-form.navbar-left#navbar-search(action='')
-        div.form-group
-          input.form-control#searchtext(type='text', name='searchtext', placeholder='Search Text', autocomplete="off")
-          div.panel.panel-default.panel-collapse.collapse#suggestion-panel
-            div.panel-heading#suggestion-title
-            div.panel-body#suggestions
-        div#currentsearchterms
-        div.inline#removetermlinks
-  div.container
-    div.row
-      p.hide#selectedFramework
-      div.col-md-2#frameworksMenuPanel
-      div.col-md-8#itemsPanels
-      div.col-md-2
-          div.panel.panel-default
-            div.panel-heading
-              h3.panel-title About
-            div.panel-body
-              p.center Designed and coded by <a class='plain' href="https://www.linkedin.com/in/tomboulet/">Tom Boulet</a>
-              p.hide API at /api
+	nav.navbar.navbar-default
+		div.container
+			div.navbar-header
+				a.navbar-brand(href='/agileframeworks/all') Agile Values and Principles
+			form.navbar-form.navbar-left#navbar-search(action='')
+				div.form-group
+					input.form-control#searchtext(type='text', name='searchtext', placeholder='Search Text', autocomplete="off")
+					div.panel.panel-default.panel-collapse.collapse#suggestion-panel
+						div.panel-heading#suggestion-title
+						div.panel-body#suggestions
+				div#currentsearchterms
+				div.inline#removetermlinks
+	div.container
+		div.row
+			p.hide#selectedFramework
+			div.col-md-2#frameworksMenuPanel
+			div.col-md-8#itemsPanels
+			div.col-md-2
+				div.panel.panel-default
+					div.panel-heading
+						h3.panel-title About
+					div.panel-body
+						p.center Designed and coded by <a class='plain' href="https://www.linkedin.com/in/tomboulet/">Tom Boulet</a>
+						p.hide API at /api
