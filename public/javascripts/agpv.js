@@ -377,16 +377,14 @@ function replaceFrameworksPanel(framework) {
 
 function getCurrentFramework() {
 	var debug = true; 
-	$(function() {
-		var result = '';
-		result = $('#selectedFramework').html();
-		if(debug) console.log('in getcurrentframework got ' + result + 'from #selectedFramework')
-		if(result=='') {
-			result = 'all';
-		}
-		if(debug) console.log('now result is ' + result)
-		return result;
-	});
+	var result = '';
+	result = $('#selectedFramework').html();
+	if(debug) console.log('in getcurrentframework got ' + result + 'from #selectedFramework')
+	if(result=='') {
+		result = 'all';
+	}
+	if(debug) console.log('now result is ' + result)
+	return result;
 }
 
 function addActiveSearchterm(term) {
