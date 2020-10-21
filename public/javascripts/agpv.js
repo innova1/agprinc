@@ -438,10 +438,10 @@ $(function() {
 					if(msg.searchWords[0]) {
 						//var curSearchField = document.getElementById('currentsearchterms');
 						//var curSearchTerms = (curSearchField.innerHTML!=''?curSearchField.innerHTML + ",":"");
-						if(debug) console.log("in success 1 with " + msg.result[0] );
+						if(debug) console.log("in success 1 with " + msg.searchWords[0] );
 						//we need to check if the value is the same
 						if (value==$(oldThis).val()) {
-							if(debug) console.log("in success 2 in if with " + msg.result[0] );
+							if(debug) console.log("in success 2 in if with " + msg.searchWords[0] );
 							$('#suggestion-title').html('Suggestions');
 							$('#suggestions').html(getSuggestionPanelHTML(msg.searchWords));
 							if(debug) console.log("about to display block on suggestions");
