@@ -185,7 +185,7 @@ function populateFrameworksPanel2( objs ) {
 		litag = "<li class='list-group-item'>";
 		//jscriptString = "onclick=\'javascript:replaceItemsPanels(\"" + obj.framework + "\")\'";
 		atag = "<a class=\'menu\' href=\'javascript:void(0)\' " + jscriptString + "> <span id=\'" + obj.framework + "\'>" + obj.frameworkdisplay + "</span></a>";
-		lis += lis + litag + atag + "</li>"
+		lis += litag + atag + "</li>"
 	});
 	ullist.html(lis);
 	panel.append(paneldiv.html(headingdiv.html(asidepanel)).append(panelcollapse.html(ullist)))
