@@ -162,7 +162,6 @@ function populateFrameworksPanel( objs ) {
 }
 
 function populateFrameworksPanel2( objs ) {
-	console.log('in pop fra pane 2 with objs size:' + objs.length)
 	const debug = false;
 	var framework = "";
 	var obj = new Object();
@@ -263,7 +262,7 @@ function setSelected(selectedFramework) {
 					frameElement.removeClass('selected');
 				}
 			}
-			if(true) console.log('in set selected calling on click for ' + fObj.framework + ", " + wasSelected)
+			if(debug) console.log('in set selected calling on click for ' + fObj.framework + ", " + wasSelected)
 			//frameElement.parent().parent().off('click').on('click', function() { replaceItemsPanels( fObj.framework, wasSelected ); } );
 			frameElement.parent().parent().off().on('click', function() { alert("didn't work"); } );
 			frameElement.parent().parent().off().on('click', { framework: fObj.framework, wasSelected: wasSelected }, redirectReplaceItemsPanels );
