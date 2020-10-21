@@ -417,11 +417,11 @@ $(function() {
 		var oldThis = this,
 		value = $(this).val();
 		var framework = getCurrentFramework();
-		//if(debug) console.log("value is " + value);
+		if(debug) console.log("value is " + value);
 
 		if (value.length >= minlength ) {
 			if (searchRequest != null) { searchRequest.abort(); }
-			//if(debug) console.log("about to ajax");
+			if(debug) console.log("about to ajax");
 			searchRequest = $.ajax({
 				type: "GET",
 				url: "/api/agileframeworks/suggestions?",
