@@ -273,7 +273,8 @@ function setSelected(selectedFramework) {
 		if(debug) console.log("in set selected fr: setting selected to " + selectedFramework + " div");
 		$('#selectedFramework').text(selectedFramework);
 		var sfObj = frameworkObjArray.find( ({ framework }) => framework === selectedFramework )
-		$('#displaySelectedFramework').text('Selected framework: ' + sfObj.frameworkdisplay)
+		if(debug) console.log("in set selected--setting display selected field to " + sfObj.frameworkdisplay);
+		$('#displaySelectedFramework').text('Selected framework: ' + sfObj.frameworkdisplay);
 	});
 }
 
