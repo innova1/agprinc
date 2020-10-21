@@ -49,6 +49,7 @@ a.navbar-brand {
 	font-size: 20px;
 	line-height: 22px;
 	margin-left: 10px;
+	border:1px solid black;
 }
 a:link.navbar-brand, a:visited.navbar-brand, a:hover.navbar-brand {
 	color: #337ab7;
