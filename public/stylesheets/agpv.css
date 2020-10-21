@@ -35,11 +35,6 @@
 	font-weight: bold;
 	font-size: 1.1em;
 }
-
-#navbar-header {
-	margin-left: 10px;
-}
-
 .navbar-form {
 	margin-top: 5px;
 	margin-bottom: 0;
@@ -53,6 +48,7 @@ a.navbar-brand {
 	padding: 10px 10px;
 	font-size: 20px;
 	line-height: 22px;
+	margin-left: 10px;
 }
 a:link.navbar-brand, a:visited.navbar-brand, a:hover.navbar-brand {
 	color: #337ab7;
