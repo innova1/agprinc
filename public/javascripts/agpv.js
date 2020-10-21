@@ -1,7 +1,7 @@
 $(document).ready(setup);
 //setup();
 function setup() {
-	console.log('calling replaceFrameworksPanel from setup()')
+	//console.log('calling replaceFrameworksPanel from setup()')
 	replaceFrameworksPanel('all');
 	replaceItemsPanels('all');
 }
@@ -278,7 +278,7 @@ function setSelected(selectedFramework) {
 }
 
 function redirectReplaceItemsPanels(event) {
-	console.log('calling replaceFilteredItemsPanels with framework: ' + event.data.framework + ', wasSelected: ' + event.data.wasSelected)
+	//console.log('calling replaceFilteredItemsPanels with framework: ' + event.data.framework + ', wasSelected: ' + event.data.wasSelected)
 	replaceItemsPanels(event.data.framework, event.data.wasSelected);
 }
 
@@ -366,7 +366,7 @@ function replaceFrameworksPanel(framework) {
 		dataType: "json",
 		success: function(result) {
 			populateFrameworksPanel(result.AFs);
-			console.log('calling set selected from replace framework')
+			//console.log('calling set selected from replace framework')
 			setSelected(framework);
 			isSmallViewport.addListener(setMenuCollapsed);
 			//console.log('listener added to ismallviewport')
