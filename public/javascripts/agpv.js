@@ -231,7 +231,7 @@ function setSelected(selectedFramework) {
 		if(debug) console.log("in set selected fr: in array loop removing selected on " + fObj.framework + " div");
 		//frameElement = document.getElementById(fObj.framework);
 		frameElement = $('#' + fObj.framework);
-		if(frameElement) {
+		if(frameElement && fObj.framework != 'all') {
 			if(debug) console.log( 'frameElement: ' + frameElement.attr('id') )
 			if( fObj.framework == selectedFramework ) {
 				if(debug) console.log('f is selected. f:' + fObj.framework + ", selected: " + selectedFramework)
