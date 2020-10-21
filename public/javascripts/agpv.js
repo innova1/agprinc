@@ -376,7 +376,7 @@ function replaceFrameworksPanel(framework) {
 }
 
 function getCurrentFramework() {
-	var debug = false; 
+	var debug = true; 
 	var result = '';
 	result = $('#selectedFramework').html();
 	if(debug) console.log('in getcurrentframework got ' + result + 'from #selectedFramework')
@@ -412,7 +412,7 @@ function removeActiveSearchterm(element) {
 
 $(function() {
 	var minlength = 3;
-	const debug = false;
+	const debug = true;
 
 	$("#searchtext").keyup(function() {
 		var oldThis = this,
@@ -487,7 +487,7 @@ $("form").on("submit", function (e) {
 });
 
 function getSuggestionPanelHTML(searchWordsArray) {
-	var debug = false;
+	var debug = true;
 	var resultList = '<ul class="suggestions">';
 	var jscriptcall = '';
 	searchWordsArray.forEach( element => {
