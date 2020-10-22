@@ -49,7 +49,7 @@ function replaceItemsPanels(framework, wasSelected) {
 
 function populateItemsPanels( objs ) {
 	$(function() {
-		if(true) {
+		if(false) {
 			populateItemsPanels2( objs );
 		} else {
 			const debug = false;
