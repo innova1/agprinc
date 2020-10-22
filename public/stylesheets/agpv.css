@@ -45,7 +45,7 @@
 a.navbar-brand {
 	color: #337ab7;
 	height: 40px;
-	padding: 10px 18px;
+	padding: 10px px;
 	font-size: 20px;
 	line-height: 22px;
 }
@@ -60,7 +60,7 @@ a#sidepanelheader {
 	color: white;
 }
 
-a:link, a:visited {
+a:link, a:visited, a:hover {
   text-decoration: none;
   cursor: pointer;
 }
