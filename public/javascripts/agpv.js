@@ -15,18 +15,12 @@ let termsObj = new currentTermsObject();
 
 function redirectReplaceItemsPanels(event) {
 	//console.log('calling replaceFilteredItemsPanels with framework: ' + event.data.framework + ', wasSelected: ' + event.data.wasSelected)
-	console.log('type of param is ' + typeof event);
 	replaceItemsPanels(event.data.framework, event.data.wasSelected);
 }
 
 function replaceItemsPanels(framework, wasSelected) {
 	$(function() {
 		const debug = false;
-		if(typeof framework === 'object') {
-			framework = event.data.framework;
-			wasSelected = event.data.wasSelected;
-		}
-		console.log('typeof framework:' + typeof framework + ', typeof wasSelected:' + typeof wasSelected)
 		let url;
 		var adjustedFramework = (wasSelected?'all':framework);
 		if(debug) console.log('in replaceItemsPanels with ' + framework + ' and ' + adjustedFramework + ', wasSelected: ' + wasSelected );
@@ -225,7 +219,7 @@ function setSelected(selectedFramework) {
 			if(debug) console.log('in set selected calling on click for ' + fObj.framework + ", " + wasSelected)
 			//frameElement.parent().parent().off('click').on('click', function() { replaceItemsPanels( fObj.framework, wasSelected ); } );
 			frameElement.parent().parent().off().on('click', function() { alert("didn't work"); } );
-			frameElement.parent().parent().off().on('click', { framework: fObj.framework, wasSelected: wasSelected }, replaceItemsPanels );
+			frameElement.parent().parent().off().on('click', { framework: fObj.framework, wasSelected: wasSelected }, redirectReplaceItemsPanels );
 			if(debug) console.log('parent:' + frameElement.parent().parent().html() + ', click:' + frameElement.parent().parent().attr('click'))
 			if(debug) console.log('html: ' + frameElement.html())
 		}
