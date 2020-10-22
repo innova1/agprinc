@@ -22,6 +22,10 @@ function redirectReplaceItemsPanels(event) {
 function replaceItemsPanels(framework, wasSelected) {
 	$(function() {
 		const debug = false;
+		if(typeof framework === 'object') {
+			framework = event.data.framework;
+			wasSelected = event.data.wasSelected;
+		}
 		console.log('typeof framework:' + typeof framework + ', typeof wasSelected:' + typeof wasSelected)
 		let url;
 		var adjustedFramework = (wasSelected?'all':framework);
@@ -221,7 +225,7 @@ function setSelected(selectedFramework) {
 			if(debug) console.log('in set selected calling on click for ' + fObj.framework + ", " + wasSelected)
 			//frameElement.parent().parent().off('click').on('click', function() { replaceItemsPanels( fObj.framework, wasSelected ); } );
 			frameElement.parent().parent().off().on('click', function() { alert("didn't work"); } );
-			frameElement.parent().parent().off().on('click', { framework: fObj.framework, wasSelected: wasSelected }, redirectReplaceItemsPanels );
+			frameElement.parent().parent().off().on('click', { framework: fObj.framework, wasSelected: wasSelected }, replaceItemsPanels );
 			if(debug) console.log('parent:' + frameElement.parent().parent().html() + ', click:' + frameElement.parent().parent().attr('click'))
 			if(debug) console.log('html: ' + frameElement.html())
 		}
