@@ -45,56 +45,54 @@ function replaceItemsPanels(framework, wasSelected) {
 }
 
 function populateItemsPanels( objs ) {
-	$(function() {
-		var panel = $('#itemsPanels');
-		panel.html('');
-		try {
-			if(objs.length==0) {
+	var panel = $('#itemsPanels');
+	panel.html('');
+	try {
+		if(objs.length==0) {
+			var paneldiv = $(document.createElement('div'));
+			paneldiv.addClass('panel panel-primary');
+			var panelheadingdiv = $(document.createElement('div'));
+			panelheadingdiv.addClass('panel-heading');
+			var itemTitle = $(document.createElement('h3'));
+			itemTitle.addClass('panel-title');
+			itemTitle.html('No items match in this framework');
+			var panelbodydiv = $(document.createElement('div'));
+			panelbodydiv.addClass('panel-body');
+			panel.append(paneldiv.append(panelheadingdiv.html(itemTitle)).append(panelbodydiv));
+
+			/*
+			panel.append("<div class='panel panel-primary'>");
+			itemTitle = "<h3 class='panel-title'>No items match in this framework.</h3>";
+			panel.append("<div class='panel-heading'>" + itemTitle + "</div>");
+			panel.append("<div class='panel-body'></div>");
+			panel.append("</div>")
+			*/
+		} else {
+			objs.forEach( obj => {
 				var paneldiv = $(document.createElement('div'));
-				paneldiv.addClass('panel panel-primary');
+				paneldiv.addClass('panel panel-primary ' + obj.type );
 				var panelheadingdiv = $(document.createElement('div'));
 				panelheadingdiv.addClass('panel-heading');
 				var itemTitle = $(document.createElement('h3'));
 				itemTitle.addClass('panel-title');
-				itemTitle.html('No items match in this framework');
+				itemTitle.html( obj.frameworkdisplay + " " + obj.type + " " + obj.id );
 				var panelbodydiv = $(document.createElement('div'));
 				panelbodydiv.addClass('panel-body');
+				panelbodydiv.html(obj.text);
 				panel.append(paneldiv.append(panelheadingdiv.html(itemTitle)).append(panelbodydiv));
-				
+
 				/*
-				panel.append("<div class='panel panel-primary'>");
-				itemTitle = "<h3 class='panel-title'>No items match in this framework.</h3>";
+				panel.append("<div class='panel panel-primary " + obj.type + "'>");
+				itemTitle = "<h3 class='panel-title'>" + obj.frameworkdisplay + " " + obj.type + " " + obj.id + "</h3>"
 				panel.append("<div class='panel-heading'>" + itemTitle + "</div>");
-				panel.append("<div class='panel-body'></div>");
-				panel.append("</div>")
+				panel.append("<div class='panel-body'>" + obj.text + "</div>");
+				panel.append("</div>");
 				*/
-			} else {
-				objs.forEach( obj => {
-					var paneldiv = $(document.createElement('div'));
-					paneldiv.addClass('panel panel-primary ' + obj.type );
-					var panelheadingdiv = $(document.createElement('div'));
-					panelheadingdiv.addClass('panel-heading');
-					var itemTitle = $(document.createElement('h3'));
-					itemTitle.addClass('panel-title');
-					itemTitle.html( obj.frameworkdisplay + " " + obj.type + " " + obj.id );
-					var panelbodydiv = $(document.createElement('div'));
-					panelbodydiv.addClass('panel-body');
-					panelbodydiv.html(obj.text);
-					panel.append(paneldiv.append(panelheadingdiv.html(itemTitle)).append(panelbodydiv));
-					
-					/*
-					panel.append("<div class='panel panel-primary " + obj.type + "'>");
-					itemTitle = "<h3 class='panel-title'>" + obj.frameworkdisplay + " " + obj.type + " " + obj.id + "</h3>"
-					panel.append("<div class='panel-heading'>" + itemTitle + "</div>");
-					panel.append("<div class='panel-body'>" + obj.text + "</div>");
-					panel.append("</div>");
-					*/
-				});
-			}
-		} catch(err) {
-			console.log('error in populateItemsPanels2 with ' + err);
+			});
 		}
-	});
+	} catch(err) {
+		console.log('error in populateItemsPanels2 with ' + err);
+	}
 }
 
 function replaceFilteredItemsPanels(framework) {
@@ -151,27 +149,25 @@ function populateFrameworksPanel( objs ) {
 function setMenuCollapsed(isSmallViewport) {
 	const debug = false;
 	if(debug) console.log('calling set Menu Collapsed');
-	$(function() {
-		if( isSmallViewport.matches ) {
-			//document.getElementById("sidepanel").classList.remove('show');
-			//document.getElementById("sidepanel").classList.remove('in');
-			$("#sidepanel").collapse('hide');
-			$('#displaySelectedFramework').addClass('show');
-			$('#displaySelectedFramework').removeClass('hide');
-			$('#fmenu-panel-title-div').addClass('hide');
-			$('#fmenu-panel-title-div').removeClass('show');
-			//console.log("in largeviewport side pane classlist: " + document.getElementById("sidepanel").classList)
-		} else {
-			//document.getElementById("sidepanel").classList.add('show');
-			//document.getElementById("sidepanel").classList.add('in');
-			$("#sidepanel").collapse('show');
-			$('#displaySelectedFramework').addClass('hide');
-			$('#displaySelectedFramework').removeClass('show');
-			$('#fmenu-panel-title-div').addClass('show');
-			$('#fmenu-panel-title-div').removeClass('hide');
-			//console.log("in smallviewport match side pane classlist: " + document.getElementById("sidepanel").classList)
-		}
-	});
+	if( isSmallViewport.matches ) {
+		//document.getElementById("sidepanel").classList.remove('show');
+		//document.getElementById("sidepanel").classList.remove('in');
+		$("#sidepanel").collapse('hide');
+		$('#displaySelectedFramework').addClass('show');
+		$('#displaySelectedFramework').removeClass('hide');
+		$('#fmenu-panel-title-div').addClass('hide');
+		$('#fmenu-panel-title-div').removeClass('show');
+		//console.log("in largeviewport side pane classlist: " + document.getElementById("sidepanel").classList)
+	} else {
+		//document.getElementById("sidepanel").classList.add('show');
+		//document.getElementById("sidepanel").classList.add('in');
+		$("#sidepanel").collapse('show');
+		$('#displaySelectedFramework').addClass('hide');
+		$('#displaySelectedFramework').removeClass('show');
+		$('#fmenu-panel-title-div').addClass('show');
+		$('#fmenu-panel-title-div').removeClass('hide');
+		//console.log("in smallviewport match side pane classlist: " + document.getElementById("sidepanel").classList)
+	}
 }
 
 function setSelected(selectedFramework) {
@@ -289,18 +285,16 @@ function populateCurrentSearchTermsDiv() {
 		if(debug) console.log('creating terms object');
 		currentSearchTermsObject = createCurrent SearchTermsObject(searchterms);
 	}*/
-	$(function() {
-		//if(debug) console.log("updating remove links div with " + termsObj.getCurrentTermsHtml());
-		//document.getElementById('removetermlinks').innerHTML = termsObj.getCurrentTermsHtml();
-		$('#removetermlinks').html(termsObj.getCurrentTermsHtml());
-		//if(debug) console.log("updating search terms div with " + termsObj.getCurrentTerms());
-		//document.getElementById('currentsearchterms').innerHTML = termsObj.getCurrentTerms();
-		$('#currentsearchterms').html(termsObj.getCurrentTerms());
-		$("#suggestion-panel").collapse('hide');
-		//***document.getElementById('suggestions').style.display = 'none';
-		//document.getElementById('searchtext').value = "";
-		$('#searchtext').val('');
-	});
+	//if(debug) console.log("updating remove links div with " + termsObj.getCurrentTermsHtml());
+	//document.getElementById('removetermlinks').innerHTML = termsObj.getCurrentTermsHtml();
+	$('#removetermlinks').html(termsObj.getCurrentTermsHtml());
+	//if(debug) console.log("updating search terms div with " + termsObj.getCurrentTerms());
+	//document.getElementById('currentsearchterms').innerHTML = termsObj.getCurrentTerms();
+	$('#currentsearchterms').html(termsObj.getCurrentTerms());
+	$("#suggestion-panel").collapse('hide');
+	//***document.getElementById('suggestions').style.display = 'none';
+	//document.getElementById('searchtext').value = "";
+	$('#searchtext').val('');
 }
 
 function replaceFrameworksPanel(framework) {
