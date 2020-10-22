@@ -22,6 +22,7 @@ function redirectReplaceItemsPanels(event) {
 function replaceItemsPanels(framework, wasSelected) {
 	$(function() {
 		const debug = false;
+		console.log('typeof framework:' + typeof framework + ', typeof wasSelected:' + typeof wasSelected)
 		let url;
 		var adjustedFramework = (wasSelected?'all':framework);
 		if(debug) console.log('in replaceItemsPanels with ' + framework + ' and ' + adjustedFramework + ', wasSelected: ' + wasSelected );
