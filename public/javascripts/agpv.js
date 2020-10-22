@@ -97,7 +97,7 @@ function populateItemsPanels2( objs ) {
 				var panelheadingdiv = $(document.createElement('div'));
 				panelheadingdiv.addClass('panel-heading');
 				var itemTitle = $(document.createElement('h3'));
-				itemtitle.addClass('panel-title');
+				itemTitle.addClass('panel-title');
 				itemTitle.html('No items match in this framework');
 				var panelbodydiv = $(document.createElement('div'));
 				panelbodydiv.addClass('panel-body');
