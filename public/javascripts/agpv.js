@@ -47,7 +47,7 @@ function replaceItemsPanels(framework, wasSelected) {
 	});
 }
 
-function populateItemsPanels( objs ) {
+function populateItemsPanelsOld( objs ) {
 	$(function() {
 		if(true) {
 			populateItemsPanels2( objs );
@@ -86,7 +86,7 @@ function populateItemsPanels( objs ) {
 	});
 }
 
-function populateItemsPanels2( objs ) {
+function populateItemsPanels( objs ) {
 	$(function() {
 		var panel = $('#itemsPanels');
 		panel.html('');
