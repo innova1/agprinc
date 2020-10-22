@@ -100,7 +100,7 @@ function populateItemsPanels2( objs ) {
 				itemTitle.html('No items match in this framework');
 				var panelbodydiv = $(document.createElement('div'));
 				panelbodydiv.addClass('panel-body');
-				panel.append(paneldiv.append(panelheadingdiv.html(itemTitle).append(panelbodydiv)));
+				panel.append(paneldiv.append(panelheadingdiv.html(itemTitle)).append(panelbodydiv));
 				
 				/*
 				panel.append("<div class='panel panel-primary'>");
@@ -112,15 +112,16 @@ function populateItemsPanels2( objs ) {
 			} else {
 				objs.forEach( obj => {
 					var paneldiv = $(document.createElement('div'));
-					paneldiv.addClass('panel panel-primary');
+					paneldiv.addClass('panel panel-primary' + obj.type );
 					var panelheadingdiv = $(document.createElement('div'));
 					panelheadingdiv.addClass('panel-heading');
 					var itemTitle = $(document.createElement('h3'));
+					itemTitle.addClass('panel-title');
 					itemTitle.html( obj.frameworkdisplay + " " + obj.type + " " + obj.id );
 					var panelbodydiv = $(document.createElement('div'));
 					panelbodydiv.addClass('panel-body');
 					panelbodydiv.html(obj.text);
-					panel.append(paneldiv.append(panelheadingdiv.html(itemTitle).append(panelbodydiv)));
+					panel.append(paneldiv.append(panelheadingdiv.html(itemTitle)).append(panelbodydiv));
 					
 					/*
 					panel.append("<div class='panel panel-primary " + obj.type + "'>");
