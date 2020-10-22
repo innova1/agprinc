@@ -112,7 +112,7 @@ function populateItemsPanels2( objs ) {
 			} else {
 				objs.forEach( obj => {
 					var paneldiv = $(document.createElement('div'));
-					paneldiv.addClass('panel panel-primary' + obj.type );
+					paneldiv.addClass('panel panel-primary ' + obj.type );
 					var panelheadingdiv = $(document.createElement('div'));
 					panelheadingdiv.addClass('panel-heading');
 					var itemTitle = $(document.createElement('h3'));
