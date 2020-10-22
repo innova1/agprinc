@@ -6,7 +6,6 @@ function setup() {
 	replaceItemsPanels('all');
 }
 
-
 var isSmallViewport = window.matchMedia("(max-width: 1000px)");
 var searchRequest = null;
 //var suggElement = document.getElementById('suggestions');
@@ -115,46 +114,6 @@ function replaceFilteredItemsPanels(framework) {
 		}
 	});
 }
-
-/*
-function populateFrameworksPanelOld( objs ) {
-	if(true) {
-		populateFrameworksPanel2( objs );
-	} else {
-		$(function() {
-			const debug = false;
-			var framework = "";
-			var obj = new Object();
-			var itemsHtml = "";
-			var jscriptString = "";
-			frameworkObjArray = objs;
-			if(debug) console.log('setting up frameworks panel html')
-
-			itemsHtml  = "<div class='panel panel-primary'>";
-			itemsHtml += "<div class='panel-heading'>";
-			itemsHtml += "<a id='sidepanelheader' href='#sidepanel' data-toggle='collapse'><h3 class='panel-title'><div id='fmenu-panel-title-div'>Frameworks</div><div id='displaySelectedFramework'></div></h3></a>";
-			itemsHtml += "</div>"; //close div panel heading
-			itemsHtml += "<div class='panel-collapse collapse' id='sidepanel'>"
-			itemsHtml += "<ul class='list-group'>";
-			objs.forEach( obj => {
-				itemsHtml += "<li class='list-group-item'>";
-				//jscriptString = "onclick=\'javascript:replaceItemsPanels(\"" + obj.framework + "\")\'";
-				itemsHtml += "<a class=\'menu\' href=\'javascript:void(0)\' " + jscriptString + "> <span id=\'" + obj.framework + "\'>" + obj.frameworkdisplay + "</span>";
-				itemsHtml += "</li>";
-			});
-			itemsHtml += "</ul>";
-			itemsHtml += "</div>"; //close div panel-collapse
-			itemsHtml += "</div>"; //close div panel-default
-
-			//if(debug) console.log('setsidepanel');
-			//if(debug) console.log('about to populate frameworksMenuPanel with ' + itemsHtml);
-			//document.getElementById('frameworksMenuPanel').innerHTML = itemsHtml;
-			$('#frameworksMenuPanel').html(itemsHtml);
-			frameworkObjArray.push({framework:'all', frameworkdisplay:'All'})
-		});
-	}
-}
-*/
 
 function populateFrameworksPanel( objs ) {
 	const debug = false;
@@ -271,10 +230,6 @@ function setSelected(selectedFramework) {
 		if(debug) console.log("in set selected--setting display selected field using " + selectedFramework + " to " + sfObj.frameworkdisplay);
 		$('#displaySelectedFramework').text('Selected framework: ' + sfObj.frameworkdisplay);
 	});
-}
-
-function setSelected2(selectedFramework) {
-	
 }
 
 function currentTermsObject() {
@@ -560,3 +515,44 @@ function populateItemsPanelsOld( objs ) {
 	});
 }
 */
+
+/*
+function populateFrameworksPanelOld( objs ) {
+	if(true) {
+		populateFrameworksPanel2( objs );
+	} else {
+		$(function() {
+			const debug = false;
+			var framework = "";
+			var obj = new Object();
+			var itemsHtml = "";
+			var jscriptString = "";
+			frameworkObjArray = objs;
+			if(debug) console.log('setting up frameworks panel html')
+
+			itemsHtml  = "<div class='panel panel-primary'>";
+			itemsHtml += "<div class='panel-heading'>";
+			itemsHtml += "<a id='sidepanelheader' href='#sidepanel' data-toggle='collapse'><h3 class='panel-title'><div id='fmenu-panel-title-div'>Frameworks</div><div id='displaySelectedFramework'></div></h3></a>";
+			itemsHtml += "</div>"; //close div panel heading
+			itemsHtml += "<div class='panel-collapse collapse' id='sidepanel'>"
+			itemsHtml += "<ul class='list-group'>";
+			objs.forEach( obj => {
+				itemsHtml += "<li class='list-group-item'>";
+				//jscriptString = "onclick=\'javascript:replaceItemsPanels(\"" + obj.framework + "\")\'";
+				itemsHtml += "<a class=\'menu\' href=\'javascript:void(0)\' " + jscriptString + "> <span id=\'" + obj.framework + "\'>" + obj.frameworkdisplay + "</span>";
+				itemsHtml += "</li>";
+			});
+			itemsHtml += "</ul>";
+			itemsHtml += "</div>"; //close div panel-collapse
+			itemsHtml += "</div>"; //close div panel-default
+
+			//if(debug) console.log('setsidepanel');
+			//if(debug) console.log('about to populate frameworksMenuPanel with ' + itemsHtml);
+			//document.getElementById('frameworksMenuPanel').innerHTML = itemsHtml;
+			$('#frameworksMenuPanel').html(itemsHtml);
+			frameworkObjArray.push({framework:'all', frameworkdisplay:'All'})
+		});
+	}
+}
+*/
+
