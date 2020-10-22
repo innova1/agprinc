@@ -49,7 +49,7 @@ function replaceItemsPanels(framework, wasSelected) {
 
 function populateItemsPanels( objs ) {
 	$(function() {
-		if(false) {
+		if(true) {
 			populateItemsPanels2( objs );
 		} else {
 			const debug = false;
@@ -88,8 +88,8 @@ function populateItemsPanels( objs ) {
 
 function populateItemsPanels2( objs ) {
 	$(function() {
-		var itemTitle = "";
 		var panel = $('#itemsPanels');
+		panel.html('');
 		try {
 			if(objs.length==0) {
 				var paneldiv = $(document.createElement('div'));
