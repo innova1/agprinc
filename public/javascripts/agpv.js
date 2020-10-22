@@ -19,30 +19,28 @@ function redirectReplaceItemsPanels(event) {
 }
 
 function replaceItemsPanels(framework, wasSelected) {
-	$(function() {
-		const debug = false;
-		let url;
-		var adjustedFramework = (wasSelected?'all':framework);
-		if(debug) console.log('in replaceItemsPanels with ' + framework + ' and ' + adjustedFramework + ', wasSelected: ' + wasSelected );
-		if(termsObj.size() > 0) {
-			if(debug) console.log('in replaceitemspanels, termsObj size should be >0 and is ' + termsObj.size() );
-			url = "/api/agileframeworks/search?framework=" + adjustedFramework + "&searchwords=" + termsObj.getCurrentTerms();
-		} else {
-			if(debug) console.log('in replaceitemspanels, termsObj size should be 0 and is ' + termsObj.size() );
-			url = "/api/agileframeworks/" + adjustedFramework;
+	const debug = false;
+	let url;
+	var adjustedFramework = (wasSelected?'all':framework);
+	if(debug) console.log('in replaceItemsPanels with ' + framework + ' and ' + adjustedFramework + ', wasSelected: ' + wasSelected );
+	if(termsObj.size() > 0) {
+		if(debug) console.log('in replaceitemspanels, termsObj size should be >0 and is ' + termsObj.size() );
+		url = "/api/agileframeworks/search?framework=" + adjustedFramework + "&searchwords=" + termsObj.getCurrentTerms();
+	} else {
+		if(debug) console.log('in replaceitemspanels, termsObj size should be 0 and is ' + termsObj.size() );
+		url = "/api/agileframeworks/" + adjustedFramework;
+	}
+	if(debug) console.log('url: ' + url);
+	$.ajax({
+		type: "GET",
+		url: url,
+		dataType: "json",
+		success: function(result) {
+			if(debug) console.log("result.items count: " + result.items.length)
+			populateItemsPanels(result.items);
+			setSelected(adjustedFramework);
+			setMenuCollapsed(isSmallViewport);
 		}
-		if(debug) console.log('url: ' + url);
-		$.ajax({
-			type: "GET",
-			url: url,
-			dataType: "json",
-			success: function(result) {
-				if(debug) console.log("result.items count: " + result.items.length)
-				populateItemsPanels(result.items);
-				setSelected(adjustedFramework);
-				setMenuCollapsed(isSmallViewport);
-			}
-		});
 	});
 }
 
