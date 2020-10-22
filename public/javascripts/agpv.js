@@ -14,6 +14,11 @@ var frameworkObjArray = new Array ();
 
 let termsObj = new currentTermsObject();
 
+function redirectReplaceItemsPanels(event) {
+	//console.log('calling replaceFilteredItemsPanels with framework: ' + event.data.framework + ', wasSelected: ' + event.data.wasSelected)
+	replaceItemsPanels(event.data.framework, event.data.wasSelected);
+}
+
 function replaceItemsPanels(framework, wasSelected) {
 	$(function() {
 		const debug = false;
@@ -87,18 +92,43 @@ function populateItemsPanels2( objs ) {
 		var panel = $('#itemsPanels');
 		try {
 			if(objs.length==0) {
+				var paneldiv = $(document.createElement('div'));
+				paneldiv.addClass('panel panel-primary');
+				var panelheadingdiv = $(document.createElement('div'));
+				panelheadingdiv.addClass('panel-heading');
+				var itemTitle = $(document.createElement('h3'));
+				itemTitle.html('No items match in this framework');
+				var panelbodydiv = $(document.createElement('div'));
+				panelbodydiv.addClass('panel-body');
+				panel.append(paneldiv.append(panelheadingdiv.html(itemTitle).append(panelbodydiv)));
+				
+				/*
 				panel.append("<div class='panel panel-primary'>");
 				itemTitle = "<h3 class='panel-title'>No items match in this framework.</h3>";
 				panel.append("<div class='panel-heading'>" + itemTitle + "</div>");
 				panel.append("<div class='panel-body'></div>");
 				panel.append("</div>")
+				*/
 			} else {
 				objs.forEach( obj => {
+					var paneldiv = $(document.createElement('div'));
+					paneldiv.addClass('panel panel-primary');
+					var panelheadingdiv = $(document.createElement('div'));
+					panelheadingdiv.addClass('panel-heading');
+					var itemTitle = $(document.createElement('h3'));
+					itemTitle.html( obj.frameworkdisplay + " " + obj.type + " " + obj.id );
+					var panelbodydiv = $(document.createElement('div'));
+					panelbodydiv.addClass('panel-body');
+					panelbodydiv.html(obj.text);
+					panel.append(paneldiv.append(panelheadingdiv.html(itemTitle).append(panelbodydiv)));
+					
+					/*
 					panel.append("<div class='panel panel-primary " + obj.type + "'>");
 					itemTitle = "<h3 class='panel-title'>" + obj.frameworkdisplay + " " + obj.type + " " + obj.id + "</h3>"
 					panel.append("<div class='panel-heading'>" + itemTitle + "</div>");
 					panel.append("<div class='panel-body'>" + obj.text + "</div>");
 					panel.append("</div>");
+					*/
 				});
 			}
 		} catch(err) {
@@ -276,11 +306,6 @@ function setSelected(selectedFramework) {
 		if(debug) console.log("in set selected--setting display selected field using " + selectedFramework + " to " + sfObj.frameworkdisplay);
 		$('#displaySelectedFramework').text('Selected framework: ' + sfObj.frameworkdisplay);
 	});
-}
-
-function redirectReplaceItemsPanels(event) {
-	//console.log('calling replaceFilteredItemsPanels with framework: ' + event.data.framework + ', wasSelected: ' + event.data.wasSelected)
-	replaceItemsPanels(event.data.framework, event.data.wasSelected);
 }
 
 function setSelected2(selectedFramework) {
