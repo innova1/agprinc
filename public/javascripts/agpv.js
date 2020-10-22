@@ -15,6 +15,7 @@ let termsObj = new currentTermsObject();
 
 function redirectReplaceItemsPanels(event) {
 	//console.log('calling replaceFilteredItemsPanels with framework: ' + event.data.framework + ', wasSelected: ' + event.data.wasSelected)
+	console.log('type of param is ' + event.typeof);
 	replaceItemsPanels(event.data.framework, event.data.wasSelected);
 }
 
