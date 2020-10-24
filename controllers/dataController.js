@@ -451,7 +451,8 @@ async function getItemsFilteredByKeywords( framework, searchWordsArray ) {
 }
 
 function collectItemsMatchingSearchTerms( searchMap, dataArray, searchWordsArray ) {
-	var indexes = new Array
+	var items = new Array();
+	var indexes = new Array();
 	var locations = new Array();
 	for( const searchTerm of searchWordsArray ) {
 		if(debug) console.log('looking at searchTerm: ' + searchTerm);
@@ -468,7 +469,7 @@ function collectItemsMatchingSearchTerms( searchMap, dataArray, searchWordsArray
 			}
 		}
 	}
-	return indexes;
+	return items;
 }
 
 function pushItemLocationToArray(foundItems, dataArray, location) {
