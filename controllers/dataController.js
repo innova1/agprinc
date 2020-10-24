@@ -427,10 +427,12 @@ async function getItemsFilteredByKeywords( framework, searchWordsArray ) {
           var searchObj = searchMap.get(searchTerm.toLowerCase());
           if(searchObj) {
             locations = searchObj.locations;
-            for( const l of locations ) {
-              if( foundIndexes.indexOf(l.index) == -1 ) {
-                foundIndexes.push(l.index);
-                //foundItems.push(dataArray.find( element => element.id == l.id && element.framework == l.framework && element.type == l.type ));
+            for( const location of locations ) {
+              //if( foundIndexes.indexOf(location.index) == -1 ) {
+			  if( !isLocationAlreadyInArray(foundIndexes, location )) {
+                //foundIndexes.push(location.index);
+				  pushLocationIndex(foundIndexes, location);
+                //foundItems.push(dataArray.find( element => element.id == location.id && element.framework == location.framework && element.type == location.type ));
 				  pushItemLocationToArray(foundItems, dataArray, l);
               } else {
                 if(debug) { console.log('skipping ' + searchMap[l.index].shortdescription + ' because already added') };
@@ -452,6 +454,13 @@ function pushItemLocationToArray(foundItems, dataArray, locationArray) {
 	foundItems.push(dataArray.find( element => element.id == locationArray.id && element.framework == locationArray.framework && element.type == locationArray.type ));
 }
 
+function pushLocationIndex(foundIndexes, location) {
+	foundIndexes.push(location.index);
+}
+
+function isLocationAlreadyInArray(foundIndexes, location) {
+	foundIndexes.indexOf(location.index) != -1;
+}
 
 
 
