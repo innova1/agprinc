@@ -6,7 +6,11 @@ var session = require('express-session');
 var cookieParser = require('cookie-parser');
 
 router.use(cookieParser());
-router.use(session({secret: "Your secret key"}));
+router.use(session({
+	secret: "Your secret key",
+	resave: true,
+	saveUnitiatlized: true
+}));
 
 var Users = [];
 
