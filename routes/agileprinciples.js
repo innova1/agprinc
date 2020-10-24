@@ -2,6 +2,71 @@ var express = require('express');
 var router = express.Router();
 const db = require('../controllers/dataController');
 const kwd = require('../controllers/keywordController');
+var session = require('express-session');
+var cookieParser = require('cookie-parser');
+
+app.use(cookieParser());
+app.use(session({secret: "Your secret key"}));
+
+var Users = [];
+
+app.get('/signup', function(req, res){
+   res.render('signup');
+});
+
+app.post('/signup', function(req, res){
+   if(!req.body.id || !req.body.password){
+      res.status("400");
+      res.send("Invalid details!");
+   } else {
+      Users.filter(function(user){
+         if(user.id === req.body.id){
+            res.render('signup', {
+               message: "User Already Exists! Login or choose another user id"});
+         }
+      });
+      var newUser = {id: req.body.id, password: req.body.password};
+      Users.push(newUser);
+      req.session.user = newUser;
+      res.redirect('/protected_page');
+   }
+});
+
+function checkSignIn(req, res){
+   if(req.session.user){
+      next();     //If session exists, proceed to page
+   } else {
+      var err = new Error("Not logged in!");
+      console.log(req.session.user);
+      next(err);  //Error, trying to access unauthorized page!
+   }
+}
+
+app.get('/login', function(req, res){
+   res.render('login');
+});
+
+app.post('/login', function(req, res){
+   console.log(Users);
+   if(!req.body.id || !req.body.password){
+      res.render('login', {message: "Please enter both id and password"});
+   } else {
+      Users.filter(function(user){
+         if(user.id === req.body.id && user.password === req.body.password){
+            req.session.user = user;
+            res.redirect('/protected_page');
+         }
+      });
+      res.render('login', {message: "Invalid credentials!"});
+   }
+});
+
+app.get('/logout', function(req, res){
+   req.session.destroy(function(){
+      console.log("user logged out.")
+   });
+   res.redirect('/agileframeworks');
+});
 
 /* GET all agile principles */
 router.get('/', function(req, res) {
