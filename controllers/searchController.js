@@ -30,7 +30,7 @@ exports.getItems = async function(req, res) {
 }
 
 /* returns array of keywords that match the string of first characters filtered by searchtext for keyword suggestions list */
-exports.getKeywordMatch = async function a( framework, searchtext ) {
+async function getKeywordMatch( framework, searchtext ) {
 	const debug = false;
 	if(debug) { console.log('searchtext is ' + searchtext) };
 	const keywordsMap = new Map();
