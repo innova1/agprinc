@@ -9,7 +9,7 @@ router.use(cookieParser());
 router.use(session({
 	secret: "Your secret key",
 	resave: true,
-	saveUnitiatlized: true
+	saveUninitialized: true
 }));
 
 var Users = [];
