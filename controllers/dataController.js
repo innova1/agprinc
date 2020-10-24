@@ -167,10 +167,6 @@ exports.isIDInRange = function( framework, type, id ) {
     return !( id < o.min || id > o.max );
 };
 
-exports.getSearchMap = function() {
-    return createSearchMap();
-}
-
 exports.updateKeywords = async function( framework, type, id, keywords ) {
     const debug = false;
     var result = false;
@@ -357,7 +353,7 @@ function getDataArray() {
 		if yes, then add this pointer to the array in the object
 		if no, then create the object and add to the array
 */
-async function createSearchMap(framework) {
+exports.getSearchMap = async function(framework) {
     const debug = false;
   	//const dataArray = getDataArray(); //full data array of all values and principle objects
     const dataArray = await getPrinciplesArray(framework,'');
