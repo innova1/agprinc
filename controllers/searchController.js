@@ -14,21 +14,6 @@ exports.getSearchWords = async function(req, res) {
 	res.json( {searchWords: searchWordsArray} );
 }
 
-/*
-    const framework = req.params.framework;
-    const searchterms = req.query.searchterms;
-    //console.log('in search with framework-' + framework + ' and searchterms-' + decodeURI(searchterms));
-	searchtermsArray = searchterms.split(',');
-    const frameworksArray = await db.getFrameworksArray();
-    //console.log('in router get /:framework with ' + framework );
-    //console.log('in router get /:framework with first frameworks principle ' + frameworksArray[0] );
-    const principlesArray = await db.getMatchedItems(searchtermsArray);
-    //console.log('in router: len is ' + searchMap.length);
-    //console.log('in :framework ' + principlesArray[1].text);
-    res.render('agprisSelectedFrameworkBoot', { title: 'Agile Principles', searchterms: searchtermsArray, frameworks: frameworksArray, framework: framework, principlesArray: principlesArray });
-});
-*/
-
 exports.getSearchTerms = async function(req, res) {
 	const debug = false;
 	
@@ -52,10 +37,65 @@ exports.getFilteredItems = async function(req, res) {
 	try {
 		const searchWordsArray = searchWords.split(',');
 		if(debug) { console.log('in / in searchController.getFilteredItems(' + searchWords + ', ' + framework + ')')};
-    	itemsArray = await db.getFilteredItems(framework, searchWordsArray);
+    	itemsArray = await getItemsFilteredByKeywords(framework, searchWordsArray);
 	} catch(err) {
 		console.log('error in search controller.getFilteredItems with ' + err);
 	}
 	
     res.json({ items: itemsArray });
+}
+
+/* returns array of principles filtered by searchWordsArray */
+async function getItemsFilteredByKeywords( framework, searchWordsArray ) {
+    const debug = false;
+    if(debug) { console.log('in getItemsFilteredByKeywords with ' + searchWordsArray[0])};
+	var foundItems = new Array();
+    try {
+        const dataArray = await getPrinciplesArray('all','');
+		if(debug) console.log('db.getFilteredItems just before create search map');
+        const searchMap = await createSearchMap(framework);
+		if(debug) console.log('db.getFilteredItems just after create search map. searchMap length: ' + searchMap.size);
+		foundItems = collectItemsMatchingSearchTerms(searchMap, dataArray, searchWordsArray);
+        if(debug) if(foundItems[0]) { console.log('first found item is ' + foundItems[0].framework) } else { console.log('none found') };
+        
+    } catch(err) {
+        console.log('error in dataController.getItemsFilteredByKeywords ' + err.message );
+    }
+	
+	return foundItems;
+  
+}
+
+function collectItemsMatchingSearchTerms( searchMap, dataArray, searchWordsArray ) {
+	var items = new Array();
+	var indexes = new Array();
+	var locations = new Array();
+	for( const searchTerm of searchWordsArray ) {
+		if(debug) console.log('looking at searchTerm: ' + searchTerm);
+		var searchObj = searchMap.get(searchTerm.toLowerCase());
+		if(searchObj) {
+			locations = searchObj.locations;
+			for( const location of locations ) {
+				if( !isLocationAlreadyInArray(indexes, location )) {
+					pushLocationIndex(indexes, location);
+					pushItemLocationToArray(items, dataArray, location);
+				} else {
+					if(debug) { console.log('skipping ' + searchMap[location.index].shortdescription + ' because already added') };
+				}
+			}
+		}
+	}
+	return items;
+}
+
+function pushItemLocationToArray(foundItems, dataArray, location) {
+	foundItems.push(dataArray.find( element => element.id == location.id && element.framework == location.framework && element.type == location.type ));
+}
+
+function pushLocationIndex(foundIndexes, location) {
+	foundIndexes.push(location.index);
+}
+
+function isLocationAlreadyInArray(foundIndexes, location) {
+	foundIndexes.indexOf(location.index) != -1;
 }
