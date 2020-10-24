@@ -14,12 +14,6 @@ exports.getSearchWords = async function(req, res) {
 	res.json( {searchWords: searchWordsArray} );
 }
 
-exports.getSearchTerms = async function(req, res) {
-	const debug = false;
-	
-	return "";
-}
-
 exports.getItems = async function(req, res) {
 	const debug = false;
     const framework = req.params.framework;
