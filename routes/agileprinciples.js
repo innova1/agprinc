@@ -97,10 +97,10 @@ router.get('/testboot', function(req, res) {
 router.get('/keywords', checkSignIn, kwd.displayKeywordList);
 
 /* Edit keywords page */
-router.get('/keywordEdit', kwd.editKeyword);
+router.get('/keywordEdit', checkSignIn, kwd.editKeyword);
 
 /* Save the updated keywords */
-router.post('/keywordUpdate', kwd.updateKeywords);
+router.post('/keywordUpdate', checkSignIn, kwd.updateKeywords);
 
 /* search */
 /* transferring to searchController
