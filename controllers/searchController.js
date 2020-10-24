@@ -53,7 +53,7 @@ async function getKeywordMatch( framework, searchtext ) {
 		});
 		
 	} catch(err) {
-        console.log('error in dataController.getKeywordMatch ' + err.message );
+        console.log('error in getKeywordMatch ' + err.message );
 	}
 	return result;
 };
@@ -88,7 +88,7 @@ async function getItemsFilteredByKeywords( framework, searchWordsArray ) {
         if(debug) if(foundItems[0]) { console.log('first found item is ' + foundItems[0].framework) } else { console.log('none found') };
         
     } catch(err) {
-        console.log('error in dataController.getItemsFilteredByKeywords ' + err.message );
+        console.log('error in getItemsFilteredByKeywords ' + err.message );
     }
 	
 	return foundItems;
@@ -96,6 +96,7 @@ async function getItemsFilteredByKeywords( framework, searchWordsArray ) {
 }
 
 function collectItemsMatchingSearchTerms( searchMap, dataArray, searchWordsArray ) {
+	const debug = false;
 	var items = new Array();
 	var indexes = new Array();
 	var locations = new Array();
