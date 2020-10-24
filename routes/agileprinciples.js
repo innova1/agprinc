@@ -90,7 +90,7 @@ router.get('/testboot', function(req, res) {
 });
 
 /* View edit keywords page */
-router.get('/keywords', kwd.displayKeywordList);
+router.get('/keywords', checkSignIn, kwd.displayKeywordList);
 
 /* Edit keywords page */
 router.get('/keywordEdit', kwd.editKeyword);
