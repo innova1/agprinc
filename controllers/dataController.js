@@ -413,6 +413,7 @@ async function createSearchMap(framework) {
 async function getItemsFilteredByKeywords( framework, searchWordsArray ) {
     const debug = false;
     if(debug) { console.log('in getItemsFilteredByKeywords with ' + searchWordsArray[0])};
+	var foundItems = new Array();
     //const dataArray = getDataArray();
     //const foundItems = new Array();
     try {
@@ -420,7 +421,7 @@ async function getItemsFilteredByKeywords( framework, searchWordsArray ) {
 		if(debug) console.log('db.getFilteredItems just before create search map');
         const searchMap = await createSearchMap(framework);
 		if(debug) console.log('db.getFilteredItems just after create search map. searchMap length: ' + searchMap.size);
-		const foundItems = collectItemsMatchingSearchTerms(searchMap, dataArray, searchWordsArray);
+		foundItems = collectItemsMatchingSearchTerms(searchMap, dataArray, searchWordsArray);
 		/*
         var foundIndexes = new Array();
         var locations = new Array();
@@ -462,7 +463,7 @@ function collectItemsMatchingSearchTerms( searchMap, dataArray, searchWordsArray
 			for( const location of locations ) {
 				if( !isLocationAlreadyInArray(indexes, location )) {
 					pushLocationIndex(indexes, location);
-					pushItemLocationToArray(foundItems, dataArray, location);
+					pushItemLocationToArray(items, dataArray, location);
 				} else {
 					if(debug) { console.log('skipping ' + searchMap[location.index].shortdescription + ' because already added') };
 				}
