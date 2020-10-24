@@ -450,7 +450,7 @@ async function getItemsFilteredByKeywords( framework, searchWordsArray ) {
   
 }
 
-collectItemsMatchingSearchTerms( searchMap, dataArray, searchWordsArray ) {
+function collectItemsMatchingSearchTerms( searchMap, dataArray, searchWordsArray ) {
 	var indexes = new Array
 	var locations = new Array();
 	for( const searchTerm of searchWordsArray ) {
