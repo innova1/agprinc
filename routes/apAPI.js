@@ -3,17 +3,6 @@ var router = express.Router();
 const db = require('../controllers/dataController');
 const srch = require('../controllers/searchController');
 
-/* live search against keywords */
-/*
-router.get('/suggestions?', async function(req, res) {
-	const debug = false;
-	const searchText = req.query.searchtext;
-	if(debug) { console.log('in keyword search with ' + searchText) };
-	const result = await db.getKeywordMatch(searchText);
-	res.json({result: result});
-});
-*/
-
 /* Manage search functionality */
 router.get('/suggestions', srch.getSearchWords);
 

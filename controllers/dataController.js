@@ -201,35 +201,6 @@ exports.updateKeywords = async function( framework, type, id, keywords ) {
     return result;
 }
 
-/* returns array of keywords that match the string of first characters filtered by searchtext for keyword suggestions list */
-exports.getKeywordMatch = async function a( framework, searchtext ) {
-	const debug = false;
-	if(debug) { console.log('searchtext is ' + searchtext) };
-	const keywordsMap = new Map();
-	var keywords = new Array();
-	if(debug) var count = 0;
-	var result = new Array();
-	try {
-		const keywordsMap = await createSearchMap(framework);
-		keywords = [ ...keywordsMap.values() ];
-		if(debug) console.log('keyword array length: ' + keywords.length);
-		keywords.forEach( element => {
-			//take searchtext and then compare with the searchtext.length number of chars at the start of each
-			var elstring = element.keyword + '';
-			var str = elstring.substring(0, searchtext.length);
-			if(debug) { console.log( ++count + 'comparing ' + str + ' with ' + searchtext ) };
-			if( str.toUpperCase()===searchtext.toUpperCase() ) {
-				if(debug) { console.log( 'pushing compared ' + str + ' with ' + searchtext ) };
-				result.push(elstring); 
-			}
-		});
-		
-	} catch(err) {
-        console.log('error in dataController.getKeywordMatch ' + err.message );
-	}
-	return result;
-};
-
 function getSingleFrameworkTypeIdObj( framework, type, id ) {
     const singleframeworkObj = new Object();
     const a = getDataArray();
