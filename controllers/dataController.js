@@ -430,7 +430,8 @@ async function getItemsFilteredByKeywords( framework, searchWordsArray ) {
             for( const l of locations ) {
               if( foundIndexes.indexOf(l.index) == -1 ) {
                 foundIndexes.push(l.index);
-                foundItems.push(dataArray.find( element => element.id == l.id && element.framework == l.framework && element.type == l.type ));
+                //foundItems.push(dataArray.find( element => element.id == l.id && element.framework == l.framework && element.type == l.type ));
+				  pushItemLocationToArray(foundItems, dataArray, l);
               } else {
                 if(debug) { console.log('skipping ' + searchMap[l.index].shortdescription + ' because already added') };
               }
@@ -446,6 +447,11 @@ async function getItemsFilteredByKeywords( framework, searchWordsArray ) {
 	return foundItems;
   
 }
+
+function pushItemLocationToArray(foundItems, dataArray, locationArray) {
+	foundItems.push(dataArray.find( element => element.id == locationArray.id && element.framework == locationArray.framework && element.type == locationArray.type ));
+}
+
 
 
 
