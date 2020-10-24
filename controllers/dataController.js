@@ -414,12 +414,14 @@ async function getItemsFilteredByKeywords( framework, searchWordsArray ) {
     const debug = false;
     if(debug) { console.log('in getItemsFilteredByKeywords with ' + searchWordsArray[0])};
     //const dataArray = getDataArray();
-    const foundItems = new Array();
+    //const foundItems = new Array();
     try {
         const dataArray = await getPrinciplesArray('all','');
 		if(debug) console.log('db.getFilteredItems just before create search map');
         const searchMap = await createSearchMap(framework);
 		if(debug) console.log('db.getFilteredItems just after create search map. searchMap length: ' + searchMap.size);
+		const foundItems = collectItemsMatchingSearchTerms(searchMap, dataArray, searchWordsArray);
+		/*
         var foundIndexes = new Array();
         var locations = new Array();
         for( const searchTerm of searchWordsArray ) {
@@ -428,18 +430,16 @@ async function getItemsFilteredByKeywords( framework, searchWordsArray ) {
           if(searchObj) {
             locations = searchObj.locations;
             for( const location of locations ) {
-              //if( foundIndexes.indexOf(location.index) == -1 ) {
 			  if( !isLocationAlreadyInArray(foundIndexes, location )) {
-                //foundIndexes.push(location.index);
 				  pushLocationIndex(foundIndexes, location);
-                //foundItems.push(dataArray.find( element => element.id == location.id && element.framework == location.framework && element.type == location.type ));
 				  pushItemLocationToArray(foundItems, dataArray, location);
               } else {
-                if(debug) { console.log('skipping ' + searchMap[l.index].shortdescription + ' because already added') };
+                if(debug) { console.log('skipping ' + searchMap[location.index].shortdescription + ' because already added') };
               }
             }
           }
         }
+		*/
         if(debug) if(foundItems[0]) { console.log('first found item is ' + foundItems[0].framework) } else { console.log('none found') };
         
     } catch(err) {
@@ -448,6 +448,27 @@ async function getItemsFilteredByKeywords( framework, searchWordsArray ) {
 	
 	return foundItems;
   
+}
+
+collectItemsMatchingSearchTerms( searchMap, dataArray, searchWordsArray ) {
+	var indexes = new Array
+	var locations = new Array();
+	for( const searchTerm of searchWordsArray ) {
+		if(debug) console.log('looking at searchTerm: ' + searchTerm);
+		var searchObj = searchMap.get(searchTerm.toLowerCase());
+		if(searchObj) {
+			locations = searchObj.locations;
+			for( const location of locations ) {
+				if( !isLocationAlreadyInArray(indexes, location )) {
+					pushLocationIndex(indexes, location);
+					pushItemLocationToArray(foundItems, dataArray, location);
+				} else {
+					if(debug) { console.log('skipping ' + searchMap[location.index].shortdescription + ' because already added') };
+				}
+			}
+		}
+	}
+	return indexes;
 }
 
 function pushItemLocationToArray(foundItems, dataArray, location) {
