@@ -5,16 +5,16 @@ const kwd = require('../controllers/keywordController');
 var session = require('express-session');
 var cookieParser = require('cookie-parser');
 
-app.use(cookieParser());
-app.use(session({secret: "Your secret key"}));
+router.use(cookieParser());
+router.use(session({secret: "Your secret key"}));
 
 var Users = [];
 
-app.get('/signup', function(req, res){
+router.get('/signup', function(req, res){
    res.render('signup');
 });
 
-app.post('/signup', function(req, res){
+router.post('/signup', function(req, res){
    if(!req.body.id || !req.body.password){
       res.status("400");
       res.send("Invalid details!");
@@ -42,11 +42,11 @@ function checkSignIn(req, res){
    }
 }
 
-app.get('/login', function(req, res){
+router.get('/login', function(req, res){
    res.render('login');
 });
 
-app.post('/login', function(req, res){
+router.post('/login', function(req, res){
    console.log(Users);
    if(!req.body.id || !req.body.password){
       res.render('login', {message: "Please enter both id and password"});
@@ -61,7 +61,7 @@ app.post('/login', function(req, res){
    }
 });
 
-app.get('/logout', function(req, res){
+router.get('/logout', function(req, res){
    req.session.destroy(function(){
       console.log("user logged out.")
    });
