@@ -15,7 +15,7 @@ router.use(session({
 var Users = [];
 
 router.get('/signup', function(req, res){
-   res.render('signup');
+   res.render('signup', { message: "Sign up for access."});
 });
 
 router.post('/signup', function(req, res){
