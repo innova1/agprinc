@@ -6,8 +6,8 @@ const kwd = require('../controllers/keywordController');
 var session = require('express-session');
 var cookieParser = require('cookie-parser');
 
-app.use(cookieParser());
-app.use(session({
+router.use(cookieParser());
+router.use(session({
 	secret: "4$dcf#",
 	resave: true,
 	saveUninitialized: true
@@ -15,11 +15,11 @@ app.use(session({
 
 var Users = [];
 
-app.get('/signup', function(req, res){
+router.get('/signup', function(req, res){
    res.render('signup', { message: "Sign up for access."});
 });
 
-app.post('/signup', function(req, res){
+router.post('/signup', function(req, res){
    if(!req.body.id || !req.body.password){
       res.status("400");
       res.send("Invalid details!");
@@ -47,11 +47,11 @@ function checkSignIn(req, res, next){
    }
 }
 
-app.get('/login', function(req, res){
+router.get('/login', function(req, res){
    res.render('login', { message: "Sign up for access."});
 });
 
-app.post('/login', function(req, res){
+router.post('/login', function(req, res){
    console.log(Users);
    if(!req.body.id || !req.body.password){
       res.render('login', {message: "Please enter both id and password"});
@@ -66,7 +66,7 @@ app.post('/login', function(req, res){
    }
 });
 
-app.get('/logout', function(req, res){
+router.get('/logout', function(req, res){
    req.session.destroy(function(){
       console.log("user logged out.")
    });
@@ -74,7 +74,7 @@ app.get('/logout', function(req, res){
 });
 
 /* GET all agile principles */
-app.get('/', function(req, res) {
+router.get('/', function(req, res) {
     console.log('in router get /' );
     const frameworksArray = db.getFrameworksArray();
     //db.getframeworks();
@@ -84,27 +84,27 @@ app.get('/', function(req, res) {
 });
 
 /* test db */
-app.get('/testdb', async function(req, res) {
+router.get('/testdb', async function(req, res) {
     console.log('in test db router');
     const el = await db.testdb();
     res.render('test', { title: 'Test page', record: el });
 });
 
-app.get('/testboot', function(req, res) {
+router.get('/testboot', function(req, res) {
     res.render('testboot', { title: 'testing bootstrap' });
 });
 
 /* View edit keywords page */
-app.get('/keywords', checkSignIn, kwd.displayKeywordList);
+router.get('/keywords', checkSignIn, kwd.displayKeywordList);
 
 /* Edit keywords page */
-app.get('/keywordEdit', checkSignIn, kwd.editKeyword);
+router.get('/keywordEdit', checkSignIn, kwd.editKeyword);
 
 /* Save the updated keywords */
-app.post('/keywordUpdate', checkSignIn, kwd.updateKeywords);
+router.post('/keywordUpdate', checkSignIn, kwd.updateKeywords);
 
 /* GET one framework of agile principles */
-app.get('/all', async function(req, res) {
+router.get('/all', async function(req, res) {
 	const debug = false;
     //console.log('in router get /:framework');
     const framework = req.params.framework;
@@ -120,7 +120,7 @@ app.get('/all', async function(req, res) {
 });
 
 /* GET one framework of agile principles */
-app.get('/:framework', async function(req, res) {
+router.get('/:framework', async function(req, res) {
     //console.log('in router get /:framework');
     const framework = req.params.framework;
     const frameworksArray = await db.getFrameworksArray();
@@ -133,7 +133,7 @@ app.get('/:framework', async function(req, res) {
     res.render('agprisSelectedFrameworkBoot', { title: 'Agile Principles', frameworks: frameworksArray, framework: framework, principlesArray: principlesArray, searchMap: searchMap });
 });
 
-app.get('/:framework/:type', async function(req, res) {
+router.get('/:framework/:type', async function(req, res) {
     const framework = req.params.framework;
     const type = req.params.type;
     const frameworksArray = await db.getFrameworksArray();
@@ -144,7 +144,7 @@ app.get('/:framework/:type', async function(req, res) {
 });
 
 /* GET specific agile principle */
-app.get('/:framework/:type/:id', function(req, res) {
+router.get('/:framework/:type/:id', function(req, res) {
     const framework = req.params.framework;
     const type = req.params.type;
     const id = req.params.id;
@@ -161,7 +161,7 @@ app.get('/:framework/:type/:id', function(req, res) {
 
 /* GET agile principles */
 /*
-app.get('/', function(req, res) {
+router.get('/', function(req, res) {
     const id = req.params[0];
 	 if(id) {
          const principle = db.getPrincipleByID('manifesto', id);
