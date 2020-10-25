@@ -21,6 +21,7 @@ router.get('/signup', function(req, res){
 
 router.post('/signup', function(req, res){
    if(!req.body.id || !req.body.password){
+	   console.log('in signup')
       res.status("400");
       res.send("Invalid details!");
    } else {
