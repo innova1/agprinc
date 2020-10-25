@@ -74,7 +74,7 @@ app.get('/logout', function(req, res){
 });
 
 /* GET all agile principles */
-router.get('/', function(req, res) {
+app.get('/', function(req, res) {
     console.log('in router get /' );
     const frameworksArray = db.getFrameworksArray();
     //db.getframeworks();
@@ -84,27 +84,27 @@ router.get('/', function(req, res) {
 });
 
 /* test db */
-router.get('/testdb', async function(req, res) {
+app.get('/testdb', async function(req, res) {
     console.log('in test db router');
     const el = await db.testdb();
     res.render('test', { title: 'Test page', record: el });
 });
 
-router.get('/testboot', function(req, res) {
+app.get('/testboot', function(req, res) {
     res.render('testboot', { title: 'testing bootstrap' });
 });
 
 /* View edit keywords page */
-router.get('/keywords', checkSignIn, kwd.displayKeywordList);
+app.get('/keywords', checkSignIn, kwd.displayKeywordList);
 
 /* Edit keywords page */
-router.get('/keywordEdit', checkSignIn, kwd.editKeyword);
+app.get('/keywordEdit', checkSignIn, kwd.editKeyword);
 
 /* Save the updated keywords */
-router.post('/keywordUpdate', checkSignIn, kwd.updateKeywords);
+app.post('/keywordUpdate', checkSignIn, kwd.updateKeywords);
 
 /* GET one framework of agile principles */
-router.get('/all', async function(req, res) {
+app.get('/all', async function(req, res) {
 	const debug = false;
     //console.log('in router get /:framework');
     const framework = req.params.framework;
@@ -120,7 +120,7 @@ router.get('/all', async function(req, res) {
 });
 
 /* GET one framework of agile principles */
-router.get('/:framework', async function(req, res) {
+app.get('/:framework', async function(req, res) {
     //console.log('in router get /:framework');
     const framework = req.params.framework;
     const frameworksArray = await db.getFrameworksArray();
@@ -133,7 +133,7 @@ router.get('/:framework', async function(req, res) {
     res.render('agprisSelectedFrameworkBoot', { title: 'Agile Principles', frameworks: frameworksArray, framework: framework, principlesArray: principlesArray, searchMap: searchMap });
 });
 
-router.get('/:framework/:type', async function(req, res) {
+app.get('/:framework/:type', async function(req, res) {
     const framework = req.params.framework;
     const type = req.params.type;
     const frameworksArray = await db.getFrameworksArray();
@@ -144,7 +144,7 @@ router.get('/:framework/:type', async function(req, res) {
 });
 
 /* GET specific agile principle */
-router.get('/:framework/:type/:id', function(req, res) {
+app.get('/:framework/:type/:id', function(req, res) {
     const framework = req.params.framework;
     const type = req.params.type;
     const id = req.params.id;
@@ -161,7 +161,7 @@ router.get('/:framework/:type/:id', function(req, res) {
 
 /* GET agile principles */
 /*
-router.get('/', function(req, res) {
+app.get('/', function(req, res) {
     const id = req.params[0];
 	 if(id) {
          const principle = db.getPrincipleByID('manifesto', id);
