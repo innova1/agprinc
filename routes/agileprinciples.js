@@ -47,7 +47,7 @@ function checkSignIn(req, res, next){
 }
 
 router.get('/login', function(req, res){
-   res.render('login');
+   res.render('login', { message: "Sign up for access."});
 });
 
 router.post('/login', function(req, res){
