@@ -15,7 +15,7 @@ app.use(session({
 
 var Users = [];
 
-app.get('/signup', function(req, res){
+router.get('/signup', function(req, res){
    res.render('signup', { message: "Sign up for access."});
 });
 
