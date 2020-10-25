@@ -401,7 +401,7 @@ $(function() {
 });
 
 $("form").on("submit", function (e) {
-	const debug = true;
+	const debug = false;
 	if(debug) console.log('in form on submit')
 	var dataString = $(this).serialize();
 	var frameworkString = 'framework=' + getCurrentFramework();
