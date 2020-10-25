@@ -1,12 +1,13 @@
 var express = require('express');
+var app = express();
 var router = express.Router();
 const db = require('../controllers/dataController');
 const kwd = require('../controllers/keywordController');
 var session = require('express-session');
 var cookieParser = require('cookie-parser');
 
-router.use(cookieParser());
-router.use(session({
+app.use(cookieParser());
+app.use(session({
 	secret: "Your secret key",
 	resave: true,
 	saveUninitialized: true
@@ -14,11 +15,11 @@ router.use(session({
 
 var Users = [];
 
-router.get('/signup', function(req, res){
+app.get('/signup', function(req, res){
    res.render('signup', { message: "Sign up for access."});
 });
 
-router.post('/signup', function(req, res){
+app.post('/signup', function(req, res){
    if(!req.body.id || !req.body.password){
       res.status("400");
       res.send("Invalid details!");
@@ -46,11 +47,11 @@ function checkSignIn(req, res, next){
    }
 }
 
-router.get('/login', function(req, res){
+app.get('/login', function(req, res){
    res.render('login', { message: "Sign up for access."});
 });
 
-router.post('/login', function(req, res){
+app.post('/login', function(req, res){
    console.log(Users);
    if(!req.body.id || !req.body.password){
       res.render('login', {message: "Please enter both id and password"});
@@ -65,7 +66,7 @@ router.post('/login', function(req, res){
    }
 });
 
-router.get('/logout', function(req, res){
+app.get('/logout', function(req, res){
    req.session.destroy(function(){
       console.log("user logged out.")
    });
