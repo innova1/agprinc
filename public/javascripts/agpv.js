@@ -401,7 +401,8 @@ $(function() {
 });
 
 $("form").on("submit", function (e) {
-	const debug = false;
+	const debug = true;
+	if(debug) console.log('in form on submit')
 	var dataString = $(this).serialize();
 	var frameworkString = 'framework=' + getCurrentFramework();
 	var searchtext = dataString.substring(dataString.indexOf('=')+1, dataString.length);
