@@ -8,7 +8,7 @@ var cookieParser = require('cookie-parser');
 
 app.use(cookieParser());
 app.use(session({
-	secret: "Your secret key",
+	secret: "4$dcf#",
 	resave: true,
 	saveUninitialized: true
 }));
