@@ -34,18 +34,19 @@ router.post('/signup', function(req, res){
       var newUser = {id: req.body.id, password: req.body.password};
       Users.push(newUser);
       req.session.user = newUser;
-      res.redirect('/agileframeworks/keywords');
+	   res.redirect('/agileframeworks') //temp to not all to keywords
+      //res.redirect('/agileframeworks/keywords');
    }
 });
 
 function checkSignIn(req, res, next){
    if(req.session.user){
-      next();     //If session exists, proceed to page
+      //next();     //If session exists, proceed to page == temporary force to fail
    } else {
       var err = new Error("Not logged in!");
       console.log(req.session.user);
-      //next(err);  //Error, trying to access unauthorized page! 
-	   res.render('signup', { message: "Sign up for access."});
+      next(err);  //Error, trying to access unauthorized page! 
+	  //res.render('signup', { message: "Sign up for access."}); //temporary fail
    }
 }
 
