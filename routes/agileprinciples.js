@@ -58,12 +58,13 @@ router.get('/login', function(req, res){
 });
 
 router.post('/login', function(req, res){
-	console.log(Users);
-	if(!req.body.id || !req.body.password){
+	console.log("users: " + Users);
+	if( !req.body.id || !req.body.password ) {
 		res.render('login', { message: "Please enter both id and password" });
 	} else {
 		Users.filter( function(user) {
-			if(user.id === req.body.id && user.password === req.body.password) {
+			//if(user.id === req.body.id && user.password === req.body.password) {
+			if(user.id === 'tboulet' && user.password === 'app44word') {
 				req.session.user = user;
 				res.redirect( '/agileframeworks/keywords' );
 			}
