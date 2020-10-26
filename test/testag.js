@@ -1,7 +1,7 @@
 var assert = require('assert');
 var srch = require('../controllers/searchController')
 
-describe('testableFunc', function() {
+describe('testableFunc()', function() {
 	it('should return the number times 5', function() {
 		assert.equal( testableFunc(4), 20);
 	});
