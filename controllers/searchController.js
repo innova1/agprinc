@@ -119,7 +119,7 @@ function pushLocationIndex(foundIndexes, location) {
 
 function isLocationAlreadyInArray(foundIndexes, location) {
 	console.log('testing location.index of ' + location.index + ' against ' + foundIndexes.length + ' indexes');
-	foundIndexes.indexOf(location.index) != -1;
+	return foundIndexes.indexOf(location.index) != -1;
 }
 
 exports.times5 = function(a) {
