@@ -15,11 +15,11 @@ router.use(session({
 
 var Users = [];
 
-router.get('/signup', function(req, res){
+router.get('/REMOVETOMAKEWORKsignup', function(req, res){
    res.render('signup', { message: "Sign up for access."});
 });
 
-router.post('/signup', function(req, res){
+router.post('/REMOVETOMAKEWORKsignup', function(req, res){
 	console.log('in signup')
 	if(!req.body.id || !req.body.password) {
 		res.status("400");
