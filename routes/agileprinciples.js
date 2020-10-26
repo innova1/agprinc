@@ -64,7 +64,9 @@ router.post('/login', function(req, res){
 	} else {
 		Users.filter( function(user) {
 			//if(user.id === req.body.id && user.password === req.body.password) {
+			console.log('in filter: id:' + user.id + "--pwd:" + user.password)
 			if(user.id === 'tboulet' && user.password === 'app44word') {
+				console.log('match')
 				req.session.user = user;
 				res.redirect( '/agileframeworks/keywords' );
 			}
