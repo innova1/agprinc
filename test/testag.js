@@ -3,7 +3,7 @@ var srch = require('../controller/searchController')
 
 describe('testableFunc', function() {
 	it('should return the number times 5', function() {
-		assert.equal( testableFunc(4)), 20);
+		assert.equal( testableFunc(4), 20);
 	});
 });
 
