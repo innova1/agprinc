@@ -20,17 +20,16 @@ router.get('/signup', function(req, res){
 });
 
 router.post('/signup', function(req, res){
-	   console.log('in signup')
-   if(!req.body.id || !req.body.password){
-      res.status("400");
-      res.send("Invalid details!");
-   } else {
-      Users.filter(function(user){
-         if(user.id === req.body.id){
-            res.render('signup', {
-               message: "User Already Exists! Login or choose another user id"});
-         }
-      });
+	console.log('in signup')
+	if(!req.body.id || !req.body.password) {
+		res.status("400");
+		res.send("Invalid details!");
+	} else {
+		Users.filter( function(user) {
+			if(user.id === req.body.id) {
+				res.render('signup', { message: "User Already Exists! Login or choose another user id" });
+			}
+	});
 	var newUser = {id: req.body.id, password: req.body.password};
 	Users.push(newUser);
 	req.session.user = newUser;
@@ -41,7 +40,7 @@ router.post('/signup', function(req, res){
 
 function checkSignIn(req, res, next){
    if(req.session.user){
-      next();     //If session exists, proceed to page == temporary force to fail
+      //next();     //If session exists, proceed to page -->commented out so temporary force to fail
    } else {
       var err = new Error("Not logged in!");
       console.log(req.session.user);
@@ -57,15 +56,15 @@ router.get('/login', function(req, res){
 router.post('/login', function(req, res){
    console.log(Users);
    if(!req.body.id || !req.body.password){
-      res.render('login', {message: "Please enter both id and password"});
+      res.render('login', { message: "Please enter both id and password" });
    } else {
       Users.filter(function(user){
          if(user.id === req.body.id && user.password === req.body.password){
             req.session.user = user;
-            res.redirect('/agileframeworks/keywords');
+            res.redirect( '/agileframeworks/keywords' );
 		 }
 	  });
-      res.render('login', {message: "Invalid credentials!"});
+      res.render('login', { message: "Invalid credentials!"} );
    }
 });
 
