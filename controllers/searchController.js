@@ -75,11 +75,8 @@ async function getItemsFilteredByKeywords( framework, searchWordsArray ) {
 	var foundItems = new Array();
     try {
         const dataArray = await db.getPrinciplesArray('all','');
-		if(debug) console.log('db.getFilteredItems just before create search map');
         const searchMap = await db.getSearchMap(framework);
-		if(debug) console.log('db.getFilteredItems just after create search map. searchMap length: ' + searchMap.size);
 		foundItems = collectItemsMatchingSearchTerms(searchMap, dataArray, searchWordsArray);
-        if(debug) if(foundItems[0]) { console.log('first found item is ' + foundItems[0].framework) } else { console.log('none found') };
         
     } catch(err) {
         console.log('error in getItemsFilteredByKeywords ' + err.message );
