@@ -123,3 +123,7 @@ function pushLocationIndex(foundIndexes, location) {
 function isLocationAlreadyInArray(foundIndexes, location) {
 	foundIndexes.indexOf(location.index) != -1;
 }
+
+function testableFunc(a) {
+	return a * 5;
+}
