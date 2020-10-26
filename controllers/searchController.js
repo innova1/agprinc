@@ -124,6 +124,6 @@ function isLocationAlreadyInArray(foundIndexes, location) {
 	foundIndexes.indexOf(location.index) != -1;
 }
 
-function testableFunc(a) {
+exports.testableFunc = function(a) {
 	return a * 5;
 }
