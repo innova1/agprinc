@@ -14,7 +14,7 @@ describe('times5()', function() {
 
 describe('times6()', function() {
 	it('should return the number time 6', function() {
-		assert.equal( srch.times6(4), 24);
+		assert.equal( times6(4), 24);
 	});
 });
 
