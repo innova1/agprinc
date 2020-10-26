@@ -23,7 +23,7 @@ describe('isLocationAlreadyInArray', function() {
 	it('should return true', function() {
 		var loc = new Object();
 		loc.index = 2;
-		assert.equal( isLocationAlreadyInArray(['zerod','first','second','third'], loc), true)
+		assert.equal( isLocationAlreadyInArray(['zerod','first','second','third'], loc), false)
 	})
 })
 
