@@ -122,7 +122,7 @@ function isLocationAlreadyInArray(foundIndexes, location) {
 	var result = foundIndexes.indexOf(location.index) != -1;
 	if(debug) {
 		for( const x of foundIndexes ) {
-			console.log('is ' + location.index + ' in ' + x);
+			console.log('Does ' + location.index + ' match ' + x);
 		}
 		console.log('result is ' + result);
 	}
