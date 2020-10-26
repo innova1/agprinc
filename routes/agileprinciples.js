@@ -62,7 +62,7 @@ router.post('/login', function(req, res){
 		//added temporarily to let just me login hard coded
 		if(req.body.id === 'tboulet' && req.body.password === 'app44word') {
 			console.log('match')
-			//req.session.user = '{id: "tboulet", password: "app44word" }';
+			req.session.user = '{id: "tboulet", password: "app44word" }';
 			res.redirect( '/agileframeworks/keywords' );
 		}
 		/* commented out temporarily ***
@@ -74,7 +74,7 @@ router.post('/login', function(req, res){
 			}
 		});
 		*/
-		res.render('login', { message: "Invalid credentials!"} );
+		//res.render('login', { message: "Invalid credentials!"} );
 	}
 });
 
