@@ -1,9 +1,15 @@
 var assert = require('assert');
 var srch = require('../controllers/searchController')
 
-describe('testableFunc()', function() {
+describe('times5()', function() {
 	it('should return the number times 5', function() {
-		assert.equal( srch.testableFunc(4), 20);
+		assert.equal( srch.times5(4), 20);
+	});
+});
+
+describe('times6()', function() {
+	if('should return the number time 6', function() {
+		assert.equal( srch.times6(4), 24);
 	});
 });
 
