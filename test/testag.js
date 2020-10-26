@@ -20,10 +20,10 @@ describe('times6()', function() {
 
 var isLocationAlreadyInArray = app.__get__('isLocationAlreadyInArray');
 describe('isLocationAlreadyInArray', function() {
-	it('should return -1', function() {
+	it('should return true', function() {
 		var loc = new Object();
-		loc.index = 5;
-		assert.equal( isLocationAlreadyInArray(['zerod','first','second','third'], loc), -1)
+		loc.index = 2;
+		assert.equal( isLocationAlreadyInArray(['zerod','first','second','third'], loc), true)
 	})
 })
 
