@@ -1,5 +1,10 @@
 var assert = require('assert');
-var srch = require('../controllers/searchController')
+var srch = require('../controllers/searchController');
+var rewire = require('rewire');
+
+var app = rewire('../controllers/searchController');
+
+var times6 = app.__get__('times6');
 
 describe('times5()', function() {
 	it('should return the number times 5', function() {
