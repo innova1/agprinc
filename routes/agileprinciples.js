@@ -31,17 +31,17 @@ router.post('/signup', function(req, res){
                message: "User Already Exists! Login or choose another user id"});
          }
       });
-      var newUser = {id: req.body.id, password: req.body.password};
-      Users.push(newUser);
-      req.session.user = newUser;
-	   res.redirect('/agileframeworks') //temp to not all to keywords
-      //res.redirect('/agileframeworks/keywords');
+	var newUser = {id: req.body.id, password: req.body.password};
+	Users.push(newUser);
+	req.session.user = newUser;
+	//res.redirect('/agileframeworks') //temp to not all to keywords
+	//res.redirect('/agileframeworks/keywords');
    }
 });
 
 function checkSignIn(req, res, next){
    if(req.session.user){
-      //next();     //If session exists, proceed to page == temporary force to fail
+      next();     //If session exists, proceed to page == temporary force to fail
    } else {
       var err = new Error("Not logged in!");
       console.log(req.session.user);
@@ -98,7 +98,7 @@ router.get('/testboot', function(req, res) {
 });
 
 /* View edit keywords page */
-router.get('/keywords', checkSignIn, kwd.displayKeywordList);
+router.get('/keywords', checkSignIn(req, res, 'login', kwd.displayKeywordList);
 
 /* Edit keywords page */
 router.get('/keywordEdit', checkSignIn, kwd.editKeyword);
