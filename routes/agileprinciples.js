@@ -40,11 +40,7 @@ router.post('/signup', function(req, res){
 
 function checkSignIn(req, res, next){
    if(req.session.user){
-	   //next();     //If session exists, proceed to page 
-	   //temporarily forcing this to fail -- to get this to work, comment out these lines
-		var err = new Error("Not logged in 2!");
-		console.log(req.session.user);
-		next(err);  //Error, trying to access unauthorized page! 
+	   next();     //If session exists, proceed to page 
    } else {
 		var err = new Error("Not logged in!");
 		console.log(req.session.user);
