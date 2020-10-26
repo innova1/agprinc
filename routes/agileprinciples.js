@@ -42,7 +42,7 @@ function checkSignIn(req, res, next){
    if(req.session.user){
 	   //next();     //If session exists, proceed to page 
 	   //temporarily forcing this to fail -- to get this to work, comment out these lines
-		var err = new Error("Not logged in!");
+		var err = new Error("Not logged in 2!");
 		console.log(req.session.user);
 		next(err);  //Error, trying to access unauthorized page! 
    } else {
@@ -58,18 +58,18 @@ router.get('/login', function(req, res){
 });
 
 router.post('/login', function(req, res){
-   console.log(Users);
-   if(!req.body.id || !req.body.password){
-      res.render('login', { message: "Please enter both id and password" });
-   } else {
-      Users.filter(function(user){
-         if(user.id === req.body.id && user.password === req.body.password){
-            req.session.user = user;
-            res.redirect( '/agileframeworks/keywords' );
-		 }
-	  });
-      res.render('login', { message: "Invalid credentials!"} );
-   }
+	console.log(Users);
+	if(!req.body.id || !req.body.password){
+		res.render('login', { message: "Please enter both id and password" });
+	} else {
+		Users.filter( function(user) {
+			if(user.id === req.body.id && user.password === req.body.password) {
+				req.session.user = user;
+				res.redirect( '/agileframeworks/keywords' );
+			}
+		});
+		res.render('login', { message: "Invalid credentials!"} );
+	}
 });
 
 router.get('/logout', function(req, res){
