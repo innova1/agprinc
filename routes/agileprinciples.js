@@ -62,7 +62,7 @@ router.post('/login', function(req, res){
 	if( !req.body.id || !req.body.password ) {
 		res.render('login', { message: "Please enter both id and password" });
 	} else {
-		if(user.id === 'tboulet' && user.password === 'app44word') {
+		if(req.id === 'tboulet' && req.password === 'app44word') {
 			console.log('match')
 			req.session.user = user;
 			res.redirect( '/agileframeworks/keywords' );
