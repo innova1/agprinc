@@ -35,7 +35,7 @@ router.post('/signup', function(req, res){
 	Users.push(newUser);
 	req.session.user = newUser;
 	//res.redirect('/agileframeworks') //temp to not all to keywords
-	//res.redirect('/agileframeworks/keywords');
+	res.redirect('/agileframeworks/keywords');
    }
 });
 
@@ -62,9 +62,9 @@ router.post('/login', function(req, res){
       Users.filter(function(user){
          if(user.id === req.body.id && user.password === req.body.password){
             req.session.user = user;
-            res.redirect('/protected_page');
-         }
-      });
+            res.redirect('/agileframeworks/keywords');
+		 }
+	  });
       res.render('login', {message: "Invalid credentials!"});
    }
 });
