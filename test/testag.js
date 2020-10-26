@@ -22,8 +22,8 @@ var isLocationAlreadyInArray = app.__get__('isLocationAlreadyInArray');
 describe('isLocationAlreadyInArray', function() {
 	it('should return -1', function() {
 		var loc = new object();
-		loc.index = 1;
-		assert.equal( isLocationAlreadyInArray(['zerod','first','second','third'], loc))
+		loc.index = 5;
+		assert.equal( isLocationAlreadyInArray(['zerod','first','second','third'], loc), -1)
 	})
 })
 
