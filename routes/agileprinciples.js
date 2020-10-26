@@ -34,7 +34,7 @@ router.post('/signup', function(req, res){
       var newUser = {id: req.body.id, password: req.body.password};
       Users.push(newUser);
       req.session.user = newUser;
-      res.redirect('/protected_page');
+      res.redirect('/agileframeworks');
    }
 });
 
