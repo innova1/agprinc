@@ -15,11 +15,20 @@ router.use(session({
 
 var Users = [];
 
-router.get('/REMOVETOMAKEWORKsignup', function(req, res){
+//this route get is here to block real signup --remove to let work
+router.get('/signup', function(req, res) {
+	res.redirect('/agileframeworks');
+});
+
+router.post('/signup', function(req, res) {
+	res.redirect('/agileframeworks');
+});
+
+router.get('/signup', function(req, res){
    res.render('signup', { message: "Sign up for access."});
 });
 
-router.post('/REMOVETOMAKEWORKsignup', function(req, res){
+router.post('/signup', function(req, res){
 	console.log('in signup')
 	if(!req.body.id || !req.body.password) {
 		res.status("400");
