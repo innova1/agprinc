@@ -333,13 +333,13 @@ exports.getSearchMap = async function(framework) {
     var tempArray = new Array(); //temporary holding tank of keywords to be tested and added if not already there. if already there, then just add location to the end of the item on the search array
     var locationObj = new Object();
     var searchObj = new Object();
-    var index = -1;
 	keywordLocationMap = mapLocationsToKeywords( itemsArray, keywordLocationMap );
     return keywordLocationMap;
 }
 
 function mapLocationsToKeywords( itemsArray, keywordLocationMap ) {
 	
+    var index = -1;
     for( const item of itemsArray ) {
 	  index++
       //get the keywords from each a entry
