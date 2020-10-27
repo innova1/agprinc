@@ -76,6 +76,7 @@ async function getPrinciplesArray(framework, type) {
     const parray = getDataArray();
     //console.log('parray is length ' + parray.length);
     let principlesArray = new Array();
+	var sort = {};
     if(framework=='all') {
         if(debug) { console.log('in get princ array framework is empty'); }
         /*
@@ -99,7 +100,8 @@ async function getPrinciplesArray(framework, type) {
         try {
             const dbParams = await setupDB();
             //const fbks = await dbParams.collection.find({}).sort({ createDate: -1 }).toArray();
-            principlesArray = await dbParams.collection.find({ "framework": framework }).toArray();
+			sort = { framework: 1, type: 1, id: 1 }
+            principlesArray = await dbParams.collection.find({ "framework": framework }).sort(sort).toArray();
             dbParams.client.close();
         } catch(err) {
             console.log('error in try of getPrinciplesArray ' + err.message );
@@ -117,7 +119,8 @@ async function getPrinciplesArray(framework, type) {
         try {
             const dbParams = await setupDB();
             //const fbks = await dbParams.collection.find({}).sort({ createDate: -1 }).toArray();
-            principlesArray = await dbParams.collection.find({ "framework": framework, "type": type }).toArray();
+			sort = { framework: 1, type: 1, id: 1 }
+            principlesArray = await dbParams.collection.find({ "framework": framework, "type": type }).sort(sort).toArray();
             dbParams.client.close();
         } catch(err) {
             console.log('error in try of getPrinciplesArray ' + err.message );
