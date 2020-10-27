@@ -378,6 +378,12 @@ function ItemFinder(framework, type, ordinal) {
 	this.key = framework+type+ordinal;
 }
 
+function fixFrameworkDisplayField( princArray ) {
+	for(const fobj of princArray) {
+		(fobj.frameworkdisplay.substring(0,1)=='1'?fobj.frameworkdisplay.substring(1):fobj.frameworkdisplay);
+	}
+}
+
 /*
 function getPrinciplesObject( framework ) {
     //console.log('in get principles function with framework ' + framework);
