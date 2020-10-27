@@ -316,7 +316,8 @@ function getDataArray() {
 };
 
 /*
-    create an array of objects
+    Creates a map keyed by Keyword of lookup elements for each value/principle (framework, type and id)
+	create an array of objects
 		each important word has an object indexed on the word itself
 		each object is the word and an array of framework, type and id of the principle that contains the word
 		go through the data array and build this
@@ -327,45 +328,49 @@ function getDataArray() {
 exports.getSearchMap = async function(framework) {
     const debug = false;
   	//const dataArray = getDataArray(); //full data array of all values and principle objects
-    const dataArray = await getPrinciplesArray(framework,'');
-    var searchMap = new Map(); //Map being built of a list of objects with keyword and location of the word
+    const itemsArray = await getPrinciplesArray(framework,'');
+    var keywordLocationMap = new Map(); //Map being built of a list of objects with keyword and location of the word
     var tempArray = new Array(); //temporary holding tank of keywords to be tested and added if not already there. if already there, then just add location to the end of the item on the search array
     var locationObj = new Object();
     var searchObj = new Object();
     var index = -1;
+	keywordLocationMap = mapLocationsToKeywords( itemsArray, keywordLocationMap );
+    return keywordLocationMap;
+}
 
-    for( const a of dataArray ) {
+function mapLocationsToKeywords( itemsArray, keywordLocationMap ) {
+	
+    for( const item of itemsArray ) {
 	  index++
       //get the keywords from each a entry
       //go through and see if keyword is in the map
       //if yes, add location to the map object
       //if no, add new map entry with location in object
-      tempArray = a.keywords;
+      tempArray = item.keywords;
       if(tempArray) {
         for( const kwd of tempArray ) {
           //if(debug) { console.log('looking at object with keyword ' + kwd); }
-          searchObj = searchMap.get(kwd);
+          searchObj = keywordLocationMap.get(kwd);
           if(!searchObj) { //the keyword is not already in the map, then add
             //if(debug) { console.log('keywork ' + kwd + ' not already in search obj'); }
-            locationObj = { index: index, framework: a.framework, type: a.type, id: a.id };
+            locationObj = { index: index, framework: itemframework, type: item.type, id: item.id };
             var locations = new Array();
             locations.push(locationObj);
             searchObj = { keyword: kwd, locations: locations };
             searchMap.set(kwd.toLowerCase(), searchObj);
-            if(debug && searchObj.keyword == 'business') { console.log('added location ' + a.framework + ':' + a.type + ':' + a.id + ' to new search object ' + searchObj.keyword); }
+            if(debug && searchObj.keyword == 'business') { console.log('added location ' + item.framework + ':' + item.type + ':' + item.id + ' to new search object ' + searchObj.keyword); }
           } else { //add location to existing
-            if(debug && searchObj.keyword == 'business') { console.log('adding location ' + a.framework + ':' + a.type + ':' + a.id + ' to existing search object ' + searchObj.keyword); }
-            locationObj = { index: index, framework: a.framework, type: a.type, id: a.id };
+            if(debug && searchObj.keyword == 'business') { console.log('adding location ' + item.framework + ':' + item.type + ':' + item.id + ' to existing search object ' + searchObj.keyword); }
+            locationObj = { index: index, framework: item.framework, type: item.type, id: item.id };
             searchObj.locations.push(locationObj);
           }
         }
       } else {
-        if(debug) { console.log('skipping ' + a.id ); }
+        if(debug) { console.log('skipping ' + item.id ); }
       }
     }
-    return searchMap;
+	return keywordLocationMap;
 }
-
 
 
 
