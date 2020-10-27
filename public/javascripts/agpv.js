@@ -75,7 +75,7 @@ function populateItemsPanels( objs ) {
 				panelheadingdiv.addClass('panel-heading');
 				var itemTitle = $(document.createElement('h3'));
 				itemTitle.addClass('panel-title');
-				itemTitle.html( obj.frameworkdisplay + " " + obj.type + " " + obj.id );
+				itemTitle.html( obj.frameworkdisplay.substring(1) + " " + obj.type + " " + obj.id );
 				var panelbodydiv = $(document.createElement('div'));
 				panelbodydiv.addClass('panel-body');
 				panelbodydiv.html(obj.text);
