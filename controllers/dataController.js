@@ -131,6 +131,7 @@ async function getPrinciplesArray(framework, type) {
         */
     }
     if(debug) { console.log('about to export prin array with length ' + principlesArray.length); }
+	fixFrameworkDisplayField(principlesArray);
 	return principlesArray;
 };
 
