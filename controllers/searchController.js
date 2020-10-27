@@ -1,5 +1,5 @@
 const db = require('./dataController');
-const tools = require('./tools');
+//const tools = require('./tools');
 
 exports.getSearchWords = async function(req, res) {
 	const debug = false;
@@ -122,6 +122,14 @@ function isItemAlreadyInArray(alreadyFoundKeys, itemFinder) {
 	const debug = false;
 	var result = alreadyFoundKeys.indexOf(itemFinder.key) != -1;
 	return result;
+}
+
+function ItemFinder(framework, type, ordinal) {
+	const debug = false;
+	this.framework = framework;
+	this.type = type;
+	this.ordinal = ordinal;
+	this.key = framework+type+ordinal;
 }
 
 exports.times5 = function(a) {

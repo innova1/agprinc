@@ -1,6 +1,6 @@
 const { MongoClient, ObjectId } = require('mongodb');
 //const debug = require('debug')('app:dataController');
-var tools = require('./tools');
+//var tools = require('./tools');
 
 async function setupDB() {
     const debug = false;
@@ -368,6 +368,14 @@ function mapItemFindersToKeywords( itemsArray, keywordItemFinderMap ) {
 		}
 	}
 	return keywordItemFinderMap;
+}
+
+function ItemFinder(framework, type, ordinal) {
+	const debug = false;
+	this.framework = framework;
+	this.type = type;
+	this.ordinal = ordinal;
+	this.key = framework+type+ordinal;
 }
 
 /*
