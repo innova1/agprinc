@@ -357,7 +357,7 @@ function mapLocationsToKeywords( itemsArray, keywordLocationMap ) {
             var locations = new Array();
             locations.push(locationObj);
             searchObj = { keyword: kwd, locations: locations };
-            searchMap.set(kwd.toLowerCase(), searchObj);
+            keywordLocationMap.set(kwd.toLowerCase(), searchObj);
             if(debug && searchObj.keyword == 'business') { console.log('added location ' + item.framework + ':' + item.type + ':' + item.id + ' to new search object ' + searchObj.keyword); }
           } else { //add location to existing
             if(debug && searchObj.keyword == 'business') { console.log('adding location ' + item.framework + ':' + item.type + ':' + item.id + ' to existing search object ' + searchObj.keyword); }
