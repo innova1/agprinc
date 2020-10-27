@@ -75,8 +75,8 @@ async function getItemsFilteredByKeywords( framework, searchWordsArray ) {
 	var foundItems = new Array();
     try {
         const dataArray = await db.getPrinciplesArray('all','');
-        const searchMap = await db.keywordLocationMap(framework);
-		foundItems = collectItemsMatchingSearchTerms(searchMap, dataArray, searchWordsArray);
+        const keywordLocationMap = await db.keywordLocationMap(framework);
+		foundItems = collectItemsMatchingSearchTerms(keywordLocationMap, dataArray, searchWordsArray);
         
     } catch(err) {
         console.log('error in getItemsFilteredByKeywords ' + err.message );
@@ -86,14 +86,14 @@ async function getItemsFilteredByKeywords( framework, searchWordsArray ) {
   
 }
 
-function collectItemsMatchingSearchTerms( searchMap, dataArray, searchWordsArray ) {
+function collectItemsMatchingSearchTerms( keywordLocationMap, dataArray, searchWordsArray ) {
 	const debug = false;
 	var items = new Array();
 	var indexes = new Array();
 	var locations = new Array();
 	for( const searchTerm of searchWordsArray ) {
 		if(debug) console.log('looking at searchTerm: ' + searchTerm);
-		var searchObj = searchMap.get(searchTerm.toLowerCase());
+		var searchObj = keywordLocationMap.get(searchTerm.toLowerCase());
 		if(searchObj) {
 			locations = searchObj.locations;
 			for( const location of locations ) {
@@ -101,7 +101,7 @@ function collectItemsMatchingSearchTerms( searchMap, dataArray, searchWordsArray
 					pushLocationIndex(indexes, location);
 					pushItemLocationToArray(items, dataArray, location);
 				} else {
-					if(debug) { console.log('skipping ' + searchMap[location.index].shortdescription + ' because already added') };
+					if(debug) { console.log('skipping ' + keywordLocationMap[location.index].shortdescription + ' because already added') };
 				}
 			}
 		}
