@@ -360,7 +360,7 @@ function mapItemFindersToKeywords( itemsArray, keywordItemFinderMap ) {
 			} else { //add location to existing
 				if(debug && searchObj.keyword == 'business') { console.log('adding location ' + item.framework + ':' + item.type + ':' + item.id + ' to existing search object ' + searchObj.keyword); }
 				itemFinder = new ItemFinder( item.framework, item.type, item.id );
-				searchObj.itemFinders.push(locationObj);
+				searchObj.itemFinders.push(itemFinder);
 			}
 			}
 		} else {
