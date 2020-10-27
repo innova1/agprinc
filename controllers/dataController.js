@@ -353,7 +353,7 @@ function mapLocationsToKeywords( itemsArray, keywordLocationMap ) {
           searchObj = keywordLocationMap.get(kwd);
           if(!searchObj) { //the keyword is not already in the map, then add
             //if(debug) { console.log('keywork ' + kwd + ' not already in search obj'); }
-            locationObj = { index: index, framework: itemframework, type: item.type, id: item.id };
+            locationObj = { index: index, framework: item.framework, type: item.type, id: item.id };
             var locations = new Array();
             locations.push(locationObj);
             searchObj = { keyword: kwd, locations: locations };
