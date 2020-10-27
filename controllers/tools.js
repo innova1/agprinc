@@ -6,5 +6,3 @@ exports.ItemFinder = function(framework, type, ordinal) {
 	this.ordinal = ordinal;
 	this.key = framework+type+ordinal;
 }
-
-module.exports = tools;
