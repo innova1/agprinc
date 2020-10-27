@@ -226,7 +226,7 @@ function setSelected(selectedFramework) {
 	});
 }
 
-function currentTermsObject() {
+function CurrentTermsObject() {
 	const debug = false;
 	this.currentTermsMap = new Map(),
 	this.currentTermsString = "",
