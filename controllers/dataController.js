@@ -100,7 +100,7 @@ async function getPrinciplesArray(framework, type) {
         try {
             const dbParams = await setupDB();
             //const fbks = await dbParams.collection.find({}).sort({ createDate: -1 }).toArray();
-			sort = { framework: 1, type: 1, id: 1 }
+			sort = { framework: 1, type: -1, id: 1 }
             principlesArray = await dbParams.collection.find({ "framework": framework }).sort(sort).collation({locale: "en_US", numericOrdering: true}).toArray();
             dbParams.client.close();
         } catch(err) {
@@ -119,7 +119,7 @@ async function getPrinciplesArray(framework, type) {
         try {
             const dbParams = await setupDB();
             //const fbks = await dbParams.collection.find({}).sort({ createDate: -1 }).toArray();
-			sort = { framework: 1, type: 1, id: 1 }
+			sort = { framework: 1, type: -1, id: 1 }
             principlesArray = await dbParams.collection.find({ "framework": framework, "type": type }).sort(sort).collation({locale: "en_US", numericOrdering: true}).toArray();
             dbParams.client.close();
         } catch(err) {
