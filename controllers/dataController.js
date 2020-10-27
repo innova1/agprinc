@@ -381,7 +381,7 @@ function ItemFinder(framework, type, ordinal) {
 
 function fixFrameworkDisplayField( princArray ) {
 	for(const fobj of princArray) {
-		(fobj.frameworkdisplay.substring(0,1)=='1'?fobj.frameworkdisplay.substring(1):fobj.frameworkdisplay);
+		fobj.frameworkdisplay = (fobj.frameworkdisplay.substring(0,1)=='1'?fobj.frameworkdisplay.substring(1):fobj.frameworkdisplay);
 	}
 }
 
