@@ -75,7 +75,7 @@ function populateItemsPanels( objs ) {
 				panelheadingdiv.addClass('panel-heading');
 				var itemTitle = $(document.createElement('h3'));
 				itemTitle.addClass('panel-title');
-				itemTitle.html( obj.frameworkdisplay.substring(1) + " " + obj.type + " " + obj.id );
+				itemTitle.html( obj.frameworkdisplay + " " + obj.type + " " + obj.id );
 				var panelbodydiv = $(document.createElement('div'));
 				panelbodydiv.addClass('panel-body');
 				panelbodydiv.html(obj.text);
@@ -133,7 +133,7 @@ function populateFrameworksPanel( objs ) {
 		//if(debug) console.log('in forEach with ' + obj.framework)
 		litag = "<li class='list-group-item'>";
 		//jscriptString = "onclick=\'javascript:replaceItemsPanels(\"" + obj.framework + "\")\'";
-		atag = "<a class=\'menu\' href=\'javascript:void(0)\' onclick=''" + jscriptString + "> <span id=\'" + obj.framework + "\'>" + obj.frameworkdisplay.substring(1) + "</span></a>";
+		atag = "<a class=\'menu\' href=\'javascript:void(0)\' onclick=''" + jscriptString + "> <span id=\'" + obj.framework + "\'>" + obj.frameworkdisplay + "</span></a>";
 		lis += litag + atag + "</li>"
 	});
 	ullist.html(lis);
@@ -222,11 +222,11 @@ function setSelected(selectedFramework) {
 		$('#selectedFramework').text(selectedFramework);
 		var sfObj = frameworkObjArray.find( ({ framework }) => framework === selectedFramework )
 		if(debug) console.log("in set selected--setting display selected field using " + selectedFramework + " to " + sfObj.frameworkdisplay);
-		$('#displaySelectedFramework').text('Selected framework: ' + sfObj.frameworkdisplay.substring(1));
+		$('#displaySelectedFramework').text('Selected framework: ' + sfObj.frameworkdisplay);
 	});
 }
 
-function CurrentTermsObject() {
+function currentTermsObject() {
 	const debug = false;
 	this.currentTermsMap = new Map(),
 	this.currentTermsString = "",
