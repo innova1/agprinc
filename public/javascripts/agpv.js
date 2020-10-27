@@ -133,7 +133,7 @@ function populateFrameworksPanel( objs ) {
 		//if(debug) console.log('in forEach with ' + obj.framework)
 		litag = "<li class='list-group-item'>";
 		//jscriptString = "onclick=\'javascript:replaceItemsPanels(\"" + obj.framework + "\")\'";
-		atag = "<a class=\'menu\' href=\'javascript:void(0)\' onclick=''" + jscriptString + "> <span id=\'" + obj.framework + "\'>" + obj.frameworkdisplay + "</span></a>";
+		atag = "<a class=\'menu\' href=\'javascript:void(0)\' onclick=''" + jscriptString + "> <span id=\'" + obj.framework + "\'>" + obj.frameworkdisplay.substring(1) + "</span></a>";
 		lis += litag + atag + "</li>"
 	});
 	ullist.html(lis);
@@ -222,7 +222,7 @@ function setSelected(selectedFramework) {
 		$('#selectedFramework').text(selectedFramework);
 		var sfObj = frameworkObjArray.find( ({ framework }) => framework === selectedFramework )
 		if(debug) console.log("in set selected--setting display selected field using " + selectedFramework + " to " + sfObj.frameworkdisplay);
-		$('#displaySelectedFramework').text('Selected framework: ' + sfObj.frameworkdisplay);
+		$('#displaySelectedFramework').text('Selected framework: ' + sfObj.frameworkdisplay.substring(1));
 	});
 }
 
