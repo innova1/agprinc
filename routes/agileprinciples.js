@@ -5,6 +5,7 @@ const db = require('../controllers/dataController');
 const kwd = require('../controllers/keywordController');
 var session = require('express-session');
 var cookieParser = require('cookie-parser');
+const tools = require('../controllers/tools');
 
 router.use(cookieParser());
 router.use(session({
@@ -135,10 +136,10 @@ router.get('/all', async function(req, res) {
     //console.log('in router get /:framework with first frameworks principle ' + frameworksArray[0] );
     const principlesArray = await db.getPrinciplesArray('', '');
     if(debug) { console.log('test length of array: ' + principlesArray.length); }
-    const keywordLocationMap = await db.keywordLocationMap();
-    //console.log('in router: len is ' + keywordLocationMap.length);
+    const keywordItemFinderMap = await db.keywordItemFinderMap();
+    //console.log('in router: len is ' + keywordItemFinderMap.length);
     //console.log('in :framework ' + principlesArray[1].text);
-    res.render('agprisSelectedFrameworkBoot', { title: 'Agile Principles', frameworks: frameworksArray, framework: framework, principlesArray: principlesArray, keywordLocationMap: keywordLocationMap });
+    res.render('agprisSelectedFrameworkBoot', { title: 'Agile Principles', frameworks: frameworksArray, framework: framework, principlesArray: principlesArray, keywordItemFinderMap: keywordItemFinderMap });
 });
 
 /* GET one framework of agile principles */
@@ -149,10 +150,10 @@ router.get('/:framework', async function(req, res) {
     //console.log('in router get /:framework with ' + framework );
     //console.log('in router get /:framework with first frameworks principle ' + frameworksArray[0] );
     const principlesArray = await db.getPrinciplesArray(framework, '');
-    const keywordLocationMap = await db.keywordLocationMap(); 
-    //console.log('in router: len is ' + keywordLocationMap.length);
+    const keywordItemFinderMap = await db.keywordItemFinderMap(); 
+    //console.log('in router: len is ' + keywordItemFinderMap.length);
     //console.log('in :framework ' + principlesArray[1].text);
-    res.render('agprisSelectedFrameworkBoot', { title: 'Agile Principles', frameworks: frameworksArray, framework: framework, principlesArray: principlesArray, keywordLocationMap: keywordLocationMap });
+    res.render('agprisSelectedFrameworkBoot', { title: 'Agile Principles', frameworks: frameworksArray, framework: framework, principlesArray: principlesArray, keywordItemFinderMap: keywordItemFinderMap });
 });
 
 router.get('/:framework/:type', async function(req, res) {
@@ -161,8 +162,8 @@ router.get('/:framework/:type', async function(req, res) {
     const frameworksArray = await db.getFrameworksArray();
     //console.log('in router get /:framework with ' + framework + ", " + type );
     const principlesArray = await db.getPrinciplesArray(framework, type);
-    const keywordLocationMap = await db.keywordLocationMap(); 
-    res.render('agprisSelectedFramework', { title: 'Agile Principles', frameworks: frameworksArray, framework: framework, type: type, principlesArray: principlesArray, keywordLocationMap: keywordLocationMap });
+    const keywordItemFinderMap = await db.keywordItemFinderMap(); 
+    res.render('agprisSelectedFramework', { title: 'Agile Principles', frameworks: frameworksArray, framework: framework, type: type, principlesArray: principlesArray, keywordItemFinderMap: keywordItemFinderMap });
 });
 
 /* GET specific agile principle */

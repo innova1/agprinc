@@ -11,7 +11,7 @@ var searchRequest = null;
 //var suggElement = document.getElementById('suggestions');
 var frameworkObjArray = new Array ();
 
-let termsObj = new currentTermsObject();
+let termsObj = new CurrentTermsObject();
 
 function redirectReplaceItemsPanels(event) {
 	//console.log('calling replaceFilteredItemsPanels with framework: ' + event.data.framework + ', wasSelected: ' + event.data.wasSelected)
@@ -226,7 +226,7 @@ function setSelected(selectedFramework) {
 	});
 }
 
-function currentTermsObject() {
+function CurrentTermsObject() {
 	const debug = false;
 	this.currentTermsMap = new Map(),
 	this.currentTermsString = "",

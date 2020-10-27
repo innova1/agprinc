@@ -1,4 +1,5 @@
 const db = require('./dataController');
+const tools = require('./tools');
 
 exports.getSearchWords = async function(req, res) {
 	const debug = false;
@@ -32,7 +33,7 @@ async function getKeywordMatch( framework, searchtext ) {
 	if(debug) var count = 0;
 	var result = new Array();
 	try {
-		const keywordsMap = await db.keywordLocationMap(framework);
+		const keywordsMap = await db.keywordItemFinderMap(framework);
 		keywords = [ ...keywordsMap.values() ];
 		if(debug) console.log('keyword array length: ' + keywords.length);
 		keywords.forEach( element => {
@@ -75,8 +76,8 @@ async function getItemsFilteredByKeywords( framework, searchWordsArray ) {
 	var foundItems = new Array();
     try {
         const dataArray = await db.getPrinciplesArray('all','');
-        const keywordLocationMap = await db.keywordLocationMap(framework);
-		foundItems = collectItemsMatchingSearchTerms(keywordLocationMap, dataArray, searchWordsArray);
+        const keywordItemFinderMap = await db.keywordItemFinderMap(framework);
+		foundItems = collectItemsMatchingSearchTerms(keywordItemFinderMap, dataArray, searchWordsArray);
         
     } catch(err) {
         console.log('error in getItemsFilteredByKeywords ' + err.message );
@@ -86,22 +87,22 @@ async function getItemsFilteredByKeywords( framework, searchWordsArray ) {
   
 }
 
-function collectItemsMatchingSearchTerms( keywordLocationMap, dataArray, searchWordsArray ) {
+function collectItemsMatchingSearchTerms( keywordItemFinderMap, dataArray, searchWordsArray ) {
 	const debug = false;
 	var items = new Array();
-	var indexes = new Array();
-	var locations = new Array();
+	var alreadyFoundKeys = new Array();
+	var itemFinders = new Array();
 	for( const searchTerm of searchWordsArray ) {
 		if(debug) console.log('looking at searchTerm: ' + searchTerm);
-		var searchObj = keywordLocationMap.get(searchTerm.toLowerCase());
+		var searchObj = keywordItemFinderMap.get(searchTerm.toLowerCase());
 		if(searchObj) {
-			locations = searchObj.locations;
-			for( const location of locations ) {
-				if( !isLocationAlreadyInArray(indexes, location )) {
-					pushLocationIndex(indexes, location);
-					pushItemLocationToArray(items, dataArray, location);
+			itemFinders = searchObj.itemFinders;
+			for( const itemFinder of itemFinders ) {
+				if( !isItemAlreadyInArray(alreadyFoundKeys, itemFinder )) {
+					setItemAsFound(alreadyFoundKeys, itemFinder);
+					pushItemToArray(items, dataArray, itemFinder);
 				} else {
-					if(debug) { console.log('skipping ' + keywordLocationMap[location.index].shortdescription + ' because already added') };
+					//REWRITE with ITEMFINDER if(debug) { console.log('skipping ' + keywordItemFinderMap[itemFinder.index].shortdescription + ' because already added') };
 				}
 			}
 		}
@@ -109,23 +110,17 @@ function collectItemsMatchingSearchTerms( keywordLocationMap, dataArray, searchW
 	return items;
 }
 
-function pushItemLocationToArray(foundItems, dataArray, location) {
-	foundItems.push(dataArray.find( element => element.id == location.id && element.framework == location.framework && element.type == location.type ));
+function pushItemToArray(foundItems, dataArray, itemFinder) {
+	foundItems.push(dataArray.find( element => element.id == itemFinder.ordinal && element.framework == itemFinder.framework && element.type == itemFinder.type ));
 }
 
-function pushLocationIndex(foundIndexes, location) {
-	foundIndexes.push(location.index);
+function setItemAsFound(alreadyFoundKeys, itemFinder) {
+	alreadyFoundKeys.push(itemFinder.key);
 }
 
-function isLocationAlreadyInArray(foundIndexes, location) {
+function isItemAlreadyInArray(alreadyFoundKeys, itemFinder) {
 	const debug = false;
-	var result = foundIndexes.indexOf(location.index) != -1;
-	if(debug) {
-		for( const x of foundIndexes ) {
-			console.log('Does ' + location.index + ' match ' + x);
-		}
-		console.log('result is ' + result);
-	}
+	var result = alreadyFoundKeys.indexOf(itemFinder.key) != -1;
 	return result;
 }
 

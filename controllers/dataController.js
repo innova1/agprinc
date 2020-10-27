@@ -1,5 +1,6 @@
 const { MongoClient, ObjectId } = require('mongodb');
 //const debug = require('debug')('app:dataController');
+var tools = require('./tools');
 
 async function setupDB() {
     const debug = false;
@@ -325,54 +326,49 @@ function getDataArray() {
 		if yes, then add this pointer to the array in the object
 		if no, then create the object and add to the array
 */
-exports.keywordLocationMap = async function(framework) {
+exports.keywordItemFinderMap = async function(framework) {
     const debug = false;
   	//const dataArray = getDataArray(); //full data array of all values and principle objects
     const itemsArray = await getPrinciplesArray(framework,'');
-    var keywordLocationMap = new Map(); //Map being built of a list of objects with keyword and location of the word
+    var keywordItemFinderMap = new Map(); //Map being built of a list of objects with keyword and location of the word
     var tempArray = new Array(); //temporary holding tank of keywords to be tested and added if not already there. if already there, then just add location to the end of the item on the search array
-    var locationObj = new Object();
+    var itemFinder = new ItemFinder();
     var searchObj = new Object();
-	keywordLocationMap = mapLocationsToKeywords( itemsArray, keywordLocationMap );
-    return keywordLocationMap;
+	keywordItemFinderMap = mapItemFindersToKeywords( itemsArray, keywordItemFinderMap );
+    return keywordItemFinderMap;
 }
 
-function mapLocationsToKeywords( itemsArray, keywordLocationMap ) {
+function mapItemFindersToKeywords( itemsArray, keywordItemFinderMap ) {
 	const debug = false;
 	var index = -1;
+	var itemFinder = new ItemFinder();
 	for( const item of itemsArray ) {
 		index++
-		//get the keywords from each a entry
-		//go through and see if keyword is in the map
-		//if yes, add location to the map object
-		//if no, add new map entry with location in object
 		tempArray = item.keywords;
 		if(tempArray) {
 			for( const kwd of tempArray ) {
 			//if(debug) { console.log('looking at object with keyword ' + kwd); }
-			searchObj = keywordLocationMap.get(kwd);
+			searchObj = keywordItemFinderMap.get(kwd);
 			if(!searchObj) { //the keyword is not already in the map, then add
 				//if(debug) { console.log('keywork ' + kwd + ' not already in search obj'); }
-				locationObj = { index: index, framework: item.framework, type: item.type, id: item.id };
-				var locations = new Array();
-				locations.push(locationObj);
-				searchObj = { keyword: kwd, locations: locations };
-				keywordLocationMap.set(kwd.toLowerCase(), searchObj);
+				itemFinder = new ItemFinder( item.framework, item.type, item.id );
+				var itemFinders = new Array();
+				itemFinders.push(itemFinder);
+				searchObj = { keyword: kwd, itemFinders: itemFinders };
+				keywordItemFinderMap.set(kwd.toLowerCase(), searchObj);
 				if(debug && searchObj.keyword == 'business') { console.log('added location ' + item.framework + ':' + item.type + ':' + item.id + ' to new search object ' + searchObj.keyword); }
 			} else { //add location to existing
 				if(debug && searchObj.keyword == 'business') { console.log('adding location ' + item.framework + ':' + item.type + ':' + item.id + ' to existing search object ' + searchObj.keyword); }
-				locationObj = { index: index, framework: item.framework, type: item.type, id: item.id };
-				searchObj.locations.push(locationObj);
+				itemFinder = new ItemFinder( item.framework, item.type, item.id );
+				searchObj.itemFinders.push(locationObj);
 			}
 			}
 		} else {
 			if(debug) { console.log('skipping ' + item.id ); }
 		}
 	}
-	return keywordLocationMap;
+	return keywordItemFinderMap;
 }
-
-
 
 /*
 function getPrinciplesObject( framework ) {
