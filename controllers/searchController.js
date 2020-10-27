@@ -1,5 +1,4 @@
 const db = require('./dataController');
-//const tools = require('./tools');
 
 exports.getSearchWords = async function(req, res) {
 	const debug = false;
@@ -99,8 +98,8 @@ function collectItemsMatchingSearchTerms( keywordItemFinderMap, dataArray, searc
 			itemFinders = searchObj.itemFinders;
 			for( const itemFinder of itemFinders ) {
 				if( !isItemAlreadyInArray(alreadyFoundKeys, itemFinder )) {
-					setItemAsFound(alreadyFoundKeys, itemFinder);
-					pushItemToArray(items, dataArray, itemFinder);
+					//setItemAsFound(alreadyFoundKeys, itemFinder);
+					pushItemToArray(items, alreadyFoundKeys, dataArray, itemFinder);
 				} else {
 					//REWRITE with ITEMFINDER if(debug) { console.log('skipping ' + keywordItemFinderMap[itemFinder.index].shortdescription + ' because already added') };
 				}
@@ -110,13 +109,16 @@ function collectItemsMatchingSearchTerms( keywordItemFinderMap, dataArray, searc
 	return items;
 }
 
-function pushItemToArray(foundItems, dataArray, itemFinder) {
+function pushItemToArray(foundItems, alreadyFoundKeys, dataArray, itemFinder) {
 	foundItems.push(dataArray.find( element => element.id == itemFinder.ordinal && element.framework == itemFinder.framework && element.type == itemFinder.type ));
+	alreadyFoundKeys.push(itemFinder.key);
 }
 
+/*
 function setItemAsFound(alreadyFoundKeys, itemFinder) {
 	alreadyFoundKeys.push(itemFinder.key);
 }
+*/
 
 function isItemAlreadyInArray(alreadyFoundKeys, itemFinder) {
 	const debug = false;
