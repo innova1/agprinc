@@ -32,7 +32,7 @@ async function getKeywordMatch( framework, searchtext ) {
 	if(debug) var count = 0;
 	var result = new Array();
 	try {
-		const keywordsMap = await db.getSearchMap(framework);
+		const keywordsMap = await db.keywordLocationMap(framework);
 		keywords = [ ...keywordsMap.values() ];
 		if(debug) console.log('keyword array length: ' + keywords.length);
 		keywords.forEach( element => {
@@ -75,7 +75,7 @@ async function getItemsFilteredByKeywords( framework, searchWordsArray ) {
 	var foundItems = new Array();
     try {
         const dataArray = await db.getPrinciplesArray('all','');
-        const searchMap = await db.getSearchMap(framework);
+        const searchMap = await db.keywordLocationMap(framework);
 		foundItems = collectItemsMatchingSearchTerms(searchMap, dataArray, searchWordsArray);
         
     } catch(err) {

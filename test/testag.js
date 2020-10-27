@@ -25,14 +25,14 @@ describe('isLocationAlreadyInArray', function() {
 		loc.index = 'zerod';
 		var arr = ['zerod','first','second','third']
 		assert.equal( isLocationAlreadyInArray(arr, loc), true)
-	})
+	});
 	it('should return false', function() {
 		var loc = new Object();
 		loc.index = 'fourth';
 		var arr = ['zerod','first','second','third']
 		assert.equal( isLocationAlreadyInArray(arr, loc), false)
-	})
-})
+	});
+});
 
 /*
 describe('Array', function() {

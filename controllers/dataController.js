@@ -325,7 +325,7 @@ function getDataArray() {
 		if yes, then add this pointer to the array in the object
 		if no, then create the object and add to the array
 */
-exports.getSearchMap = async function(framework) {
+exports.keywordLocationMap = async function(framework) {
     const debug = false;
   	//const dataArray = getDataArray(); //full data array of all values and principle objects
     const itemsArray = await getPrinciplesArray(framework,'');
@@ -338,37 +338,36 @@ exports.getSearchMap = async function(framework) {
 }
 
 function mapLocationsToKeywords( itemsArray, keywordLocationMap ) {
-	
-    var index = -1;
-    for( const item of itemsArray ) {
-	  index++
-      //get the keywords from each a entry
-      //go through and see if keyword is in the map
-      //if yes, add location to the map object
-      //if no, add new map entry with location in object
-      tempArray = item.keywords;
-      if(tempArray) {
-        for( const kwd of tempArray ) {
-          //if(debug) { console.log('looking at object with keyword ' + kwd); }
-          searchObj = keywordLocationMap.get(kwd);
-          if(!searchObj) { //the keyword is not already in the map, then add
-            //if(debug) { console.log('keywork ' + kwd + ' not already in search obj'); }
-            locationObj = { index: index, framework: item.framework, type: item.type, id: item.id };
-            var locations = new Array();
-            locations.push(locationObj);
-            searchObj = { keyword: kwd, locations: locations };
-            keywordLocationMap.set(kwd.toLowerCase(), searchObj);
-            if(debug && searchObj.keyword == 'business') { console.log('added location ' + item.framework + ':' + item.type + ':' + item.id + ' to new search object ' + searchObj.keyword); }
-          } else { //add location to existing
-            if(debug && searchObj.keyword == 'business') { console.log('adding location ' + item.framework + ':' + item.type + ':' + item.id + ' to existing search object ' + searchObj.keyword); }
-            locationObj = { index: index, framework: item.framework, type: item.type, id: item.id };
-            searchObj.locations.push(locationObj);
-          }
-        }
-      } else {
-        if(debug) { console.log('skipping ' + item.id ); }
-      }
-    }
+	var index = -1;
+	for( const item of itemsArray ) {
+		index++
+		//get the keywords from each a entry
+		//go through and see if keyword is in the map
+		//if yes, add location to the map object
+		//if no, add new map entry with location in object
+		tempArray = item.keywords;
+		if(tempArray) {
+			for( const kwd of tempArray ) {
+			//if(debug) { console.log('looking at object with keyword ' + kwd); }
+			searchObj = keywordLocationMap.get(kwd);
+			if(!searchObj) { //the keyword is not already in the map, then add
+				//if(debug) { console.log('keywork ' + kwd + ' not already in search obj'); }
+				locationObj = { index: index, framework: item.framework, type: item.type, id: item.id };
+				var locations = new Array();
+				locations.push(locationObj);
+				searchObj = { keyword: kwd, locations: locations };
+				keywordLocationMap.set(kwd.toLowerCase(), searchObj);
+				if(debug && searchObj.keyword == 'business') { console.log('added location ' + item.framework + ':' + item.type + ':' + item.id + ' to new search object ' + searchObj.keyword); }
+			} else { //add location to existing
+				if(debug && searchObj.keyword == 'business') { console.log('adding location ' + item.framework + ':' + item.type + ':' + item.id + ' to existing search object ' + searchObj.keyword); }
+				locationObj = { index: index, framework: item.framework, type: item.type, id: item.id };
+				searchObj.locations.push(locationObj);
+			}
+			}
+		} else {
+			if(debug) { console.log('skipping ' + item.id ); }
+		}
+	}
 	return keywordLocationMap;
 }
 
