@@ -1,5 +1,5 @@
 const { MongoClient, ObjectId } = require('mongodb');
-const debug = require('debug')('app:dataController');
+//const debug = require('debug')('app:dataController');
 
 async function setupDB() {
     const debug = false;
@@ -338,6 +338,7 @@ exports.keywordLocationMap = async function(framework) {
 }
 
 function mapLocationsToKeywords( itemsArray, keywordLocationMap ) {
+	const debug = false;
 	var index = -1;
 	for( const item of itemsArray ) {
 		index++
