@@ -97,7 +97,7 @@ router.get('/logout', function(req, res){
 
 /* GET all agile principles */
 router.get('/', function(req, res) {
-    console.log('in router get /' );
+    //console.log('in router get /' );
     const frameworksArray = db.getFrameworksArray();
     //db.getframeworks();
     //db.isIDInRange(framework, 30);
