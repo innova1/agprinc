@@ -27,8 +27,9 @@ describe('addItem', function() {
 	var item1 = { id: '1', framework: 'frame1', type: 'type1' }
 	var item2 = { id: '2', framework: 'frame2', type: 'type2' }
 	var dataArray = [item1, item2];
-	var itemFinder = new ItemFinder(item1.framework, item1.type, item1.id);
+	var itemFinder = new ItemFinder();
 	it('should return true', function() {
+		itemFinder = new ItemFinder(item1.framework, item1.type, item1.id);
 		addItem(foundItems, alreadyFoundKeys, dataArray, itemFinder)
 		
 		console.log('item1:' + item1.id + ',' + item1.framework + ',' + item1.type)
@@ -43,8 +44,16 @@ describe('addItem', function() {
 	});
 	
 	it('should still only have 1 element so return true', function() {
+		itemFinder = new ItemFinder(item2.framework, item2.type, item2.id);
 		addItem(foundItems, alreadyFoundKeys, dataArray, itemFinder)
 		assert.equal( foundItems.length, 1)
 	});
+	
+	
+	it('should have 2 elements so return true', function() {
+		addItem(foundItems, alreadyFoundKeys, dataArray, itemFinder)
+		assert.equal( foundItems.length, 1)
+	});
+	
 });
 
