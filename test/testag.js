@@ -47,7 +47,7 @@ describe('addItem', function() {
 	});
 	
 	it('should have 3 elements now so return true', function() {
-		itemFinder.ordinal = 3
+		itemFinder.ordinal = '3'
 		console.log(itemFinder.key)
 		addItem(foundItems, alreadyFoundKeys, dataArray, itemFinder)
 		assert.equal( foundItems.length, 3)
