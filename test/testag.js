@@ -30,9 +30,10 @@ describe('addItem', function() {
 	var itemFinder = new ItemFinder(item1.framework, item1.type, item1.id);
 	it('should return true', function() {
 		addItem(foundItems, alreadyFoundKeys, dataArray, itemFinder)
-		console.log('looking for ' + item1.id + ',' + item1.framework + ',' + item1.type)
-		console.log('in itemfinder: ' + itemFinder.ordinal + ',' + itemFinder.framework + ',' + itemFinder.type)
+		console.log('item1:' + item1.id + ',' + item1.framework + ',' + item1.type)
+		console.log('in itemfinder:' + itemFinder.ordinal + ',' + itemFinder.framework + ',' + itemFinder.type)
 		var test = foundItems.find( e => e.ordinal == itemFinder.ordinal && e.framework == itemFinder.framework && e.type == itemFinder.type);
+		console.log('test:' + test)
 		assert.equal( test, true)
 	});
 	
