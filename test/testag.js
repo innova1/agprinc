@@ -44,15 +44,15 @@ describe('addItem', function() {
 	});
 	
 	it('should still only have 1 element so return true', function() {
-		itemFinder = new ItemFinder(item2.framework, item2.type, item2.id);
 		addItem(foundItems, alreadyFoundKeys, dataArray, itemFinder)
 		assert.equal( foundItems.length, 1)
 	});
 	
 	
 	it('should have 2 elements so return true', function() {
+		itemFinder = new ItemFinder(item2.framework, item2.type, item2.id);
 		addItem(foundItems, alreadyFoundKeys, dataArray, itemFinder)
-		assert.equal( foundItems.length, 1)
+		assert.equal( foundItems.length, 2)
 	});
 	
 });
