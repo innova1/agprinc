@@ -35,9 +35,9 @@ describe('addItem', function() {
 		assert.equal( typeof test, 'object')
 	});
 	
-	it('should still only have 1 element so return true', function() {
+	it('should still only have 1 element so return false', function() {
 		addItem(foundItems, alreadyFoundKeys, dataArray, itemFinder)
-		assert.equal( foundItems.length, 1)
+		assert.equal( foundItems.length, 2)
 	});
 	
 	it('should have 2 elements now so return true', function() {
@@ -48,23 +48,26 @@ describe('addItem', function() {
 	
 	it('should have 3 elements now so return true', function() {
 		itemFinder = new ItemFinder(item2.framework, item2.type, 3);
-		console.log(itemFinder.key)
 		addItem(foundItems, alreadyFoundKeys, dataArray, itemFinder)
 		assert.equal( foundItems.length, 3)
 	});
 	
 	it('should have 4 elements now so return true', function() {
 		itemFinder = new ItemFinder(item2.framework, 'type3', item2.id);
-		console.log(itemFinder.key)
 		addItem(foundItems, alreadyFoundKeys, dataArray, itemFinder)
 		assert.equal( foundItems.length, 4)
 	});
 	
 	it('should have 5 elements now so return true', function() {
 		itemFinder = new ItemFinder('frame3', item2.type, item2.id);
-		console.log(itemFinder.key)
 		addItem(foundItems, alreadyFoundKeys, dataArray, itemFinder)
 		assert.equal( foundItems.length, 5)
+	});
+	
+	it('should still have only 5 elements so return false', function() {
+		itemFinder = new ItemFinder('frame3', item2.type, item2.id);
+		addItem(foundItems, alreadyFoundKeys, dataArray, itemFinder)
+		assert.equal( foundItems.length, 6)
 	});
 	
 });
