@@ -30,6 +30,7 @@ describe('addItem', function() {
 	var itemFinder = new ItemFinder(item1.framework, item1.type, item1.id);
 	it('should return true', function() {
 		addItem(foundItems, alreadyFoundKeys, dataArray, itemFinder)
+		console.log('looking for ' + item1.id + ',' + item1.framework + ',' + item1.type)
 		var test = foundItems.find( e => e.ordinal == item1.id && e.framework == item1.framework && e.type == item1.type);
 		assert.equal( test, true)
 	});
