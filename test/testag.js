@@ -35,7 +35,7 @@ describe('addItem', function() {
 		console.log('in dataArray:' + dataArray[0].id + ',' + dataArray[0].framework + ',' + dataArray[0].type)
 		var test = foundItems.find( e => e.id == itemFinder.ordinal && e.framework == itemFinder.framework && e.type == itemFinder.type);
 		console.log('test:' + test)
-		assert.equal( test, true)
+		assert.equal( typeof test, 'object'))
 	});
 	
 	it('should return false', function() {
