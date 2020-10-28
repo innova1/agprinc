@@ -105,7 +105,7 @@ function collectItemsMatchingSearchTerms( keywordItemFinderMap, dataArray, searc
 }
 
 function addItem(foundItems, alreadyFoundKeys, dataArray, itemFinder) {
-	const debug = true;
+	const debug = false;
 	if( alreadyFoundKeys.indexOf(itemFinder.key) == -1) {
 		foundItems.push(dataArray.find( element => element.id == itemFinder.ordinal && element.framework == itemFinder.framework && element.type == itemFinder.type ));
 		alreadyFoundKeys.push(itemFinder.key);
