@@ -53,5 +53,19 @@ describe('addItem', function() {
 		assert.equal( foundItems.length, 3)
 	});
 	
+	it('should have 4 elements now so return true', function() {
+		itemFinder = new ItemFinder(item2.framework, 'type3', item2.id);
+		console.log(itemFinder.key)
+		addItem(foundItems, alreadyFoundKeys, dataArray, itemFinder)
+		assert.equal( foundItems.length, 4)
+	});
+	
+	it('should have 5 elements now so return true', function() {
+		itemFinder = new ItemFinder('frame3', item2.type, item2.id);
+		console.log(itemFinder.key)
+		addItem(foundItems, alreadyFoundKeys, dataArray, itemFinder)
+		assert.equal( foundItems.length, 5)
+	});
+	
 });
 
