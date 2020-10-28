@@ -97,34 +97,28 @@ function collectItemsMatchingSearchTerms( keywordItemFinderMap, dataArray, searc
 		if(searchObj) {
 			itemFinders = searchObj.itemFinders;
 			for( const itemFinder of itemFinders ) {
-				if( !isItemAlreadyInArray(alreadyFoundKeys, itemFinder )) {
-					//setItemAsFound(alreadyFoundKeys, itemFinder);
-					pushItemToArray(items, alreadyFoundKeys, dataArray, itemFinder);
-				} else {
-					//REWRITE with ITEMFINDER if(debug) { console.log('skipping ' + keywordItemFinderMap[itemFinder.index].shortdescription + ' because already added') };
-				}
+					addItem(items, alreadyFoundKeys, dataArray, itemFinder);
 			}
 		}
 	}
 	return items;
 }
 
-function pushItemToArray(foundItems, alreadyFoundKeys, dataArray, itemFinder) {
-	foundItems.push(dataArray.find( element => element.id == itemFinder.ordinal && element.framework == itemFinder.framework && element.type == itemFinder.type ));
-	alreadyFoundKeys.push(itemFinder.key);
+function addItem(foundItems, alreadyFoundKeys, dataArray, itemFinder) {
+	if( !alreadyFoundKeys.indexOf(itemFinder.key) == -1) {
+		foundItems.push(dataArray.find( element => element.id == itemFinder.ordinal && element.framework == itemFinder.framework && element.type == itemFinder.type ));
+		alreadyFoundKeys.push(itemFinder.key);
+	} else {
+		//REWRITE with ITEMFINDER if(debug) { console.log('skipping ' + keywordItemFinderMap[itemFinder.index].shortdescription + ' because already added') };
+	}
 }
-
 /*
-function setItemAsFound(alreadyFoundKeys, itemFinder) {
-	alreadyFoundKeys.push(itemFinder.key);
-}
-*/
-
-function isItemAlreadyInArray(alreadyFoundKeys, itemFinder) {
+function isItemAlreadyAdded(alreadyFoundKeys, itemFinder) {
 	const debug = false;
 	var result = alreadyFoundKeys.indexOf(itemFinder.key) != -1;
 	return result;
 }
+*/
 
 function ItemFinder(framework, type, ordinal) {
 	const debug = false;

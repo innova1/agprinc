@@ -18,14 +18,16 @@ describe('times6()', function() {
 	});
 });
 
-var isLocationAlreadyInArray = app.__get__('isLocationAlreadyInArray');
-describe('isLocationAlreadyInArray', function() {
+var isItemAlreadyAdded = app.__get__('isItemAlreadyAdded');
+
+describe('isItemAlreadyAdded', function() {
 	it('should return true', function() {
 		var loc = new Object();
 		loc.index = 'zerod';
 		var arr = ['zerod','first','second','third']
 		assert.equal( isLocationAlreadyInArray(arr, loc), true)
 	});
+	
 	it('should return false', function() {
 		var loc = new Object();
 		loc.index = 'fourth';
@@ -34,12 +36,3 @@ describe('isLocationAlreadyInArray', function() {
 	});
 });
 
-/*
-describe('Array', function() {
-	describe('#indexOf()', function() {
-		it('should return -1 when the value is not present', function() {
-			assert.equal([1, 2, 3].indexOf(4), -1);
-		});
-	});
-});
-*/
