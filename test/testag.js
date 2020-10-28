@@ -32,6 +32,7 @@ describe('addItem', function() {
 		addItem(foundItems, alreadyFoundKeys, dataArray, itemFinder)
 		console.log('item1:' + item1.id + ',' + item1.framework + ',' + item1.type)
 		console.log('in itemfinder:' + itemFinder.ordinal + ',' + itemFinder.framework + ',' + itemFinder.type)
+		console.log('in dataArray:' + dataArray[0].id + ',' + dataArray[0].framework + ',' + dataArray[0].type)
 		var test = foundItems.find( e => e.ordinal == itemFinder.ordinal && e.framework == itemFinder.framework && e.type == itemFinder.type);
 		console.log('test:' + test)
 		assert.equal( test, true)
