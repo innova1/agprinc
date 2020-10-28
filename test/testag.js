@@ -47,7 +47,7 @@ describe('addItem', function() {
 	});
 	
 	it('should have 3 elements now so return true', function() {
-		itemFinder = new ItemFinder(item2.framework, item2.type, 3;
+		itemFinder = new ItemFinder(item2.framework, item2.type, 3);
 		console.log(itemFinder.key)
 		addItem(foundItems, alreadyFoundKeys, dataArray, itemFinder)
 		assert.equal( foundItems.length, 3)
