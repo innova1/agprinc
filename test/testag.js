@@ -36,7 +36,7 @@ describe('addItem', function() {
 		assert.equal( typeof test, 'object')
 	});
 	
-	it('should not have 2 elements even though call was made twice', function() {
+	it('should still have only 1 item because 2nd attempt to add same item should be blocked', function() {
 		addItem(foundItems, alreadyFoundKeys, dataArray, itemFinder)
 		assert.notEqual( foundItems.length, 2)
 	});
@@ -65,7 +65,7 @@ describe('addItem', function() {
 		assert.equal( foundItems.length, 5)
 	});
 	
-	it('should not have 6 elements even though call was made again', function() {
+	it('should still have only 5 items because 2nd attempt to add same item should be blocked', function() {
 		itemFinder = new ItemFinder('frame3', item2.type, item2.id);
 		addItem(foundItems, alreadyFoundKeys, dataArray, itemFinder)
 		assert.notEqual( foundItems.length, 6)
