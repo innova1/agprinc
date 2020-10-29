@@ -425,6 +425,10 @@ $("form").on("submit", function (e) {
 	e.preventDefault();
 });
 
+$('#selectedFramework')on("onchange", function(e) {
+	console.log('selected was changed to ' + $('#selected').text() );
+}
+
 function getSuggestionPanelHTML(searchWordsArray) {
 	var debug = false;
 	var resultList = '<ul class="suggestions">';
