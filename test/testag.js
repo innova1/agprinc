@@ -86,7 +86,7 @@ describe('collectItemsMatchingSearchTerms', function() {
 	var keywordItemFinderMap = new Map();
 	var dataArray = [item1, item2];
 	var searchWordsArray = new Array();
-	var count = 0;
+	var count = 10;
 	
 	var stub = function() {
 		count++;
@@ -96,7 +96,7 @@ describe('collectItemsMatchingSearchTerms', function() {
 	addItem = stub;
 	if('should do something', function() {
 		collectItemsMatchingSearchTerms( keywordItemFinderMap, dataArray, searchWordsArray );
-		assert.equal( count, 5)
+		assert.equal( count, 5 )
 	});
 	
 });
