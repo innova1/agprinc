@@ -74,7 +74,7 @@ describe('addItem', function() {
 	
 });
 
-/*
+
 var collectItemsMatchingSearchTerms = app.__get__('collectItemsMatchingSearchTerms');
 
 describe('collectItemsMatchingSearchTerms', function() {
@@ -99,5 +99,7 @@ describe('collectItemsMatchingSearchTerms', function() {
 		assert.equal( count, 5 )
 	});
 	
+	addItem.restore();
+	
 });
-*/
+
