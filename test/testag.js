@@ -89,14 +89,18 @@ describe('collectItemsMatchingSearchTerms', function() {
 	var count = 0;
 	var items = new Array();
 	
-	var addItem = function() {
-		console.log('in addItem Mock');
-		count++;
-		items.push(count);
+	var myAPI = { method: function() {
+			console.log('in addItem Mock');
+			count++;
+			items.push(count);
+		}
 	}
 	
+	var mock = sinon.mock(myAPI);
+	mock.expects("method").addItem().returns('hello');
+	
 	it('should do something', function() {
-		collectItemsMatchingSearchTerms( keywordItemFinderMap, dataArray, searchWordsArray, addItem );
+		collectItemsMatchingSearchTerms( keywordItemFinderMap, dataArray, searchWordsArray, myAPI.method );
 		assert.equal( count, 5 )
 	});
 	
