@@ -96,7 +96,7 @@ describe('collectItemsMatchingSearchTerms', function() {
 	addItem = stub;
 	if('should do something', function() {
 		collectItemsMatchingSearchTerms( keywordItemFinderMap, dataArray, searchWordsArray );
-		console.log("count is now " + count);
+		assert.equal( count, 5)
 	});
 	
 });
