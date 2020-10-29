@@ -88,14 +88,15 @@ describe('collectItemsMatchingSearchTerms', function() {
 	var searchWordsArray = new Array();
 	var count = 0;
 	
-	var stub = function() {
+	var addItem = function() {
 		count++;
-		items = [1,2,3,4,5,6,7]
+		items = [1,2,3,4,5,6,7];
+		console.log('in addItemMock');
 	}
 	
 	addItem = stub;
-	if('should do something', function() {
-		collectItemsMatchingSearchTerms( keywordItemFinderMap, dataArray, searchWordsArray );
+	it('should do something', function() {
+		collectItemsMatchingSearchTerms( keywordItemFinderMap, dataArray, searchWordsArray, addItem );
 		assert.equal( count, 5 )
 	});
 	
