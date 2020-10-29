@@ -74,7 +74,7 @@ describe('addItem', function() {
 	
 });
 
-
+/*
 var collectItemsMatchingSearchTerms = app.__get__('collectItemsMatchingSearchTerms');
 
 describe('collectItemsMatchingSearchTerms', function() {
@@ -86,7 +86,7 @@ describe('collectItemsMatchingSearchTerms', function() {
 	var keywordItemFinderMap = new Map();
 	var dataArray = [item1, item2];
 	var searchWordsArray = new Array();
-	var count = 10;
+	var count = 0;
 	
 	var stub = function() {
 		count++;
@@ -100,4 +100,4 @@ describe('collectItemsMatchingSearchTerms', function() {
 	});
 	
 });
-
+*/
