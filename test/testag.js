@@ -94,10 +94,10 @@ describe('collectItemsMatchingSearchTerms', function() {
 	}
 	
 	addItem = stub;
-	
-	collectItemsMatchingSearchTerms( keywordItemFinderMap, dataArray, searchWordsArray );
-	
-	console.log("count is now " + count);
+	if('should do something', function() {
+		collectItemsMatchingSearchTerms( keywordItemFinderMap, dataArray, searchWordsArray );
+		console.log("count is now " + count);
+	});
 	
 });
 
