@@ -426,7 +426,7 @@ $("form").on("submit", function (e) {
 });
 
 $('#selectedFramework').on("onchange", function(e) {
-	console.log('selected was changed to ' + $('#selected').text() );
+	console.log('selected was changed to ' + $('#selectedFramework').text() );
 });
 
 function getSuggestionPanelHTML(searchWordsArray) {
