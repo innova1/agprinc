@@ -425,7 +425,7 @@ $("form").on("submit", function (e) {
 	e.preventDefault();
 });
 
-$('#selectedFramework').on("onchange", function(e) {
+$('#selectedFramework').on("change", function(e) {
 	console.log('selected was changed to ' + $('#selectedFramework').text() );
 });
 
