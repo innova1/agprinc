@@ -99,7 +99,5 @@ describe('collectItemsMatchingSearchTerms', function() {
 		assert.equal( count, 5 )
 	});
 	
-	stub.restore();
-	
 });
 
