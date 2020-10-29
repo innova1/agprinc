@@ -87,11 +87,12 @@ describe('collectItemsMatchingSearchTerms', function() {
 	var dataArray = [item1, item2];
 	var searchWordsArray = new Array();
 	var count = 0;
+	var items = new Array();
 	
 	var addItem = function() {
+		console.log('in addItem Mock');
 		count++;
-		items = [1,2,3,4,5,6,7];
-		console.log('in addItemMock');
+		items.push(count);
 	}
 	
 	it('should do something', function() {
