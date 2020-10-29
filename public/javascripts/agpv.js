@@ -427,7 +427,7 @@ $("form").on("submit", function (e) {
 
 $('#selectedFramework')on("onchange", function(e) {
 	console.log('selected was changed to ' + $('#selected').text() );
-}
+});
 
 function getSuggestionPanelHTML(searchWordsArray) {
 	var debug = false;
