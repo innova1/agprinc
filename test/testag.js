@@ -94,7 +94,6 @@ describe('collectItemsMatchingSearchTerms', function() {
 		console.log('in addItemMock');
 	}
 	
-	addItem = stub;
 	it('should do something', function() {
 		collectItemsMatchingSearchTerms( keywordItemFinderMap, dataArray, searchWordsArray, addItem );
 		assert.equal( count, 5 )
