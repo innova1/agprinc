@@ -77,7 +77,7 @@ describe('addItem', function() {
 
 var collectItemsMatchingSearchTerms = app.__get__('collectItemsMatchingSearchTerms');
 
-describe('collectItemsMatchingSearchTerms', function() {
+describe('collectItemsMatchingSearchTerms', sinon.test( function() {
 	var foundItems = new Array();
 	var alreadyFoundKeys = ['one','two'];
 	var item1 = { id: '1', framework: 'frame1', type: 'type1' }
@@ -86,18 +86,17 @@ describe('collectItemsMatchingSearchTerms', function() {
 	var keywordItemFinderMap = new Map();
 	var dataArray = [item1, item2];
 	var searchWordsArray = new Array();
+	var count = 0;
 	
-	var collect = sinon.stub(collectItemsMatchingSearchTerms, 'addItem');
-	collect.yields();
+	var stub = function() {
+		count++;
+	}
 	
-	var callback = sinon.spy();
+	addItem = stub;
 	
-	collectItemsMatchingSearchTerms(keywordItemFinderMap, dataArray, searchWordsArray);
+	console.log("count is now " + count);
 	
-	collect.restore();
-	sinon.assert.calledOnce(callback);
-	
-});
+}));
 
 afterEach(() => {
   // Restore the default sandbox here
