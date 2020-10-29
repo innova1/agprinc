@@ -88,6 +88,7 @@ async function getItemsFilteredByKeywords( framework, searchWordsArray ) {
 
 function collectItemsMatchingSearchTerms( keywordItemFinderMap, dataArray, searchWordsArray ) {
 	const debug = false;
+	if(debug) console.log('in collectItemsMatchingSearchTerms')
 	var items = new Array();
 	var alreadyFoundKeys = new Array();
 	var itemFinders = new Array();
