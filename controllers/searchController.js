@@ -87,7 +87,7 @@ async function getItemsFilteredByKeywords( framework, searchWordsArray ) {
 }
 
 function collectItemsMatchingSearchTerms( keywordItemFinderMap, dataArray, searchWordsArray ) {
-	const debug = false;
+	const debug = true;
 	if(debug) console.log('in collectItemsMatchingSearchTerms')
 	var items = new Array();
 	var alreadyFoundKeys = new Array();
@@ -106,7 +106,8 @@ function collectItemsMatchingSearchTerms( keywordItemFinderMap, dataArray, searc
 }
 
 function addItem(foundItems, alreadyFoundKeys, dataArray, itemFinder) {
-	const debug = false;
+	const debug = true;
+	if(debug) console.log('in addItem')
 	if( alreadyFoundKeys.indexOf(itemFinder.key) == -1) {
 		foundItems.push(dataArray.find( element => element.id == itemFinder.ordinal && element.framework == itemFinder.framework && element.type == itemFinder.type ));
 		alreadyFoundKeys.push(itemFinder.key);
