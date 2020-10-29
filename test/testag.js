@@ -74,6 +74,9 @@ describe('addItem', function() {
 	
 });
 
+
+var collectItemsMatchingSearchTerms = app.__get__('collectItemsMatchingSearchTerms');
+
 describe('collectItemsMatchingSearchTerms', function() {
 	var foundItems = new Array();
 	var alreadyFoundKeys = ['one','two'];
@@ -83,6 +86,17 @@ describe('collectItemsMatchingSearchTerms', function() {
 	var keywordItemFinderMap = new Map();
 	var dataArray = [item1, item2];
 	var searchWordsArray = new Array();
+	
+	var collect = sinon.stub('addItem');
+	collect.yields();
+	
+	var callback = sinon.spy();
+	
+	collectItemsMatchingSearchTerms(keywordItemFinderMap, dataArray, searchWordsArray);
+	
+	collect.restore();
+	sinon.assert.calledOnce(callback);
+	
 });
 
 afterEach(() => {
