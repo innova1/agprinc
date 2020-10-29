@@ -1,6 +1,7 @@
 var assert = require('assert');
 var srch = require('../controllers/searchController');
 var rewire = require('rewire');
+var sinon = require('sinon');
 
 var app = rewire('../controllers/searchController');
 
@@ -73,3 +74,18 @@ describe('addItem', function() {
 	
 });
 
+describe('collectItemsMatchingSearchTerms', function() {
+	var foundItems = new Array();
+	var alreadyFoundKeys = ['one','two'];
+	var item1 = { id: '1', framework: 'frame1', type: 'type1' }
+	var item2 = { id: '2', framework: 'frame2', type: 'type2' }
+	var itemFinder = new ItemFinder();
+	var keywordItemFinderMap = new Map();
+	var dataArray = [item1, item2];
+	var searchWordsArray = new Array();
+});
+
+afterEach(() => {
+  // Restore the default sandbox here
+  sinon.restore();
+});
