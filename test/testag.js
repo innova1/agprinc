@@ -90,6 +90,7 @@ describe('collectItemsMatchingSearchTerms', function() {
 	
 	var stub = function() {
 		count++;
+		foundItems = [1,2,3,4,5,6,7]
 	}
 	
 	addItem = stub;
