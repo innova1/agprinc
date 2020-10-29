@@ -77,7 +77,7 @@ describe('addItem', function() {
 
 var collectItemsMatchingSearchTerms = app.__get__('collectItemsMatchingSearchTerms');
 
-describe('collectItemsMatchingSearchTerms', sinon.test( function() {
+describe('collectItemsMatchingSearchTerms', function() {
 	var foundItems = new Array();
 	var alreadyFoundKeys = ['one','two'];
 	var item1 = { id: '1', framework: 'frame1', type: 'type1' }
@@ -96,9 +96,4 @@ describe('collectItemsMatchingSearchTerms', sinon.test( function() {
 	
 	console.log("count is now " + count);
 	
-}));
-
-afterEach(() => {
-  // Restore the default sandbox here
-  sinon.restore();
 });
