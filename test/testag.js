@@ -87,7 +87,7 @@ describe('collectItemsMatchingSearchTerms', function() {
 	var dataArray = [item1, item2];
 	var searchWordsArray = new Array();
 	
-	var collect = sinon.stub('addItem');
+	var collect = sinon.stub(collectItemsMatchingSearchTerms, 'addItem');
 	collect.yields();
 	
 	var callback = sinon.spy();
