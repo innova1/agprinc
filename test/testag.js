@@ -66,9 +66,6 @@ describe('addItem', function() {
 	
 });
 
-
-var collectItemsMatchingSearchTerms = app.__get__('collectItemsMatchingSearchTerms');
-
 describe('collectItemsMatchingSearchTerms', function() {
 	var foundItems = new Array();
 	var alreadyFoundKeys = ['one','two'];
