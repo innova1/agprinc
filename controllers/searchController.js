@@ -134,3 +134,5 @@ function times6(a) {
 
 exports.times5 = times5;
 exports.times6 = times6;
+exports.addItem = addItem;
+exports.collectItemsMatchingSearchTerms = collectItemsMatchingSearchTerms;

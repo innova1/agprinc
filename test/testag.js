@@ -1,11 +1,6 @@
 var assert = require('assert');
 var srch = require('../controllers/searchController');
-var rewire = require('rewire');
 var sinon = require('sinon');
-
-var app = rewire('../controllers/searchController');
-
-//var times6 = app.__get__('times6');
 
 describe('times5()', function() {
 	it('should return the number times 5', function() {
@@ -18,9 +13,6 @@ describe('times6()', function() {
 		assert.equal( srch.times6(4), 24);
 	});
 });
-
-var addItem = app.__get__('addItem');
-var ItemFinder = app.__get__('ItemFinder');
 
 describe('addItem', function() {
 	var foundItems = new Array();
