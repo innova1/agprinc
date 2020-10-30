@@ -2,6 +2,7 @@ var assert = require('assert');
 var srch = require('../controllers/searchController');
 var rewire = require('rewire');
 var sinon = require('sinon');
+import 
 
 var app = rewire('../controllers/searchController');
 
@@ -15,7 +16,7 @@ describe('times5()', function() {
 
 describe('times6()', function() {
 	it('should return the number times 6', function() {
-		assert.equal( times6(4), 24);
+		assert.equal( srch.times6(4), 24);
 	});
 });
 
