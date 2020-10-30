@@ -2,7 +2,6 @@ var assert = require('assert');
 var srch = require('../controllers/searchController');
 var rewire = require('rewire');
 var sinon = require('sinon');
-import 
 
 var app = rewire('../controllers/searchController');
 
