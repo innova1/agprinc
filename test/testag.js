@@ -89,7 +89,7 @@ describe('collectItemsMatchingSearchTerms', function() {
 	var count = 0;
 	var items = new Array();
 	
-	var myAPI = { method: function() {
+	var myAPI = { addItem: function() {
 			console.log('in addItem Mock');
 			count++;
 			items.push(count);
@@ -97,7 +97,7 @@ describe('collectItemsMatchingSearchTerms', function() {
 	}
 	
 	var mock = sinon.mock(myAPI);
-	mock.expects("method").addItem().returns('hello');
+	//mock.expects("addItem").returns('hello');
 	
 	it('should do something', function() {
 		collectItemsMatchingSearchTerms( keywordItemFinderMap, dataArray, searchWordsArray, myAPI.method );
