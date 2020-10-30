@@ -132,4 +132,4 @@ function times6(a) {
 	return a * 6;
 }
 
-export { times6 };
+exports.times6 = times6;
