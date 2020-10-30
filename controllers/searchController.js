@@ -131,3 +131,5 @@ exports.times5 = function(a) {
 function times6(a) {
 	return a * 6;
 }
+
+export { times6 };

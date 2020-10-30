@@ -5,7 +5,7 @@ var sinon = require('sinon');
 
 var app = rewire('../controllers/searchController');
 
-var times6 = app.__get__('times6');
+//var times6 = app.__get__('times6');
 
 describe('times5()', function() {
 	it('should return the number times 5', function() {
