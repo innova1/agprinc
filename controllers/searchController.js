@@ -124,7 +124,7 @@ function ItemFinder(framework, type, ordinal) {
 	this.key = framework+type+ordinal;
 }
 
-exports.times5 = function(a) {
+function times5(a) {
 	return a * 5;
 }
 
@@ -132,4 +132,5 @@ function times6(a) {
 	return a * 6;
 }
 
+exports.times5 = times5;
 exports.times6 = times6;
