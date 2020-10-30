@@ -86,6 +86,7 @@ describe('collectItemsMatchingSearchTerms', function() {
 	var itemFinders = new Array();
 	itemFinders.push(itemFinder);
 	var keywordItemFinderMap = new Map();
+	var searchObj = {itemFinders: itemFinders}
 	keywordItemFinderMap.set('akey', itemFinders)
 	var dataArray = [item1, item2];
 	var searchWordsArray = ['akey'];
