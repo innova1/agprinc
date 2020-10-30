@@ -83,8 +83,7 @@ describe('collectItemsMatchingSearchTerms', function() {
 	var item1 = { id: '1', framework: 'frame1', type: 'type1' }
 	var item2 = { id: '2', framework: 'frame2', type: 'type2' }
 	var itemFinder = new ItemFinder('frame1','type1','1');
-	var itemFinders = new Array();
-	itemFinders.push(itemFinder);
+	var itemFinders = [itemFinder];
 	var keywordItemFinderMap = new Map();
 	var searchObj = {itemFinders: itemFinders}
 	keywordItemFinderMap.set('akey', itemFinders)
