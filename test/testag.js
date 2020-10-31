@@ -2,18 +2,6 @@ var assert = require('assert');
 var srch = require('../controllers/searchController');
 var sinon = require('sinon');
 
-describe('times5()', function() {
-	it('should return the number times 5', function() {
-		assert.equal( srch.times5(4), 20);
-	});
-});
-
-describe('times6()', function() {
-	it('should return the number times 6', function() {
-		assert.equal( srch.times6(4), 24);
-	});
-});
-
 describe('addItem', function() {
 	var foundItems = new Array();
 	var alreadyFoundKeys = ['one','two'];

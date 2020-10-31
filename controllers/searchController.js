@@ -124,16 +124,14 @@ function ItemFinder(framework, type, ordinal) {
 	this.key = framework+type+ordinal;
 }
 
-function times5(a) {
-	return a * 5;
+function Item(framework, type, ordinal) {
+	this.framework = framework;
+	this.type = type;
+	this.ordinal = ordinal;
 }
 
-function times6(a) {
-	return a * 6;
-}
+function Items()
 
-exports.times5 = times5;
-exports.times6 = times6;
 exports.ItemFinder = ItemFinder;
 exports.addItem = addItem;
 exports.collectItemsMatchingSearchTerms = collectItemsMatchingSearchTerms;
