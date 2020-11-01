@@ -81,6 +81,16 @@ describe("Items", function() {
 	it('should result in frame1|type1|iter1', function() {
 		assert.equal(items.itemMap.values().next().value.toString(), 'frame1|type1|iter1');
 	});
+	
+	a = new srch.Item('frame2', 'type2', 'iter2');
+	items.addItem(a);
+	a = new srch.Item('frame3', 'type3', 'iter3');
+	items.addItem(a);
+	a = new srch.Item('frame1', 'type1', 'iter1');
+	items.addItem(a);
+	it('should only be 3 items because the 4th rejected as duplicate key', function() {
+		assert.equal(items.itemMap.length, 3);
+	});
 });
 
 /*
