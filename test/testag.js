@@ -1,5 +1,6 @@
 var assert = require('assert');
 var srch = require('../controllers/searchController');
+var db = require('../controllers/dataController');
 var sinon = require('sinon');
 
 describe('addItem', function() {
@@ -74,7 +75,7 @@ describe("Item", function() {
 });
 
 
-describe("Items", function() {
+describe("Items.addItem", function() {
 	var a = new srch.Item('frame1', 'type1', 'iter1');
 	var items = new srch.Items();
 	items.addItem(a);
@@ -86,34 +87,11 @@ describe("Items", function() {
 	items.addItem(a);
 	a = new srch.Item('frame3', 'type3', 'iter3');
 	items.addItem(a);
-	a = new srch.Item('frame1', 'type1', 'iter1');
+	a = new srch.Item('frame1', 'type1', 'iter1'); //the same values in this object should block it from being put in the map
 	items.addItem(a);
 	it('should only be 3 items because the 4th rejected as duplicate key', function() {
 		assert.equal(items.itemMap.size, 3);
 	});
 });
 
-/*
-var items = new srch.Items();
 
-var a = new srch.Item('frame1', 'type1', 'iter1');
-items.addItem(a);
-a = new srch.Item('frame2', 'type2', 'iter2');
-items.addItem(a);
-a = new srch.Item('frame3', 'type3', 'iter3');
-items.addItem(a);
-a = new srch.Item('frame1', 'type1', 'iter1');
-items.addItem(a);
-
-console.log('length of s is ' + s.size);
-
-for( const e of s ) {
-	console.log(e + ", " + e.toString())
-}
-
-console.log('length of items is ' + items.size);
-
-for( const e of items.itemMap.keys() ) {
-	console.log(e)
-}
-*/

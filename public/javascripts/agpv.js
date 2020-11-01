@@ -446,6 +446,22 @@ function getSuggestionPanelHTML(searchWordsArray) {
 	return resultList;
 }
 
+function Item(framework, type, ordinal) {
+	this.framework = framework;
+	this.type = type;
+	this.ordinal = ordinal;
+	this.toString = function() {
+		return this.framework + "|" + this.type + "|" + this.ordinal;
+	}
+}
+
+function Items() {
+	this.itemMap = new Map();
+	this.addItem = function(item) {
+		this.itemMap.set(item.toString(), item);
+	}
+}
+
 /*
           - var terms = ""
           if searchtermsArray

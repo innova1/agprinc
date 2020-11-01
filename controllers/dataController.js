@@ -376,7 +376,7 @@ function ItemFinder(framework, type, ordinal) {
 	this.framework = framework;
 	this.type = type;
 	this.ordinal = ordinal;
-	this.key = framework+type+ordinal;
+	this.key = framework + "|" + type + "|" + ordinal;
 }
 
 function fixFrameworkDisplayField( princArray ) {
@@ -441,3 +441,5 @@ function getPrinciplesObject( framework ) {
 };
 */
 
+
+exports.ItemFinder = ItemFinder;

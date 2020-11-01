@@ -120,13 +120,7 @@ function addItem(foundItems, alreadyFoundKeys, dataArray, itemFinder) {
 
 //todo *** decide if ItemFinder actually makes sense since creating Item and Items -- should ItemFinder functionality be incorporated into these objects?
 //todo *** adjust for Item and Items
-function ItemFinder(framework, type, ordinal) {
-	const debug = false;
-	this.framework = framework;
-	this.type = type;
-	this.ordinal = ordinal;
-	this.key = framework+type+ordinal;
-}
+
 
 function Item(framework, type, ordinal) {
 	this.framework = framework;
@@ -139,13 +133,13 @@ function Item(framework, type, ordinal) {
 
 function Items() {
 	this.itemMap = new Map();
+	this.framework = 'all';
 	this.addItem = function(item) {
-		this.itemMap.set(item.toString(), item);
+		this.itemMap.set(item.toString(), item); //using concat of main values as map key, map will reject duplicates keys
 	}
 }
 
 exports.Item = Item;
 exports.Items = Items;
-exports.ItemFinder = ItemFinder;
 exports.addItem = addItem;
 exports.collectItemsMatchingSearchTerms = collectItemsMatchingSearchTerms;
