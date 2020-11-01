@@ -149,11 +149,12 @@ async function getItemsFilterByKeyword(req, res) {
 	const debug = true;
 	if(debug) console.log('in getItems...')
 	var sort = { frameworkdisplay: 1, type: -1, id: 1 }
+	var testarray = ['contract', 'continuous'];
 	try {
 		const dbParams = await db.setupDB();
 		//const fbks = await dbParams.collection.find({}).sort({ createDate: -1 }).toArray();
 		var principlesArray = await dbParams.collection.find({ 
-			keywords: { $in: ['contract', 'continuous'] } 
+			keywords: { $in: testarray } 
 		}).sort(sort).collation({locale: "en_US", numericOrdering: true}).toArray();
 		dbParams.client.close();
 		if(debug) console.log('found: ' + principlesArray.length + ' records.')
