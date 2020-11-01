@@ -118,17 +118,23 @@ function addItem(foundItems, alreadyFoundKeys, dataArray, itemFinder) {
 	}
 }
 
-//todo *** decide if ItemFinder actually makes sense since creating Item and Items -- should ItemFinder functionality be incorporated into these objects?
-//todo *** adjust for Item and Items
 
-
-function Item(framework, type, ordinal) {
+/*
+	Item not needed -- objects are created by mongodb retrieve -- use itemKey wrapper to get key string
+	ItemFinder not needed -- this is just the itemKey string -- a keyword is mapped to an array of these strings so that items can be looked up
+*/
+function Item(framework, type, ordinal, keywords) {
 	this.framework = framework;
 	this.type = type;
 	this.ordinal = ordinal;
+	this.keywords = keywords;
 	this.toString = function() {
 		return this.framework + "|" + this.type + "|" + this.ordinal;
 	}
+}
+
+function itemKey(item) {
+	return item.framework + "|" + item.type + "|" + item.ordinal; 
 }
 
 function Items() {
@@ -139,7 +145,26 @@ function Items() {
 	}
 }
 
+async function getItemsFilterByKeyword() {
+	const debug = true;
+	try {
+		const dbParams = await db.setupDB();
+		//const fbks = await dbParams.collection.find({}).sort({ createDate: -1 }).toArray();
+		principlesArray = await dbParams.collection.find({ 
+			"keywords": { $in: ['contract', 'continuous'] } 
+		}).sort(sort).collation({locale: "en_US", numericOrdering: true}).toArray();
+		dbParams.client.close();
+		if(debug) console.log('found: ' + principlesArray.length + ' records.')
+	} catch(err) {
+		console.log('error in try of getPrinciplesArray ' + err.message );
+	}
+	
+	res.json({ items: principlesArray });
+	
+}
+
 exports.Item = Item;
 exports.Items = Items;
 exports.addItem = addItem;
 exports.collectItemsMatchingSearchTerms = collectItemsMatchingSearchTerms;
+exports.getItemsFilterByKeyword = getItemsFilterByKeyword;

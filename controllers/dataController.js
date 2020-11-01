@@ -348,21 +348,21 @@ function mapItemFindersToKeywords( itemsArray, keywordItemFinderMap ) {
 		tempArray = item.keywords;
 		if(tempArray) {
 			for( const kwd of tempArray ) {
-			//if(debug) { console.log('looking at object with keyword ' + kwd); }
-			searchObj = keywordItemFinderMap.get(kwd);
-			if(!searchObj) { //the keyword is not already in the map, then add
-				//if(debug) { console.log('keywork ' + kwd + ' not already in search obj'); }
-				itemFinder = new ItemFinder( item.framework, item.type, item.id );
-				var itemFinders = new Array();
-				itemFinders.push(itemFinder);
-				searchObj = { keyword: kwd, itemFinders: itemFinders };
-				keywordItemFinderMap.set(kwd.toLowerCase(), searchObj);
-				if(debug && searchObj.keyword == 'business') { console.log('added location ' + item.framework + ':' + item.type + ':' + item.id + ' to new search object ' + searchObj.keyword); }
-			} else { //add location to existing
-				if(debug && searchObj.keyword == 'business') { console.log('adding location ' + item.framework + ':' + item.type + ':' + item.id + ' to existing search object ' + searchObj.keyword); }
-				itemFinder = new ItemFinder( item.framework, item.type, item.id );
-				searchObj.itemFinders.push(itemFinder);
-			}
+				//if(debug) { console.log('looking at object with keyword ' + kwd); }
+				searchObj = keywordItemFinderMap.get(kwd);
+				if(!searchObj) { //the keyword is not already in the map, then add
+					//if(debug) { console.log('keywork ' + kwd + ' not already in search obj'); }
+					itemFinder = new ItemFinder( item.framework, item.type, item.id );
+					var itemFinders = new Array();
+					itemFinders.push(itemFinder);
+					searchObj = { keyword: kwd, itemFinders: itemFinders };
+					keywordItemFinderMap.set(kwd.toLowerCase(), searchObj);
+					if(debug && searchObj.keyword == 'business') { console.log('added location ' + item.framework + ':' + item.type + ':' + item.id + ' to new search object ' + searchObj.keyword); }
+				} else { //add location to existing
+					if(debug && searchObj.keyword == 'business') { console.log('adding location ' + item.framework + ':' + item.type + ':' + item.id + ' to existing search object ' + searchObj.keyword); }
+					itemFinder = new ItemFinder( item.framework, item.type, item.id );
+					searchObj.itemFinders.push(itemFinder);
+				}
 			}
 		} else {
 			if(debug) { console.log('skipping ' + item.id ); }
