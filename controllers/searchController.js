@@ -154,16 +154,21 @@ async function getItemsFilterByKeywords(req, res) {
 		searchWordsArray = searchWords.split(',');
 	}
 	let framework = req.query.framework;
-	if(framework=='') framework = 'all';
 	var sort = { frameworkdisplay: 1, type: -1, id: 1 }
 	//var testarray = ['contract', 'continuous'];
 	try {
 		const dbParams = await db.setupDB();
 		//const fbks = await dbParams.collection.find({}).sort({ createDate: -1 }).toArray();
-		var principlesArray = await dbParams.collection.find({ 
-			framework: framework,
-			keywords: { $in: searchWordsArray } 
-		}).sort(sort).collation({locale: "en_US", numericOrdering: true}).toArray();
+		if(framework=='') {
+			var principlesArray = await dbParams.collection.find({ 
+				keywords: { $in: searchWordsArray } 
+			}).sort(sort).collation({locale: "en_US", numericOrdering: true}).toArray();
+		} else {
+			var principlesArray = await dbParams.collection.find({ 
+				framework: framework,
+				keywords: { $in: searchWordsArray } 
+			}).sort(sort).collation({locale: "en_US", numericOrdering: true}).toArray();
+		}
 		dbParams.client.close();
 		if(debug) console.log('found: ' + principlesArray.length + ' records.')
 	} catch(err) {
