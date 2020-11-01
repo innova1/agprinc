@@ -147,14 +147,17 @@ function Items() {
 
 async function getItemsFilterByKeywords(req, res) {
 	const debug = true;
-	if(debug) console.log('in getItems...')
+	if(debug) console.log('in getItems...');
+    const searchWords = req.query.searchwords;
+	const searchWordsArray = searchWords.split(',');
+	const framework = req.query.framework;
 	var sort = { frameworkdisplay: 1, type: -1, id: 1 }
-	var testarray = ['contract', 'continuous'];
+	//var testarray = ['contract', 'continuous'];
 	try {
 		const dbParams = await db.setupDB();
 		//const fbks = await dbParams.collection.find({}).sort({ createDate: -1 }).toArray();
 		var principlesArray = await dbParams.collection.find({ 
-			keywords: { $in: testarray } 
+			keywords: { $in: searchWordsArray } 
 		}).sort(sort).collation({locale: "en_US", numericOrdering: true}).toArray();
 		dbParams.client.close();
 		if(debug) console.log('found: ' + principlesArray.length + ' records.')
