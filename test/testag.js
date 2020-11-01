@@ -55,7 +55,7 @@ describe('addItem', function() {
 });
 
 describe("Item", function() {
-	var a = new Item('frame1', 'type1', 'iter1');
+	var a = new srch.Item('frame1', 'type1', 'iter1');
 	
 	it('should return frame1'), function() {
 		assert.equal( a.framework, 'frame1');
@@ -71,15 +71,15 @@ describe("Item", function() {
 });
 
 /*
-var items = new Items();
+var items = new srch.Items();
 
-var a = new Item('frame1', 'type1', 'iter1');
+var a = new srch.Item('frame1', 'type1', 'iter1');
 items.addItem(a);
-a = new Item('frame2', 'type2', 'iter2');
+a = new srch.Item('frame2', 'type2', 'iter2');
 items.addItem(a);
-a = new Item('frame3', 'type3', 'iter3');
+a = new srch.Item('frame3', 'type3', 'iter3');
 items.addItem(a);
-a = new Item('frame1', 'type1', 'iter1');
+a = new srch.Item('frame1', 'type1', 'iter1');
 items.addItem(a);
 
 console.log('length of s is ' + s.size);
