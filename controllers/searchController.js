@@ -129,7 +129,7 @@ function Item(framework, type, ordinal) {
 	this.type = type;
 	this.ordinal = ordinal;
 	this.toString = function() {
-		return this.framework + "|" + this.type + "|" + this.iterator;
+		return this.framework + "|" + this.type + "|" + this.ordinal;
 	}
 }
 
