@@ -64,26 +64,27 @@ async function getItemsFilterByKeywords(req, res) {
 	if(debug) console.log("f:" + framework + ",s:" + searchWords)
 	var sort = { frameworkdisplay: 1, type: -1, id: 1 }
 	//var testarray = ['contract', 'continuous'];
+	let itemsArray = new Array();
 	try {
 		const dbParams = await db.setupDB();
 		//const fbks = await dbParams.collection.find({}).sort({ createDate: -1 }).toArray();
 		if(framework=='' || framework=='all') {
-			var principlesArray = await dbParams.collection.find({ 
+			itemsArray = await dbParams.collection.find({ 
 				keywords: { $in: searchWordsArray } 
 			}).sort(sort).collation({locale: "en_US", numericOrdering: true}).toArray();
 		} else {
-			var principlesArray = await dbParams.collection.find({ 
+			itemsArray = await dbParams.collection.find({ 
 				framework: framework,
 				keywords: { $in: searchWordsArray } 
 			}).sort(sort).collation({locale: "en_US", numericOrdering: true}).toArray();
 		}
 		dbParams.client.close();
-		if(debug) console.log('found: ' + principlesArray.length + ' records.')
+		if(debug) console.log('found: ' + itemsArray.length + ' records.')
 	} catch(err) {
 		console.log('error in try of getItemsFilterByKeyword ' + err.message );
 	}
 	
-	res.json({ items: principlesArray });
+	res.json({ items: itemsArray });
 	
 }
 
