@@ -145,7 +145,7 @@ function Items() {
 	}
 }
 
-async function getItemsFilterByKeyword() {
+async function getItemsFilterByKeyword(req, res) {
 	const debug = true;
 	if(debug) console.log('in getItems...')
 	try {
