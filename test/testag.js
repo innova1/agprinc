@@ -54,35 +54,43 @@ describe('addItem', function() {
 	
 });
 
-describe('collectItemsMatchingSearchTerms', function() {
-	var foundItems = new Array();
-	var alreadyFoundKeys = ['one','two'];
-	var item1 = { id: '1', framework: 'frame1', type: 'type1' }
-	var item2 = { id: '2', framework: 'frame2', type: 'type2' }
-	var itemFinder = new srch.ItemFinder('frame1','type1','1');
-	var itemFinders = [itemFinder];
-	var keywordItemFinderMap = new Map();
-	var searchObj = {itemFinders: itemFinders}
-	keywordItemFinderMap.set('akey', searchObj)
-	var dataArray = [item1, item2];
-	var searchWordsArray = ['akey'];
-	var count = 0;
-	var items = new Array();
+describe("Item", function() {
+	var a = new Item('frame1', 'type1', 'iter1');
 	
-	var myAPI = { addItem: function() {
-			console.log('in addItem Mock');
-			count++;
-			items.push(count);
-		}
+	it('should return frame1') {
+		assert.equal( a.framework, 'frame1');
 	}
 	
-	var mock = sinon.mock(myAPI);
-	//mock.expects("addItem").returns('hello');
+	it('should return type1') {
+		assert.equal( a.framework, 'type1');
+	}
 	
-	it('should do something', function() {
-		collectItemsMatchingSearchTerms( keywordItemFinderMap, dataArray, searchWordsArray, myAPI.method );
-		assert.equal( count, 5 )
-	});
-	
-});
+	it('should return iter1') {
+		assert.equal( a.framework, 'iter1');
+	}
+}
 
+/*
+var items = new Items();
+
+var a = new Item('frame1', 'type1', 'iter1');
+items.addItem(a);
+a = new Item('frame2', 'type2', 'iter2');
+items.addItem(a);
+a = new Item('frame3', 'type3', 'iter3');
+items.addItem(a);
+a = new Item('frame1', 'type1', 'iter1');
+items.addItem(a);
+
+console.log('length of s is ' + s.size);
+
+for( const e of s ) {
+	console.log(e + ", " + e.toString())
+}
+
+console.log('length of items is ' + items.size);
+
+for( const e of items.itemMap.keys() ) {
+	console.log(e)
+}
+*/

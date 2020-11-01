@@ -128,10 +128,20 @@ function Item(framework, type, ordinal) {
 	this.framework = framework;
 	this.type = type;
 	this.ordinal = ordinal;
+	this.toString = function() {
+		return this.framework + "|" + this.type + "|" + this.iterator;
+	}
 }
 
-function Items()
+function Items() {
+	this.itemMap = new Map();
+	this.addItem = function(item) {
+		this.itemMap.set(item.toString(), item);
+	}
+}
 
+exports.Item = Item;
+exports.Items = Items;
 exports.ItemFinder = ItemFinder;
 exports.addItem = addItem;
 exports.collectItemsMatchingSearchTerms = collectItemsMatchingSearchTerms;
