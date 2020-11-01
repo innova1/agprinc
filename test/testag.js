@@ -68,6 +68,9 @@ describe("Item", function() {
 	it('should return iter1', function() {
 		assert.equal( a.ordinal, 'iter1');
 	});
+	it('should result in frame1|type1|iter1', function() {
+		assert.equal( a.toString(), 'frame1|type1|iter1');
+	});
 });
 
 
@@ -76,7 +79,7 @@ describe("Items", function() {
 	var items = new srch.Items();
 	items.addItem(a);
 	it('should result in frame1|type1|iter1', function() {
-		assert.equal(items.toString(), 'frame1|type1|iter1');
+		assert.equal(items[0].toString(), 'frame1|type1|iter1');
 	});
 });
 /*
