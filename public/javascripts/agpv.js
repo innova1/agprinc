@@ -1,4 +1,4 @@
-import { Item } from '../controllers/searchController');
+$.getScript('../controllers/searchController.js');
 
 $(document).ready(setup);
 //setup();
