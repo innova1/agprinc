@@ -97,6 +97,7 @@ router.get('/logout', function(req, res){
 });
 
 /* GET all agile principles */
+/*
 router.get('/', function(req, res) {
     //console.log('in router get /' );
     const frameworksArray = db.getFrameworksArray();
@@ -105,6 +106,7 @@ router.get('/', function(req, res) {
     //res.render('agpris2', { title: 'Agile principles', frameworks: frameworksArray });
     res.redirect('/agileframeworks/all');
 });
+*/
 
 /* test db */
 router.get('/testdb', async function(req, res) {
@@ -126,12 +128,14 @@ router.get('/keywordEdit', checkSignIn, kwd.editKeyword);
 /* Save the updated keywords */
 router.post('/keywordUpdate', checkSignIn, kwd.updateKeywords);
 
-router.get('/all', function(req, res) {
+router.get('/', function(req, res) {
 	console.log('in stripped down ALL route')
 	res.render('agprisSelectedFrameworkBoot');
 });
 
+//no longer used -- pug is just an easy html renderer dynamic content comes from javascript
 /* GET one framework of agile principles */
+/*
 router.get('/allx', async function(req, res) {
 	const debug = false;
     //console.log('in router get /:framework');
@@ -146,6 +150,7 @@ router.get('/allx', async function(req, res) {
     //console.log('in :framework ' + principlesArray[1].text);
     res.render('agprisSelectedFrameworkBoot', { title: 'Agile Principles', frameworks: frameworksArray, framework: framework, principlesArray: principlesArray, keywordItemFinderMap: keywordItemFinderMap });
 });
+*/
 
 /* GET one framework of agile principles */
 router.get('/:framework', async function(req, res) {
