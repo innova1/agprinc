@@ -1,4 +1,4 @@
-$.getScript('../controllers/searchController.js');
+//$.getScript('../controllers/searchController.js');
 
 $(document).ready(setup);
 //setup();
@@ -8,8 +8,10 @@ function setup() {
 	replaceItemsPanels('all');
 }
 
+/*
 var item = new Item('testf', 'testt', 'testi')
 console.log('test Item: ' + item.toString())
+*/
 
 var isSmallViewport = window.matchMedia("(max-width: 1000px)");
 var searchRequest = null;
