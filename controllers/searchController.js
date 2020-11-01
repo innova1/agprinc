@@ -52,101 +52,8 @@ async function getKeywordMatch( framework, searchtext ) {
 	return result;
 };
 
-exports.getFilteredItems = async function(req, res) {
-	const debug = false;
-    const searchWords = req.query.searchwords;
-	const framework = req.query.framework;
-	var itemsArray = new Array();
-	try {
-		const searchWordsArray = searchWords.split(',');
-		if(debug) { console.log('in / in searchController.getFilteredItems(' + searchWords + ', ' + framework + ')')};
-    	itemsArray = await getItemsFilteredByKeywords(framework, searchWordsArray);
-	} catch(err) {
-		console.log('error in search controller.getFilteredItems with ' + err);
-	}
-	
-    res.json({ items: itemsArray });
-}
-
-/* returns array of principles filtered by searchWordsArray */
-async function getItemsFilteredByKeywords( framework, searchWordsArray ) {
-    const debug = false;
-    if(debug) { console.log('in getItemsFilteredByKeywords with ' + searchWordsArray[0])};
-	var foundItems = new Array();
-    try {
-        const dataArray = await db.getPrinciplesArray('all','');
-        const keywordItemFinderMap = await db.keywordItemFinderMap(framework);
-		foundItems = collectItemsMatchingSearchTerms(keywordItemFinderMap, dataArray, searchWordsArray);
-        
-    } catch(err) {
-        console.log('error in getItemsFilteredByKeywords ' + err.message );
-    }
-	
-	return foundItems;
-  
-}
-
-//todo *** adjust for Item and Items
-function collectItemsMatchingSearchTerms( keywordItemFinderMap, dataArray, searchWordsArray ) {
-	const debug = true;
-	if(debug) console.log('in collectItemsMatchingSearchTerms')
-	var items = new Array();
-	var alreadyFoundKeys = new Array();
-	var itemFinders = new Array();
-	for( const searchTerm of searchWordsArray ) {
-		if(debug) console.log('looking at searchTerm: ' + searchTerm);
-		var searchObj = keywordItemFinderMap.get(searchTerm.toLowerCase());
-		if(searchObj) {
-			itemFinders = searchObj.itemFinders;
-			for( const itemFinder of itemFinders ) {
-				addItem(items, alreadyFoundKeys, dataArray, itemFinder);
-			}
-		}
-	}
-	return items;
-}
-
-//todo *** adjust for Item and Items
-function addItem(foundItems, alreadyFoundKeys, dataArray, itemFinder) {
-	const debug = true;
-	if(debug) console.log('in addItem')
-	if( alreadyFoundKeys.indexOf(itemFinder.key) == -1) {
-		foundItems.push(dataArray.find( element => element.id == itemFinder.ordinal && element.framework == itemFinder.framework && element.type == itemFinder.type ));
-		alreadyFoundKeys.push(itemFinder.key);
-	} else {
-		if(debug) { console.log('skipping ' + itemFinder.key + ' because already added') };
-	}
-}
-
-
-/*
-	Item not needed -- objects are created by mongodb retrieve -- use itemKey wrapper to get key string
-	ItemFinder not needed -- this is just the itemKey string -- a keyword is mapped to an array of these strings so that items can be looked up
-*/
-function Item(framework, type, ordinal, keywords) {
-	this.framework = framework;
-	this.type = type;
-	this.ordinal = ordinal;
-	this.keywords = keywords;
-	this.toString = function() {
-		return this.framework + "|" + this.type + "|" + this.ordinal;
-	}
-}
-
-function itemKey(item) {
-	return item.framework + "|" + item.type + "|" + item.ordinal; 
-}
-
-function Items() {
-	this.itemMap = new Map();
-	this.framework = 'all';
-	this.addItem = function(item) {
-		this.itemMap.set(item.toString(), item); //using concat of main values as map key, map will reject duplicates keys
-	}
-}
-
 async function getItemsFilterByKeywords(req, res) {
-	const debug = true;
+	const debug = false;
 	if(debug) console.log('in getItems...');
     const searchWords = req.query.searchwords;
 	let searchWordsArray = new Array();
@@ -178,6 +85,99 @@ async function getItemsFilterByKeywords(req, res) {
 	
 	res.json({ items: principlesArray });
 	
+}
+
+/*
+exports.getFilteredItems = async function(req, res) {
+	const debug = false;
+    const searchWords = req.query.searchwords;
+	const framework = req.query.framework;
+	var itemsArray = new Array();
+	try {
+		const searchWordsArray = searchWords.split(',');
+		if(debug) { console.log('in / in searchController.getFilteredItems(' + searchWords + ', ' + framework + ')')};
+    	itemsArray = await getItemsFilteredByKeywords(framework, searchWordsArray);
+	} catch(err) {
+		console.log('error in search controller.getFilteredItems with ' + err);
+	}
+	
+    res.json({ items: itemsArray });
+}
+*/
+
+/*
+async function getItemsFilteredByKeywords( framework, searchWordsArray ) {
+    const debug = false;
+    if(debug) { console.log('in getItemsFilteredByKeywords with ' + searchWordsArray[0])};
+	var foundItems = new Array();
+    try {
+        const dataArray = await db.getPrinciplesArray('all','');
+        const keywordItemFinderMap = await db.keywordItemFinderMap(framework);
+		foundItems = collectItemsMatchingSearchTerms(keywordItemFinderMap, dataArray, searchWordsArray);
+        
+    } catch(err) {
+        console.log('error in getItemsFilteredByKeywords ' + err.message );
+    }
+	
+	return foundItems;
+  
+}
+*/
+
+/*
+function collectItemsMatchingSearchTerms( keywordItemFinderMap, dataArray, searchWordsArray ) {
+	const debug = true;
+	if(debug) console.log('in collectItemsMatchingSearchTerms')
+	var items = new Array();
+	var alreadyFoundKeys = new Array();
+	var itemFinders = new Array();
+	for( const searchTerm of searchWordsArray ) {
+		if(debug) console.log('looking at searchTerm: ' + searchTerm);
+		var searchObj = keywordItemFinderMap.get(searchTerm.toLowerCase());
+		if(searchObj) {
+			itemFinders = searchObj.itemFinders;
+			for( const itemFinder of itemFinders ) {
+				addItem(items, alreadyFoundKeys, dataArray, itemFinder);
+			}
+		}
+	}
+	return items;
+}
+*/
+
+/*
+function addItem(foundItems, alreadyFoundKeys, dataArray, itemFinder) {
+	const debug = true;
+	if(debug) console.log('in addItem')
+	if( alreadyFoundKeys.indexOf(itemFinder.key) == -1) {
+		foundItems.push(dataArray.find( element => element.id == itemFinder.ordinal && element.framework == itemFinder.framework && element.type == itemFinder.type ));
+		alreadyFoundKeys.push(itemFinder.key);
+	} else {
+		if(debug) { console.log('skipping ' + itemFinder.key + ' because already added') };
+	}
+}
+*/
+
+function Item(framework, type, ordinal, keywords) {
+	this.framework = framework;
+	this.type = type;
+	this.ordinal = ordinal;
+	this.keywords = keywords;
+	this.toString = function() {
+		return this.framework + "|" + this.type + "|" + this.ordinal;
+	}
+}
+
+function itemKey(item) {
+	return item.framework + "|" + item.type + "|" + item.ordinal; 
+}
+
+function Items() {
+	this.itemMap = new Map();
+	this.framework = 'all';
+	this.addItem = function(item) {
+		this.itemMap.set(item.toString(), item); //using concat of main values as map key, map will reject duplicates keys
+	}
 }
 
 exports.Item = Item;
