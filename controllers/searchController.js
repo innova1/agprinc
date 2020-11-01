@@ -151,13 +151,13 @@ async function getItemsFilterByKeyword(req, res) {
 	try {
 		const dbParams = await db.setupDB();
 		//const fbks = await dbParams.collection.find({}).sort({ createDate: -1 }).toArray();
-		principlesArray = await dbParams.collection.find({ 
-			"keywords": { $in: ['contract', 'continuous'] } 
+		var principlesArray = await dbParams.collection.find({ 
+			keywords: { $in: ['contract', 'continuous'] } 
 		}).sort(sort).collation({locale: "en_US", numericOrdering: true}).toArray();
 		dbParams.client.close();
 		if(debug) console.log('found: ' + principlesArray.length + ' records.')
 	} catch(err) {
-		console.log('error in try of getPrinciplesArray ' + err.message );
+		console.log('error in try of getItemsFilterByKeyword ' + err.message );
 	}
 	
 	res.json({ items: principlesArray });
