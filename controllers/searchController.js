@@ -157,6 +157,7 @@ async function getItemsFilterByKeywords(req, res) {
 		const dbParams = await db.setupDB();
 		//const fbks = await dbParams.collection.find({}).sort({ createDate: -1 }).toArray();
 		var principlesArray = await dbParams.collection.find({ 
+			framework: framework,
 			keywords: { $in: searchWordsArray } 
 		}).sort(sort).collation({locale: "en_US", numericOrdering: true}).toArray();
 		dbParams.client.close();

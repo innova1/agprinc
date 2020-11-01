@@ -6,10 +6,10 @@ const srch = require('../controllers/searchController');
 /* Manage search functionality */
 router.get('/suggestions', srch.getSearchWords);
 
-router.get('/searchtest', srch.getItemsFilterByKeywords);
+router.get('/search', srch.getItemsFilterByKeywords);
 
 /* return filtered items for local update param is string of searchwords*/
-router.get('/search', srch.getFilteredItems);
+router.get('/searchxxx', srch.getFilteredItems);
 
 /* GET all agile principles json */
 router.get('/frameworks', async function(req, res) {
