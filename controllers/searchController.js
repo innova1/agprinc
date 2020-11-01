@@ -86,6 +86,7 @@ async function getItemsFilteredByKeywords( framework, searchWordsArray ) {
   
 }
 
+//todo *** adjust for Item and Items
 function collectItemsMatchingSearchTerms( keywordItemFinderMap, dataArray, searchWordsArray ) {
 	const debug = true;
 	if(debug) console.log('in collectItemsMatchingSearchTerms')
@@ -105,6 +106,7 @@ function collectItemsMatchingSearchTerms( keywordItemFinderMap, dataArray, searc
 	return items;
 }
 
+//todo *** adjust for Item and Items
 function addItem(foundItems, alreadyFoundKeys, dataArray, itemFinder) {
 	const debug = true;
 	if(debug) console.log('in addItem')
@@ -116,6 +118,8 @@ function addItem(foundItems, alreadyFoundKeys, dataArray, itemFinder) {
 	}
 }
 
+//todo *** decide if ItemFinder actually makes sense since creating Item and Items -- should ItemFinder functionality be incorporated into these objects?
+//todo *** adjust for Item and Items
 function ItemFinder(framework, type, ordinal) {
 	const debug = false;
 	this.framework = framework;

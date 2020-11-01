@@ -1,3 +1,5 @@
+var srch = require('../controllers/searchController');
+
 $(document).ready(setup);
 //setup();
 function setup() {
@@ -5,6 +7,9 @@ function setup() {
 	replaceFrameworksPanel('all');
 	replaceItemsPanels('all');
 }
+
+var item = new srch.Item('testf', 'testt', 'testi')
+console.log('test Item: ' + item.toString())
 
 var isSmallViewport = window.matchMedia("(max-width: 1000px)");
 var searchRequest = null;
