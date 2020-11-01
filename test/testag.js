@@ -72,7 +72,12 @@ describe("Item", function() {
 
 
 describe("Items", function() {
-	
+	var a = new srch.Item('frame1', 'type1', 'iter1');
+	var items = new Items();
+	items.addItem(a);
+	it('should result in frame1|type1|iter1', function() {
+		assert.equal(items.toString(), 'frame1|type1|iter1');
+	});
 });
 /*
 var items = new srch.Items();
