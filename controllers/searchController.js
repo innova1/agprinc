@@ -182,6 +182,6 @@ function Items() {
 
 exports.Item = Item;
 exports.Items = Items;
-exports.addItem = addItem;
-exports.collectItemsMatchingSearchTerms = collectItemsMatchingSearchTerms;
+//exports.addItem = addItem;
+//exports.collectItemsMatchingSearchTerms = collectItemsMatchingSearchTerms;
 exports.getItemsFilterByKeywords = getItemsFilterByKeywords;
