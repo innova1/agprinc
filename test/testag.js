@@ -57,15 +57,15 @@ describe('addItem', function() {
 describe("Item", function() {
 	var a = new Item('frame1', 'type1', 'iter1');
 	
-	it('should return frame1') {
+	it('should return frame1'), function() {
 		assert.equal( a.framework, 'frame1');
 	}
 	
-	it('should return type1') {
+	it('should return type1'), function() {
 		assert.equal( a.framework, 'type1');
 	}
 	
-	it('should return iter1') {
+	it('should return iter1'), function() {
 		assert.equal( a.framework, 'iter1');
 	}
 }
