@@ -79,7 +79,7 @@ describe("Items", function() {
 	var items = new srch.Items();
 	items.addItem(a);
 	it('should result in frame1|type1|iter1', function() {
-		assert.equal(items.values().next().value.toString(), 'frame1|type1|iter1');
+		assert.equal(items.itemsMap.values().next().value.toString(), 'frame1|type1|iter1');
 	});
 });
 
