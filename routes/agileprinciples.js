@@ -127,6 +127,7 @@ router.get('/keywordEdit', checkSignIn, kwd.editKeyword);
 router.post('/keywordUpdate', checkSignIn, kwd.updateKeywords);
 
 router.get('/all', function(req, res) {
+	console.log('in stripped down ALL route')
 	res.render('agprisSelectedFrameworkBoot');
 });
 
