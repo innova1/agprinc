@@ -443,3 +443,4 @@ function getPrinciplesObject( framework ) {
 
 
 exports.ItemFinder = ItemFinder;
+exports.setupDB = setupDB;
