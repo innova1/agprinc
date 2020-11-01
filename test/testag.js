@@ -68,7 +68,7 @@ describe("Item", function() {
 	it('should return iter1'), function() {
 		assert.equal( a.framework, 'iter1');
 	}
-}
+});
 
 /*
 var items = new Items();
