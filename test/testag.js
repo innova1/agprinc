@@ -63,12 +63,12 @@ describe("Item", function() {
 	
 	it('should return type1', function() {
 		var a = new srch.Item('frame1', 'type1', 'iter1');
-		assert.equal( a.framework, 'type1');
+		assert.equal( a.types, 'type1');
 	});
 	
 	it('should return iter1', function() {
 		var a = new srch.Item('frame1', 'type1', 'iter1');
-		assert.equal( a.framework, 'iter1');
+		assert.equal( a.iter, 'iter1');
 	});
 });
 
