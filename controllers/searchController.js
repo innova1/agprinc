@@ -149,8 +149,11 @@ async function getItemsFilterByKeywords(req, res) {
 	const debug = true;
 	if(debug) console.log('in getItems...');
     const searchWords = req.query.searchwords;
-	const searchWordsArray = searchWords.split(',');
-	const framework = req.query.framework;
+	if(searchWords != '') {
+		const searchWordsArray = searchWords.split(',');
+	}
+	let framework = req.query.framework;
+	if(framework=='') framework = 'all';
 	var sort = { frameworkdisplay: 1, type: -1, id: 1 }
 	//var testarray = ['contract', 'continuous'];
 	try {
