@@ -6,7 +6,7 @@ const srch = require('../controllers/searchController');
 /* Manage search functionality */
 router.get('/suggestions', srch.getSearchWords);
 
-router.get('/searchtest', srch.getItemsFilterByKeyword);
+router.get('/searchtest', srch.getItemsFilterByKeywords);
 
 /* return filtered items for local update param is string of searchwords*/
 router.get('/search', srch.getFilteredItems);

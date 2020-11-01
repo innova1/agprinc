@@ -145,7 +145,7 @@ function Items() {
 	}
 }
 
-async function getItemsFilterByKeyword(req, res) {
+async function getItemsFilterByKeywords(req, res) {
 	const debug = true;
 	if(debug) console.log('in getItems...')
 	var sort = { frameworkdisplay: 1, type: -1, id: 1 }
@@ -170,4 +170,4 @@ exports.Item = Item;
 exports.Items = Items;
 exports.addItem = addItem;
 exports.collectItemsMatchingSearchTerms = collectItemsMatchingSearchTerms;
-exports.getItemsFilterByKeyword = getItemsFilterByKeyword;
+exports.getItemsFilterByKeywords = getItemsFilterByKeywords;
