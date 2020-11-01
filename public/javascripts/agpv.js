@@ -1,4 +1,4 @@
-var srch = require('../controllers/searchController');
+import { Item } from '../controllers/searchController');
 
 $(document).ready(setup);
 //setup();
@@ -8,7 +8,7 @@ function setup() {
 	replaceItemsPanels('all');
 }
 
-var item = new srch.Item('testf', 'testt', 'testi')
+var item = new Item('testf', 'testt', 'testi')
 console.log('test Item: ' + item.toString())
 
 var isSmallViewport = window.matchMedia("(max-width: 1000px)");
