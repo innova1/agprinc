@@ -89,7 +89,7 @@ describe("Items", function() {
 	a = new srch.Item('frame1', 'type1', 'iter1');
 	items.addItem(a);
 	it('should only be 3 items because the 4th rejected as duplicate key', function() {
-		assert.equal(items.itemMap.length, 3);
+		assert.equal(items.itemMap.size, 3);
 	});
 });
 
