@@ -126,8 +126,12 @@ router.get('/keywordEdit', checkSignIn, kwd.editKeyword);
 /* Save the updated keywords */
 router.post('/keywordUpdate', checkSignIn, kwd.updateKeywords);
 
+router.get('/all', function(req, res) {
+	res.render('agprisSelectedFrameworkBoot');
+});
+
 /* GET one framework of agile principles */
-router.get('/all', async function(req, res) {
+router.get('/allx', async function(req, res) {
 	const debug = false;
     //console.log('in router get /:framework');
     const framework = req.params.framework;
