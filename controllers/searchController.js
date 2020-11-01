@@ -154,6 +154,7 @@ async function getItemsFilterByKeywords(req, res) {
 		searchWordsArray = searchWords.split(',');
 	}
 	let framework = req.query.framework;
+	if(debug) console.log("f:" + framework + ",s:" + searchWords)
 	var sort = { frameworkdisplay: 1, type: -1, id: 1 }
 	//var testarray = ['contract', 'continuous'];
 	try {
