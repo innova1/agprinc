@@ -149,8 +149,9 @@ async function getItemsFilterByKeywords(req, res) {
 	const debug = true;
 	if(debug) console.log('in getItems...');
     const searchWords = req.query.searchwords;
+	const searchWordsArray = new Array();
 	if(searchWords != '') {
-		const searchWordsArray = searchWords.split(',');
+		searchWordsArray = searchWords.split(',');
 	}
 	let framework = req.query.framework;
 	if(framework=='') framework = 'all';
