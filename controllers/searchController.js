@@ -147,6 +147,7 @@ function Items() {
 
 async function getItemsFilterByKeyword() {
 	const debug = true;
+	if(debug) console.log('in getItems...')
 	try {
 		const dbParams = await db.setupDB();
 		//const fbks = await dbParams.collection.find({}).sort({ createDate: -1 }).toArray();
