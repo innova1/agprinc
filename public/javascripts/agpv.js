@@ -495,6 +495,7 @@ function Keywords() {
 		var str = '';
 		var result = new Array();
 		this.keywordLookupMap.forEach( el => {
+			console.log('on:' + el)
 			elstring = el.keyword + '';
 			str = elstring.substring(0, searchtext.length);
 			console.log('on ' + elstring + ' with ' + searchtext)
