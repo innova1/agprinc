@@ -380,9 +380,11 @@ $(function() {
 
 		if (value.length >= minlength ) {
 			/*experimenting with the lookup object*/
-			console.log(keywords.getKeywordMatches(value))
+			//console.log(keywords.getKeywordMatches(value))
 			
 			var framework = getCurrentFramework();
+			
+			/*
 			if (searchRequest != null) { searchRequest.abort(); }
 			if(debug) console.log( "in $ function after value check--framework is " + framework)
 			if(debug) console.log("about to ajax with framework=" + framework + " and value=" + value);
@@ -403,11 +405,13 @@ $(function() {
 						if(debug) console.log("in success 1 with " + msg.searchWords[0] );
 						//we need to check if the value is the same
 						if (value==$(oldThis).val()) {
+						*/
 							if(debug) console.log("in success 2 in if with " + msg.searchWords[0] );
 							$('#suggestion-title').html('Suggestions');
 							$('#suggestions').html(getSuggestionPanelHTML(msg.searchWords));
 							if(debug) console.log("about to display block on suggestions");
 							$("#suggestion-panel").collapse('show');
+			/*
 						}
 					} else {
 						$('#suggestions').html('');
@@ -416,6 +420,7 @@ $(function() {
 					}
 				}
 			});
+			*/
 		} else {
 			$('#suggestions').html('');
 			//suggElement.innerHTML = '';
@@ -490,17 +495,20 @@ function Keywords() {
 	this.size = function() {
 		return this.keywordLookupMap.size;
 	}
-	this.getKeywordMatches = function(searchtext) {
-		var elstring = '';
-		var str = '';
-		var result = new Array();
+	this.getKeywordMatches = function(framework, searchtext) {
+		let str = '';
+		let result = new Array();
+		let rightframework = false;
 		function compareValues(value, key, map) {
 			console.log('on:' + key)
-			elstring = key + '';
-			str = elstring.substring(0, searchtext.length);
-			console.log('on ' + elstring + ' with ' + searchtext)
-			if( str.toUpperCase() === searchtext.toUpperCase() ) {
-				result.push(elstring);
+			str = key.substring(0, searchtext.length);
+			console.log('on ' + key + ' with ' + searchtext)
+			rightframework = false;
+			for( const i of value ) {
+				if(i.framework == framework) rightframework = true;
+			}
+			if( rightframework && str.toUpperCase() === searchtext.toUpperCase() ) {
+				result.push(key);
 			}
 		}
 		this.keywordLookupMap.forEach( compareValues );
