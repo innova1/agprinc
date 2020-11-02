@@ -23,7 +23,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.locals.basedir = '/projects/agileprinciples/agprinc';
 app.use('/bootstrap', express.static(__dirname + '/node_modules/jade-bootstrap/'));
 
-app.use('/', indexRouter);
+//app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/api/agileframeworks/', agprisApiRouter);
 app.use('/agileframeworks/', agprisRouter);
