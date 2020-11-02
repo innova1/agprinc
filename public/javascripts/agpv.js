@@ -370,8 +370,8 @@ $(function() {
 */
 
 $(function() {
+	const debug = true;
 	var minlength = 3;
-	const debug = false;
 
 	$("#searchtext").keyup(function() {
 		var oldThis = this,
