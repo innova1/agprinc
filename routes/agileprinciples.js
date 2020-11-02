@@ -98,7 +98,7 @@ router.get('/logout', function(req, res){
 
 router.get('/**', function(req, res) {
 	res.render('unknown', { title: "Unknown url", message: "You've reached a nonexistant page." });
-}
+});
 
 /* GET all agile principles */
 /*
