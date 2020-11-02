@@ -6,6 +6,8 @@ const srch = require('../controllers/searchController');
 /* Manage search functionality */
 router.get('/suggestions', srch.getSearchWords);
 
+router.get('/searchtest', srch.getItemsFilterByKeywordsTest)
+
 router.get('/search', srch.getItemsFilterByKeywords);
 
 /*
