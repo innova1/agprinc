@@ -469,12 +469,13 @@ function inflateKeywordLookupMap() {
 		dataType: "json",
 		success: function(msg){
 			const keywordLookupArray = msg.array;
+			console.log('keywordLookupArray size:' + keywordLookupArray.length)
 			keywordLookupArray.forEach( el => {
 				keywords.addKeyword(el.keyword, el.itemFinders );
 			});
 		}
 	});
-	console.log(keywords.size);
+	console.log('in inflate: keywords:' + keywords.size);
 }
 
 function Keywords() {
