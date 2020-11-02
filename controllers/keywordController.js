@@ -48,5 +48,6 @@ exports.getKeywordsMap = async function(req, res) {
 	function pushToArray(value, key, map) {
 		keywordsArray.push({ name: key, finder: value })
 	}
+	console.log("keywordsarray length: " + keywordsArray.length)
 	return keywordsArray;
 }
