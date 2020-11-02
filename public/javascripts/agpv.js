@@ -477,7 +477,7 @@ function inflateKeywordLookupMap() {
 				keywords.addKeyword(el.keyword, el.itemFinders );
 				if(++count%10==0) console.log(count + ':added:' + el.keyword)
 			});
-			console.log("k size:" + keywords.keywordLookupMap.size())
+			console.log("k size:" + keywords.size())
 		}
 	});
 }
