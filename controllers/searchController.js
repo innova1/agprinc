@@ -99,7 +99,7 @@ async function getItemsFilterByKeywords(req, res) {
 	} catch(err) {
 		console.log('error in try of getItemsFilterByKeyword ' + err.message );
 	}
-	
+	db.fixFrameworkDisplayField(itemsArray);
 	res.json({ items: itemsArray });
 	
 }
