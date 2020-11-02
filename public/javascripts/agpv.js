@@ -6,6 +6,8 @@ function setup() {
 	//console.log('calling replaceFrameworksPanel from setup()')
 	replaceFrameworksPanel('all');
 	replaceItemsPanels('all');
+	let keywords = new Keywords();
+	inflateKeywordLookupMap();
 }
 
 /*
@@ -437,13 +439,34 @@ function getSuggestionPanelHTML(searchWordsArray) {
 	var resultList = '<ul class="suggestions">';
 	var jscriptcall = '';
 	searchWordsArray.forEach( element => {
-	jscriptString = "javascript:addActiveSearchterm('" + element.replace(/\s/g, '+') + "')"
+		jscriptString = "javascript:addActiveSearchterm('" + element.replace(/\s/g, '+') + "')"
 		if(debug) console.log('adding jscript: |' + jscriptString + '|')
 		resultList = resultList + "<li><a href='javascript:void(0);' onclick=" + jscriptString + ">" + element + "</a></li>";
 	});
 	resultList = resultList + '</ul>';
 	
 	return resultList;
+}
+
+function inflateKeywordLookupMap() {
+	$.ajax({
+		type: "GET",
+		url: "/api/agileframeworks/getkeywordsmap",
+		dataType: "json",
+		success: function(msg){
+			const keywordLookupArray = msg.array;
+			keywordLookupArray.forEach( el => {
+				keywords.addKeyword(el.keyword, el.itemFinders );
+			});
+		}
+	});
+}
+
+function Keywords() {
+	this.keywordLookupMap = new Map();
+	this.addKeyword = function(k,v) {
+		this.keywordLookupMap.set(k,v);
+	}
 }
 
 function Item(framework, type, ordinal) {
