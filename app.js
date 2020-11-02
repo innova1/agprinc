@@ -28,6 +28,10 @@ app.use('/users', usersRouter);
 app.use('/api/agileframeworks/', agprisApiRouter);
 app.use('/agileframeworks/', agprisRouter);
 
+app.get('/**', function(req, res) {
+	res.render('unknown', { title: "Unknown url", message: "You've reached a nonexistant page." });
+});
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
