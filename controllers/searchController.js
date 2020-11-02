@@ -52,7 +52,7 @@ async function getKeywordMatch( framework, searchtext ) {
 	return result;
 };
 
-async function getItemsFilterByKeywords(req, res) {
+async function getItemsFilterByKeywordsOld(req, res) {
 	const debug = true;
 	if(debug) console.log('in getItems...');
     const searchWords = req.query.searchwords;
@@ -103,7 +103,7 @@ async function getItemsFilterByKeywords(req, res) {
 	
 }
 
-async function getItemsFilterByKeywordsTest(req, res) {
+async function getItemsFilterByKeywords(req, res) {
 	const debug = true;
 	if(debug) console.log('in getItems test...');
     const searchWords = req.query.searchwords;
@@ -113,7 +113,7 @@ async function getItemsFilterByKeywordsTest(req, res) {
 	}
 	let framework = req.query.framework;
 	let match = req.query.match;
-	if(debug) console.log("f:" + framework + ",s:" + searchWords + ",m:" + match)
+	if(debug) console.log("f:" + framework + ", s:" + searchWords + ", m:" + match)
 	var sort = { frameworkdisplay: 1, type: -1, id: 1 }
 	let itemsArray = new Array();
 	let queryObject = new Object();
