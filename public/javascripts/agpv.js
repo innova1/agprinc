@@ -380,7 +380,7 @@ $(function() {
 
 		if (value.length >= minlength ) {
 			/*experimenting with the lookup object*/
-			console.log(keywords.size())
+			console.log(keywords.get(value))
 			
 			var framework = getCurrentFramework();
 			if (searchRequest != null) { searchRequest.abort(); }
