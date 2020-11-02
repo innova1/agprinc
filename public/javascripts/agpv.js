@@ -380,7 +380,7 @@ $(function() {
 
 		if (value.length >= minlength ) {
 			/*experimenting with the lookup object*/
-			console.log(keywords.keywordLookupMap.get(value))
+			console.log(keywords.getKeywordMatches(value))
 			
 			var framework = getCurrentFramework();
 			if (searchRequest != null) { searchRequest.abort(); }
@@ -490,6 +490,32 @@ function Keywords() {
 	this.size = function() {
 		return this.keywordLookupMap.size;
 	}
+	this.getKeywordMatches = function(searchtext) {
+		var elstring = '';
+		var str = '';
+		var result = new Array();
+		this.keywordLookupMap.forEach( el => {
+			elstring = el.keyword;
+			str = elstring.substring(0, searchtext.length);
+			if( str.toUpperCase() === searchtext.toUpperCase() ) {
+				result.push(elstring);
+			}
+		});
+		return result;
+	}
+	
+	/*
+		keywords.forEach( element => {
+			//take searchtext and then compare with the searchtext.length number of chars at the start of each
+			var elstring = element.keyword + '';
+			var str = elstring.substring(0, searchtext.length);
+			if(debug) { console.log( ++count + 'comparing ' + str + ' with ' + searchtext ) };
+			if( str.toUpperCase()===searchtext.toUpperCase() ) {
+				if(debug) { console.log( 'pushing compared ' + str + ' with ' + searchtext ) };
+				result.push(elstring); 
+			}
+		});
+	*/
 }
 
 function Item(framework, type, ordinal) {
