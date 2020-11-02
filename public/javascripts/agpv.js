@@ -456,7 +456,7 @@ $("form").on("submit", function (e) {
 });
 
 function getSuggestionPanelHTML(searchWordsArray) {
-	var debug = false;
+	var debug = true;
 	var resultList = '<ul class="suggestions">';
 	var jscriptcall = '';
 	searchWordsArray.forEach( element => {
@@ -470,20 +470,21 @@ function getSuggestionPanelHTML(searchWordsArray) {
 }
 
 function inflateKeywordLookupMap() {
-	console.log('calling inflate...')
+	const debug = false;
+	if(debug) console.log('calling inflate...')
 	$.ajax({
 		type: "GET",
 		url: "/api/agileframeworks/getkeywordsmap",
 		dataType: "json",
 		success: function(msg){
 			const keywordLookupArray = msg.array;
-			console.log('keywordLookupArray size:' + keywordLookupArray.length)
+			if(debug) console.log('keywordLookupArray size:' + keywordLookupArray.length)
 			let count = 0;
 			keywordLookupArray.forEach( el => {
 				keywords.addKeyword(el.keyword, el.itemFinders );
 				if(++count%100==0) console.log(count + ':added:' + el.keyword)
 			});
-			console.log("k size:" + keywords.size())
+			if(debug) console.log("k size:" + keywords.size())
 		}
 	});
 }
@@ -497,13 +498,14 @@ function Keywords() {
 		return this.keywordLookupMap.size;
 	}
 	this.getKeywordMatches = function(framework, searchtext) {
+		const debug = false;
 		let str = '';
 		let result = new Array();
 		let rightframework = false;
 		function compareValues(value, key, map) {
-			console.log('on:' + key)
+			if(debug) console.log('on:' + key)
 			str = key.substring(0, searchtext.length);
-			console.log('on ' + key + ' with ' + searchtext)
+			if(debug) console.log('on ' + key + ' with ' + searchtext)
 			rightframework = false;
 			for( const i of value ) {
 				if(i.framework == framework) rightframework = true;
