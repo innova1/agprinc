@@ -407,7 +407,7 @@ $(function() {
 						//we need to check if the value is the same
 						if (value==$(oldThis).val()) {
 						*/
-							if(debug) console.log("in success 2 in if with " + msg.searchWords[0] );
+							if(debug) console.log("in keyup length:" + searchWordsArray.length );
 							$('#suggestion-title').html('Suggestions');
 							$('#suggestions').html(getSuggestionPanelHTML(searchWordsArray));
 							if(debug) console.log("about to display block on suggestions");
