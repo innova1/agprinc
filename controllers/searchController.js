@@ -61,15 +61,15 @@ async function getItemsFilterByKeywords(req, res) {
 		searchWordsArray = searchWords.split(',');
 	}
 	let framework = req.query.framework;
-	let query = req.query.query;
-	if(query == '') query = 'or';
+	let querytype = req.query.querytype;
+	if(querytype == '') querytype = 'or';
 	if(debug) console.log("f:" + framework + ",s:" + searchWords)
 	var sort = { frameworkdisplay: 1, type: -1, id: 1 }
 	//var testarray = ['contract', 'continuous'];
 	let itemsArray = new Array();
 	try {
 		const dbParams = await db.setupDB();
-		if(query=='or') {
+		if(querytype=='or') {
 			//const fbks = await dbParams.collection.find({}).sort({ createDate: -1 }).toArray();
 			if(framework=='' || framework=='all') {
 				itemsArray = await dbParams.collection.find({ 
