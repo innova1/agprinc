@@ -466,6 +466,7 @@ function inflateKeywordLookupMap() {
 	$.ajax({
 		type: "GET",
 		url: "/api/agileframeworks/getkeywordsmap",
+		data: "",
 		dataType: "json",
 		success: function(msg){
 			const keywordLookupArray = msg.array;
