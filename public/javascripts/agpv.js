@@ -494,7 +494,7 @@ function Keywords() {
 		var elstring = '';
 		var str = '';
 		var result = new Array();
-		this.keywordLookupMap.forEach( el => {
+		function compareValues(value, key, map) {
 			console.log('on:' + el.keyword)
 			elstring = el.keyword + '';
 			str = elstring.substring(0, searchtext.length);
@@ -502,7 +502,8 @@ function Keywords() {
 			if( str.toUpperCase() === searchtext.toUpperCase() ) {
 				result.push(elstring);
 			}
-		});
+		}
+		this.keywordLookupMap.forEach( compareValues );
 		return result;
 	}
 	
