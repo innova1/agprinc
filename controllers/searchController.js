@@ -52,59 +52,8 @@ async function getKeywordMatch( framework, searchtext ) {
 	return result;
 };
 
-async function getItemsFilterByKeywordsOld(req, res) {
-	const debug = true;
-	if(debug) console.log('in getItems...');
-    const searchWords = req.query.searchwords;
-	let searchWordsArray = new Array();
-	if(searchWords != '') {
-		searchWordsArray = searchWords.split(',');
-	}
-	let framework = req.query.framework;
-	let querytype = req.query.querytype;
-	if(debug) console.log("f:" + framework + ",s:" + searchWords + ",q:" + querytype)
-	var sort = { frameworkdisplay: 1, type: -1, id: 1 }
-	//var testarray = ['contract', 'continuous'];
-	let itemsArray = new Array();
-	try {
-		const dbParams = await db.setupDB();
-		if(querytype=='and') {
-			//const fbks = await dbParams.collection.find({}).sort({ createDate: -1 }).toArray();
-			if(framework=='' || framework=='all') {
-				itemsArray = await dbParams.collection.find({ 
-					keywords: { $all: searchWordsArray } 
-				}).sort(sort).collation({locale: "en_US", numericOrdering: true}).toArray();
-			} else {
-				itemsArray = await dbParams.collection.find({ 
-					framework: framework,
-					keywords: { $all: searchWordsArray } 
-				}).sort(sort).collation({locale: "en_US", numericOrdering: true}).toArray();
-			}
-		} else {
-			//const fbks = await dbParams.collection.find({}).sort({ createDate: -1 }).toArray();
-			if(framework=='' || framework=='all') {
-				itemsArray = await dbParams.collection.find({ 
-					keywords: { $in: searchWordsArray } 
-				}).sort(sort).collation({locale: "en_US", numericOrdering: true}).toArray();
-			} else {
-				itemsArray = await dbParams.collection.find({ 
-					framework: framework,
-					keywords: { $in: searchWordsArray } 
-				}).sort(sort).collation({locale: "en_US", numericOrdering: true}).toArray();
-			}
-		}
-		dbParams.client.close();
-		if(debug) console.log('found: ' + itemsArray.length + ' records.')
-	} catch(err) {
-		console.log('error in try of getItemsFilterByKeyword ' + err.message );
-	}
-	
-	res.json({ items: itemsArray });
-	
-}
-
 async function getItemsFilterByKeywords(req, res) {
-	const debug = true;
+	const debug = false;
 	if(debug) console.log('in getItems test...');
     const searchWords = req.query.searchwords;
 	let searchWordsArray = new Array();

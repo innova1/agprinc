@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 const db = require('../controllers/dataController');
 const srch = require('../controllers/searchController');
+const kwd = require('../controllers/keywordController');
 
 /* Manage search functionality */
 router.get('/suggestions', srch.getSearchWords);
@@ -13,6 +14,10 @@ router.get('/search', srch.getItemsFilterByKeywords);
 /*
 router.get('/searchxxx', srch.getFilteredItems);
 */
+
+router.get('/getkeywordsmap', function(req, res) {
+	res.json( { "map": db.keywordItemFinderMap() } );
+});
 
 /* GET all agile principles json */
 router.get('/frameworks', async function(req, res) {
