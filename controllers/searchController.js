@@ -53,7 +53,7 @@ async function getKeywordMatch( framework, searchtext ) {
 };
 
 async function getItemsFilterByKeywords(req, res) {
-	const debug = false;
+	const debug = true;
 	if(debug) console.log('in getItems...');
     const searchWords = req.query.searchwords;
 	let searchWordsArray = new Array();
