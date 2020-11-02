@@ -62,35 +62,34 @@ async function getItemsFilterByKeywords(req, res) {
 	}
 	let framework = req.query.framework;
 	let querytype = req.query.querytype;
-	if(!querytype) querytype = 'or';
 	if(debug) console.log("f:" + framework + ",s:" + searchWords + ",q:" + querytype)
 	var sort = { frameworkdisplay: 1, type: -1, id: 1 }
 	//var testarray = ['contract', 'continuous'];
 	let itemsArray = new Array();
 	try {
 		const dbParams = await db.setupDB();
-		if(querytype=='or') {
+		if(querytype=='and') {
 			//const fbks = await dbParams.collection.find({}).sort({ createDate: -1 }).toArray();
 			if(framework=='' || framework=='all') {
 				itemsArray = await dbParams.collection.find({ 
-					keywords: { $in: searchWordsArray } 
+					keywords: { $all: searchWordsArray } 
 				}).sort(sort).collation({locale: "en_US", numericOrdering: true}).toArray();
 			} else {
 				itemsArray = await dbParams.collection.find({ 
 					framework: framework,
-					keywords: { $in: searchWordsArray } 
+					keywords: { $all: searchWordsArray } 
 				}).sort(sort).collation({locale: "en_US", numericOrdering: true}).toArray();
 			}
 		} else {
 			//const fbks = await dbParams.collection.find({}).sort({ createDate: -1 }).toArray();
 			if(framework=='' || framework=='all') {
 				itemsArray = await dbParams.collection.find({ 
-					keywords: { $all: searchWordsArray } 
+					keywords: { $in: searchWordsArray } 
 				}).sort(sort).collation({locale: "en_US", numericOrdering: true}).toArray();
 			} else {
 				itemsArray = await dbParams.collection.find({ 
 					framework: framework,
-					keywords: { $all: searchWordsArray } 
+					keywords: { $in: searchWordsArray } 
 				}).sort(sort).collation({locale: "en_US", numericOrdering: true}).toArray();
 			}
 		}
