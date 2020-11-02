@@ -383,7 +383,7 @@ $(function() {
 			//console.log(keywords.getKeywordMatches(framework, value))
 			
 			var framework = getCurrentFramework();
-			let msg = keywords.getKeywordMatches(framework, value);
+			let searchWordsArray = keywords.getKeywordMatches(framework, value);
 			
 			/*
 			if (searchRequest != null) { searchRequest.abort(); }
@@ -409,7 +409,7 @@ $(function() {
 						*/
 							if(debug) console.log("in success 2 in if with " + msg.searchWords[0] );
 							$('#suggestion-title').html('Suggestions');
-							$('#suggestions').html(getSuggestionPanelHTML(msg.searchWords));
+							$('#suggestions').html(getSuggestionPanelHTML(searchWordsArray));
 							if(debug) console.log("about to display block on suggestions");
 							$("#suggestion-panel").collapse('show');
 			/*
