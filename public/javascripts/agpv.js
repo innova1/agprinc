@@ -380,7 +380,7 @@ $(function() {
 
 		if (value.length >= minlength ) {
 			/*experimenting with the lookup object*/
-			//console.log(keywords.size())
+			console.log(keywords.size())
 			
 			var framework = getCurrentFramework();
 			if (searchRequest != null) { searchRequest.abort(); }
@@ -475,7 +475,7 @@ function inflateKeywordLookupMap() {
 			let count = 0;
 			keywordLookupArray.forEach( el => {
 				keywords.addKeyword(el.keyword, el.itemFinders );
-				if(++count%10==0) console.log(count + ':added:' + el.keyword)
+				//if(++count%10==0) console.log(count + ':added:' + el.keyword)
 			});
 			console.log("k size:" + keywords.size())
 		}
