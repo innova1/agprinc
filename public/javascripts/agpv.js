@@ -380,9 +380,10 @@ $(function() {
 
 		if (value.length >= minlength ) {
 			/*experimenting with the lookup object*/
-			//console.log(keywords.getKeywordMatches(value))
+			//console.log(keywords.getKeywordMatches(framework, value))
 			
 			var framework = getCurrentFramework();
+			let msg = keywords.getKeywordMatches(framework, value);
 			
 			/*
 			if (searchRequest != null) { searchRequest.abort(); }
