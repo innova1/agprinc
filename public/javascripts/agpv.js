@@ -471,8 +471,10 @@ function inflateKeywordLookupMap() {
 		success: function(msg){
 			const keywordLookupArray = msg.array;
 			console.log('keywordLookupArray size:' + keywordLookupArray.length)
+			let count = 0;
 			keywordLookupArray.forEach( el => {
 				keywords.addKeyword(el.keyword, el.itemFinders );
+				if(++count%10==0) console.log(count + ':added:' + el.keyword)
 			});
 			console.log("k size:" + keywords.keywordLookupMap.size())
 		}
