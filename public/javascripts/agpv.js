@@ -474,9 +474,9 @@ function inflateKeywordLookupMap() {
 			keywordLookupArray.forEach( el => {
 				keywords.addKeyword(el.keyword, el.itemFinders );
 			});
+			console.log("k size:" + keywords.keywordLookupMap.size())
 		}
 	});
-	console.log('in inflate: keywords:' + keywords.size);
 }
 
 function Keywords() {
