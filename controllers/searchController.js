@@ -113,14 +113,13 @@ async function getItemsFilterByKeywordsTest(req, res) {
 	}
 	let framework = req.query.framework;
 	let match = req.query.match;
-	if(debug) console.log("f:" + framework + ",s:" + searchWords + ",q:" + match)
+	if(debug) console.log("f:" + framework + ",s:" + searchWords + ",m:" + match)
 	var sort = { frameworkdisplay: 1, type: -1, id: 1 }
-	//var testarray = ['contract', 'continuous'];
 	let itemsArray = new Array();
 	let queryObject = new Object();
 	try {
 		const dbParams = await db.setupDB();
-		if(querytype=='and') {
+		if(match=='all') {
 			if(framework=='' || framework=='all') {
 				queryObject = { 
 					keywords: { $all: searchWordsArray } 
