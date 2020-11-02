@@ -1,9 +1,10 @@
 //$.getScript('../controllers/searchController.js');
 
+let keywords = new Keywords();
+
 $(document).ready(setup);
 //setup();
 function setup() {
-	let keywords = new Keywords();
 	//console.log('calling replaceFrameworksPanel from setup()')
 	replaceFrameworksPanel('all');
 	replaceItemsPanels('all');
