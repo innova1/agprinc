@@ -62,7 +62,7 @@ async function getItemsFilterByKeywords(req, res) {
 	}
 	let framework = req.query.framework;
 	let querytype = req.query.querytype;
-	if(querytype == '') querytype = 'or';
+	if(!querytype) querytype = 'or';
 	if(debug) console.log("f:" + framework + ",s:" + searchWords + ",q:" + querytype)
 	var sort = { frameworkdisplay: 1, type: -1, id: 1 }
 	//var testarray = ['contract', 'continuous'];
