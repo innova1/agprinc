@@ -328,13 +328,14 @@ function getDataArray() {
 		if no, then create the object and add to the array
 */
 exports.keywordItemFinderMap = async function(framework) {
-    const debug = false;
+    const debug = true;
   	//const dataArray = getDataArray(); //full data array of all values and principle objects
     const itemsArray = await getPrinciplesArray(framework,'');
     var keywordItemFinderMap = new Map(); //Map being built of a list of objects with keyword and location of the word
     var tempArray = new Array(); //temporary holding tank of keywords to be tested and added if not already there. if already there, then just add location to the end of the item on the search array
     var itemFinder = new ItemFinder();
     var searchObj = new Object();
+	if(debug) console.log('about to call mapItemFindersToKeyword with')
 	keywordItemFinderMap = mapItemFindersToKeywords( itemsArray, keywordItemFinderMap );
     return keywordItemFinderMap;
 }
