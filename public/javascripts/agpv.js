@@ -497,6 +497,7 @@ function Keywords() {
 		this.keywordLookupMap.forEach( el => {
 			elstring = el.keyword + '';
 			str = elstring.substring(0, searchtext.length);
+			console.log('on ' + elstring + ' with ' + searchtext)
 			if( str.toUpperCase() === searchtext.toUpperCase() ) {
 				result.push(elstring);
 			}
