@@ -324,7 +324,7 @@ function replaceFrameworksPanel(framework) {
 }
 
 function getCurrentFramework() {
-	var debug = true; 
+	var debug = false; 
 	var result = '';
 	result = $('#selectedFramework').html();
 	if(debug) console.log('in getcurrentframework got ' + result + 'from #selectedFramework')
@@ -370,13 +370,12 @@ $(function() {
 */
 
 $(function() {
-	const debug = true;
+	const debug = false;
 	var minlength = 3;
 
 	$("#searchtext").keyup(function() {
 		var oldThis = this,
 		value = $(this).val();
-		if(debug) console.log("value is " + value + ", framework is " + framework);
 
 		if (value.length >= minlength ) {
 			//console.log(keywords.getKeywordMatches(framework, value))
