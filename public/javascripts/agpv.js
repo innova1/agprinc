@@ -357,6 +357,17 @@ function removeActiveSearchterm(element) {
 	}
 }
 
+/*
+$(function() {
+	var minlength = 3;
+	const debug = false;
+
+	$("#searchtext").keyup(function() {
+		
+	});
+});
+*/
+
 $(function() {
 	var minlength = 3;
 	const debug = false;
@@ -367,6 +378,9 @@ $(function() {
 		if(debug) console.log("value is " + value + ", framework is " + framework);
 
 		if (value.length >= minlength ) {
+			/*experimenting with the lookup object*/
+			console.log(keywords.get(value))
+			
 			var framework = getCurrentFramework();
 			if (searchRequest != null) { searchRequest.abort(); }
 			if(debug) console.log( "in $ function after value check--framework is " + framework)
