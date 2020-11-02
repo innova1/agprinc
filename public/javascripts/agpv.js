@@ -324,7 +324,7 @@ function replaceFrameworksPanel(framework) {
 }
 
 function getCurrentFramework() {
-	var debug = false; 
+	var debug = true; 
 	var result = '';
 	result = $('#selectedFramework').html();
 	if(debug) console.log('in getcurrentframework got ' + result + 'from #selectedFramework')
@@ -379,7 +379,6 @@ $(function() {
 		if(debug) console.log("value is " + value + ", framework is " + framework);
 
 		if (value.length >= minlength ) {
-			/*experimenting with the lookup object*/
 			//console.log(keywords.getKeywordMatches(framework, value))
 			
 			var framework = getCurrentFramework();
@@ -456,7 +455,7 @@ $("form").on("submit", function (e) {
 });
 
 function getSuggestionPanelHTML(searchWordsArray) {
-	var debug = true;
+	var debug = false;
 	var resultList = '<ul class="suggestions">';
 	var jscriptcall = '';
 	searchWordsArray.forEach( element => {
