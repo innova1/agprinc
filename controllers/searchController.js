@@ -256,3 +256,4 @@ exports.Items = Items;
 //exports.addItem = addItem;
 //exports.collectItemsMatchingSearchTerms = collectItemsMatchingSearchTerms;
 exports.getItemsFilterByKeywords = getItemsFilterByKeywords;
+exports.getItemsFilterByKeywordsTest = getItemsFilterByKeywordsTest;
