@@ -463,10 +463,10 @@ function getSuggestionPanelHTML(searchWordsArray) {
 }
 
 function inflateKeywordLookupMap() {
+	console.log('calling inflate...')
 	$.ajax({
 		type: "GET",
 		url: "/api/agileframeworks/getkeywordsmap",
-		data: "",
 		dataType: "json",
 		success: function(msg){
 			const keywordLookupArray = msg.array;
