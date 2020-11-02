@@ -3,6 +3,7 @@
 $(document).ready(setup);
 //setup();
 function setup() {
+	let keywords = new Keywords();
 	//console.log('calling replaceFrameworksPanel from setup()')
 	replaceFrameworksPanel('all');
 	replaceItemsPanels('all');
@@ -20,7 +21,6 @@ var searchRequest = null;
 var frameworkObjArray = new Array ();
 
 let termsObj = new CurrentTermsObject();
-let keywords = new Keywords();
 
 function redirectReplaceItemsPanels(event) {
 	//console.log('calling replaceFilteredItemsPanels with framework: ' + event.data.framework + ', wasSelected: ' + event.data.wasSelected)
