@@ -379,7 +379,7 @@ $(function() {
 
 		if (value.length >= minlength ) {
 			/*experimenting with the lookup object*/
-			console.log(keywords.size())
+			//console.log(keywords.size())
 			
 			var framework = getCurrentFramework();
 			if (searchRequest != null) { searchRequest.abort(); }
@@ -474,6 +474,7 @@ function inflateKeywordLookupMap() {
 			});
 		}
 	});
+	console.log(keywords.size);
 }
 
 function Keywords() {
