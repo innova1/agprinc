@@ -6,7 +6,6 @@ function setup() {
 	//console.log('calling replaceFrameworksPanel from setup()')
 	replaceFrameworksPanel('all');
 	replaceItemsPanels('all');
-	let keywords = new Keywords();
 	inflateKeywordLookupMap();
 }
 
@@ -21,6 +20,7 @@ var searchRequest = null;
 var frameworkObjArray = new Array ();
 
 let termsObj = new CurrentTermsObject();
+let keywords = new Keywords();
 
 function redirectReplaceItemsPanels(event) {
 	//console.log('calling replaceFilteredItemsPanels with framework: ' + event.data.framework + ', wasSelected: ' + event.data.wasSelected)
