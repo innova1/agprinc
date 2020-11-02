@@ -382,7 +382,7 @@ $(function() {
 			//console.log(keywords.getKeywordMatches(framework, value))
 			
 			var framework = getCurrentFramework();
-			let searchWordsArray = keywords.getKeywordMatches('all', value);
+			let searchWordsArray = keywords.getKeywordMatches(framework, value);
 			
 			/*
 			if (searchRequest != null) { searchRequest.abort(); }
