@@ -495,8 +495,8 @@ function Keywords() {
 		var str = '';
 		var result = new Array();
 		function compareValues(value, key, map) {
-			console.log('on:' + el.keyword)
-			elstring = el.keyword + '';
+			console.log('on:' + key)
+			elstring = key + '';
 			str = elstring.substring(0, searchtext.length);
 			console.log('on ' + elstring + ' with ' + searchtext)
 			if( str.toUpperCase() === searchtext.toUpperCase() ) {
