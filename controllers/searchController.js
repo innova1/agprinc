@@ -105,7 +105,7 @@ async function getItemsFilterByKeywords(req, res) {
 
 async function getItemsFilterByKeywordsTest(req, res) {
 	const debug = true;
-	if(debug) console.log('in getItems...');
+	if(debug) console.log('in getItems test...');
     const searchWords = req.query.searchwords;
 	let searchWordsArray = new Array();
 	if(searchWords != '') {
