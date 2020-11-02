@@ -96,10 +96,6 @@ router.get('/logout', function(req, res){
    res.redirect('/agileframeworks');
 });
 
-router.get('/**', function(req, res) {
-	res.render('unknown', { title: "Unknown url", message: "You've reached a nonexistant page." });
-});
-
 /* GET all agile principles */
 /*
 router.get('/', function(req, res) {
@@ -209,5 +205,9 @@ router.get('/', function(req, res) {
 	}
 });
 */
+
+router.get('/**', function(req, res) {
+	res.render('unknown', { title: "Unknown url", message: "You've reached a nonexistant page." });
+});
 
 module.exports = router;
