@@ -112,8 +112,8 @@ async function getItemsFilterByKeywordsTest(req, res) {
 		searchWordsArray = searchWords.split(',');
 	}
 	let framework = req.query.framework;
-	let querytype = req.query.querytype;
-	if(debug) console.log("f:" + framework + ",s:" + searchWords + ",q:" + querytype)
+	let match = req.query.match;
+	if(debug) console.log("f:" + framework + ",s:" + searchWords + ",q:" + match)
 	var sort = { frameworkdisplay: 1, type: -1, id: 1 }
 	//var testarray = ['contract', 'continuous'];
 	let itemsArray = new Array();
@@ -121,7 +121,6 @@ async function getItemsFilterByKeywordsTest(req, res) {
 	try {
 		const dbParams = await db.setupDB();
 		if(querytype=='and') {
-			//const fbks = await dbParams.collection.find({}).sort({ createDate: -1 }).toArray();
 			if(framework=='' || framework=='all') {
 				queryObject = { 
 					keywords: { $all: searchWordsArray } 
@@ -133,7 +132,6 @@ async function getItemsFilterByKeywordsTest(req, res) {
 				};
 			}
 		} else {
-			//const fbks = await dbParams.collection.find({}).sort({ createDate: -1 }).toArray();
 			if(framework=='' || framework=='all') {
 				queryObject = { 
 					keywords: { $in: searchWordsArray } 
