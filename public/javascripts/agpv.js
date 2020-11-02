@@ -487,6 +487,9 @@ function Keywords() {
 	this.addKeyword = function(k,v) {
 		this.keywordLookupMap.set(k,v);
 	}
+	this.size = function() {
+		return this.keywordLookupMap.size();
+	}
 }
 
 function Item(framework, type, ordinal) {
