@@ -15,8 +15,9 @@ router.get('/search', srch.getItemsFilterByKeywords);
 router.get('/searchxxx', srch.getFilteredItems);
 */
 
-router.get('/getkeywordsmap', function(req, res) {
-	res.json( { "array": kwd.getKeywordsMap() } );
+router.get('/getkeywordsmap', async function(req, res) {
+	const arr = await kwd.getKeywordsMap();
+	res.json( { "array": arr } );
 });
 
 /* GET all agile principles json */
