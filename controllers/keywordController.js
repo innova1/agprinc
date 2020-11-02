@@ -41,3 +41,12 @@ exports.updateKeywords = async function(req, res) {
 	//res.render('viewEntriesKeywords', { title: 'Keywords List', principlesArray: principlesArray });
     res.redirect('/agileframeworks/keywords');
 }
+
+exports.getKeywordsMap = async function(req, res) {
+	const kmap = keywordItemFinderMap('all');
+	let keywordsArray = new Array();
+	for( const e of kmap.keys() ) {
+		keywordsArray.push({ name: e.toString(), finder: kmap.get(e) })
+	}
+	return keywordsArray;
+}

@@ -16,7 +16,7 @@ router.get('/searchxxx', srch.getFilteredItems);
 */
 
 router.get('/getkeywordsmap', function(req, res) {
-	res.json( { "map": db.keywordItemFinderMap('manifesto') } );
+	res.json( { "array": kwd.getKeywordsMap() } );
 });
 
 /* GET all agile principles json */
