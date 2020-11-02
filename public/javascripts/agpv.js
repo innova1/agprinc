@@ -383,7 +383,7 @@ $(function() {
 			//console.log(keywords.getKeywordMatches(framework, value))
 			
 			var framework = getCurrentFramework();
-			let searchWordsArray = keywords.getKeywordMatches(framework, value);
+			let searchWordsArray = keywords.getKeywordMatches('all', value);
 			
 			/*
 			if (searchRequest != null) { searchRequest.abort(); }
@@ -507,8 +507,12 @@ function Keywords() {
 			str = key.substring(0, searchtext.length);
 			if(debug) console.log('on ' + key + ' with ' + searchtext)
 			rightframework = false;
-			for( const i of value ) {
-				if(i.framework == framework) rightframework = true;
+			if(framework=='all') {
+				rightframework = true;
+			} else {
+				for( const i of value ) {
+					if(i.framework === framework) rightframework = true;
+				}
 			}
 			if( rightframework && str.toUpperCase() === searchtext.toUpperCase() ) {
 				result.push(key);
