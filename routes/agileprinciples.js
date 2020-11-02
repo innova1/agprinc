@@ -56,6 +56,7 @@ function checkSignIn(req, res, next){
 		console.log(req.session.user);
 		next(err);  //Error, trying to access unauthorized page! 
 		//res.render('signup', { message: "Sign up for access."}); //temporary fail
+	   res.render('unknown', { title: "Unknown url", message: "You've reached a nonexistant page." });
    }
 }
 
