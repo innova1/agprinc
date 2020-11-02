@@ -43,7 +43,7 @@ exports.updateKeywords = async function(req, res) {
 }
 
 exports.getKeywordsMap = async function(req, res) {
-	const kmap = keywordItemFinderMap('all');
+	const kmap = db.keywordItemFinderMap('all');
 	let keywordsArray = new Array();
 	for( const e of kmap.keys() ) {
 		keywordsArray.push({ name: e.toString(), finder: kmap.get(e) })
