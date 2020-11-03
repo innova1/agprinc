@@ -420,23 +420,6 @@ $("form").on("submit", function (e) {
 		alert('Select one of the suggestions from the list')
 	}
 	e.preventDefault();
-	/*
-	$.ajax({
-		type: "GET",
-		url: "/api/agileframeworks/suggestions?" + frameworkString + '&' + dataString,
-		dataType: "json",
-		success: function(result) {
-			if(debug) console.log('result: ' + result.searchWords[0])
-			const found = result.searchWords.find( s => s.toUpperCase().replace(/\s/g, '+') === searchtext.toUpperCase() );
-			if(debug) console.log('found: ' + found);
-			if(found) {
-				addActiveSearchterm(searchtext.replace(/\+/g, '+'));
-			} else {
-				alert('Select one of the suggestions from the list')
-			}
-		}
-	});
-	*/
 });
 
 $('#matchtype').on('click', function(e) {
