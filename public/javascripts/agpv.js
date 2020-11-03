@@ -463,7 +463,7 @@ $("form").on("submit", function (e) {
 $('#matchtype').on('click', function(e) {
 	console.log('clicked it')
 	
-}
+});
 
 function getSuggestionPanelHTML(searchWordsArray) {
 	var debug = false;
