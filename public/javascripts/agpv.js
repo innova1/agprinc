@@ -388,45 +388,18 @@ $(function() {
 			
 			var framework = getCurrentFramework();
 			let searchWordsArray = keywords.getKeywordMatches(framework, value);
-			
-			/*
-			if (searchRequest != null) { searchRequest.abort(); }
-			if(debug) console.log( "in $ function after value check--framework is " + framework)
-			if(debug) console.log("about to ajax with framework=" + framework + " and value=" + value);
-			//if(debug) console.log("field sel frmwrk: " + $('#selectedFramework').html());
-			searchRequest = $.ajax({
-				type: "GET",
-				
-				url: "/api/agileframeworks/suggestions?",
-				data: {
-					'framework': framework,
-					'searchtext' : value
-				},
-				dataType: "json",
-				success: function(msg){
-				*/
-					if(searchWordsArray[0]) {
-					/*
-						//var curSearchField = document.getElementById('currentsearchterms');
-						//var curSearchTerms = (curSearchField.innerHTML!=''?curSearchField.innerHTML + ",":"");
-						if(debug) console.log("in success 1 with " + msg.searchWords[0] );
-						//we need to check if the value is the same
-						if (value==$(oldThis).val()) {
-						*/
-						if(debug) console.log("in keyup length:" + searchWordsArray.length );
-						$('#suggestion-title').html('Suggestions');
-						$('#suggestions').html(getSuggestionPanelHTML(searchWordsArray));
-						if(debug) console.log("about to display block on suggestions");
-						$("#suggestion-panel").collapse('show');
-			
-						//}
-					} else {
-						$('#suggestions').html('');
-						$("#suggestion-panel").collapse('hide');
-					}
-				//}
-			//});
-			
+			if(searchWordsArray[0]) {
+
+				if(debug) console.log("in keyup length:" + searchWordsArray.length );
+				$('#suggestion-title').html('Suggestions');
+				$('#suggestions').html(getSuggestionPanelHTML(searchWordsArray));
+				if(debug) console.log("about to display block on suggestions");
+				$("#suggestion-panel").collapse('show');
+
+			} else {
+				$('#suggestions').html('');
+				$("#suggestion-panel").collapse('hide');
+			}
 		} else {
 			$('#suggestions').html('');
 			//suggElement.innerHTML = '';
