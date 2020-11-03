@@ -23,6 +23,53 @@ var frameworkObjArray = new Array ();
 
 let termsObj = new CurrentTermsObject();
 
+function CurrentTermsObject() {
+	const debug = false;
+	this.currentTermsMap = new Map(),
+	this.currentTermsString = "",
+	this.match = 'any',
+	this.getCurrentTermsHtml = function() {
+		var termsHtml = "";
+		for( let str of this.currentTermsMap.values() ) {
+			//if(debug) console.log('in getcurrenttermshtml in obj add to string: ' + str);
+			termsHtml += str;
+		}
+		return termsHtml;
+	},
+	this.getCurrentTerms = function() {
+		var terms = "";
+		for( let str of this.currentTermsMap.keys() ) {
+			if(terms == "") {
+				terms = str;
+			} else {
+				terms += ',' + str;
+			}
+		}
+		return terms;
+	},
+	this.addTerm = function(t) {
+		if(debug) console.log('adding |' + t + '|');
+		this.currentTermsString = "<a class='activekeywords plain' href='javascript:void(0)' onclick='javascript:removeActiveSearchterm(this);'> <span class='glyphicon glyphicon-remove-circle'></span>" + "&nbsp;" + decodeURI(t).replace(/\+/g, ' ') + "</a>"
+		this.currentTermsMap.set(t, this.currentTermsString);
+		//if(debug) console.log('map size: ' + this.currentTermsMap.size);
+		for(let m of this.currentTermsMap.keys()) {
+			//if(debug) console.log('map key: ' + m + ', map value: ' + this.currentTermsMap.get(m));
+		}
+	},
+	this.removeTerm = function(t) {
+		const debug = false;
+		if(debug) console.log('removing |' + t + '|');
+		this.currentTermsMap.delete(t.replace(/\s/g, '+'));
+		if(debug) console.log('map size: ' + this.currentTermsMap.size);
+		for(let m of this.currentTermsMap.keys()) {
+			if(debug) console.log('map key: ' + m + ', map value: ' + this.currentTermsMap.get(m));
+		}
+	},
+	this.size = function(t) {
+		return this.currentTermsMap.size;
+	}
+}
+
 function redirectReplaceItemsPanels(event) {
 	//console.log('calling replaceFilteredItemsPanels with framework: ' + event.data.framework + ', wasSelected: ' + event.data.wasSelected)
 	replaceItemsPanels(event.data.framework, event.data.wasSelected);
@@ -35,7 +82,7 @@ function replaceItemsPanels(framework, wasSelected) {
 	if(debug) console.log('in replaceItemsPanels with ' + framework + ' and ' + adjustedFramework + ', wasSelected: ' + wasSelected );
 	if(termsObj.size() > 0) {
 		if(debug) console.log('in replaceitemspanels, termsObj size should be >0 and is ' + termsObj.size() );
-		url = "/api/agileframeworks/search?framework=" + adjustedFramework + "&searchwords=" + termsObj.getCurrentTerms();
+		url = "/api/agileframeworks/search?framework=" + adjustedFramework + "&searchwords=" + termsObj.getCurrentTerms() + '&match=' + termsObj.match;
 	} else {
 		if(debug) console.log('in replaceitemspanels, termsObj size should be 0 and is ' + termsObj.size() );
 		url = "/api/agileframeworks/" + adjustedFramework;
@@ -236,52 +283,6 @@ function setSelected(selectedFramework) {
 	});
 }
 
-function CurrentTermsObject() {
-	const debug = false;
-	this.currentTermsMap = new Map(),
-	this.currentTermsString = "",
-	this.getCurrentTermsHtml = function() {
-		var termsHtml = "";
-		for( let str of this.currentTermsMap.values() ) {
-			//if(debug) console.log('in getcurrenttermshtml in obj add to string: ' + str);
-			termsHtml += str;
-		}
-		return termsHtml;
-	},
-	this.getCurrentTerms = function() {
-		var terms = "";
-		for( let str of this.currentTermsMap.keys() ) {
-			if(terms == "") {
-				terms = str;
-			} else {
-				terms += ',' + str;
-			}
-		}
-		return terms;
-	},
-	this.addTerm = function(t) {
-		if(debug) console.log('adding |' + t + '|');
-		this.currentTermsString = "<a class='activekeywords plain' href='javascript:void(0)' onclick='javascript:removeActiveSearchterm(this);'> <span class='glyphicon glyphicon-remove-circle'></span>" + "&nbsp;" + decodeURI(t).replace(/\+/g, ' ') + "</a>"
-		this.currentTermsMap.set(t, this.currentTermsString);
-		//if(debug) console.log('map size: ' + this.currentTermsMap.size);
-		for(let m of this.currentTermsMap.keys()) {
-			//if(debug) console.log('map key: ' + m + ', map value: ' + this.currentTermsMap.get(m));
-		}
-	},
-	this.removeTerm = function(t) {
-		const debug = false;
-		if(debug) console.log('removing |' + t + '|');
-		this.currentTermsMap.delete(t.replace(/\s/g, '+'));
-		if(debug) console.log('map size: ' + this.currentTermsMap.size);
-		for(let m of this.currentTermsMap.keys()) {
-			if(debug) console.log('map key: ' + m + ', map value: ' + this.currentTermsMap.get(m));
-		}
-	},
-	this.size = function(t) {
-		return this.currentTermsMap.size;
-	}
-}
-
 function populateCurrentSearchTermsDiv() {
 	/*
 	var curTermsArray = searchterms.split(',');
@@ -416,7 +417,6 @@ $(function() {
 						//}
 					} else {
 						$('#suggestions').html('');
-						//suggElement.innerHTML = '';
 						$("#suggestion-panel").collapse('hide');
 					}
 				//}
@@ -490,6 +490,7 @@ function inflateKeywordLookupMap() {
 }
 
 function Keywords() {
+	this.refresh = false;
 	this.keywordLookupMap = new Map();
 	this.addKeyword = function(k,v) {
 		this.keywordLookupMap.set(k,v);
@@ -521,19 +522,9 @@ function Keywords() {
 		this.keywordLookupMap.forEach( compareValues );
 		return result;
 	}
-	
-	/*
-		keywords.forEach( element => {
-			//take searchtext and then compare with the searchtext.length number of chars at the start of each
-			var elstring = element.keyword + '';
-			var str = elstring.substring(0, searchtext.length);
-			if(debug) { console.log( ++count + 'comparing ' + str + ' with ' + searchtext ) };
-			if( str.toUpperCase()===searchtext.toUpperCase() ) {
-				if(debug) { console.log( 'pushing compared ' + str + ' with ' + searchtext ) };
-				result.push(elstring); 
-			}
-		});
-	*/
+	this.refresh = function(bool) {
+		this.refresh = bool;
+	}
 }
 
 function Item(framework, type, ordinal) {
