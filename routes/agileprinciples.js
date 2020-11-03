@@ -97,18 +97,6 @@ router.get('/logout', function(req, res){
    res.redirect('/agileframeworks');
 });
 
-/* GET all agile principles */
-/*
-router.get('/', function(req, res) {
-    //console.log('in router get /' );
-    const frameworksArray = db.getFrameworksArray();
-    //db.getframeworks();
-    //db.isIDInRange(framework, 30);
-    //res.render('agpris2', { title: 'Agile principles', frameworks: frameworksArray });
-    res.redirect('/agileframeworks/all');
-});
-*/
-
 /* test db */
 router.get('/testdb', async function(req, res) {
     console.log('in test db router');
@@ -132,25 +120,6 @@ router.post('/keywordUpdate', checkSignIn, kwd.updateKeywords);
 router.get('/', function(req, res) {
 	res.render('agprisSelectedFrameworkBoot');
 });
-
-//no longer used -- pug is just an easy html renderer dynamic content comes from javascript
-/* GET one framework of agile principles */
-/*
-router.get('/allx', async function(req, res) {
-	const debug = false;
-    //console.log('in router get /:framework');
-    const framework = req.params.framework;
-    const frameworksArray = await db.getFrameworksArray();
-    //console.log('in router get /:framework with ' + framework );
-    //console.log('in router get /:framework with first frameworks principle ' + frameworksArray[0] );
-    const principlesArray = await db.getPrinciplesArray('', '');
-    if(debug) { console.log('test length of array: ' + principlesArray.length); }
-    const keywordItemFinderMap = await db.keywordItemFinderMap();
-    //console.log('in router: len is ' + keywordItemFinderMap.length);
-    //console.log('in :framework ' + principlesArray[1].text);
-    res.render('agprisSelectedFrameworkBoot', { title: 'Agile Principles', frameworks: frameworksArray, framework: framework, principlesArray: principlesArray, keywordItemFinderMap: keywordItemFinderMap });
-});
-*/
 
 /* GET one framework of agile principles */
 router.get('/:framework', async function(req, res) {
@@ -191,21 +160,6 @@ router.get('/:framework/:type/:id', function(req, res) {
         }
     } 
 });
-
-/* GET agile principles */
-/*
-router.get('/', function(req, res) {
-    const id = req.params[0];
-	 if(id) {
-         const principle = db.getPrincipleByID('manifesto', id);
-         res.render('agpris', { title: 'Agile Principles List',  id: id, principle: principle });
-	 } else {
-         const principles = db.getPrinciplesObj('manifesto');
-         console.log('short desc is ' + principles[1].shortdescription);
-         res.render('agpris', { principlesObject: principles });
-	}
-});
-*/
 
 router.get('/**', function(req, res) {
 	res.render('unknown', { title: "Unknown url", message: "You've reached a nonexistant page." });
