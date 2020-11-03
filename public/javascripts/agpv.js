@@ -410,7 +410,7 @@ $("form").on("submit", function (e) {
 	const debug = true;
 	if(debug) console.log('in form on submit')
 	var dataString = $(this).serialize();
-	var frameworkString = 'framework=' + getCurrentFramework();
+	var framework = getCurrentFramework();
 	var searchtext = dataString.substring(dataString.indexOf('=')+1, dataString.length);
 	if(debug) console.log('in form submit jquery with ' + dataString + ' and searchtext: ' + searchtext);
 	let searchWordsArray = keywords.getKeywordMatches(framework, searchtext);
@@ -419,6 +419,7 @@ $("form").on("submit", function (e) {
 	} else {
 		alert('Select one of the suggestions from the list')
 	}
+	e.preventDefault();
 	/*
 	$.ajax({
 		type: "GET",
@@ -436,7 +437,6 @@ $("form").on("submit", function (e) {
 		}
 	});
 	*/
-	e.preventDefault();
 });
 
 $('#matchtype').on('click', function(e) {
