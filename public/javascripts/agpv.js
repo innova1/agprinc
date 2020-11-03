@@ -419,8 +419,8 @@ $(function() {
 						//suggElement.innerHTML = '';
 						$("#suggestion-panel").collapse('hide');
 					}
-				}
-			});
+				//}
+			//});
 			
 		} else {
 			$('#suggestions').html('');
