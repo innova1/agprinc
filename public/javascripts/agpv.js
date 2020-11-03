@@ -460,6 +460,11 @@ $("form").on("submit", function (e) {
 	e.preventDefault();
 });
 
+$('#matchtype').on('click', function(e) {
+	console.log('clicked it')
+	
+}
+
 function getSuggestionPanelHTML(searchWordsArray) {
 	var debug = false;
 	var resultList = '<ul class="suggestions">';
