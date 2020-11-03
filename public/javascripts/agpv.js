@@ -153,7 +153,7 @@ function populateItemsPanels( objs ) {
 }
 
 function replaceFilteredItemsPanels(framework) {
-	const debug = true;
+	const debug = false;
 	if(debug) console.log('will ajax for items with /api/agileframeworks/search?searchwords=' + termsObj.getCurrentTerms())
 	
 	$.ajax({
@@ -461,7 +461,8 @@ $("form").on("submit", function (e) {
 });
 
 $('#matchtype').on('click', function(e) {
-	console.log('clicked it');
+	const debug = false;
+	if(debug) console.log('clicked it');
 	termsObj.match = (termsObj.match=='all'?'any':'all');
 	const framework = getCurrentFramework();
 	replaceFilteredItemsPanels(framework);
