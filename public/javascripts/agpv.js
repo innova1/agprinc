@@ -461,8 +461,9 @@ $("form").on("submit", function (e) {
 });
 
 $('#matchtype').on('click', function(e) {
-	console.log('clicked it')
-	
+	console.log('clicked it');
+	const framework = getCurrentFramework();
+	replaceFilteredItemsPanels(framework);
 });
 
 function getSuggestionPanelHTML(searchWordsArray) {
