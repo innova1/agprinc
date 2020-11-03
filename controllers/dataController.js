@@ -369,7 +369,7 @@ function mapItemFindersToKeywords( itemsArray, keywordItemFinderMap ) {
 			if(debug) { console.log('skipping ' + item.id ); }
 		}
 	}
-	console.log('map is ' + keywordItemFinderMap.size)
+	if(debug) console.log('map is ' + keywordItemFinderMap.size)
 	return keywordItemFinderMap;
 }
 

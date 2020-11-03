@@ -51,7 +51,7 @@ exports.getKeywordsMap = async function(req, res) {
 			keywordsArray.push( value )
 		}
 		kmap.forEach(pushToArray)
-		console.log("keywordsarray length: " + keywordsArray.length)
+		//console.log("keywordsarray length: " + keywordsArray.length)
 	} catch(err) {
 		console.log(err)
 	}
