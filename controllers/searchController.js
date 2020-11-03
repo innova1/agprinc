@@ -70,30 +70,18 @@ async function getItemsFilterByKeywords(req, res) {
 		const dbParams = await db.setupDB();
 		if(match=='all') {
 			if(framework=='' || framework=='all') {
-				queryObject = { 
-					keywords: { $all: searchWordsArray } 
-				};
+				queryObject = { keywords: { $all: searchWordsArray } };
 			} else {
-				queryObject = { 
-					framework: framework,
-					keywords: { $all: searchWordsArray } 
-				};
+				queryObject = { framework: framework, keywords: { $all: searchWordsArray } };
 			}
 		} else {
 			if(framework=='' || framework=='all') {
-				queryObject = { 
-					keywords: { $in: searchWordsArray } 
-				};
+				queryObject = { keywords: { $in:  searchWordsArray } };
 			} else {
-				queryObject = { 
-					framework: framework,
-					keywords: { $in: searchWordsArray } 
-				};
+				queryObject = { framework: framework, keywords: { $in:  searchWordsArray } };
 			}
 		}
-		itemsArray = await dbParams.collection.find(
-			queryObject
-		).sort(sort).collation({locale: "en_US", numericOrdering: true}).toArray();
+		itemsArray = await dbParams.collection.find( queryObject ).sort(sort).collation({locale: "en_US", numericOrdering: true}).toArray();
 		dbParams.client.close();
 		if(debug) console.log('found: ' + itemsArray.length + ' records.')
 	} catch(err) {
@@ -101,7 +89,6 @@ async function getItemsFilterByKeywords(req, res) {
 	}
 	db.fixFrameworkDisplayField(itemsArray);
 	res.json({ items: itemsArray });
-	
 }
 
 /*
