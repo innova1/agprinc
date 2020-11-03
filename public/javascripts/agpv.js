@@ -384,7 +384,6 @@ $(function() {
 		value = $(this).val();
 
 		if (value.length >= minlength ) {
-			//console.log(keywords.getKeywordMatches(framework, value))
 			
 			var framework = getCurrentFramework();
 			let searchWordsArray = keywords.getKeywordMatches(framework, value);
@@ -402,7 +401,6 @@ $(function() {
 			}
 		} else {
 			$('#suggestions').html('');
-			//suggElement.innerHTML = '';
 			$("#suggestion-panel").collapse('hide');
 		}
 	});
@@ -415,6 +413,13 @@ $("form").on("submit", function (e) {
 	var frameworkString = 'framework=' + getCurrentFramework();
 	var searchtext = dataString.substring(dataString.indexOf('=')+1, dataString.length);
 	if(debug) console.log('in form submit jquery with ' + dataString + ' and searchtext: ' + searchtext);
+	let searchWordsArray = keywords.getKeywordMatches(framework, searchtext);
+	if( searchWordsArray.length > 0 ) {
+		addActiveSearchterm(searchtext.replace(/\+/g, '+'));
+	} else {
+		alert('Select one of the suggestions from the list')
+	}
+	/*
 	$.ajax({
 		type: "GET",
 		url: "/api/agileframeworks/suggestions?" + frameworkString + '&' + dataString,
@@ -430,6 +435,7 @@ $("form").on("submit", function (e) {
 			}
 		}
 	});
+	*/
 	e.preventDefault();
 });
 
