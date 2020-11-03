@@ -341,7 +341,11 @@ function addActiveSearchterm(term) {
 	if(debug) console.log('will add ' + term);
 	var framework = getCurrentFramework();
 	termsObj.addTerm(term);
-	//termsObj.match = 'all';
+	if($('#matchtype').is(':checked')) {
+		termsObj.match = 'all';
+	} else {
+		termsObj.match = 'any';
+	}
 	populateCurrentSearchTermsDiv(termsObj.getCurrentTerms());
 	replaceFilteredItemsPanels(framework);
 }
