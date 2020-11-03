@@ -7,13 +7,7 @@ const kwd = require('../controllers/keywordController');
 /* Manage search functionality */
 router.get('/suggestions', srch.getSearchWords);
 
-//router.get('/searchtest', srch.getItemsFilterByKeywordsTest)
-
 router.get('/search', srch.getItemsFilterByKeywords);
-
-/*
-router.get('/searchxxx', srch.getFilteredItems);
-*/
 
 router.get('/getkeywordsmap', async function(req, res) {
 	const arr = await kwd.getKeywordsMap();
@@ -33,20 +27,6 @@ router.get('/frameworks', async function(req, res) {
 
 /* return all agile principles as jason */
 router.get('/:framework', srch.getItems);
-
-/*
-possible new model
-api/agileframeworks/:framework/[principles|values]/:number
-*/
-
-/* GET frameworks of agile principles json */
-/* not using
-router.get('/frameworks/', function(req, res) {
-    const frameworksArray = db.getframeworksArray();
-    res.json({ "available frameworks": frameworksArray });
-});
-*/
-
 
 /* GET one framework of agile principles json */
 /*

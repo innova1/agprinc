@@ -7,7 +7,6 @@ exports.displayKeywordList = async function(req, res) {
 	res.render('viewEntriesKeywords', { title: 'Keywords List', principlesArray: principlesArray });
 }
 
-
 exports.editKeyword = async function(req, res) {
     try {
         const debug = false;
