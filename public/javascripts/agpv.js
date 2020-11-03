@@ -462,7 +462,7 @@ $("form").on("submit", function (e) {
 
 $('#matchtype').on('click', function(e) {
 	console.log('clicked it');
-	termsObj.match = (termsObj.match=='and'?'any':'and');
+	termsObj.match = (termsObj.match=='all'?'any':'all');
 	const framework = getCurrentFramework();
 	replaceFilteredItemsPanels(framework);
 });
