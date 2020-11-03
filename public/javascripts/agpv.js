@@ -341,7 +341,7 @@ function addActiveSearchterm(term) {
 	if(debug) console.log('will add ' + term);
 	var framework = getCurrentFramework();
 	termsObj.addTerm(term);
-	termsObj.match = 'all';
+	//termsObj.match = 'all';
 	populateCurrentSearchTermsDiv(termsObj.getCurrentTerms());
 	replaceFilteredItemsPanels(framework);
 }
