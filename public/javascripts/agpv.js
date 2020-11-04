@@ -412,7 +412,7 @@ $('#matchtype').on('click', function(e) {
   if(termsObj.size()>0) {
 	replaceFilteredItemsPanels(framework);
   } else {
-    replaceItemsPanels(framework, false);
+    replaceItemsPanels(framework, (framework==='all'||framework===''?false:true));
   }
 });
 
