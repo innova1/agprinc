@@ -349,11 +349,11 @@ function removeActiveSearchterm(element) {
 	populateCurrentSearchTermsDiv(termsObj.getCurrentTerms());
 	if(debug) console.log("termsObj size: " + termsObj.size())
 	var framework = getCurrentFramework();
-	if(termsObj.size()==0) {
-		replaceItemsPanels('all');
-	} else {
-		replaceFilteredItemsPanels(framework);
-	}
+  if(termsObj.size()>0) {
+	replaceFilteredItemsPanels(framework);
+  } else {
+    replaceItemsPanels(framework, (framework==='all'||framework===''?false:true));
+  }
 }
 
 $(function() {
