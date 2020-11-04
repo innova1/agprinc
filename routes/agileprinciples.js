@@ -55,7 +55,7 @@ function checkSignIn(req, res, next){
   if (req.session.user){
     next();// If session exists, proceed to page
   } else {
-    var err = new Error("Not logged in!");
+    var err = new Error('Not logged in!');
     console.log(req.session.user);
     // next(err);  // Error, trying to access unauthorized page!
     // res.render('signup', { message: "Sign up for access."}); // temp fail
@@ -64,19 +64,19 @@ function checkSignIn(req, res, next){
   }
 }
 
-router.get('/login', function(req, res){
-   res.render('login', { message: "Log in for access."});
+router.get('/login', function(req, res) {
+   res.render('login', { message: 'Log in for access.'});
 });
 
 router.post('/login', function(req, res){
-  console.log("users: " + Users);
+  console.log('users: ' + Users);
   if ( !req.body.id || !req.body.password ) {
     res.render('login', { message: "Please enter both id and password" });
   } else {
-    console.log('id:'+req.body.id+', pwd:'+req.body.password)
+    console.log('id:'+req.body.id+', pwd:'+req.body.password);
     // added temporarily to let just me login hard coded
     if (req.body.id === 'tboulet' && req.body.password === 'app44word') {
-      console.log('match')
+      console.log('match');
       req.session.user = '{id: "tboulet", password: "app44word" }';
       res.redirect( '/agileframeworks/keywords' );
     } else {
