@@ -146,11 +146,11 @@ function populateItemsPanels( objs ) {
 
 function replaceFilteredItemsPanels(framework) {
 	const debug = false;
-	if(debug) console.log('will ajax for items with /api/agileframeworks/search?searchwords=' + termsObj.getCurrentTerms() + '&match=' + termsObj.match)
+	if(debug) console.log('will ajax for items with /api/agileframeworks/search?framework=" + framework + (termsObj.getCurrentTerms()===''?'':'&searchwords=' + termsObj.getCurrentTerms() + '&match=' + termsObj.match);
 	
 	$.ajax({
 		type: "GET",
-		url: url = "/api/agileframeworks/search?framework=" + framework + "&searchwords=" + termsObj.getCurrentTerms() + '&match=' + termsObj.match,
+		url: url = "/api/agileframeworks/search?framework=" + framework + (termsObj.getCurrentTerms()===''?'':'&searchwords=' + termsObj.getCurrentTerms() + '&match=' + termsObj.match),
 		dataType: "json",
 		success: function(result) {
 			if(debug) console.log("result size: " + result.items.length)
