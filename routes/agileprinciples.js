@@ -52,15 +52,16 @@ router.post('/signup', function(req, res){
 });
 
 function checkSignIn(req, res, next){
-   if (req.session.user){
-     next();     // If session exists, proceed to page 
-   } else {
+  if (req.session.user){
+    next();// If session exists, proceed to page
+  } else {
     var err = new Error("Not logged in!");
     console.log(req.session.user);
-    // next(err);  // Error, trying to access unauthorized page! 
-    // res.render('signup', { message: "Sign up for access."}); // temporary fail
-     res.render('unknown', { title: "Unknown url", message: "You've reached a nonexistant page." });
-   }
+    // next(err);  // Error, trying to access unauthorized page!
+    // res.render('signup', { message: "Sign up for access."}); // temp fail
+    res.render('unknown', { title: 'Unknown url', 
+      message: 'You\'ve reached a nonexistant page.' });
+  }
 }
 
 router.get('/login', function(req, res){
