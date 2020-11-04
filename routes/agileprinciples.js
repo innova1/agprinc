@@ -1,15 +1,17 @@
+"use strict;"
+
 var express = require('express');
-var app = express();
+//var app = express();
 var router = express.Router();
 const db = require('../controllers/dataController');
 const kwd = require('../controllers/keywordController');
 var session = require('express-session');
 var cookieParser = require('cookie-parser');
-const tools = require('../controllers/tools');
+//const tools = require('../controllers/tools');
 
 router.use(cookieParser());
 router.use(session({
-	secret: "4$dcf#",
+	secret: '4$dcf#',
 	resave: true,
 	saveUninitialized: true
 }));
