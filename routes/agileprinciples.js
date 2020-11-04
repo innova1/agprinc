@@ -13,7 +13,7 @@ router.use(cookieParser());
 router.use(session({
   secret: '4$dcf#',
   resave: true,
-  saveUninitialized: true
+  saveUninitialized: true,
 }));
 
 var Users = [];
@@ -28,18 +28,19 @@ router.post('/signup', function(req, res) {
 });
 
 router.get('/signup', function(req, res){
-   res.render('signup', { message: "Sign up for access."});
+  res.render('signup', { message: 'Sign up for access.'});
 });
 
 router.post('/signup', function(req, res){
-  console.log('in signup')
-  if(!req.body.id || !req.body.password) {
-    res.status("400");
-    res.send("Invalid details!");
+  console.log('in signup');
+  if (!req.body.id || !req.body.password) {
+    res.status('400');
+    res.send('Invalid details!');
   } else {
     Users.filter( function(user) {
-  if(user.id === req.body.id) {
-        res.render('signup', { message: "User Already Exists! Login or choose another user id" });
+  if (user.id === req.body.id) {
+        res.render('signup', 
+                   { message: 'User Already Exists! Login or choose another user id' });
       }
   });
   var newUser = {id: req.body.id, password: req.body.password};
@@ -51,7 +52,7 @@ router.post('/signup', function(req, res){
 });
 
 function checkSignIn(req, res, next){
-   if(req.session.user){
+   if (req.session.user){
      next();     // If session exists, proceed to page 
    } else {
     var err = new Error("Not logged in!");
@@ -68,19 +69,19 @@ router.get('/login', function(req, res){
 
 router.post('/login', function(req, res){
   console.log("users: " + Users);
-  if( !req.body.id || !req.body.password ) {
+  if ( !req.body.id || !req.body.password ) {
     res.render('login', { message: "Please enter both id and password" });
   } else {
     console.log('id:'+req.body.id+', pwd:'+req.body.password)
     // added temporarily to let just me login hard coded
-    if(req.body.id === 'tboulet' && req.body.password === 'app44word') {
+    if (req.body.id === 'tboulet' && req.body.password === 'app44word') {
       console.log('match')
       req.session.user = '{id: "tboulet", password: "app44word" }';
       res.redirect( '/agileframeworks/keywords' );
     } else {
     /* commented out temporarily ***
     Users.filter( function(user) {
-      if(user.id === req.body.id && user.password === req.body.password) {
+      if (user.id === req.body.id && user.password === req.body.password) {
         console.log('match')
         req.session.user = user;
         res.redirect( '/agileframeworks/keywords' );
@@ -153,8 +154,8 @@ router.get('/:framework/:type/:id', function(req, res) {
     const type = req.params.type;
     const id = req.params.id;
     
-    if( !isNaN(id) ) {
-        if(db.isIDInRange(framework, type, id)) {
+    if ( !isNaN(id) ) {
+        if (db.isIDInRange(framework, type, id)) {
             const principleObj = db.getPrincipleByID(framework, type, id);
             res.json({id: id, principle: principleObj.text });
         } else {
