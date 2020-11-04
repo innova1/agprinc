@@ -78,7 +78,7 @@ router.post('/login', function(req, res){
     if (req.body.id === 'tboulet' && req.body.password === 'app44word') {
       console.log('match');
       req.session.user = { id: 'tboulet', password: 'app44word' };
-      res.redirect( '/agileframeworks/keywords' );
+      res.redirect('/agileframeworks/keywords');
     } else {
     /* commented out temporarily ***
     Users.filter( function(user) {
@@ -89,7 +89,7 @@ router.post('/login', function(req, res){
       }
     });
     */
-      res.render('login', { message: "Invalid credentials!"} );
+      res.render('login', { message: 'Invalid credentials!' } );
     }
   }
 });
