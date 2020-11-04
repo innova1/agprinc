@@ -89,14 +89,14 @@ router.post('/login', function(req, res){
       }
     });
     */
-      res.render('login', { message: 'Invalid credentials!' } );
+      res.render('login', { message: 'Invalid credentials!'});
     }
   }
 });
 
 router.get('/logout', function(req, res){
   req.session.destroy(function(){
-    console.log("user logged out.");
+    console.log('user logged out.');
   });
   res.redirect('/agileframeworks');
 });
@@ -133,7 +133,7 @@ router.get('/:framework', async function(req, res) {
   // console.log('in router get /:framework with ' + framework );
   // console.log('in router get /:framework with first frameworks principle ' + frameworksArray[0] );
   const principlesArray = await db.getPrinciplesArray(framework, '');
-  const keywordItemFinderMap = await db.keywordItemFinderMap(); 
+  const keywordItemFinderMap = await db.keywordItemFinderMap();
   // console.log('in router: len is ' + keywordItemFinderMap.length);
   // console.log('in :framework ' + principlesArray[1].text);
   res.render('agprisSelectedFrameworkBoot', { title: 'Agile Principles', frameworks: frameworksArray, framework: framework, principlesArray: principlesArray, keywordItemFinderMap: keywordItemFinderMap });
@@ -145,7 +145,7 @@ router.get('/:framework/:type', async function(req, res) {
   const frameworksArray = await db.getFrameworksArray();
   // console.log('in router get /:framework with ' + framework + ", " + type );
   const principlesArray = await db.getPrinciplesArray(framework, type);
-  const keywordItemFinderMap = await db.keywordItemFinderMap(); 
+  const keywordItemFinderMap = await db.keywordItemFinderMap();
   res.render('agprisSelectedFramework', { title: 'Agile Principles', frameworks: frameworksArray, framework: framework, type: type, principlesArray: principlesArray, keywordItemFinderMap: keywordItemFinderMap });
 });
 
@@ -155,18 +155,18 @@ router.get('/:framework/:type/:id', function(req, res) {
   const type = req.params.type;
   const id = req.params.id;
 
-  if ( !isNaN(id) ) {
+  if (!isNaN(id)) {
     if (db.isIDInRange(framework, type, id)) {
       const principleObj = db.getPrincipleByID(framework, type, id);
       res.json({id: id, principle: principleObj.text });
     } else {
-      res.render('agpris', {id: id, principle: "error: id out of range"});
+      res.render('agpris', {id: id, principle: 'error: id out of range'});
     }
-  } 
+  }
 });
 
 router.get('/**', function(req, res) {
-  res.render('unknown', { title: "Unknown url", message: "You've reached a nonexistant page." });
+  res.render('unknown', { title: 'Unknown url', message: "You've reached a nonexistant page." });
 });
 
 module.exports = router;
