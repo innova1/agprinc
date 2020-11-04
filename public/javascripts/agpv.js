@@ -1,9 +1,7 @@
-//$.getScript('../controllers/searchController.js');
-
 let keywords = new Keywords();
 
 $(document).ready(setup);
-//setup();
+
 function setup() {
 	//console.log('calling replaceFrameworksPanel from setup()')
 	replaceFrameworksPanel('all');
@@ -11,14 +9,8 @@ function setup() {
 	inflateKeywordLookupMap();
 }
 
-/*
-var item = new Item('testf', 'testt', 'testi')
-console.log('test Item: ' + item.toString())
-*/
-
 var isSmallViewport = window.matchMedia("(max-width: 1000px)");
 var searchRequest = null;
-//var suggElement = document.getElementById('suggestions');
 var frameworkObjArray = new Array ();
 
 let termsObj = new CurrentTermsObject();
@@ -364,17 +356,6 @@ function removeActiveSearchterm(element) {
 	}
 }
 
-/*
-$(function() {
-	var minlength = 3;
-	const debug = false;
-
-	$("#searchtext").keyup(function() {
-		
-	});
-});
-*/
-
 $(function() {
 	const debug = false;
 	var minlength = 3;
@@ -407,7 +388,7 @@ $(function() {
 });
 
 $("form").on("submit", function (e) {
-	const debug = true;
+	const debug = false;
 	if(debug) console.log('in form on submit')
 	var dataString = $(this).serialize();
 	var framework = getCurrentFramework();
@@ -517,114 +498,3 @@ function Items() {
 		this.itemMap.set(item.toString(), item);
 	}
 }
-
-/*
-          - var terms = ""
-          if searchtermsArray
-            each term in searchtermsArray
-              a.activekeywords.plain(href="javascript:void(0)" onclick="javascript:removeActiveSearchterm('" + term + "')") <span class="glyphicon glyphicon-remove-circle"></span>
-                | &nbsp;#{term}
-              - terms = terms + ',' + term;
-            div#currentSearchterms #{terms.substring(1,terms.length)}
-*/
-
-/*
-
-          div.panel.panel-default
-            div.panel-heading
-              a.plain(href='#sidepanel' data-toggle='collapse')
-                h3.panel-title Frameworks
-                  //a(href='/agileframeworks/all' data-toggle='collapse') Frameworks
-            div.panel-collapse.collapse.show#sidepanel
-              ul.list-group
-                each f in frameworks
-                  li.list-group-item 
-                    a.menu(href='/agileframeworks/' + f.framework ) <span id=#{f.framework}>#{f.frameworkdisplay}</span>
-*/
-			
-/*
-var selF = document.getElementById('selectedFramework').innerHTML;
-setSelected(selF);
-*/
-
-/*
-function populateItemsPanelsOld( objs ) {
-	$(function() {
-		if(true) {
-			populateItemsPanels2( objs );
-		} else {
-			const debug = false;
-			var itemTitle = "";
-			var obj = new Object();
-			var itemsHtml = "";
-			var itemHtml = "";
-			//if(debug) console.log('in populateItemsPanels with obj size: ' + objs.length)
-			try {
-				if(objs.length==0) {
-					itemHtml = "<div class='panel panel-primary'>";
-					itemTitle = "<h3 class='panel-title'>No items match in this framework.</h3>"
-					itemHtml += "<div class='panel-heading'>" + itemTitle + "</div>";
-					itemHtml += "<div class='panel-body'></div>";
-					itemHtml += "</div>";
-					itemsHtml += itemHtml;
-				} else {
-					objs.forEach( obj => {
-						itemHtml = "<div class='panel panel-primary " + obj.type + "'>";
-						itemTitle = "<h3 class='panel-title'>" + obj.frameworkdisplay + " " + obj.type + " " + obj.id + "</h3>"
-						itemHtml += "<div class='panel-heading'>" + itemTitle + "</div>";
-						itemHtml += "<div class='panel-body'>" + obj.text + "</div>";
-						itemHtml += "</div>";
-						itemsHtml += itemHtml;
-					});
-				}
-			} catch(err) {
-				console.log('error in populateItemsPanels with ' + err);
-			}
-
-			//document.getElementById('itemsPanels').innerHTML = itemsHtml;
-			$('#itemsPanels').html(itemsHtml);
-		}
-	});
-}
-*/
-
-/*
-function populateFrameworksPanelOld( objs ) {
-	if(true) {
-		populateFrameworksPanel2( objs );
-	} else {
-		$(function() {
-			const debug = false;
-			var framework = "";
-			var obj = new Object();
-			var itemsHtml = "";
-			var jscriptString = "";
-			frameworkObjArray = objs;
-			if(debug) console.log('setting up frameworks panel html')
-
-			itemsHtml  = "<div class='panel panel-primary'>";
-			itemsHtml += "<div class='panel-heading'>";
-			itemsHtml += "<a id='sidepanelheader' href='#sidepanel' data-toggle='collapse'><h3 class='panel-title'><div id='fmenu-panel-title-div'>Frameworks</div><div id='displaySelectedFramework'></div></h3></a>";
-			itemsHtml += "</div>"; //close div panel heading
-			itemsHtml += "<div class='panel-collapse collapse' id='sidepanel'>"
-			itemsHtml += "<ul class='list-group'>";
-			objs.forEach( obj => {
-				itemsHtml += "<li class='list-group-item'>";
-				//jscriptString = "onclick=\'javascript:replaceItemsPanels(\"" + obj.framework + "\")\'";
-				itemsHtml += "<a class=\'menu\' href=\'javascript:void(0)\' " + jscriptString + "> <span id=\'" + obj.framework + "\'>" + obj.frameworkdisplay + "</span>";
-				itemsHtml += "</li>";
-			});
-			itemsHtml += "</ul>";
-			itemsHtml += "</div>"; //close div panel-collapse
-			itemsHtml += "</div>"; //close div panel-default
-
-			//if(debug) console.log('setsidepanel');
-			//if(debug) console.log('about to populate frameworksMenuPanel with ' + itemsHtml);
-			//document.getElementById('frameworksMenuPanel').innerHTML = itemsHtml;
-			$('#frameworksMenuPanel').html(itemsHtml);
-			frameworkObjArray.push({framework:'all', frameworkdisplay:'All'})
-		});
-	}
-}
-*/
-
