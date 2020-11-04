@@ -343,17 +343,18 @@ function addActiveSearchterm(term) {
 }
 
 function removeActiveSearchterm(element) {
-	const debug = true;
-	if(debug) console.log('will remove ' + element.text.trim());
-	termsObj.removeTerm(element.text.trim().replace(/\s/g, '+'));
-	populateCurrentSearchTermsDiv(termsObj.getCurrentTerms());
-	if(debug) console.log("termsObj size: " + termsObj.size())
-	var framework = getCurrentFramework();
+  const debug = true;
+  if(debug) console.log('will remove ' + element.text.trim());
+  termsObj.removeTerm(element.text.trim().replace(/\s/g, '+'));
+
+  populateCurrentSearchTermsDiv(termsObj.getCurrentTerms());
+  if(debug) console.log("termsObj size: " + termsObj.size())
+  var framework = getCurrentFramework();
   if(termsObj.size()>0) {
-	if(debug) console.log('calling repl filt with ' + framework);
-	replaceFilteredItemsPanels(framework);
+    if(debug) console.log('in remove calling repl filt with ' + framework);
+    replaceFilteredItemsPanels(framework);
   } else {
-	if(debug) console.log('calling repl items with ' + framework + ', ' + (framework==='all'||framework===''?false:true));
+    if(debug) console.log('in remove calling repl items with ' + framework + ', ' + (framework==='all'||framework===''?false:true));
     replaceItemsPanels(framework, (framework==='all'||framework===''?false:true));
   }
 }
@@ -406,14 +407,15 @@ $("form").on("submit", function (e) {
 });
 
 $('#matchtype').on('click', function(e) {
-	const debug = true;
-	if(debug) console.log('clicked it');
-	termsObj.match = (termsObj.match=='all'?'any':'all');
-	const framework = getCurrentFramework();
-  if(debug) console.log('calling replace fil items penal with ' + termsObj.match + '|' + framework);
+  const debug = true;
+  if(debug) console.log('clicked it');
+  termsObj.match = (termsObj.match=='all'?'any':'all');
+  const framework = getCurrentFramework();
   if(termsObj.size()>0) {
-	replaceFilteredItemsPanels(framework);
+    if(debug) console.log('in match type calling replace fil items penal with ' + framework);
+    replaceFilteredItemsPanels(framework);
   } else {
+    if(debug) console.log('in match type calling repl items with ' + framework + ', ' + (framework==='all'||framework===''?false:true));
     replaceItemsPanels(framework, (framework==='all'||framework===''?false:true));
   }
 });
