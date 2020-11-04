@@ -63,21 +63,24 @@ function CurrentTermsObject() {
 }
 
 function redirectReplaceItemsPanels(event) {
-	//console.log('calling replaceFilteredItemsPanels with framework: ' + event.data.framework + ', wasSelected: ' + event.data.wasSelected)
-	replaceItemsPanels(event.data.framework, event.data.wasSelected);
+  //console.log('calling replaceFilteredItemsPanels with framework: ' + event.data.framework + ', wasSelected: ' + event.data.wasSelected)
+  const wasSelected = event.data.wasSelected;
+  const framework = event.data.framework;
+  var adjustedFramework = (wasSelected?'all':framework);
+  setSelected(adjustedFramework);
+  replaceItemsPanels(adjustedFramework);
 }
 
-function replaceItemsPanels(framework, wasSelected) {
+function replaceItemsPanels(framework) {
 	const debug = false;
 	let url;
-	var adjustedFramework = (wasSelected?'all':framework);
-	if(debug) console.log('in replaceItemsPanels with ' + framework + ' and ' + adjustedFramework + ', wasSelected: ' + wasSelected );
+	if(debug) console.log('in replaceItemsPanels with ' + framework);
 	if(termsObj.size() > 0) {
 		if(debug) console.log('in replaceitemspanels, termsObj size should be >0 and is ' + termsObj.size() );
-		url = "/api/agileframeworks/search?framework=" + adjustedFramework + "&searchwords=" + termsObj.getCurrentTerms() + '&match=' + termsObj.match;
+		url = "/api/agileframeworks/search?framework=" + framework + "&searchwords=" + termsObj.getCurrentTerms() + '&match=' + termsObj.match;
 	} else {
 		if(debug) console.log('in replaceitemspanels, termsObj size should be 0 and is ' + termsObj.size() );
-		url = "/api/agileframeworks/" + adjustedFramework;
+		url = "/api/agileframeworks/" + framework;
 	}
 	if(debug) console.log('url: ' + url);
 	$.ajax({
@@ -87,7 +90,6 @@ function replaceItemsPanels(framework, wasSelected) {
 		success: function(result) {
 			if(debug) console.log("result.items count: " + result.items.length)
 			populateItemsPanels(result.items);
-			setSelected(adjustedFramework);
 			setMenuCollapsed(isSmallViewport);
 		}
 	});
@@ -356,7 +358,7 @@ function removeActiveSearchterm(element) {
   } else {
     if(debug) console.log('in remove calling repl items with ' + framework + ', ' + false);
     // always false because this is not being called by clicking the frameworks menu item so should not deselect
-    replaceItemsPanels(framework, false);
+    replaceItemsPanels(framework);
   }
 }
 
@@ -418,7 +420,7 @@ $('#matchtype').on('click', function(e) {
   } else {
     if(debug) console.log('in match type calling repl items with ' + framework + ', ' + false);
     // always false because this is not being called by clicking the frameworks menu item so should not deselect
-    replaceItemsPanels(framework, false);
+    replaceItemsPanels(framework);
   }
 });
 
