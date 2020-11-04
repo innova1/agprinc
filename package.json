@@ -5,7 +5,7 @@
   "scripts": {
     "testag": "mocha",
     "xxxlint": "eslint '**/*.js?(x)'",
-    "lint": "eslint 'routes/agileprinciples.js'"
+    "lint": "eslint 'controllers/searchController.js'"
   },
   "dependencies": {
     "chai": "^4.2.0",
