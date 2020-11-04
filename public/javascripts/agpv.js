@@ -404,10 +404,11 @@ $("form").on("submit", function (e) {
 });
 
 $('#matchtype').on('click', function(e) {
-	const debug = false;
+	const debug = true;
 	if(debug) console.log('clicked it');
 	termsObj.match = (termsObj.match=='all'?'any':'all');
 	const framework = getCurrentFramework();
+  if(debug) console.log('calling replace fil items penal with ' + termsObj.match + '|' + framework);
 	replaceFilteredItemsPanels(framework);
 });
 
