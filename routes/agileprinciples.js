@@ -39,16 +39,16 @@ router.post('/signup', function(req, res){
   } else {
     Users.filter(function(user) {
       if (user.id === req.body.id) {
-        res.render('signup', 
-                   { message: 'User Already Exists! Login or choose another user id' });
+        res.render('signup',
+          { message: 'User Already Exists! Login or choose another user id' });
       }
-  });
-  var newUser = {id: req.body.id, password: req.body.password};
-  Users.push(newUser);
-  req.session.user = newUser;
-  // res.redirect('/agileframeworks') // temp to not all to keywords
-  res.redirect('/agileframeworks/keywords');
-   }
+    });
+    var newUser = {id: req.body.id, password: req.body.password};
+    Users.push(newUser);
+    req.session.user = newUser;
+    // res.redirect('/agileframeworks') // temp to not all to keywords
+    res.redirect('/agileframeworks/keywords');
+  }
 });
 
 function checkSignIn(req, res, next){
