@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "testag": "mocha",
-    "lint": "eslint '**/*.js?(x)'"
+    "xxxlint": "eslint '**/*.js?(x)'",
+    "lint": "eslint 'routes/agileprinciples.js'"
   },
   "dependencies": {
     "chai": "^4.2.0",
@@ -24,8 +25,9 @@
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^4.6.0",
     "@typescript-eslint/parser": "^4.6.0",
-    "eslint": "^7.12.0",
+    "eslint": "^7.12.1",
     "eslint-config-standard": "^15.0.0",
+    "eslint-config-strongloop": "^2.1.0",
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^4.2.1",
