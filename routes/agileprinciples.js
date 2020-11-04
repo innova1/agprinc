@@ -37,8 +37,8 @@ router.post('/signup', function(req, res){
     res.status('400');
     res.send('Invalid details!');
   } else {
-    Users.filter( function(user) {
-  if (user.id === req.body.id) {
+    Users.filter(function(user) {
+      if (user.id === req.body.id) {
         res.render('signup', 
                    { message: 'User Already Exists! Login or choose another user id' });
       }
