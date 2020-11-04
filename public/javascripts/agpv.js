@@ -146,7 +146,7 @@ function populateItemsPanels( objs ) {
 
 function replaceFilteredItemsPanels(framework) {
 	const debug = false;
-	if(debug) console.log('will ajax for items with /api/agileframeworks/search?framework=" + framework + (termsObj.getCurrentTerms()===''?'':'&searchwords=' + termsObj.getCurrentTerms() + '&match=' + termsObj.match);
+	if(debug) console.log('will ajax for items with /api/agileframeworks/search?framework=" + framework + (termsObj.getCurrentTerms()===''?'':'&searchwords=' + termsObj.getCurrentTerms() + '&match=' + termsObj.match));
 	
 	$.ajax({
 		type: "GET",
