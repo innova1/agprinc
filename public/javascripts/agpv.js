@@ -354,8 +354,9 @@ function removeActiveSearchterm(element) {
     if(debug) console.log('in remove calling repl filt with ' + framework);
     replaceFilteredItemsPanels(framework);
   } else {
-    if(debug) console.log('in remove calling repl items with ' + framework + ', ' + (framework==='all'||framework===''?false:true));
-    replaceItemsPanels(framework, (framework==='all'||framework===''?false:true));
+    if(debug) console.log('in remove calling repl items with ' + framework + ', ' + false);
+    // always false because this is not being called by clicking the frameworks menu item so should not deselect
+    replaceItemsPanels(framework, false);
   }
 }
 
@@ -415,8 +416,9 @@ $('#matchtype').on('click', function(e) {
     if(debug) console.log('in match type calling replace fil items penal with ' + framework);
     replaceFilteredItemsPanels(framework);
   } else {
-    if(debug) console.log('in match type calling repl items with ' + framework + ', ' + (framework==='all'||framework===''?false:true));
-    replaceItemsPanels(framework, (framework==='all'||framework===''?false:true));
+    if(debug) console.log('in match type calling repl items with ' + framework + ', ' + false);
+    // always false because this is not being called by clicking the frameworks menu item so should not deselect
+    replaceItemsPanels(framework, false);
   }
 });
 
