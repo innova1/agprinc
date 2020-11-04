@@ -73,11 +73,11 @@ router.post('/login', function(req, res){
   if ( !req.body.id || !req.body.password ) {
     res.render('login', { message: "Please enter both id and password" });
   } else {
-    console.log('id:'+req.body.id+', pwd:'+req.body.password);
+    console.log('id:' + req.body.id + ', pwd:' + req.body.password);
     // added temporarily to let just me login hard coded
     if (req.body.id === 'tboulet' && req.body.password === 'app44word') {
       console.log('match');
-      req.session.user = {id: 'tboulet', password: 'app44word' };
+      req.session.user = { id: 'tboulet', password: 'app44word' };
       res.redirect( '/agileframeworks/keywords' );
     } else {
     /* commented out temporarily ***
@@ -96,7 +96,7 @@ router.post('/login', function(req, res){
 
 router.get('/logout', function(req, res){
   req.session.destroy(function(){
-    console.log("user logged out.")
+    console.log("user logged out.");
   });
   res.redirect('/agileframeworks');
 });
