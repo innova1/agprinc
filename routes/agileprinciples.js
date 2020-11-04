@@ -59,19 +59,19 @@ function checkSignIn(req, res, next){
     console.log(req.session.user);
     // next(err);  // Error, trying to access unauthorized page!
     // res.render('signup', { message: "Sign up for access."}); // temp fail
-    res.render('unknown', { title: 'Unknown url', 
+    res.render('unknown', { title: 'Unknown url',
       message: 'You\'ve reached a nonexistant page.' });
   }
 }
 
 router.get('/login', function(req, res) {
-   res.render('login', { message: 'Log in for access.'});
+  res.render('login', { message: 'Log in for access.'});
 });
 
 router.post('/login', function(req, res){
   console.log('users: ' + Users);
-  if ( !req.body.id || !req.body.password ) {
-    res.render('login', { message: "Please enter both id and password" });
+  if (!req.body.id || !req.body.password) {
+    res.render('login', { message: 'Please enter both id and password' });
   } else {
     console.log('id:' + req.body.id + ', pwd:' + req.body.password);
     // added temporarily to let just me login hard coded
