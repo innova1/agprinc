@@ -343,15 +343,17 @@ function addActiveSearchterm(term) {
 }
 
 function removeActiveSearchterm(element) {
-	const debug = false;
+	const debug = true;
 	if(debug) console.log('will remove ' + element.text.trim());
 	termsObj.removeTerm(element.text.trim().replace(/\s/g, '+'));
 	populateCurrentSearchTermsDiv(termsObj.getCurrentTerms());
 	if(debug) console.log("termsObj size: " + termsObj.size())
 	var framework = getCurrentFramework();
   if(termsObj.size()>0) {
+	if(debug) console.log('calling repl filt with ' + framework);
 	replaceFilteredItemsPanels(framework);
   } else {
+	if(debug) console.log('calling repl items with ' + framework + ', ' + (framework==='all'||framework===''?false:true));
     replaceItemsPanels(framework, (framework==='all'||framework===''?false:true));
   }
 }
