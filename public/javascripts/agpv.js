@@ -19,7 +19,7 @@ function CurrentTermsObject() {
   const debug = false;
   this.currentTermsMap = new Map(),
   this.currentTermsString = "",
-  this.match = 'any',
+  this.match = 'ANY',
   this.getCurrentTermsHtml = function() {
     var termsHtml = "";
     for( let str of this.currentTermsMap.values() ) {
