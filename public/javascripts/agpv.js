@@ -7,7 +7,7 @@ function setup() {
   replaceFrameworksPanel('all');
   replaceItemsPanels('all');
   inflateKeywordLookupMap();
-  $('#matchtype').hide();
+  $('#matchtypediv').hide();
 }
 
 var isSmallViewport = window.matchMedia("(max-width: 1000px)");
@@ -287,7 +287,7 @@ function addActiveSearchterm(term) {
   var framework = getCurrentFramework();
   termsObj.addTerm(term);
   if(termsObj.size()>1) {
-    $('#matchtype').show();
+    $('#matchtypediv').show();
   }
   populateCurrentSearchTermsDiv(termsObj.getCurrentTerms());
   replaceFilteredItemsPanels(framework);
@@ -303,9 +303,9 @@ function removeActiveSearchterm(element) {
   var framework = getCurrentFramework();
   if(termsObj.size()>0) {
     if(termsObj.size()>1) {
-      $('#matchtype').show();
+      $('#matchtypediv').show();
     } else {
-      $('#matchtype').hide();
+      $('#matchtypediv').hide();
       termsObj.match = 'any';
       $('#matchtype').text(termsObj.match.toUpperCase());
     }
