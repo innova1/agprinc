@@ -286,11 +286,6 @@ function addActiveSearchterm(term) {
   if(debug) console.log('will add ' + term);
   var framework = getCurrentFramework();
   termsObj.addTerm(term);
-  if($('#matchtype').is(':checked')) {
-    termsObj.match = 'all';
-  } else {
-    termsObj.match = 'any';
-  }
   if(termsObj.size()>1) {
     $('#matchtype').show;
   } else {
@@ -309,11 +304,13 @@ function removeActiveSearchterm(element) {
   if(debug) console.log("termsObj size: " + termsObj.size())
   var framework = getCurrentFramework();
   if(termsObj.size()>0) {
-    if(debug) console.log('in remove calling repl filt with ' + framework);
+    if(termsObj.size()>1) {
+      $('#matchtype').show;
+    } else {
+      $('#matchtype').hide;
+    }
     replaceFilteredItemsPanels(framework);
   } else {
-    if(debug) console.log('in remove calling repl items with ' + framework + ', ' + false);
-    // always false because this is not being called by clicking the frameworks menu item so should not deselect
     replaceItemsPanels(framework);
   }
 }
