@@ -90,4 +90,6 @@ ul.suggestions {
 
 div#matchtype {
   display: inline;
+  font-family: monospace;
+  color: deepskyblue;
 }
