@@ -358,7 +358,7 @@ $('#matchtype').on('click', function(e) {
   const debug = false;
   if(debug) console.log('clicked it');
   termsObj.match = (termsObj.match.toLowerCase()=='all'?'any':'all');
-  $('#matchtype').text(termsObj.match.toUpperCase);
+  $('#matchtype').text(termsObj.match.toUpperCase());
   const framework = getCurrentFramework();
   if(termsObj.size()>0) {
     if(debug) console.log('in match type calling replace fil items penal with ' + framework);
