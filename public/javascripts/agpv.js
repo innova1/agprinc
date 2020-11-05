@@ -305,10 +305,9 @@ function removeActiveSearchterm(element) {
     if(termsObj.size()>1) {
       $('#matchtype').show();
     } else {
-      //$('#matchtype').hide();
+      $('#matchtype').hide();
       termsObj.match = 'any';
       $('#matchtype').text(termsObj.match.toUpperCase());
-      console.log('just set matchtype to ' + termsObj.match.toUpperCase());
     }
     replaceFilteredItemsPanels(framework);
   } else {
