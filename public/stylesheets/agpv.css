@@ -94,5 +94,6 @@ div#matchtype {
   font-variant: small-caps;
   font-size: 12px;
   color: blue;
-  border: black solid 1px;
+  border: blue solid 1px;
+  padding: 1px;
 }
