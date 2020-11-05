@@ -7,6 +7,7 @@ function setup() {
   replaceFrameworksPanel('all');
   replaceItemsPanels('all');
   inflateKeywordLookupMap();
+  $('#matchtype').hide;
 }
 
 var isSmallViewport = window.matchMedia("(max-width: 1000px)");
@@ -289,6 +290,11 @@ function addActiveSearchterm(term) {
     termsObj.match = 'all';
   } else {
     termsObj.match = 'any';
+  }
+  if(termsObj.size()>1) {
+    $('#matchtype').show;
+  } else {
+    $('#matchtype').hide;
   }
   populateCurrentSearchTermsDiv(termsObj.getCurrentTerms());
   replaceFilteredItemsPanels(framework);
