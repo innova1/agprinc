@@ -61,14 +61,14 @@ async function getItemsFilterByKeywords(req, res) {
     searchWordsArray = searchWords.split(',');
   }
   let framework = req.query.framework;
-  let match = req.query.match;
+  let match = req.query.match.toUpperCase;
   if (debug) console.log('f:' + framework + ', s:' + searchWords + ', m:' + match);
   var sort = { frameworkdisplay: 1, type: -1, id: 1 };
   let itemsArray = new Array();
   let queryObject = new Object();
   try {
     const dbParams = await db.setupDB();
-    if (match == 'all') {
+    if (match == 'ALL') {
       if (framework == '' || framework == 'all') {
         queryObject = { keywords: { $all: searchWordsArray } };
       } else {
