@@ -87,3 +87,7 @@ ul.suggestions {
 #currentsearchterms {
 	display: none; /*change this to block in test*/
 }
+
+div#matchtype {
+  display: inline;
+}
