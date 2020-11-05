@@ -358,7 +358,7 @@ $("form").on("submit", function (e) {
 });
 
 $('#matchtype').on('click', function(e) {
-  const debug = true;
+  const debug = false;
   termsObj.match = (termsObj.match.toLowerCase()=='all'?'any':'all');
   if(debug) console.log('clicked it with ' + termsObj.match.toUpperCase());
   $('#matchtype').text(termsObj.match.toUpperCase());
