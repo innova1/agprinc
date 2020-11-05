@@ -93,7 +93,8 @@ div#matchtype {
   font-family: monospace;
   font-variant: small-caps;
   font-size: 12px;
-  color: blue;
-  border: blue solid 1px;
-  padding: 1px;
+  color: white;
+  background-color: #337ab7
+  border: #337ab7 solid 1px;
+  padding: 2px;
 }
