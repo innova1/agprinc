@@ -357,7 +357,7 @@ $("form").on("submit", function (e) {
 $('#matchtype').on('click', function(e) {
   const debug = false;
   if(debug) console.log('clicked it');
-  termsObj.match = (termsObj.match=='all'?'any':'all');
+  termsObj.match = (termsObj.match=='ALL'?'ANY':'ALL');
   $('#matchtype').text(termsObj.match);
   const framework = getCurrentFramework();
   if(termsObj.size()>0) {
