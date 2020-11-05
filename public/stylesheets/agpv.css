@@ -102,3 +102,7 @@ div#matchtypediv {
 span#matchtype {
 	display: block;
 }
+
+input#searchtext {
+	display: inline
+}
