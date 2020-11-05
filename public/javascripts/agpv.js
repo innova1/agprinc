@@ -288,8 +288,6 @@ function addActiveSearchterm(term) {
   termsObj.addTerm(term);
   if(termsObj.size()>1) {
     $('#matchtype').show();
-  } else {
-    $('#matchtype').hide();
   }
   populateCurrentSearchTermsDiv(termsObj.getCurrentTerms());
   replaceFilteredItemsPanels(framework);
