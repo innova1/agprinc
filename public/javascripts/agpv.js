@@ -19,7 +19,7 @@ function CurrentTermsObject() {
   const debug = false;
   this.currentTermsMap = new Map(),
   this.currentTermsString = "",
-  this.match = 'ANY',
+  this.match = 'any',
   this.getCurrentTermsHtml = function() {
     var termsHtml = "";
     for( let str of this.currentTermsMap.values() ) {
@@ -357,8 +357,8 @@ $("form").on("submit", function (e) {
 $('#matchtype').on('click', function(e) {
   const debug = false;
   if(debug) console.log('clicked it');
-  termsObj.match = (termsObj.match=='ALL'?'ANY':'ALL');
-  $('#matchtype').text(termsObj.match);
+  termsObj.match = (termsObj.match.toLowerCase()=='all'?'any':'all');
+  $('#matchtype').text(termsObj.match.toUpperCase);
   const framework = getCurrentFramework();
   if(termsObj.size()>0) {
     if(debug) console.log('in match type calling replace fil items penal with ' + framework);
