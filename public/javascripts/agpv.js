@@ -308,6 +308,8 @@ function removeActiveSearchterm(element) {
       $('#matchtype').show();
     } else {
       $('#matchtype').hide();
+      termsObj.match = 'any';
+      $('matchtype').text(termsObj.match.toUpperCase());
     }
     replaceFilteredItemsPanels(framework);
   } else {
