@@ -88,7 +88,7 @@ ul.suggestions {
 	display: none; /*change this to block in test*/
 }
 
-div#matchtype {
+div#matchtypediv {
   display: inline;
   font-family: monospace, sans-serif;
   font-size: 12px;
