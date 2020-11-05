@@ -358,9 +358,9 @@ $("form").on("submit", function (e) {
 });
 
 $('#matchtype').on('click', function(e) {
-  const debug = false;
+  const debug = true;
   termsObj.match = (termsObj.match.toLowerCase()=='all'?'any':'all');
-  //if(debug) console.log('clicked it with ' + termsObj.match.toUpperCase());
+  if(debug) console.log('clicked it with ' + termsObj.match.toUpperCase());
   $('#matchtype').text(termsObj.match.toUpperCase());
   const framework = getCurrentFramework();
   if(termsObj.size()>0) {
