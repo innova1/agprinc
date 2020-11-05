@@ -91,7 +91,6 @@ ul.suggestions {
 div#matchtype {
   display: inline;
   font-family: monospace, sans-serif;
-  font-variant: small-caps;
   font-size: 14px;
   color: white;
   background-color: #337ab7;
