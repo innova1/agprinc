@@ -358,6 +358,7 @@ $('#matchtype').on('click', function(e) {
   const debug = false;
   if(debug) console.log('clicked it');
   termsObj.match = (termsObj.match=='all'?'any':'all');
+  $('#matchtype').text(termsObj.match);
   const framework = getCurrentFramework();
   if(termsObj.size()>0) {
     if(debug) console.log('in match type calling replace fil items penal with ' + framework);
