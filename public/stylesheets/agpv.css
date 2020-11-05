@@ -98,3 +98,7 @@ div#matchtypediv {
   padding: 2px;
   cursor: pointer;
 }
+
+span.matchtype {
+	display: block;
+}
