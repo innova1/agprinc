@@ -96,5 +96,6 @@ div#matchtype {
   color: white;
   background-color: #337ab7;
   border: 1px solid #337ab7;
+  border-radius: 8px;
   padding: 2px;
 }
