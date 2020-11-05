@@ -59,8 +59,7 @@ function CurrentTermsObject() {
   }
 }
 
-function redirectReplaceItemsPanels(event) {
-  //console.log('calling replaceFilteredItemsPanels with framework: ' + event.data.framework + ', wasSelected: ' + event.data.wasSelected)
+function selectReplaceItemsPanels(event) {
   const wasSelected = event.data.wasSelected;
   const framework = event.data.framework;
   var adjustedFramework = (wasSelected?'all':framework);
@@ -235,7 +234,7 @@ function setSelected(selectedFramework) {
       }
       if(debug) console.log('in set selected calling on click for ' + fObj.framework + ", " + wasSelected);
       frameElement.parent().parent().off().on('click', function() { alert("didn't work"); } );
-      frameElement.parent().parent().off().on('click', { framework: fObj.framework, wasSelected: wasSelected }, redirectReplaceItemsPanels );
+      frameElement.parent().parent().off().on('click', { framework: fObj.framework, wasSelected: wasSelected }, selectReplaceItemsPanels );
       if(debug) console.log('parent:' + frameElement.parent().parent().html() + ', click:' + frameElement.parent().parent().attr('click'))
       if(debug) console.log('html: ' + frameElement.html())
     }
