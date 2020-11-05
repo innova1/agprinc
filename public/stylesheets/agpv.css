@@ -99,6 +99,6 @@ div#matchtypediv {
   cursor: pointer;
 }
 
-span.matchtype {
+span#matchtype {
 	display: block;
 }
