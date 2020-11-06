@@ -99,7 +99,7 @@ function populateItemsPanels( objs ) {
     if(objs.length==0) {
       var framework = getCurrentFramework();
       var frameworkdisplay = $('#displaySelectedFramework').text().substring(20);
-      var frameworkclause = (framework==='all'?'':'in ' + frameworkdisplay);
+      var frameworkclause = (framework==='all'?'':'in the ' + frameworkdisplay + ' framework ');
       var paneldiv = $(document.createElement('div'));
       paneldiv.addClass('panel panel-primary');
       var panelheadingdiv = $(document.createElement('div'));
