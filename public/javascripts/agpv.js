@@ -391,7 +391,7 @@ function getSuggestionPanelHTML(searchWordsArray) {
   var resultList = '<ul class="suggestions">';
   var jscriptcall = '';
   searchWordsArray.forEach( element => {
-    jscriptString = "javascript:addActiveSearchterm('" + element.replace(/\s/g, '+') + "')"
+    let jscriptString = "javascript:addActiveSearchterm('" + element.replace(/\s/g, '+') + "')"
     if (debug) console.log('adding jscript: |' + jscriptString + '|')
     resultList = resultList + "<li><a href='javascript:void(0);' onclick=" + jscriptString + ">" + element + "</a></li>";
   });
