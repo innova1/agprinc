@@ -97,16 +97,20 @@ function populateItemsPanels( objs ) {
   panel.html('');
   try {
     if(objs.length==0) {
-      var paneldiv = $(document.createElement('div'));
-      paneldiv.addClass('panel panel-primary');
-      var panelheadingdiv = $(document.createElement('div'));
-      panelheadingdiv.addClass('panel-heading');
-      var itemTitle = $(document.createElement('h3'));
-      itemTitle.addClass('panel-title');
-      itemTitle.html('No items match in this framework');
-      var panelbodydiv = $(document.createElement('div'));
-      panelbodydiv.addClass('panel-body');
-      panel.append(paneldiv.append(panelheadingdiv.html(itemTitle)).append(panelbodydiv));
+        var paneldiv = $(document.createElement('div'));
+        paneldiv.addClass('panel panel-primary');
+        var panelheadingdiv = $(document.createElement('div'));
+        panelheadingdiv.addClass('panel-heading');
+        var itemTitle = $(document.createElement('h3'));
+        itemTitle.addClass('panel-title');
+      if(termObjs.size()==0) {
+        itemTitle.html('No items match in this framework');
+      } else {
+        itemTitle.html('No items match with these search words');
+      }
+        var panelbodydiv = $(document.createElement('div'));
+        panelbodydiv.addClass('panel-body');
+        panel.append(paneldiv.append(panelheadingdiv.html(itemTitle)).append(panelbodydiv));
     } else {
       objs.forEach( obj => {
         var paneldiv = $(document.createElement('div'));
