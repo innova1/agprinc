@@ -100,6 +100,8 @@ function populateItemsPanels( objs ) {
       var framework = getCurrentFramework();
       var frameworkdisplay = $('#displaySelectedFramework').text().substring(20);
       var frameworkclause = (framework==='all'?'':'in the ' + frameworkdisplay + ' framework ');
+      var matchtype = $('#matchtype').text();
+      var matchclause = (matchtype.toLowerCase() === 'all'?'both of':'either of');
       var paneldiv = $(document.createElement('div'));
       paneldiv.addClass('panel panel-primary');
       var panelheadingdiv = $(document.createElement('div'));
@@ -111,7 +113,7 @@ function populateItemsPanels( objs ) {
       } else if (termsObj.size()==1) {
         itemTitle.html('No items ' + frameworkclause + ' match this search word');
       } else {
-        itemTitle.html('No items ' + frameworkclause + ' match these search words');
+        itemTitle.html('No items ' + frameworkclause + ' match ' + matchclause + ' these search words');
       }
       var panelbodydiv = $(document.createElement('div'));
       panelbodydiv.addClass('panel-body');
