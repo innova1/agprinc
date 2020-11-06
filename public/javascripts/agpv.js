@@ -106,7 +106,7 @@ function populateItemsPanels( objs ) {
       if(termsObj.size()==0) {
         itemTitle.html('No items match in this framework');
       } else {
-        itemTitle.html('No items match with these search words');
+        itemTitle.html('No items in ' + framework + ' match these search words');
       }
         var panelbodydiv = $(document.createElement('div'));
         panelbodydiv.addClass('panel-body');
