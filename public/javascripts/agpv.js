@@ -5,14 +5,14 @@ let keywords = new Keywords();
 $(document).ready(setup);
 
 function setup() {
-  //console.log('calling replaceFrameworksPanel from setup()')
+  //console.log('calling replaceFrameworksPanel from setup()');
   replaceFrameworksPanel('all');
   replaceItemsPanels('all');
   inflateKeywordLookupMap();
   $('#matchtypediv').hide();
 }
 
-var isSmallViewport = window.matchMedia("(max-width: 1000px)");
+var isSmallViewport = window.matchMedia('(max-width: 1000px)');
 var searchRequest = null;
 var frameworkObjArray = new Array ();
 
@@ -87,7 +87,7 @@ function replaceItemsPanels(framework) {
     url: url,
     dataType: "json",
     success: function(result) {
-      if (debug) console.log("result.items count: " + result.items.length)
+      if (debug) console.log("result.items count: " + result.items.length);
       populateItemsPanels(result.items);
       setMenuCollapsed(isSmallViewport);
     }
@@ -149,7 +149,7 @@ function replaceFilteredItemsPanels(framework) {
     url: "/api/agileframeworks/search?framework=" + framework + '&searchwords=' + termsObj.getCurrentTerms() + '&match=' + termsObj.match,
     dataType: "json",
     success: function(result) {
-      if (debug) console.log("result size: " + result.items.length)
+      if (debug) console.log("result size: " + result.items.length);
       populateItemsPanels(result.items);
       populateCurrentSearchTermsDiv();
     }
@@ -164,7 +164,7 @@ function populateFrameworksPanel( objs ) {
   var jscriptString = "";
   frameworkObjArray = objs;
   var panel = $('#frameworksMenuPanel');
-  if (debug) console.log('setting up frameworks panel html')
+  if (debug) console.log('setting up frameworks panel html');
   var litag = "";
   var atag = "";
   var lis = "";
@@ -175,20 +175,20 @@ function populateFrameworksPanel( objs ) {
   var panelcollapse = $("<div class='panel-collapse collapse' id='sidepanel'>");
   var ullist = $("<ul class='list-group'>");
   objs.forEach( obj => {
-    //if (debug) console.log('in forEach with ' + obj.framework)
+    //if (debug) console.log('in forEach with ' + obj.framework);
     litag = "<li class='list-group-item'>";
     //jscriptString = "onclick=\'javascript:replaceItemsPanels(\"" + obj.framework + "\")\'";
     atag = "<a class=\'menu\' href=\'javascript:void(0)\' onclick=''" + jscriptString + "> <span id=\'" + obj.framework + "\'>" + obj.frameworkdisplay + "</span></a>";
     lis += litag + atag + "</li>"
   });
   ullist.html(lis);
-  panel.append(paneldiv.html(headingdiv.html(asidepanel)).append(panelcollapse.html(ullist)))
+  panel.append(paneldiv.html(headingdiv.html(asidepanel)).append(panelcollapse.html(ullist)));
 
   //if (debug) console.log('setsidepanel');
   //if (debug) console.log('about to populate frameworksMenuPanel with ' + itemsHtml);
   //document.getElementById('frameworksMenuPanel').innerHTML = itemsHtml;
   //$('#frameworksMenuPanel').html(itemsHtml);
-  frameworkObjArray.push({framework:'all', frameworkdisplay:'All'})
+  frameworkObjArray.push({framework:'all', frameworkdisplay:'All'});
 }
 
 function setMenuCollapsed(isSmallViewport) {
@@ -202,7 +202,7 @@ function setMenuCollapsed(isSmallViewport) {
     $('#displaySelectedFramework').removeClass('hide');
     $('#fmenu-panel-title-div').addClass('hide');
     $('#fmenu-panel-title-div').removeClass('show');
-    //console.log("in largeviewport side pane classlist: " + document.getElementById("sidepanel").classList)
+    //console.log("in largeviewport side pane classlist: " + document.getElementById("sidepanel").classList);
   } else {
     //document.getElementById("sidepanel").classList.add('show');
     //document.getElementById("sidepanel").classList.add('in');
@@ -211,7 +211,7 @@ function setMenuCollapsed(isSmallViewport) {
     $('#displaySelectedFramework').removeClass('show');
     $('#fmenu-panel-title-div').addClass('show');
     $('#fmenu-panel-title-div').removeClass('hide');
-    //console.log("in smallviewport match side pane classlist: " + document.getElementById("sidepanel").classList)
+    //console.log("in smallviewport match side pane classlist: " + document.getElementById("sidepanel").classList);
   }
 }
 
@@ -224,38 +224,38 @@ function setSelected(selectedFramework) {
     if (debug) console.log("in set selected fr: in array loop removing selected on " + fObj.framework + " div");
     frameElement = $('#' + fObj.framework);
     if (frameElement && fObj.framework != 'all') {
-      if (debug) console.log( 'frameElement: ' + frameElement.attr('id') )
+      if (debug) console.log( 'frameElement: ' + frameElement.attr('id') );
       if (fObj.framework == selectedFramework ) {
-          if (debug) console.log('f is selected. f:' + fObj.framework + ", selected: " + selectedFramework + ", wasSelected: " + wasSelected)
+          if (debug) console.log('f is selected. f:' + fObj.framework + ", selected: " + selectedFramework + ", wasSelected: " + wasSelected);
           if (frameElement.hasClass('selected')) {
           wasSelected = false;
-          if (debug) console.log( 'classList contains selected')
+          if (debug) console.log( 'classList contains selected');
           frameElement.removeClass('selected');
         } else {
           wasSelected = true;
-          if (debug) console.log( 'classList does not already contain selected')
+          if (debug) console.log( 'classList does not already contain selected');
           frameElement.addClass('selected');
-          if (debug) console.log('has selected? ' + frameElement.hasClass('selected'))
+          if (debug) console.log('has selected? ' + frameElement.hasClass('selected'));
         }
       } else { //this is not the currently selected framework
         wasSelected = false;
-        if (debug) console.log('f is NOT selected. f:' + fObj.framework + ", selected: " + selectedFramework)
+        if (debug) console.log('f is NOT selected. f:' + fObj.framework + ", selected: " + selectedFramework);
         if (debug) console.log('adding click replace items panels with ' + fObj.framework);
         if (frameElement.hasClass('selected')) {
-          if (debug) console.log( 'classList already contains selected -- removing')
+          if (debug) console.log( 'classList already contains selected -- removing');
           frameElement.removeClass('selected');
         }
       }
       if (debug) console.log('in set selected calling on click for ' + fObj.framework + ", " + wasSelected);
       frameElement.parent().parent().off().on('click', function() { alert("didn't work"); } );
       frameElement.parent().parent().off().on('click', { framework: fObj.framework, wasSelected: wasSelected }, selectReplaceItemsPanels );
-      if (debug) console.log('parent:' + frameElement.parent().parent().html() + ', click:' + frameElement.parent().parent().attr('click'))
-      if (debug) console.log('html: ' + frameElement.html())
+      if (debug) console.log('parent:' + frameElement.parent().parent().html() + ', click:' + frameElement.parent().parent().attr('click'));
+      if (debug) console.log('html: ' + frameElement.html());
     }
 
     if (debug) console.log("in set selected fr: setting selected to " + selectedFramework + " div");
     $('#selectedFramework').text(selectedFramework);
-    var sfObj = frameworkObjArray.find( ({ framework }) => framework === selectedFramework )
+    var sfObj = frameworkObjArray.find( ({ framework }) => framework === selectedFramework );
     if (debug) console.log("in set selected--setting display selected field using " + selectedFramework + " to " + sfObj.frameworkdisplay);
     $('#displaySelectedFramework').text('Selected framework: ' + sfObj.frameworkdisplay);
   });
@@ -286,11 +286,11 @@ function getCurrentFramework() {
   var debug = false; 
   var result = '';
   result = $('#selectedFramework').html();
-  if (debug) console.log('in getcurrentframework got ' + result + 'from #selectedFramework')
+  if (debug) console.log('in getcurrentframework got ' + result + 'from #selectedFramework');
   if (result=='') {
     result = 'all';
   }
-  if (debug) console.log('now result is ' + result)
+  if (debug) console.log('now result is ' + result);
   return result;
 }
 
@@ -312,7 +312,7 @@ function removeActiveSearchterm(element) {
   termsObj.removeTerm(element.text.trim().replace(/\s/g, '+'));
 
   populateCurrentSearchTermsDiv(termsObj.getCurrentTerms());
-  if (debug) console.log("termsObj size: " + termsObj.size())
+  if (debug) console.log("termsObj size: " + termsObj.size());
   var framework = getCurrentFramework();
   if (termsObj.size()>0) {
     if (termsObj.size()>1) {
@@ -356,7 +356,7 @@ $(function() {
 
 $("form").on("submit", function (e) {
   const debug = false;
-  if (debug) console.log('in form on submit')
+  if (debug) console.log('in form on submit');
   var dataString = $(this).serialize();
   var framework = getCurrentFramework();
   var searchtext = dataString.substring(dataString.indexOf('=')+1, dataString.length);
@@ -365,7 +365,7 @@ $("form").on("submit", function (e) {
   if (searchWordsArray.length > 0 ) {
     addActiveSearchterm(searchtext.replace(/\+/g, '+'));
   } else {
-    alert('Select one of the suggestions from the list')
+    alert('Select one of the suggestions from the list');
   }
   e.preventDefault();
 });
@@ -392,7 +392,7 @@ function getSuggestionPanelHTML(searchWordsArray) {
   var jscriptcall = '';
   searchWordsArray.forEach( element => {
     let jscriptString = "javascript:addActiveSearchterm('" + element.replace(/\s/g, '+') + "')"
-    if (debug) console.log('adding jscript: |' + jscriptString + '|')
+    if (debug) console.log('adding jscript: |' + jscriptString + '|');
     resultList = resultList + "<li><a href='javascript:void(0);' onclick=" + jscriptString + ">" + element + "</a></li>";
   });
   resultList = resultList + '</ul>';
@@ -402,20 +402,20 @@ function getSuggestionPanelHTML(searchWordsArray) {
 
 function inflateKeywordLookupMap() {
   const debug = false;
-  if (debug) console.log('calling inflate...')
+  if (debug) console.log('calling inflate...');
   $.ajax({
     type: "GET",
     url: "/api/agileframeworks/getkeywordsmap",
     dataType: "json",
     success: function(msg){
       const keywordLookupArray = msg.array;
-      if (debug) console.log('keywordLookupArray size:' + keywordLookupArray.length)
+      if (debug) console.log('keywordLookupArray size:' + keywordLookupArray.length);
       let count = 0;
       keywordLookupArray.forEach( el => {
         keywords.addKeyword(el.keyword, el.itemFinders );
-        if (debug) if (++count%100==0) console.log(count + ':added:' + el.keyword)
+        if (debug) if (++count%100==0) console.log(count + ':added:' + el.keyword);
       });
-      if (debug) console.log("k size:" + keywords.size())
+      if (debug) console.log("k size:" + keywords.size());
     }
   });
 }
@@ -435,9 +435,9 @@ function Keywords() {
     let result = new Array();
     let rightframework = false;
     function compareValues(value, key, map) {
-      if (debug) console.log('on:' + key)
+      if (debug) console.log('on:' + key);
       str = key.substring(0, searchtext.length);
-      if (debug) console.log('on ' + key + ' with ' + searchtext)
+      if (debug) console.log('on ' + key + ' with ' + searchtext);
       rightframework = false;
       if (framework=='all') {
         rightframework = true;
