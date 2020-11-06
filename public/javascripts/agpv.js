@@ -106,9 +106,9 @@ function populateItemsPanels( objs ) {
       panelheadingdiv.addClass('panel-heading');
       var itemTitle = $(document.createElement('h3'));
       itemTitle.addClass('panel-title');
-      if(termsObj.size()==0) {
+      if (termsObj.size()==0) {
         itemTitle.html('There are no items ' + frameworkclause);
-      } else if(termsObj.size()==1) {
+      } else if (termsObj.size()==1) {
         itemTitle.html('No items' + frameworkclause + 'match this search word');
       } else {
         itemTitle.html('No items' + frameworkclause + 'match these search words');
