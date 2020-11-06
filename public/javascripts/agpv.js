@@ -97,20 +97,21 @@ function populateItemsPanels( objs ) {
   panel.html('');
   try {
     if(objs.length==0) {
-        var paneldiv = $(document.createElement('div'));
-        paneldiv.addClass('panel panel-primary');
-        var panelheadingdiv = $(document.createElement('div'));
-        panelheadingdiv.addClass('panel-heading');
-        var itemTitle = $(document.createElement('h3'));
-        itemTitle.addClass('panel-title');
+      var framework = getCurrentFramework();
+      var paneldiv = $(document.createElement('div'));
+      paneldiv.addClass('panel panel-primary');
+      var panelheadingdiv = $(document.createElement('div'));
+      panelheadingdiv.addClass('panel-heading');
+      var itemTitle = $(document.createElement('h3'));
+      itemTitle.addClass('panel-title');
       if(termsObj.size()==0) {
         itemTitle.html('No items match in this framework');
       } else {
         itemTitle.html('No items in ' + framework + ' match these search words');
       }
-        var panelbodydiv = $(document.createElement('div'));
-        panelbodydiv.addClass('panel-body');
-        panel.append(paneldiv.append(panelheadingdiv.html(itemTitle)).append(panelbodydiv));
+      var panelbodydiv = $(document.createElement('div'));
+      panelbodydiv.addClass('panel-body');
+      panel.append(paneldiv.append(panelheadingdiv.html(itemTitle)).append(panelbodydiv));
     } else {
       objs.forEach( obj => {
         var paneldiv = $(document.createElement('div'));
