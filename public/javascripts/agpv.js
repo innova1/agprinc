@@ -146,7 +146,7 @@ function replaceFilteredItemsPanels(framework) {
 
   $.ajax({
     type: "GET",
-    url: url = "/api/agileframeworks/search?framework=" + framework + '&searchwords=' + termsObj.getCurrentTerms() + '&match=' + termsObj.match,
+    url: "/api/agileframeworks/search?framework=" + framework + '&searchwords=' + termsObj.getCurrentTerms() + '&match=' + termsObj.match,
     dataType: "json",
     success: function(result) {
       if (debug) console.log("result size: " + result.items.length)
