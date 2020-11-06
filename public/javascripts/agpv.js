@@ -101,7 +101,7 @@ function populateItemsPanels( objs ) {
       var frameworkdisplay = $('#displaySelectedFramework').text().substring(20);
       var frameworkclause = (framework==='all'?'':'in the ' + frameworkdisplay + ' framework ');
       var matchtype = $('#matchtype').text();
-      var matchclause = (matchtype.toLowerCase() === 'all'?'both of':'either of');
+      var matchclause = (matchtype.toLowerCase() === 'all'?'all of':'any of');
       var paneldiv = $(document.createElement('div'));
       paneldiv.addClass('panel panel-primary');
       var panelheadingdiv = $(document.createElement('div'));
