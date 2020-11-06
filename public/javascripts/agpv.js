@@ -157,62 +157,62 @@ function replaceFilteredItemsPanels(framework) {
 }
 
 function populateFrameworksPanel( objs ) {
-	const debug = false;
-	var framework = "";
-	var obj = new Object();
-	var itemsHtml = "";
-	var jscriptString = "";
-	frameworkObjArray = objs;
-	var panel = $('#frameworksMenuPanel');
-	if (debug) console.log('setting up frameworks panel html')
-	var litag = "";
-	var atag = "";
-	var lis = "";
-	
-	var paneldiv = $("<div class='panel panel-primary'>");
-	var headingdiv = $("<div class='panel-heading'>");
-	var asidepanel = "<a id='sidepanelheader' href='#sidepanel' data-toggle='collapse'><h3 class='panel-title'><div id='fmenu-panel-title-div'>Frameworks</div><div id='displaySelectedFramework'></div></h3></a>";
-	var panelcollapse = $("<div class='panel-collapse collapse' id='sidepanel'>");
-	var ullist = $("<ul class='list-group'>");
-	objs.forEach( obj => {
-		//if (debug) console.log('in forEach with ' + obj.framework)
-		litag = "<li class='list-group-item'>";
-		//jscriptString = "onclick=\'javascript:replaceItemsPanels(\"" + obj.framework + "\")\'";
-		atag = "<a class=\'menu\' href=\'javascript:void(0)\' onclick=''" + jscriptString + "> <span id=\'" + obj.framework + "\'>" + obj.frameworkdisplay + "</span></a>";
-		lis += litag + atag + "</li>"
-	});
-	ullist.html(lis);
-	panel.append(paneldiv.html(headingdiv.html(asidepanel)).append(panelcollapse.html(ullist)))
+  const debug = false;
+  var framework = "";
+  var obj = new Object();
+  var itemsHtml = "";
+  var jscriptString = "";
+  frameworkObjArray = objs;
+  var panel = $('#frameworksMenuPanel');
+  if (debug) console.log('setting up frameworks panel html')
+  var litag = "";
+  var atag = "";
+  var lis = "";
 
-	//if (debug) console.log('setsidepanel');
-	//if (debug) console.log('about to populate frameworksMenuPanel with ' + itemsHtml);
-	//document.getElementById('frameworksMenuPanel').innerHTML = itemsHtml;
-	//$('#frameworksMenuPanel').html(itemsHtml);
-	frameworkObjArray.push({framework:'all', frameworkdisplay:'All'})
+  var paneldiv = $("<div class='panel panel-primary'>");
+  var headingdiv = $("<div class='panel-heading'>");
+  var asidepanel = "<a id='sidepanelheader' href='#sidepanel' data-toggle='collapse'><h3 class='panel-title'><div id='fmenu-panel-title-div'>Frameworks</div><div id='displaySelectedFramework'></div></h3></a>";
+  var panelcollapse = $("<div class='panel-collapse collapse' id='sidepanel'>");
+  var ullist = $("<ul class='list-group'>");
+  objs.forEach( obj => {
+    //if (debug) console.log('in forEach with ' + obj.framework)
+    litag = "<li class='list-group-item'>";
+    //jscriptString = "onclick=\'javascript:replaceItemsPanels(\"" + obj.framework + "\")\'";
+    atag = "<a class=\'menu\' href=\'javascript:void(0)\' onclick=''" + jscriptString + "> <span id=\'" + obj.framework + "\'>" + obj.frameworkdisplay + "</span></a>";
+    lis += litag + atag + "</li>"
+  });
+  ullist.html(lis);
+  panel.append(paneldiv.html(headingdiv.html(asidepanel)).append(panelcollapse.html(ullist)))
+
+  //if (debug) console.log('setsidepanel');
+  //if (debug) console.log('about to populate frameworksMenuPanel with ' + itemsHtml);
+  //document.getElementById('frameworksMenuPanel').innerHTML = itemsHtml;
+  //$('#frameworksMenuPanel').html(itemsHtml);
+  frameworkObjArray.push({framework:'all', frameworkdisplay:'All'})
 }
 
 function setMenuCollapsed(isSmallViewport) {
-	const debug = false;
-	if (debug) console.log('calling set Menu Collapsed');
-	if (isSmallViewport.matches ) {
-		//document.getElementById("sidepanel").classList.remove('show');
-		//document.getElementById("sidepanel").classList.remove('in');
-		$("#sidepanel").collapse('hide');
-		$('#displaySelectedFramework').addClass('show');
-		$('#displaySelectedFramework').removeClass('hide');
-		$('#fmenu-panel-title-div').addClass('hide');
-		$('#fmenu-panel-title-div').removeClass('show');
-		//console.log("in largeviewport side pane classlist: " + document.getElementById("sidepanel").classList)
-	} else {
-		//document.getElementById("sidepanel").classList.add('show');
-		//document.getElementById("sidepanel").classList.add('in');
-		$("#sidepanel").collapse('show');
-		$('#displaySelectedFramework').addClass('hide');
-		$('#displaySelectedFramework').removeClass('show');
-		$('#fmenu-panel-title-div').addClass('show');
-		$('#fmenu-panel-title-div').removeClass('hide');
-		//console.log("in smallviewport match side pane classlist: " + document.getElementById("sidepanel").classList)
-	}
+  const debug = false;
+  if (debug) console.log('calling set Menu Collapsed');
+  if (isSmallViewport.matches ) {
+    //document.getElementById("sidepanel").classList.remove('show');
+    //document.getElementById("sidepanel").classList.remove('in');
+    $("#sidepanel").collapse('hide');
+    $('#displaySelectedFramework').addClass('show');
+    $('#displaySelectedFramework').removeClass('hide');
+    $('#fmenu-panel-title-div').addClass('hide');
+    $('#fmenu-panel-title-div').removeClass('show');
+    //console.log("in largeviewport side pane classlist: " + document.getElementById("sidepanel").classList)
+  } else {
+    //document.getElementById("sidepanel").classList.add('show');
+    //document.getElementById("sidepanel").classList.add('in');
+    $("#sidepanel").collapse('show');
+    $('#displaySelectedFramework').addClass('hide');
+    $('#displaySelectedFramework').removeClass('show');
+    $('#fmenu-panel-title-div').addClass('show');
+    $('#fmenu-panel-title-div').removeClass('hide');
+    //console.log("in smallviewport match side pane classlist: " + document.getElementById("sidepanel").classList)
+  }
 }
 
 function setSelected(selectedFramework) {
@@ -283,15 +283,15 @@ function replaceFrameworksPanel(framework) {
 }
 
 function getCurrentFramework() {
-	var debug = false; 
-	var result = '';
-	result = $('#selectedFramework').html();
-	if (debug) console.log('in getcurrentframework got ' + result + 'from #selectedFramework')
-	if (result=='') {
-		result = 'all';
-	}
-	if (debug) console.log('now result is ' + result)
-	return result;
+  var debug = false; 
+  var result = '';
+  result = $('#selectedFramework').html();
+  if (debug) console.log('in getcurrentframework got ' + result + 'from #selectedFramework')
+  if (result=='') {
+    result = 'all';
+  }
+  if (debug) console.log('now result is ' + result)
+  return result;
 }
 
 function addActiveSearchterm(term) {
@@ -459,17 +459,17 @@ function Keywords() {
 }
 
 function Item(framework, type, ordinal) {
-	this.framework = framework;
-	this.type = type;
-	this.ordinal = ordinal;
-	this.toString = function() {
-		return this.framework + "|" + this.type + "|" + this.ordinal;
-	}
+  this.framework = framework;
+  this.type = type;
+  this.ordinal = ordinal;
+  this.toString = function() {
+    return this.framework + "|" + this.type + "|" + this.ordinal;
+  }
 }
 
 function Items() {
-	this.itemMap = new Map();
-	this.addItem = function(item) {
-		this.itemMap.set(item.toString(), item);
-	}
+  this.itemMap = new Map();
+  this.addItem = function(item) {
+    this.itemMap.set(item.toString(), item);
+  }
 }
