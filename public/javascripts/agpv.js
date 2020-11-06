@@ -98,6 +98,8 @@ function populateItemsPanels( objs ) {
   try {
     if(objs.length==0) {
       var framework = getCurrentFramework();
+      var frameworkdisplay = $('#displaySelectedFramework').text()
+      var frameworkclause = (framework==='all'?'':' in ' + framework);
       var paneldiv = $(document.createElement('div'));
       paneldiv.addClass('panel panel-primary');
       var panelheadingdiv = $(document.createElement('div'));
@@ -105,9 +107,11 @@ function populateItemsPanels( objs ) {
       var itemTitle = $(document.createElement('h3'));
       itemTitle.addClass('panel-title');
       if(termsObj.size()==0) {
-        itemTitle.html('No items match in this framework');
+        itemTitle.html('There are no items ' + frameworkclause);
+      } else (termsObj.size()==1) {
+        itemTitle.html('No items' + frameworkclause + 'match this search word');
       } else {
-        itemTitle.html('No items in this framework match these search words');
+        itemTitle.html('No items' + frameworkclause + 'match these search words');
       }
       var panelbodydiv = $(document.createElement('div'));
       panelbodydiv.addClass('panel-body');
