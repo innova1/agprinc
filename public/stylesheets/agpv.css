@@ -1,91 +1,91 @@
 .my-space-grid { 
-	margin-bottom: 15px;
+  margin-bottom: 15px;
 }
 .my-show-grid-ptitle {
-	border: 1px solid darkgreen;
+  border: 1px solid darkgreen;
 }
 .my-show-grid-ptext {
-	border-left: 1px solid darkgreen;
-	border-right: 1px solid darkgreen;
-	border-bottom: 1px solid darkgreen;
+  border-left: 1px solid darkgreen;
+  border-right: 1px solid darkgreen;
+  border-bottom: 1px solid darkgreen;
 }
 .ag-title-bgcolor {
-	background-color: darkseagreen;
+  background-color: darkseagreen;
 }
 .ag-text-bgcolor {
-	background-color: white;
+  background-color: white;
 }
 .value>.panel-heading { /*value heading color*/
-	color: #333;
-	background-color: #aaddf7;
+  color: #333;
+  background-color: #aaddf7;
 }
 .principle>.panel-heading { /*principle heading color*/
-	color: #333;
-	background-color: #99e7cc;
+  color: #333;
+  background-color: #99e7cc;
 }
 .searchform {
-	margin-left  : 20px;
-	margin-top: 10px;
-	border: 1px solid red;
+  margin-left  : 20px;
+  margin-top: 10px;
+  border: 1px solid red;
 }
 .center {
-	text-align: center;
+  text-align: center;
 }
 .selected {
-	font-weight: bold;
-	font-size: 1.1em;
+  font-weight: bold;
+  font-size: 1.1em;
 }
 .navbar-form {
-	margin-top: 5px;
-	margin-bottom: 0;
-	border-top: 0;
-	border-bottom: 0;
-	padding: 0 15px;
+  margin-top: 5px;
+  margin-bottom: 0;
+  border-top: 0;
+  border-bottom: 0;
+  padding: 0 15px;
 }
 a.navbar-brand {
-	color: #337ab7;
-	height: 40px;
-	padding: 10px px;
-	font-size: 20px;
-	line-height: 22px;
+  color: #337ab7;
+  height: 40px;
+  padding: 10px px;
+  font-size: 20px;
+  line-height: 22px;
 }
 a:link.navbar-brand, a:visited.navbar-brand, a:hover.navbar-brand {
-	color: #337ab7;
+  color: #337ab7;
 }
 a.plain {
-	text-decoration: none;
+  text-decoration: none;
 }
 
 a#sidepanelheader {
-	color: white;
+  color: white;
 }
 
 a:link, a:visited, a:hover {
-	text-decoration: none;
-	cursor: pointer;
-	color: #337ab7;
+  text-decoration: none;
+  cursor: pointer;
+  color: #337ab7;
 }
 
 div#suggestionsx {
-	display: none;
-	border: 2px inset black;
-	width: 300px;
-	padding: 10px 10px 10px 10px;
+  display: none;
+  border: 2px inset black;
+  width: 300px;
+  padding: 10px 10px 10px 10px;
 }
 ul.suggestions {
-	list-style-type: none;
-	margin: 0;
-	padding: 0;
-	/*border: 1px solid red;*/
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  /*border: 1px solid red;*/
 }
 .inline {
-	display: inline;
+  display: inline;
 }
 .activekeywords {
-	margin-left: 15px;
+  margin-left: 15px;
 }
 #currentsearchterms {
-	display: none; /*change this to block in test*/
+  display: none; /*change this to block in test*/
 }
 
 div#matchtypediv {
@@ -100,9 +100,9 @@ div#matchtypediv {
 }
 
 span#matchtype {
-	display: inline;
+  display: inline;
 }
 
 input#searchtext {
-	display: inline
+  display: inline
 }
