@@ -68,13 +68,13 @@ async function getItemsFilterByKeywords(req, res) {
   let queryObject = new Object();
   try {
     const dbParams = await db.setupDB();
-    if (match == 'all') {
+    if (match == 'all') { //aka 'and'
       if (framework == '' || framework == 'all') {
         queryObject = { keywords: { $all: searchWordsArray } };
       } else {
         queryObject = { framework: framework, keywords: { $all: searchWordsArray } };
       }
-    } else {
+    } else { //match is 'any' aka 'or'
       if (framework == '' || framework == 'all') {
         queryObject = { keywords: { $in: searchWordsArray } };
       } else {
