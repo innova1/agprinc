@@ -71,7 +71,7 @@ exports.getPrinciplesArray = function(framework, type) {
 };
 
 async function getPrinciplesArray(framework, type) {
-    const debug = false;
+    const debug = true;
     if(debug) { console.log('in get prin array export with framework ' + framework); }
     const parray = getDataArray();
     //console.log('parray is length ' + parray.length);

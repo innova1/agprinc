@@ -1,7 +1,7 @@
 const db = require('./dataController');
 
 exports.displayKeywordList = async function(req, res) {
-	const debug = false;
+	const debug = true;
 	const principlesArray = await db.getPrinciplesArray('all','');
 	
 	res.render('viewEntriesKeywords', { title: 'Keywords List', principlesArray: principlesArray });
