@@ -328,7 +328,7 @@ function getDataArray() {
 		if no, then create the object and add to the array
 */
 exports.keywordItemFinderMap = async function(framework) {
-    const debug = false;
+    const debug = true;
   	//const dataArray = getDataArray(); //full data array of all values and principle objects
     const itemsArray = await getPrinciplesArray(framework,'');
     var keywordItemFinderMap = new Map(); //Map being built of a list of objects with keyword and location of the word
