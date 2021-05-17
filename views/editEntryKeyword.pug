@@ -6,8 +6,8 @@ block content
     p #{principleObj.framework} #{principleObj.type} #{principleObj.id}
     p #{principleObj.text}
     - var kwds = '';
-    if !pv.keywords
-      - pv.keywords='';
+    if !principleObj.keywords
+      - principleObj.keywords='';
     each kwd in principleObj.keywords
       - kwds = (kwds==''?kwd:kwds + ', ' + kwd);
     p #{kwds}
