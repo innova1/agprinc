@@ -382,7 +382,7 @@ function ItemFinder(framework, type, ordinal) {
 }
 
 function fixFrameworkDisplayField( princArray ) {
-    const debug = true;
+    const debug = false;
 	for(const fobj of princArray) {
       if(debug) { console.log('in fix framework ' + fobj.frameworkdisplay); }
       fobj.frameworkdisplay = (fobj.frameworkdisplay.substring(0,1)=='1'?fobj.frameworkdisplay.substring(1):fobj.frameworkdisplay);
