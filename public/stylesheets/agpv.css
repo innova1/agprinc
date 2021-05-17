@@ -23,6 +23,10 @@
   color: #333;
   background-color: #99e7cc;
 }
+.domain>.panel-heading { /*domain heading color*/
+  color: #333;
+  background-color: #ffff77;
+}
 .searchform {
   margin-left  : 20px;
   margin-top: 10px;
