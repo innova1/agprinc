@@ -1,0 +1,68 @@
+<html>
+  <head>
+    <title>From Blue to Green</title>
+    <style>
+      .row {
+        display: inline;
+      }
+      .item {
+        display: inline-block;
+      }
+      .vals {
+        display: none;
+        background-color: white;
+        font-size: 10px;
+      }
+      .show:active .vals {
+        display: block;
+      }
+      .red {
+        color: red;
+      }
+      .green {
+        color: green;
+      }
+      .blue {
+        color: blue;
+      }
+    </style>
+  </head>
+  <body>
+    <p>Blue to Green gradient</p>
+    <div class="show">Hover to show color values
+      <br />
+      <br />
+      <div id="colorbar" class="row"></div>
+      <br />
+      <br />
+    </div>
+    
+    <script type="text/javascript">
+      setup();
+
+      function setup() {
+        //alert("got here");
+        const cbar = document.getElementById("colorbar");
+        let result = "";
+        let spaces = "     ";
+        let red = 0;
+        let green = 255;
+        let blue = 0;
+        let gradientNumber = 60;
+        let inc = 255 / gradientNumber;
+        for(let i = 1; i <= gradientNumber; i++ ) {
+          let el = document.createElement("div");
+          el.classList.add("item");
+          green -= inc;
+          blue += inc;
+          el.style.background = "rgb(" + red + "," + green + "," + blue + ")";
+          el.style.width = 1800/gradientNumber + "px";
+          el.style.height = "100px";
+          el.innerHTML = "<div class = 'vals'>" + "<div class='red'>" + Math.round(red) + "</div><div class='green'>" + Math.round(green) + "</div><div class='blue'>" + Math.round(blue) + "</div></div>";
+          cbar.appendChild(el);
+        }
+      }
+
+    </script>
+  </body>
+</html>
