@@ -1,7 +1,7 @@
 const db = require('./dataController');
 
 exports.displayKeywordList = async function(req, res) {
-  const debug = true;
+  const debug = false;
   if(debug) { console.log( 'in displayKeywordList' ); }
   const principlesArray = await db.getPrinciplesArray('all','');
 
@@ -10,7 +10,7 @@ exports.displayKeywordList = async function(req, res) {
 
 exports.editKeyword = async function(req, res) {
     try {
-        const debug = false;
+        const debug = true;
         const framework = req.query.framework;
         const type = req.query.type;
         const id = req.query.id;
