@@ -1,7 +1,7 @@
 const db = require('./dataController');
 
 exports.getSearchWords = async function(req, res) {
-  const debug = false;
+  const debug = true;
   const searchtext = req.query.searchtext;
   const framework = req.query.framework;
   if (debug) console.log('in search with searchtext-' + decodeURI(searchtext).replace(/\s/g, '+'));

@@ -71,7 +71,7 @@ exports.getPrinciplesArray = function(framework, type) {
 };
 
 async function getPrinciplesArray(framework, type) {
-    const debug = true;
+    const debug = false;
     if(debug) { console.log('in get prin array export with framework ' + framework); }
     const parray = getDataArray();
     //console.log('parray is length ' + parray.length);
@@ -328,7 +328,7 @@ function getDataArray() {
 		if no, then create the object and add to the array
 */
 exports.keywordItemFinderMap = async function(framework) {
-    const debug = true;
+    const debug = false;
   	//const dataArray = getDataArray(); //full data array of all values and principle objects
     const itemsArray = await getPrinciplesArray(framework,'');
     var keywordItemFinderMap = new Map(); //Map being built of a list of objects with keyword and location of the word
