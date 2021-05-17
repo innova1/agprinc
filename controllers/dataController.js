@@ -78,7 +78,7 @@ async function getPrinciplesArray(framework, type) {
     let principlesArray = new Array();
 	var sort = { frameworkdisplay: 1, type: -1, id: 1 }
     if(framework=='all') {
-        if(debug) { console.log('in get princ array framework is empty'); }
+        if(debug) { console.log('in get princ array framework is -all-'); }
         /*
         principlesArray = parray;
         */
@@ -382,8 +382,10 @@ function ItemFinder(framework, type, ordinal) {
 }
 
 function fixFrameworkDisplayField( princArray ) {
+    const debug = true;
 	for(const fobj of princArray) {
-		fobj.frameworkdisplay = (fobj.frameworkdisplay.substring(0,1)=='1'?fobj.frameworkdisplay.substring(1):fobj.frameworkdisplay);
+      if(debug) { console.log('in fix framework ' + framework + ':' + fobj.frameworkdisplay); }
+      fobj.frameworkdisplay = (fobj.frameworkdisplay.substring(0,1)=='1'?fobj.frameworkdisplay.substring(1):fobj.frameworkdisplay);
 	}
 }
 
