@@ -27,7 +27,7 @@
       
       function fixSpaces(sParam) 
       {
-        return replace(new RegExp("\\+","g"),' ');
+        return sParam.replace(new RegExp("\\+","g"),' ');
       }
       
       window.onload = function() {
