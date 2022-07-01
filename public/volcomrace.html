@@ -25,9 +25,14 @@
         return paramStr[1];
       }
       
+      function fixSpaces(sParam) 
+      {
+        return replace(new RegExp("\\+","g"),' ');
+      }
+      
       window.onload = function() {
-        var race = GetURLParameter('elrace');
-        document.getElementById('elrace').innerHTML = Get2ndElement(decodeURIComponent(race));
+        var raceName = GetURLParameter('elrace');
+        document.getElementById('elrace').innerHTML = Get2ndElement(fixSpaces(raceName));
       }
     </script>
 
