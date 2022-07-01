@@ -10,9 +10,7 @@
               var sParameterName = sURLVariables[i].split('=');
               if (sParameterName[0] == sParam) 
               {
-                console.log("sParamaterName[1]="+sParameterName[1]);
                 var decodedParam = decodeURIComponent(sParameterName[1]);
-                console.log("decodedParam="+decodedParam);
                 return decodedParam;
               }
           }
@@ -21,13 +19,13 @@
       function Get2ndElement(sParam)
       {
         var paramStr = sParam.split('|');
-        console.log("paramStr="+paramStr);
         return paramStr[1];
       }
       
       function fixSpaces(sParam) 
       {
-        return sParam.replace(new RegExp("\\+","g"),' ');
+        sParamWithSpaces = sParam.replace(new RegExp("\\+","g"),' ');
+        return sParamWithSpaces;
       }
       
       window.onload = function() {
