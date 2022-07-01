@@ -11,7 +11,7 @@
               if (sParameterName[0] == sParam) 
               {
                 console.log("sParamaterName[1]="+sParameterName[1]);
-                var decodedParam = decodeURI(sParameterName[1]);
+                var decodedParam = decodeURIComponent(sParameterName[1]);
                 return decodedParam;
               }
           }
