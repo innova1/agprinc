@@ -15,16 +15,22 @@
           }
       }
       
+      function Get2ndElement(sParam)
+      {
+        var paramStr = sParam.split('|');
+        return paramStr[1];
+      }
+      
       window.onload = function() {
         var race = GetURLParameter('elrace');
-        document.getElementById('elrace').innerHTML = race;
+        document.getElementById('elrace').innerHTML = Get2ndElement(race);
       }
     </script>
 
   </head>
   
   <body>
-  <h1>Wecome to <span id="elrace"></span></h1>
+  <h1>Welcome to the <span id="elrace"></span> community!</h1>
   
   </body>
 </html>
