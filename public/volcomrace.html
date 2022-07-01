@@ -27,7 +27,7 @@
       
       window.onload = function() {
         var race = GetURLParameter('elrace');
-        document.getElementById('elrace').innerHTML = Get2ndElement(race);
+        document.getElementById('elrace').innerHTML = Get2ndElement(decodeURIComponent(race));
       }
     </script>
 
