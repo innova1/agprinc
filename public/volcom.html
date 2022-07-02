@@ -2,15 +2,31 @@
   
 <head>
   <script>
+    
+    class electionRace {
+      shortName;
+      state;
+      office;
+      district;
+      candidate;
+      
+      constructor(sn, s, o, d, c) {
+        this.shortName = sn;
+        this.state = s;
+        this.office = o;
+        this.district = d;
+        this.candidate = c;
+      }
+      
+      fullRaceName() {
+        return this.state + " " + this.office + (this.district == ""?"":" District " + this.district);
+      }
+      
+    }
+    
     let keyRaces = [
-      {
-        "shortName": "NVSN",
-        "state": "Nevada",
-        "office": "Senate",
-        "district": "",
-        "fullName": this.state + "fixed",
-        "candidate": ""
-      },
+      new electionRace("AZGV","Arizona","Governor","","");
+      //,
       {
         "shortName": "AZGV",
         "state": "Arizona",
@@ -35,6 +51,7 @@
         "fullName": function() { return this.state + " " + this.office + (this.district == ""?"":" District " + this.district); },
         "candidate": ""
       }
+      //
     ];
     function getRaceOptions()
     {
