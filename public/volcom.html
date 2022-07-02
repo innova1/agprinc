@@ -60,17 +60,22 @@
       }
       */
     ];
-    function setRaceSelectOptions()
+    function setRaceSelectOptions(racesArr)
     {
       const selectElement = document.getElementById('selectRace');
-      const opt = document.createElement("option");
-      opt.setAttribute("value", "valueExampleRace");
-      const optText = document.createTextNode("example race");
-      opt.appendChild(optText);
-      selectElement.appendChild(opt);
+      var opt;
+      var optText;
+      racesArr.forEach( (e) => {
+          opt = document.createElement("option");
+          opt.setAttribute("value", e.shortName);
+          optText = document.createTextNode(e.fullRaceName);
+          opt.appendChild(optText);
+          selectElement.appendChild(opt);
+        }
+      );
     }
     window.onload = function() {
-      setRaceSelectOptions();
+      setRaceSelectOptions(keyRaces);
     }
   </script>
   
