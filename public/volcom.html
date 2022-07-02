@@ -55,7 +55,7 @@
       selectElement.setAttribute("name", "elrace");
       selectElement.setAttribute("id", "selectRace");
       const selectForm = document.getElementById('selectForm');
-      selectForm.appendChild(selectElement);
+      selectForm.insertBefore(selectElement, selectForm.children[0]);
       var opt;
       var optText;
       racesArr.forEach( (e) => {
