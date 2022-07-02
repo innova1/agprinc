@@ -64,6 +64,7 @@
     {
       const selectElement = document.getElementById('selectRace');
       const opt = document.createElement("option");
+      opt.setAttribute("value", "valueExampleRace");
       const optText = document.createTextNode("example race");
       opt.appendChild(optText);
       selectElement.appendChild(opt);
