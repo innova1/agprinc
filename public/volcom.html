@@ -50,7 +50,12 @@
     ];
     function setRaceSelectOptions(racesArr)
     {
-      const selectElement = document.getElementById('selectRace');
+      //const selectElement = document.getElementById('selectRace');
+      const selectElement = document.createElement("select");
+      selectElement.setAttribute("name", "elrace");
+      selectElement.setAttribute("id", "selectRace");
+      const selectForm = document.getElementById('selectForm');
+      selectForm.appendChild(selectElement);
       var opt;
       var optText;
       racesArr.forEach( (e) => {
@@ -70,10 +75,8 @@
 </head>
 <body>
 <h1>Community of Volunteers</h1>
-  <form action="/volcomrace.html">
+  <form action="/volcomrace.html" id="selectForm">
     <label for="elrace">Election race:</label>
-    <select name="elrace" id="selectRace">
-    </select>
     <label for="selectRace">Select race:</label>
     <input type="submit" value="Select"/>
   </form>
