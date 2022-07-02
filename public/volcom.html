@@ -55,7 +55,7 @@
       var optText;
       racesArr.forEach( (e) => {
           opt = document.createElement("option");
-          opt.setAttribute("value", "h" + e.shortName + "|" + e.fullRaceName());
+          opt.setAttribute("value", e.shortName + "|" + e.fullRaceName());
           optText = document.createTextNode(e.fullRaceName());
           opt.appendChild(optText);
           selectElement.appendChild(opt);
