@@ -60,12 +60,15 @@
       }
       */
     ];
-    function getRaceOptions()
+    function setRaceSelectOptions()
     {
-      alert(keyRaces[0].fullRaceName());
+      const selectElement = document.getElementById('selectRace');
+      const opt = document.createElement("option");
+      const optText = document.createTextNode("example race");
+      selectElement.appendChild(opt);
     }
     window.onload = function() {
-      getRaceOptions();
+      setRaceSelectOptions();
     }
   </script>
   
@@ -74,14 +77,7 @@
 <h1>Community of Volunteers</h1>
   <form action="/volcomrace.html">
     <label for="elrace">Election race:</label>
-    <select name="elrace">
-      <option value="pag|Pennsylvania Governor">Pennsylvania Governor</option>
-      <option value="pas|Pennsylvania Senate">Pennsylvania Senate</option>
-      <option value="pahd7|Pennsylvania House District 7">Pennsylvania House District 7</option>
-      <option value="pahd8|Pennsylvania House District 8">Pennsylvania House District 8</option>
-      <option value="pahd17|Pennsylvania House District 17">Pennsylvania House District 17</option>
-      <option value="azg|Arizona Governor">Arizona Governor</option>
-      <option value="azs|Arizona Senate">Arizona Senate</option>
+    <select name="elrace" id="selectRace">
     </select>
     <label for="selectRace">Select race:</label>
     <input type="submit" value="Select"/>
