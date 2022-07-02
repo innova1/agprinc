@@ -1,6 +1,50 @@
 <html>
   
 <head>
+  <script>
+    let keyRaces = [
+      {
+        "shortName": "NVSN",
+        "state": "Nevada",
+        "office": "Senate",
+        "district": "",
+        "fullName": state + " " + office + (district == ""?"":" District " + district),
+        "candidate": ""
+      },
+      {
+        "shortName": "AZGV",
+        "state": "Arizona",
+        "office": "Governor",
+        "district": "",
+        "fullName": state + " " + office + (district == ""?"":" District " + district),
+        "candidate": ""
+      },
+      {
+        "shortName": "AZSN",
+        "state": "Arizona",
+        "office": "Senate",
+        "district": "",
+        "fullName": state + " " + office + (district == ""?"":" District " + district),
+        "candidate": ""
+      },
+      {
+        "shortName": "PAHSD7",
+        "state": "Arizona",
+        "office": "House",
+        "district": "7"
+        "fullName": state + " " + office + (district == ""?"":" District " + district),
+        "candidate": ""
+      }
+    ];
+    function getRaceOptions()
+    {
+      alert(keyRaces[0].state + " " + keyRaces[0].office;
+    }
+    window.onload = function() {
+      getRaceOptions();
+    }
+  </script>
+  
 </head>
 <body>
 <h1>Community of Volunteers</h1>
