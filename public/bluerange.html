@@ -1,0 +1,109 @@
+<html>
+<head>
+<title>From Blue to Green</title>
+<style>
+	.row {
+		display: inline;
+	}
+	.item {
+		display: inline-block;
+	}
+	.vals {
+		display: none;
+		background-color: white;
+		font-size: 10px;
+	}
+	.vals > div {
+		height: 20px;
+	}
+	.show:active .vals {
+		display: block;
+	}
+	.red {
+		color: red;
+	}
+	.green {
+		color: green;
+	}
+	.blue {
+		color: lightblue;
+	}
+    .flex-container {
+        display: flex;
+		flex-wrap: wrap;
+        /*flex-direction: column;*/
+        background-color: white;
+    }
+    .flex-container > div {
+        /*width: 100px;*/
+        margin: 1px;
+        text-align: center;
+        line-height: 75px;
+        font-size: 30px;
+    }
+</style>
+</head>
+<body>
+	<p>Blue to Green gradient</p>
+	
+	<div class="show">Click and hold to show color values
+		<br />
+		<br />
+		<div id="colorbar" class="row"></div>
+		<br />
+		<br />
+        <div class="flex-container" id="colorgrid">
+        </div>
+	</div>
+
+
+
+	<script type="text/javascript">
+		setup();
+
+		function setup() {
+			//alert("got here");
+			const cbar = document.getElementById("colorbar");
+			let result = "";
+			let spaces = "     ";
+			let red = 0;
+			let green = 0;
+			let blue = 0;
+			let gradientNumber = 150;
+            let columnMax = 10;
+            let rowMax = Math.trunc(gradientNumber / columnMax);
+			let inc = 255 / gradientNumber;
+			for(let i = 1; i <= gradientNumber; i++ ) {
+				let el = document.createElement("div");
+				el.classList.add("item");
+				blue += inc;
+				el.style.background = "rgb(" + red + "," + green + "," + blue + ")";
+				el.style.width = 1800/gradientNumber + "px";
+				el.style.height = "100px";
+				el.innerHTML = "<div class = 'vals'>" + "<div class='red'>" + Math.round(red) + "</div><div class='green'>" + Math.round(green) + "</div><div class='blue'>" + Math.round(blue) + "</div></div>";
+				//cbar.appendChild(el);
+			}
+
+			red = 0;
+			green = 0;
+			blue = 0;
+            const cgrid = document.getElementById("colorgrid");
+			const flexcont = document.getElementsByClassName("flex-container");
+			//flexcont.style.width = "100px";
+            for(let i = 1; i <= gradientNumber; i++ ) {
+                let el = document.createElement("div");
+				blue += inc;
+                el.style.background = "rgb(" + red + "," + green + "," + blue + ")";
+                el.style.width = "100px";
+                el.style.height = "100px";
+                //el.innerHTML = "<div class = 'vals'>" + "<div class='red'>" + Math.round(red) + "</div><div class='green'>" + Math.round(green) + "</div><div class='blue'>" + Math.round(blue) + "</div></div>";
+				el.innerHTML = "<div class = 'vals'>" + "<div class='blue'>" + Math.round(blue) + "</div></div>";
+                cgrid.appendChild(el);
+            }
+		}
+
+
+	</script>
+
+</body>
+</html>
