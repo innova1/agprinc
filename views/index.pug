@@ -1,6 +1,40 @@
-extends layout
+extends frontlayout
 
 block content
-  h1= title
-  p #{message}
-  a(href=mainurl) #{alink}
+  div.main
+   div.toprow
+     div(class='info')
+       div(class='name',class='companyname') Team Innovation LLC
+       div(class='titlecontactbox')
+         div(class='title') Team Optimization, Training, Coaching
+         div(class='subtitle') TDD, BDD, Scrum, Lean, SAFe SPC 6
+         div(class='zontline') <hr/>
+         div(class='contactbox') 
+           div(class='contact')
+             img(class='phoneicon', src='https://tomboulet.com/image/phone-42-xxl.png', alt='Mobile Phone Icon')
+             | +1 502-974-1888
+           div(class='contact')
+             a(href='mailto:tom@teaminnovationllc.com',target='_blank')
+               img(class='emailicon',src='https://tomboulet.com/image/email-icon-99.png',alt='Email Icon')
+               | &nbsp; Email
+           div(class='contact')
+             a(href='http://www.linkedin.com/tomboulet',target='_blank')
+               img(class='linkedinicon',src='https://tomboulet.com/image/LI-In-Bug.png',alt='LinkedIn Icon')
+               | &nbsp; LinkedIn
+           div(class='contact')
+             a(href='https://tomboulet.com/resume/Boulet_Tom_Resume_2024.pdf',target='_blank')
+               img(class='pdficon',src='https://tomboulet.com/image/PDF_32.png',alt='PDF Icon')
+               | &nbsp; Resume 
+     div(class='imagebox')
+       img(alt='Tom Boulet, Agile Coach',src='https://tomboulet.com/image/Tom_Boulet2.png',loading='lazy',width='300') 
+   div(class='middlerow')   
+     div(class='section')
+       div(class='title') #{title}
+       p #{message1} 
+         a(href=mainurl2) #{alink2} 
+       p #{message}
+       |
+       |
+       a(href=mainurl) #{alink}
+   div(class='bottomrow',style='height: 300px')
+     | &nbsp;
