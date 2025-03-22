@@ -85,6 +85,9 @@ ul.suggestions {
 .inline {
   display: inline;
 }
+#nav-back {
+  margin-top: 1em;
+}
 .activekeywords {
   margin-left: 15px;
 }
