@@ -1,15 +1,16 @@
 /**
- * Creates the AgilePrinciples DynamoDB table and seeds it with all agile data.
+ * Seeds the AgilePrinciples DynamoDB table with agile data.
+ * Assumes the table already exists.
  *
  * Usage:
- *   AWS_REGION=us-east-1 node infrastructure/seed-dynamodb.js
+ *   AWS_REGION=us-east-2 node seed-dynamodb.js
  *
  * For local DynamoDB:
- *   DYNAMO_ENDPOINT=http://localhost:8000 node infrastructure/seed-dynamodb.js
+ *   DYNAMO_ENDPOINT=http://localhost:8000 node seed-dynamodb.js
  */
 
 require('dotenv').config({ path: './backend/.env' });
-const { DynamoDBClient, CreateTableCommand, DescribeTableCommand, waitUntilTableExists } = require('@aws-sdk/client-dynamodb');
+const { DynamoDBClient } = require('@aws-sdk/client-dynamodb');
 const { DynamoDBDocumentClient, PutCommand } = require('@aws-sdk/lib-dynamodb');
 
 const TABLE_NAME = process.env.DYNAMO_TABLE || 'AgilePrinciples';
@@ -21,37 +22,8 @@ const client = new DynamoDBClient({
 
 const docClient = DynamoDBDocumentClient.from(client);
 
-async function createTable() {
-  try {
-    await client.send(new DescribeTableCommand({ TableName: TABLE_NAME }));
-    console.log(`Table ${TABLE_NAME} already exists.`);
-    return;
-  } catch {
-    // Table doesn't exist, create it
-  }
-
-  await client.send(
-    new CreateTableCommand({
-      TableName: TABLE_NAME,
-      KeySchema: [
-        { AttributeName: 'framework', KeyType: 'HASH' },
-        { AttributeName: 'typeId', KeyType: 'RANGE' },
-      ],
-      AttributeDefinitions: [
-        { AttributeName: 'framework', AttributeType: 'S' },
-        { AttributeName: 'typeId', AttributeType: 'S' },
-      ],
-      BillingMode: 'PAY_PER_REQUEST',
-    })
-  );
-
-  console.log(`Creating table ${TABLE_NAME}...`);
-  await waitUntilTableExists({ client, maxWaitTime: 60 }, { TableName: TABLE_NAME });
-  console.log(`Table ${TABLE_NAME} created.`);
-}
-
 function getSeedData() {
-  const d = [
+  return [
     { id: '1',  type: 'principle', frameworkdisplay: 'Manifesto', framework: 'manifesto', shortdescription: 'continuous delivery', text: 'Our highest priority is to satisfy the customer through early and continuous delivery of valuable software.', keywords: ['highest', 'priority', 'customer', 'early', 'continuous', 'delivery', 'valuable', 'software'] },
     { id: '2',  type: 'principle', frameworkdisplay: 'Manifesto', framework: 'manifesto', shortdescription: 'welcome change', text: "Welcome changing requirements, even late in development. Agile processes harness change for the customer's competitive advantage.", keywords: ['changing', 'requirements', 'late', 'development', 'change', 'customer', 'competitive', 'advantage'] },
     { id: '3',  type: 'principle', frameworkdisplay: 'Manifesto', framework: 'manifesto', shortdescription: 'deliver frequently', text: 'Deliver working software frequently, from a couple of weeks to a couple of months, with a preference to the shorter timescale.', keywords: ['deliver', 'working', 'software', 'frequently', 'weeks', 'months', 'shorter', 'timescale'] },
@@ -135,11 +107,9 @@ function getSeedData() {
     { id: '6',  type: 'principle', frameworkdisplay: 'Lean', framework: 'lean', shortdescription: 'respect people', text: 'Respect people', keywords: ['respect', 'people'] },
     { id: '7',  type: 'principle', frameworkdisplay: 'Lean', framework: 'lean', shortdescription: 'optimize the whole', text: 'Optimize the whole', keywords: ['optimize', 'whole'] },
   ];
-  return d;
 }
 
-async function seed() {
-  await createTable();
+async function seedTable() {
   const items = getSeedData();
   console.log(`Seeding ${items.length} items into ${TABLE_NAME}...`);
   let count = 0;
@@ -155,4 +125,4 @@ async function seed() {
   console.log(`Done. Seeded ${count} items.`);
 }
 
-seed().catch((err) => { console.error(err); process.exit(1); });
+seedTable().catch((err) => { console.error(err); process.exit(1); });
