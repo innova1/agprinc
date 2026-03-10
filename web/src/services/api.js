@@ -1,5 +1,4 @@
-// Relative URL — works in dev via Vite proxy and in production on the same origin
-const BASE = '/api/v2';
+const BASE = (import.meta.env.VITE_API_BASE_URL || '') + '/api/v2';
 
 async function request(path, options = {}) {
   const res = await fetch(`${BASE}${path}`, {

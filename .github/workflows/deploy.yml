@@ -117,6 +117,7 @@ jobs:
             --tag "${{ steps.tags.outputs.latest }}" \
             --label "git-commit=${GITHUB_SHA}" \
             --label "build-date=$(date -u +%Y-%m-%dT%H:%M:%SZ)" \
+            --build-arg VITE_API_BASE_URL=${{ secrets.VITE_API_BASE_URL }} \
             ./web
 
       - name: Push
