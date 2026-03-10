@@ -1,17 +1,13 @@
 version: '3.8'
 
 services:
+
   dynamodb-local:
     image: amazon/dynamodb-local:latest
     container_name: agprinc-dynamodb
     ports:
       - '8000:8000'
     command: -jar DynamoDBLocal.jar -sharedDb -inMemory
-    healthcheck:
-      test: ["CMD-SHELL", "curl -f http://localhost:8000/ || exit 1"]
-      interval: 10s
-      timeout: 5s
-      retries: 3
 
   backend:
     build:
@@ -23,12 +19,26 @@ services:
     environment:
       - NODE_ENV=development
       - PORT=3000
-      - AWS_REGION=us-east-1
+      - AWS_REGION=us-east-2
       - AWS_ACCESS_KEY_ID=local
       - AWS_SECRET_ACCESS_KEY=local
       - DYNAMO_TABLE=AgilePrinciples
       - DYNAMO_ENDPOINT=http://dynamodb-local:8000
+      - CORS_ORIGIN=http://localhost:8080
     depends_on:
-      dynamodb-local:
-        condition: service_healthy
+      - dynamodb-local
+    restart: on-failure
+
+  frontend:
+    build:
+      context: ./web
+      dockerfile: Dockerfile
+    container_name: agprinc-frontend
+    ports:
+      - '8080:80'
+    environment:
+      # Nginx proxies /api/ to this URL at runtime (Docker service name resolves internally)
+      - BACKEND_URL=http://backend:3000
+    depends_on:
+      - backend
     restart: unless-stopped

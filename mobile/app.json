@@ -1,23 +1,16 @@
 {
   "expo": {
     "name": "Agile Principles",
-    "slug": "agprinc-mobile",
+    "slug": "agprinc-web",
     "version": "2.0.0",
-    "orientation": "portrait",
-    "icon": "./assets/icon.png",
-    "userInterfaceStyle": "light",
-    "splash": {
-      "backgroundColor": "#2c5f8a"
-    },
-    "ios": {
-      "supportsTablet": true,
-      "bundleIdentifier": "com.agprinc.mobile"
-    },
-    "android": {
-      "adaptiveIcon": {
-        "backgroundColor": "#2c5f8a"
-      },
-      "package": "com.agprinc.mobile"
+    "platforms": ["web"],
+    "web": {
+      "bundler": "metro",
+      "output": "single",
+      "favicon": "./assets/favicon.png",
+      "backgroundColor": "#2c5f8a",
+      "themeColor": "#2c5f8a",
+      "name": "Agile Principles"
     },
     "extra": {
       "apiUrl": "http://localhost:3000/api/v2"

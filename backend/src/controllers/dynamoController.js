@@ -11,7 +11,7 @@ const {
 const TABLE_NAME = process.env.DYNAMO_TABLE || 'AgilePrinciples';
 
 const client = new DynamoDBClient({
-  region: process.env.AWS_REGION || 'us-east-1',
+  region: process.env.AWS_REGION || 'us-east-2',
   ...(process.env.DYNAMO_ENDPOINT && { endpoint: process.env.DYNAMO_ENDPOINT }),
 });
 
