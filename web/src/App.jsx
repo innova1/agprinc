@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { api } from './services/api';
 
-const FRAMEWORK_ORDER = ['all', 'manifesto', 'modern', 'safe', 'dad', 'dadmanifesto', 'dad+', 'lean'];
+const FRAMEWORK_ORDER = ['all', 'manifesto', 'modern', 'cynefin', 'lean', 'xp', 'scrum', 'safe', 'dad', 'dad+', 'dadmanifesto'];
 
 export default function App() {
   const [frameworks, setFrameworks]           = useState([]);
@@ -45,6 +45,11 @@ export default function App() {
       } else {
         data = await api.getItems(fw === 'all' ? null : fw);
       }
+      data.sort((a, b) => {
+        const ai = FRAMEWORK_ORDER.indexOf(a.framework);
+        const bi = FRAMEWORK_ORDER.indexOf(b.framework);
+        return (ai === -1 ? 999 : ai) - (bi === -1 ? 999 : bi);
+      });
       setItems(data);
     } catch (e) {
       console.error(e);
