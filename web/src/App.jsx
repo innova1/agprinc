@@ -145,7 +145,7 @@ export default function App() {
                 onBlur={handleBlur}
                 onFocus={() => suggestions.length > 0 && setShowSuggestions(true)}
                 onKeyDown={handleKeyDown}
-                placeholder="Search Text"
+                placeholder="Keyword Search"
                 autoComplete="off"
               />
               {showSuggestions && (

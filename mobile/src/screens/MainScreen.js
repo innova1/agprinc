@@ -147,7 +147,7 @@ export default function MainScreen() {
                 style={styles.searchInput}
                 value={searchText}
                 onChangeText={handleSearchInput}
-                placeholder="Search Text"
+                placeholder="Keyword Search"
                 placeholderTextColor={C.muted}
                 onBlur={handleBlur}
                 onFocus={() => suggestions.length > 0 && setShowSuggestions(true)}
