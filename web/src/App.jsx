@@ -214,7 +214,7 @@ export default function App() {
                   </span>
                 </div>
                 <div className="panel-body">
-                  <p className="item-text">{item.text}</p>
+                  <div className="item-text" dangerouslySetInnerHTML={{ __html: item.text }} />
                 </div>
               </div>
             ))
