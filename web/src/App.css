@@ -59,7 +59,7 @@ ul { list-style: none; }
   text-decoration: underline;
 }
 .navbar-title {
-  font-size: 22px;
+  font-size: 26px;
   font-weight: 700;
   color: #222;
   letter-spacing: -0.4px;
@@ -81,7 +81,7 @@ ul { list-style: none; }
   align-items: center;
   flex-wrap: wrap;
   gap: 6px;
-  flex: 1;
+  margin-left: auto;
   padding: 8px 0;
 }
 
@@ -231,7 +231,7 @@ ul { list-style: none; }
   .col-center { width: 100%; }
 
   .navbar-header { width: 100%; }
-  .navbar-title { font-size: 18px; }
+  .navbar-title { font-size: 21px; }
   .navbar-search { padding: 0 0 10px; flex: unset; width: 100%; }
   .search-input { min-width: 0; width: 100%; }
 }
