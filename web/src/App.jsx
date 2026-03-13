@@ -122,11 +122,12 @@ export default function App() {
       <nav className="navbar">
         <div className="container">
           <div className="navbar-header">
-            <span className="navbar-breadcrumb">
-              <a href="https://tomboulet.com">← tomboulet.com</a>
-              <span className="breadcrumb-sep">/</span>
-              <span className="breadcrumb-current">Agile Values and Principles</span>
-            </span>
+            <div className="navbar-brand">
+              <span className="navbar-breadcrumb">
+                <a href="https://tomboulet.com">← tomboulet.com</a>
+              </span>
+              <span className="navbar-title">Agile Values and Principles</span>
+            </div>
             {/* Hamburger for mobile — toggles framework menu */}
             <button className="nav-toggle" onClick={() => setMenuOpen(o => !o)} aria-label="Toggle menu">
               ☰
