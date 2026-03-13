@@ -134,7 +134,7 @@ jobs:
           aws-region: ${{ env.AWS_REGION }}
 
       - name: Sync to S3
-        run: aws s3 sync web/dist/ s3://${{ secrets.S3_BUCKET_NAME }} --delete
+        run: aws s3 sync web/dist/ s3://${{ secrets.S3_BUCKET_NAME }}/frameworks/ --delete
 
       - name: Invalidate CloudFront cache
         run: |
