@@ -36,12 +36,19 @@ ul { list-style: none; }
   align-items: center;
   gap: 12px;
 }
-.navbar-brand {
-  color: #337ab7;
+.navbar-breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 6px;
   font-size: 20px;
   line-height: 20px;
   padding: 15px 0;
   white-space: nowrap;
+  color: #337ab7;
+}
+.breadcrumb-sep {
+  color: #aaa;
+  font-weight: 300;
 }
 .nav-toggle {
   display: none;
