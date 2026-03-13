@@ -19,7 +19,7 @@ ul { list-style: none; }
 .navbar {
   background-color: #fff;
   border-bottom: 2px solid #337ab7;
-  min-height: 60px;
+  min-height: 70px;
   position: sticky;
   top: 0;
   z-index: 100;
@@ -29,7 +29,7 @@ ul { list-style: none; }
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  min-height: 60px;
+  min-height: 70px;
   gap: 8px;
 }
 .navbar-header {
@@ -59,10 +59,10 @@ ul { list-style: none; }
   text-decoration: underline;
 }
 .navbar-title {
-  font-size: 16px;
-  font-weight: 600;
+  font-size: 22px;
+  font-weight: 700;
   color: #222;
-  letter-spacing: -0.2px;
+  letter-spacing: -0.4px;
   line-height: 1.2;
   white-space: nowrap;
 }
@@ -227,8 +227,11 @@ ul { list-style: none; }
 
   .col-center { padding: 0; }
 
-  .main-row { flex-direction: column; }
+  .main-row { flex-direction: column; align-items: stretch; }
+  .col-center { width: 100%; }
 
-  .navbar-search { padding: 0 0 8px; }
+  .navbar-header { width: 100%; }
+  .navbar-title { font-size: 18px; }
+  .navbar-search { padding: 0 0 10px; flex: unset; width: 100%; }
   .search-input { min-width: 0; width: 100%; }
 }
